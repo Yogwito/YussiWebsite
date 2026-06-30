@@ -1,0 +1,44 @@
+#why-us { background: var(--linen-50); }
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--grid-gap);
+  margin-top: var(--space-12);
+  align-items: stretch;
+}
+.why-card {
+  background: var(--paper); border-radius: var(--radius-card); padding: var(--card-padding-lg);
+  box-shadow: var(--shadow-1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--color-border);
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .why-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-2); }
+}
+@media (max-width: 767px) {
+  .why-card:active { transform: scale(0.98); }
+}
+.why-icon {
+  width: var(--icon-card-size); height: var(--icon-card-size); min-width: var(--icon-card-size); min-height: var(--icon-card-size); border-radius: var(--icon-card-radius);
+  background: var(--sky-100);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: var(--space-6);
+  transition: background 0.3s ease;
+}
+.why-card:hover .why-icon { background: var(--sky-200); }
+.why-icon svg { width: 26px; height: 26px; fill: none; stroke: var(--navy-700); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.why-card h3 {
+  font-size: var(--text-card-title); color: var(--navy-800);
+  letter-spacing: var(--track-tight);
+  margin-top: 0; margin-bottom: var(--space-3); line-height: var(--line-snug);
+}
+.why-card p { font-size: var(--text-sm); color: var(--color-text-light); margin: 0; line-height: var(--line-relaxed); }
+
+@media (max-width: 767px) {
+  .why-grid { grid-template-columns: 1fr; gap: var(--grid-gap-mobile); }
+  .why-card { min-height: auto; }
+}

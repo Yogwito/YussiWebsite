@@ -1,0 +1,64 @@
+#services { background: var(--paper); }
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--grid-gap);
+  margin-top: var(--space-12);
+}
+.service-card {
+  background: var(--paper); border-radius: var(--radius-card); overflow: hidden;
+  box-shadow: var(--shadow-1);
+  border: 1px solid var(--color-border);
+  transition: transform 0.25s, box-shadow 0.25s;
+  height: 100%;
+  display: flex; flex-direction: column;
+}
+.service-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-2); }
+@media (max-width: 767px) { .service-card:active { transform: scale(0.97); } }
+.service-img { aspect-ratio: 16/9; overflow: hidden; position: relative; }
+.service-img img { transition: transform 0.4s ease; width: 100%; height: 100%; object-fit: cover; }
+@media (min-width: 768px) { .service-card:hover .service-img img { transform: scale(1.04); } }
+.service-img .img-placeholder { border-radius: 0; height: 100%; font-size: var(--text-xs); }
+.service-body { padding: var(--card-padding); flex: 1; display: flex; flex-direction: column; }
+.service-body h3 {
+  font-size: var(--text-card-title); color: var(--navy-800);
+  letter-spacing: var(--track-tight);
+  margin-top: 0; margin-bottom: var(--space-3); line-height: var(--line-snug);
+}
+.service-body p {
+  font-size: var(--text-sm); color: var(--color-text-light);
+  margin: 0 0 var(--space-5); line-height: var(--line-relaxed);
+}
+.service-body .btn {
+  width: 100%;
+  justify-content: center; margin-top: auto;
+}
+
+/* ─── Editorial asymmetric grid (desktop) ───
+   Row 1: flagship (wide) + one card.
+   Row 2: three equal cards. */
+@media (min-width: 900px) {
+  .services-grid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--grid-gap);
+  }
+  .service-card:nth-child(1) { grid-column: span 7; }
+  .service-card:nth-child(2) { grid-column: span 5; }
+  .service-card:nth-child(3),
+  .service-card:nth-child(4),
+  .service-card:nth-child(5) { grid-column: span 4; }
+  /* Flagship card breathes more */
+  .service-card:nth-child(1) .service-img { aspect-ratio: 21/9; }
+  .service-card:nth-child(1) .service-body { padding: var(--card-padding-lg); }
+  .service-card:nth-child(1) .service-body h3 { font-size: var(--text-xl); }
+}
+
+/* Tablet: clean 2-up */
+@media (min-width: 768px) and (max-width: 899px) {
+  .services-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 767px) {
+  .services-grid { grid-template-columns: 1fr; gap: var(--grid-gap-mobile); }
+  .service-card { min-height: auto; }
+}

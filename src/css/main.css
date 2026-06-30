@@ -1,0 +1,259 @@
+:root {
+  /* ─── Color: navy luminosity scale (logo-derived) ─── */
+  --ink-900: #0C1A33;   /* near-black navy — body headings */
+  --navy-800: #133163;  /* deep — section titles */
+  --navy-700: #1B4BA8;  /* brand primary (anchor) */
+  --navy-600: #2B6CC4;  /* mid */
+  --navy-500: #3D82D6;
+  --sky-400: #5BA8E8;   /* brand light */
+  --sky-200: #AECFEF;
+  --sky-100: #DCEAF9;   /* tinted chip / focus */
+
+  /* Warm neutrals — fabric, not cold blue-gray */
+  --linen-50: #FAF7F1;  /* primary warm section bg */
+  --linen-100: #F2ECE0; /* deeper warm surface */
+  --paper: #FFFFFF;     /* cards only — lift off linen */
+
+  /* The one accent: gold thread — signature stitch only */
+  --thread-gold: #B5822A;
+
+  /* Functional (untouched) */
+  --color-cta: #25D366;
+  --color-cta-hover: #1DA851;
+
+  /* Semantic aliases (back-compat for component CSS) */
+  --color-primary: var(--navy-700);
+  --color-primary-mid: var(--navy-600);
+  --color-primary-light: var(--sky-400);
+  --color-gradient: linear-gradient(135deg, #133163 0%, #1B4BA8 45%, #3D82D6 100%);
+  --color-bg: var(--paper);
+  --color-surface: var(--linen-50);
+  --color-text: var(--ink-900);
+  --color-text-light: #44546A;
+  --color-border: #E6DDCD;        /* warm hairline */
+  --color-border-strong: #D8CCB6;
+
+  /* ─── Type ─── */
+  --font-display: 'Archivo', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Scale — 1.25 ratio: 12 14 16 20 25 32 40 50 64 */
+  --text-xs: 0.75rem;     /* 12 */
+  --text-sm: 0.875rem;    /* 14 */
+  --text-base: 1rem;      /* 16 */
+  --text-md: 1.0625rem;   /* 17 — body comfort */
+  --text-lg: 1.25rem;     /* 20 */
+  --text-xl: 1.5625rem;   /* 25 */
+  --text-2xl: 2rem;       /* 32 */
+  --text-3xl: 2.5rem;     /* 40 */
+  --text-4xl: 3.125rem;   /* 50 */
+  --text-5xl: 4rem;       /* 64 */
+
+  --text-card-title: var(--text-lg);
+  --text-section-title: clamp(2rem, 3.5vw, 2.5rem);
+  --text-hero: clamp(2.5rem, 5vw, 4rem);
+
+  --line-tight: 1.12;
+  --line-snug: 1.25;
+  --line-normal: 1.55;
+  --line-relaxed: 1.65;
+  --track-tight: -0.02em;
+  --track-mono: 0.08em;
+
+  /* ─── Spacing — 8px base: 8 16 24 32 48 64 96 128 ─── */
+  --space-1: 0.25rem;   /* 4  — hairline sub-step */
+  --space-2: 0.5rem;    /* 8  */
+  --space-3: 0.75rem;   /* 12 */
+  --space-4: 1rem;      /* 16 */
+  --space-5: 1.25rem;   /* 20 */
+  --space-6: 1.5rem;    /* 24 */
+  --space-8: 2rem;      /* 32 */
+  --space-10: 2.5rem;   /* 40 */
+  --space-12: 3rem;     /* 48 */
+  --space-16: 4rem;     /* 64 */
+  --space-24: 6rem;     /* 96 */
+  --space-32: 8rem;     /* 128 */
+  --space-section: clamp(4rem, 8vw, 6rem);
+
+  --container-max: 1180px;
+  --content-max: 660px;
+  --hero-content-max: 620px;
+
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-card: 12px;
+  --radius-pill: 999px;
+
+  /* ─── Layered elevation system ─── */
+  --shadow-1: 0 1px 2px rgba(12,26,51,0.06), 0 8px 24px -10px rgba(12,26,51,0.12);
+  --shadow-2: 0 2px 4px rgba(12,26,51,0.08), 0 20px 44px -16px rgba(12,26,51,0.20);
+  --shadow-3: 0 4px 8px rgba(12,26,51,0.10), 0 28px 60px -20px rgba(12,26,51,0.28);
+  --shadow-focus: 0 0 0 3px rgba(27,75,168,0.22);
+  /* back-compat names */
+  --shadow-card: var(--shadow-1);
+  --shadow-card-hover: var(--shadow-2);
+
+  --card-padding: 1.5rem;
+  --card-padding-lg: 2rem;
+  --grid-gap: 1.5rem;
+  --grid-gap-mobile: 1.25rem;
+  --icon-card-size: 52px;
+  --icon-card-radius: 12px;
+
+  /* ─── Signature: machine-stitch line ─── */
+  --stitch-len: 9px;   /* stitch dash length */
+  --stitch-gap: 6px;   /* gap between stitches */
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--linen-50);
+  line-height: var(--line-relaxed);
+  font-size: var(--text-md);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; }
+
+/* ─── UTILITIES ─── */
+.container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-6); }
+.section-pad { padding: var(--space-section) 0; }
+
+/* Mono eyebrow — reads like a pattern/spec label.
+   Navy (AA-safe on linen); the gold stays reserved for the stitch lines. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: var(--text-xs);
+  letter-spacing: var(--track-mono);
+  text-transform: uppercase;
+  color: var(--navy-700);
+  margin-bottom: var(--space-3);
+}
+/* a couple of gold stitches lead the eyebrow */
+.eyebrow::before {
+  content: '';
+  width: 22px; height: 2px;
+  background-image: repeating-linear-gradient(90deg,
+    var(--thread-gold) 0 5px, transparent 5px 9px);
+}
+
+.section-title {
+  font-size: var(--text-section-title);
+  font-weight: 700;
+  line-height: var(--line-snug);
+  letter-spacing: var(--track-tight);
+  color: var(--navy-800);
+  margin-bottom: var(--space-4);
+  position: relative;
+  display: block;
+}
+
+/* Signature stitch: a short sewn seam under each title */
+.stitch-rule,
+.section-title::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 3px;
+  margin-top: var(--space-4);
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--thread-gold) 0, var(--thread-gold) var(--stitch-len),
+    transparent var(--stitch-len), transparent calc(var(--stitch-len) + var(--stitch-gap))
+  );
+  border-radius: 1px;
+}
+
+.section-subtitle {
+  color: var(--color-text-light);
+  margin-bottom: var(--space-12);
+  max-width: var(--content-max);
+  font-size: var(--text-md);
+  line-height: var(--line-relaxed);
+}
+
+/* ─── Buttons ─── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  min-height: 48px;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+.btn svg { flex: 0 0 auto; }
+.btn-sm { min-height: 40px; padding: 0.6rem 1.05rem; font-size: var(--text-xs); }
+.btn-lg { min-height: 52px; padding: 0.9rem 1.75rem; font-size: var(--text-base); }
+.btn-cta { background: var(--color-cta); color: #fff; }
+.btn-cta:hover { background: var(--color-cta-hover); transform: translateY(-2px); box-shadow: 0 10px 22px rgba(37,211,102,0.28); }
+.btn-outline { background: transparent; color: var(--navy-700); border-color: var(--navy-700); }
+.btn-outline:hover { background: var(--navy-700); color: #fff; transform: translateY(-2px); }
+.btn-outline-white { background: transparent; color: #fff; border-color: rgba(255,255,255,0.7); }
+.btn-outline-white:hover { background: rgba(255,255,255,0.14); transform: translateY(-2px); }
+
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, .btn:focus-visible {
+  outline: 2px solid var(--thread-gold);
+  outline-offset: 2px;
+}
+
+.img-placeholder {
+  background: var(--linen-100);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: var(--navy-700); font-size: var(--text-sm); font-weight: 500;
+  font-family: var(--font-mono);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card); text-align: center; padding: var(--space-4); gap: var(--space-2);
+}
+.img-placeholder svg { opacity: 0.4; }
+
+/* TOUCH — removes 300ms tap delay */
+button, a, select, label, [role="button"] { touch-action: manipulation; }
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  #page-loader { display: none !important; }
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .about-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+  .contact-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 767px) {
+  .container { padding-inline: var(--space-4); }
+  .section-subtitle { margin-bottom: var(--space-8); }
+}
+@media (max-width: 600px) {
+  .footer-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+  .form-grid { grid-template-columns: 1fr; }
+  .hero-buttons { flex-direction: column; }
+  .hero-buttons .btn { text-align: center; justify-content: center; }
+  .btn-wa-nav span { display: none; }
+}

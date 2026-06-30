@@ -1,0 +1,57 @@
+#process { background: var(--linen-100); }
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--grid-gap);
+  margin-top: var(--space-12);
+  position: relative;
+  align-items: stretch;
+}
+
+/* The running stitch that sews the steps together (desktop, GSAP clip wipe) */
+.process-connector {
+  display: none;
+  position: absolute; top: 4.25rem; left: 12.5%; right: 12.5%;
+  height: 3px; z-index: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--thread-gold) 0 9px,
+    transparent 9px 15px
+  );
+  pointer-events: none;
+}
+@media (min-width: 768px) { .process-connector { display: block; } }
+.process-step {
+  text-align: center; padding: var(--card-padding-lg) var(--card-padding);
+  background: var(--paper); border-radius: var(--radius-card);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-1);
+  position: relative; z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.step-marker {
+  font-family: var(--font-mono); font-weight: 500;
+  font-size: var(--text-xs); letter-spacing: var(--track-mono);
+  color: var(--navy-700);
+}
+.step-icon {
+  width: var(--icon-card-size); height: var(--icon-card-size); min-width: var(--icon-card-size); min-height: var(--icon-card-size); border-radius: var(--icon-card-radius);
+  background: var(--sky-100);
+  display: flex; align-items: center; justify-content: center;
+  margin: var(--space-4) auto var(--space-6);
+}
+.step-icon svg { width: 24px; height: 24px; fill: none; stroke: var(--navy-700); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.process-step h3 {
+  font-size: var(--text-card-title); color: var(--navy-800);
+  letter-spacing: var(--track-tight);
+  margin-top: 0; margin-bottom: var(--space-3); line-height: var(--line-snug);
+}
+.process-step p { font-size: var(--text-sm); color: var(--color-text-light); margin: 0; line-height: var(--line-relaxed); }
+
+@media (max-width: 767px) {
+  .process-steps { grid-template-columns: 1fr; gap: var(--grid-gap-mobile); }
+  .process-step { min-height: auto; }
+}
