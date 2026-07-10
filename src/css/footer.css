@@ -8,7 +8,7 @@
   content: '';
   position: absolute; top: 0; left: 0; right: 0; height: 3px;
   background-image: repeating-linear-gradient(90deg,
-    var(--thread-gold) 0 9px, transparent 9px 15px);
+    var(--thread-accent) 0 9px, transparent 9px 15px);
 }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: var(--space-12); margin-bottom: var(--space-10); }
 .footer-brand p { font-size: var(--text-sm); color: rgba(255,255,255,0.78); margin-top: var(--space-4); max-width: 18rem; line-height: var(--line-relaxed); }
@@ -18,7 +18,6 @@
   background: #fff;
   border-radius: var(--radius-md);
   padding: 10px 14px;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.22);
 }
 .footer-logo-img {
   max-height: 56px;
@@ -42,7 +41,7 @@
   display: flex; align-items: center; justify-content: center;
   transition: background 0.2s, border-color 0.2s;
 }
-.footer-social a:hover { background: rgba(255,255,255,0.22); border-color: var(--thread-gold); }
+.footer-social a:hover { background: rgba(255,255,255,0.22); border-color: var(--thread-accent); }
 .footer-social svg { width: 18px; height: 18px; fill: #fff; }
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.14); padding-top: var(--space-5); text-align: center;
@@ -59,8 +58,67 @@
   box-shadow: 0 8px 20px rgba(37,211,102,0.32);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-#fab-wa:hover { transform: scale(1.06); box-shadow: 0 10px 24px rgba(37,211,102,0.4); }
+#fab-wa:hover { box-shadow: 0 10px 24px rgba(37,211,102,0.4); }
 #fab-wa svg { width: 30px; height: 30px; fill: #fff; }
+
+/* Chat bubble — appears left of the button 3s after load (JS adds .visible) */
+.wa-bubble {
+  position: fixed;
+  bottom: 2.35rem; /* vertically centered on the 60px fab */
+  right: calc(1.75rem + 60px + 14px);
+  z-index: 9999;
+  background: #fff;
+  color: var(--color-primary);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(14px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+.wa-bubble.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+/* triangle pointer toward the button */
+.wa-bubble::after {
+  content: '';
+  position: absolute;
+  right: -7px; top: 50%; transform: translateY(-50%);
+  border-style: solid;
+  border-width: 7px 0 7px 8px;
+  border-color: transparent transparent transparent #fff;
+}
+.wa-bubble-link {
+  display: block;
+  padding: 0.8rem 2.2rem 0.8rem 1.25rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-base);
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+.wa-bubble-close {
+  position: absolute;
+  top: 50%; right: 8px;
+  transform: translateY(-50%);
+  width: 20px; height: 20px;
+  border: none; background: none;
+  color: var(--color-text-light);
+  font-size: var(--text-base);
+  line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.wa-bubble-close:hover { color: var(--color-primary); }
+
+@media (max-width: 767px) {
+  .wa-bubble { bottom: 2.5rem; right: calc(1.75rem + 60px + 10px); }
+  .wa-bubble-link { padding: 0.65rem 2rem 0.65rem 1rem; font-size: var(--text-sm); }
+}
 
 @media (max-width: 767px) {
   .footer-grid {

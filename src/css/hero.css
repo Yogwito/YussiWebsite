@@ -1,34 +1,76 @@
+/* Hero — full-bleed photo of the Tajima machines; the real texture IS the design.
+   Navy gradient overlay (opaque left → transparent right) keeps text legible. */
 .hero {
   position: relative;
   min-height: 100svh;
-  display: grid;
-  grid-template-columns: 57% 43%;
+  display: flex;
+  align-items: center;
   overflow: hidden;
 }
 
-/* Text side — the gradient's single home on the page */
-.hero-panel {
-  position: relative;
-  background: var(--color-gradient);
-  display: flex;
-  align-items: center;
-  padding: var(--space-24) var(--space-12) var(--space-16);
+.hero-bg { position: absolute; inset: 0; background: var(--ink-900); }
+.hero-bg img, .hero-bg video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
-/* Faint thread-texture wash over the panel */
-.hero-panel::before {
+/* readability overlay — above the photo and the .photo-wash grade */
+.hero-bg::before {
   content: '';
-  position: absolute; inset: 0;
-  background-image: repeating-linear-gradient(
-    115deg,
-    rgba(255,255,255,0.04) 0 1px,
-    transparent 1px 7px
-  );
-  pointer-events: none;
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(90deg,
+    rgba(12,26,51,0.94) 0%,
+    rgba(12,26,51,0.87) 30%,
+    rgba(12,26,51,0.55) 58%,
+    rgba(12,26,51,0.10) 100%);
 }
 
+/* ─── Scroll-story layers ─────────────────────────────────────────────────────
+   All hidden by default so the hero renders normally without JS or with
+   reduced motion; GSAP activates them only when the pinned sequence runs. */
+.hero-veil {
+  position: absolute; inset: 0; z-index: 4;
+  background: var(--ink-900);
+  opacity: 0;
+  pointer-events: none;
+}
+.hero-brand {
+  position: absolute; z-index: 5;
+  left: 50%; top: 50%;
+  width: min(56vw, 460px); height: auto;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 24px rgba(12,26,51,0.45));
+}
+.hero-scroll-hint {
+  position: absolute; z-index: 5;
+  left: 50%; bottom: 2rem;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  font-family: var(--font-mono); font-size: 0.6875rem;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  opacity: 0;
+  pointer-events: none;
+}
+.hero-scroll-hint-line {
+  width: 1px; height: 34px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.75), transparent);
+  animation: hero-hint-drop 1.6s ease-in-out infinite;
+  transform-origin: top;
+}
+@keyframes hero-hint-drop {
+  0% { transform: scaleY(0); opacity: 0; }
+  35% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+.hero-inner { position: relative; z-index: 3; width: 100%; }
 .hero-content {
-  position: relative; z-index: 2; color: #fff;
-  max-width: var(--hero-content-max); margin-left: auto;
+  max-width: 560px;
+  color: #fff;
+  padding: var(--space-24) 0 var(--space-16);
 }
 
 .hero-badge {
@@ -42,93 +84,48 @@
   padding-left: 28px;
   position: relative;
 }
-/* tiny stitched tick before the eyebrow */
+/* one earned gold accent: a single solid tick before the badge */
 .hero-badge::before {
   content: '';
   position: absolute; left: 0; top: 50%; transform: translateY(-50%);
   width: 20px; height: 2px;
-  background-image: repeating-linear-gradient(90deg,
-    var(--thread-gold) 0 5px, transparent 5px 9px);
+  background: var(--thread-accent);
 }
 
 .hero-content h1 {
   font-size: var(--text-hero);
-  line-height: var(--line-tight);
-  letter-spacing: var(--track-tight);
-  margin-bottom: var(--space-4);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-5);
   color: #fff;
 }
-
-.hero-stitch {
-  display: block;
-  width: min(320px, 80%);
-  height: 16px;
-  margin-bottom: var(--space-6);
-  overflow: visible;
+/* Break the rectangular text box: the headline rides past the overlay's
+   opaque zone so its last line overlaps the visible photo. */
+@media (min-width: 1100px) {
+  .hero-content h1 { width: calc(100% + 11rem); }
 }
 
 .hero-content p {
   font-size: var(--text-md);
   color: rgba(255,255,255,0.9);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
   max-width: 30rem;
   line-height: var(--line-relaxed);
 }
+
 .hero-buttons { display: flex; gap: var(--space-4); flex-wrap: wrap; }
 
-/* Image side */
-.hero-image {
-  position: relative;
-  overflow: hidden;
-}
-.hero-image img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-/* The seam — a vertical sewn line where the two fabrics meet */
-.hero-image::before {
-  content: '';
-  position: absolute; top: 0; bottom: 0; left: 0;
-  width: 3px; z-index: 3;
-  background-image: repeating-linear-gradient(
-    180deg,
-    var(--thread-gold) 0 9px,
-    transparent 9px 15px
-  );
-}
-/* subtle darken on the photo for cohesion with the navy panel */
-.hero-image::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(12,26,51,0.28) 0%, rgba(12,26,51,0) 35%);
-  pointer-events: none;
-}
-
-/* ─── Tablet & mobile: stack clean, no asymmetry ─── */
+/* ─── Tablet & mobile: uniform overlay, stacked content ─── */
 @media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-    min-height: auto;
+  .hero { min-height: 88svh; }
+  .hero-bg::before {
+    background: linear-gradient(180deg,
+      rgba(12,26,51,0.92) 0%,
+      rgba(12,26,51,0.78) 60%,
+      rgba(12,26,51,0.65) 100%);
   }
-  .hero-panel {
-    padding: var(--space-24) var(--space-6) var(--space-12);
-  }
-  .hero-content { margin-left: 0; max-width: 100%; }
-  .hero-image {
-    aspect-ratio: 16 / 10;
-    min-height: 240px;
-  }
-  .hero-image::before {
-    top: 0; left: 0; right: 0; bottom: auto;
-    width: auto; height: 3px;
-    background-image: repeating-linear-gradient(90deg,
-      var(--thread-gold) 0 9px, transparent 9px 15px);
-  }
-  .hero-image::after {
-    background: linear-gradient(0deg, rgba(12,26,51,0.28) 0%, rgba(12,26,51,0) 40%);
-  }
+  .hero-content { max-width: 100%; padding: 8rem 0 var(--space-12); }
 }
 @media (max-width: 767px) {
-  .hero-panel { padding: 7rem var(--space-4) var(--space-12); }
+  .hero-content { padding: 7rem 0 var(--space-12); }
 }

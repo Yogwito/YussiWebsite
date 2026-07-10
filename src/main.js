@@ -7,6 +7,8 @@ import './css/services.css'
 import './css/process.css'
 import './css/about.css'
 import './css/sectors.css'
+import './css/brands.css'
+import './css/certs.css'
 import './css/cta-banner.css'
 import './css/faq.css'
 import './css/contact.css'
@@ -17,6 +19,7 @@ import { initFaq } from './faq.js'
 import { initNavbar } from './navbar.js'
 import { initForm } from './form.js'
 import { initAnimations } from './animations.js'
+import { initWaBubble } from './whatsapp.js'
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar()
@@ -24,4 +27,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaq()
   initForm()
   initAnimations()
+  initWaBubble()
 })

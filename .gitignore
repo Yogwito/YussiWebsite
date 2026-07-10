@@ -13,6 +13,11 @@ npm-debug.log*
 .vscode/
 .idea/
 
+# Local agent tooling (Higgsfield skills, Vite cache) — not part of the site
+.agents/
+.vite/
+skills-lock.json
+
 # Env
 .env
 .env.*
@@ -20,3 +25,9 @@ npm-debug.log*
 # Raw photo source dump — 430MB of unused originals, not referenced by the site.
 # Keep these out of git history. Use Git LFS or external storage if you need them tracked.
 public/img/FOTOS WEB/
+
+# Full-resolution backups of in-use photos, kept locally in case higher-res
+# crops/reprints are needed later. The site only ever loads the optimized
+# webp/jpg pairs in public/img/.
+public/img/originals/
+.claude/

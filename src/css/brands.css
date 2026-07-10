@@ -1,0 +1,27 @@
+/* Brands / Partners — full-bleed linen band, flat tiles matching sector blocks */
+#brands { background: var(--color-surface); }
+.brands-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--grid-gap);
+  margin-top: var(--space-12);
+}
+@media (min-width: 768px) { .brands-row { grid-template-columns: repeat(5, 1fr); } }
+.brand-badge {
+  background: var(--paper);
+  border: 1px solid var(--navy-100);
+  border-radius: var(--radius-card); /* 2px */
+  padding: var(--space-6) var(--space-4);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-body); font-weight: 600;
+  font-size: var(--text-md);
+  color: var(--navy-800);
+  text-align: center;
+  letter-spacing: var(--track-tight);
+  transition: border-color 0.25s;
+}
+.brand-badge:hover { border-color: var(--navy-500); }
+
+@media (max-width: 767px) {
+  .brands-row { gap: var(--grid-gap-mobile); }
+}

@@ -8,14 +8,16 @@
   --sky-400: #5BA8E8;   /* brand light */
   --sky-200: #AECFEF;
   --sky-100: #DCEAF9;   /* tinted chip / focus */
+  --navy-100: #D9E2F0;  /* hairlines */
+  --navy-50: #EFF3FA;   /* secondary button hover fill */
 
   /* Warm neutrals — fabric, not cold blue-gray */
   --linen-50: #FAF7F1;  /* primary warm section bg */
   --linen-100: #F2ECE0; /* deeper warm surface */
   --paper: #FFFFFF;     /* cards only — lift off linen */
 
-  /* The one accent: gold thread — signature stitch only */
-  --thread-gold: #B5822A;
+  /* The one accent: turquoise thread — signature stitch only */
+  --thread-accent: #158C8C;
 
   /* Functional (untouched) */
   --color-cta: #25D366;
@@ -34,13 +36,13 @@
   --color-border-strong: #D8CCB6;
 
   /* ─── Type ─── */
-  --font-display: 'Archivo', sans-serif;
+  --font-display: 'Bricolage Grotesque', sans-serif;
   --font-body: 'IBM Plex Sans', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 
-  /* Scale — 1.25 ratio: 12 14 16 20 25 32 40 50 64 */
-  --text-xs: 0.75rem;     /* 12 */
-  --text-sm: 0.875rem;    /* 14 */
+  /* Scale — floors per client feedback: captions ≥13, body ≥15 */
+  --text-xs: 0.8125rem;   /* 13 — caption/label floor */
+  --text-sm: 0.9375rem;   /* 15 — body floor */
   --text-base: 1rem;      /* 16 */
   --text-md: 1.0625rem;   /* 17 — body comfort */
   --text-lg: 1.25rem;     /* 20 */
@@ -50,13 +52,13 @@
   --text-4xl: 3.125rem;   /* 50 */
   --text-5xl: 4rem;       /* 64 */
 
-  --text-card-title: var(--text-lg);
-  --text-section-title: clamp(2rem, 3.5vw, 2.5rem);
-  --text-hero: clamp(2.5rem, 5vw, 4rem);
+  --text-card-title: 1.375rem; /* 22 — bigger card titles per client feedback */
+  --text-section-title: clamp(2.25rem, 4.5vw, 3.5rem);
+  --text-hero: clamp(2.75rem, 6vw, 5rem);
 
-  --line-tight: 1.12;
+  --line-tight: 1.02;
   --line-snug: 1.25;
-  --line-normal: 1.55;
+  --line-normal: 1.6;
   --line-relaxed: 1.65;
   --track-tight: -0.02em;
   --track-mono: 0.08em;
@@ -74,32 +76,28 @@
   --space-16: 4rem;     /* 64 */
   --space-24: 6rem;     /* 96 */
   --space-32: 8rem;     /* 128 */
-  --space-section: clamp(4rem, 8vw, 6rem);
+  --space-section: 6rem;   /* 96 desktop / 64 mobile — no exceptions */
 
-  --container-max: 1180px;
+  --container-wide: 1280px;
+  --container-text: 720px;
+  --container-max: var(--container-wide);
   --content-max: 660px;
   --hero-content-max: 620px;
 
-  --radius-sm: 8px;
-  --radius-md: 10px;
-  --radius-card: 12px;
+  /* Flat editorial system: 2px (tiles, inputs) and 999px (pills) ONLY */
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-card: 2px;
   --radius-pill: 999px;
 
-  /* ─── Layered elevation system ─── */
-  --shadow-1: 0 1px 2px rgba(12,26,51,0.06), 0 8px 24px -10px rgba(12,26,51,0.12);
+  /* Elevation: shadows allowed ONLY on navbar (scrolled), the flagship
+     service card, the WhatsApp bubble and the floating WhatsApp button */
   --shadow-2: 0 2px 4px rgba(12,26,51,0.08), 0 20px 44px -16px rgba(12,26,51,0.20);
-  --shadow-3: 0 4px 8px rgba(12,26,51,0.10), 0 28px 60px -20px rgba(12,26,51,0.28);
-  --shadow-focus: 0 0 0 3px rgba(27,75,168,0.22);
-  /* back-compat names */
-  --shadow-card: var(--shadow-1);
-  --shadow-card-hover: var(--shadow-2);
 
   --card-padding: 1.5rem;
   --card-padding-lg: 2rem;
   --grid-gap: 1.5rem;
   --grid-gap-mobile: 1.25rem;
-  --icon-card-size: 52px;
-  --icon-card-radius: 12px;
 
   /* ─── Signature: machine-stitch line ─── */
   --stitch-len: 9px;   /* stitch dash length */
@@ -124,9 +122,12 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; }
 /* ─── UTILITIES ─── */
 .container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-6); }
 .section-pad { padding: var(--space-section) 0; }
+@media (max-width: 767px) {
+  .section-pad { padding: 4rem 0; }
+}
 
-/* Mono eyebrow — reads like a pattern/spec label.
-   Navy (AA-safe on linen); the gold stays reserved for the stitch lines. */
+/* Mono eyebrow — reads like a pattern/spec label. Always paired with a
+   LEFT-aligned H2; led by a solid 24px gold rule. */
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -134,44 +135,29 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; }
   font-family: var(--font-mono);
   font-weight: 500;
   font-size: var(--text-xs);
-  letter-spacing: var(--track-mono);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--navy-700);
+  color: var(--navy-500);
   margin-bottom: var(--space-3);
 }
-/* a couple of gold stitches lead the eyebrow */
 .eyebrow::before {
   content: '';
-  width: 22px; height: 2px;
-  background-image: repeating-linear-gradient(90deg,
-    var(--thread-gold) 0 5px, transparent 5px 9px);
+  display: inline-block;
+  width: 24px; height: 2px;
+  align-self: center;
+  background: var(--thread-accent);
 }
 
 .section-title {
   font-size: var(--text-section-title);
   font-weight: 700;
-  line-height: var(--line-snug);
-  letter-spacing: var(--track-tight);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   color: var(--navy-800);
   margin-bottom: var(--space-4);
   position: relative;
   display: block;
-}
-
-/* Signature stitch: a short sewn seam under each title */
-.stitch-rule,
-.section-title::after {
-  content: '';
-  display: block;
-  width: 64px;
-  height: 3px;
-  margin-top: var(--space-4);
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--thread-gold) 0, var(--thread-gold) var(--stitch-len),
-    transparent var(--stitch-len), transparent calc(var(--stitch-len) + var(--stitch-gap))
-  );
-  border-radius: 1px;
+  text-align: left;
 }
 
 .section-subtitle {
@@ -182,36 +168,89 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; }
   line-height: var(--line-relaxed);
 }
 
-/* ─── Buttons ─── */
+/* ─── Buttons — pills only, no lifts, no scale, no shadows ─── */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
   min-height: 48px;
-  padding: 0.75rem 1.5rem;
+  padding: 0.875rem 1.75rem; /* 14px 28px */
   border-radius: var(--radius-pill);
-  font-family: var(--font-mono);
-  font-weight: 500;
-  font-size: var(--text-sm);
-  letter-spacing: 0.02em;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--text-sm); /* 15px */
+  letter-spacing: 0;
   line-height: 1;
   cursor: pointer;
-  border: 1px solid transparent;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1.5px solid transparent;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
   white-space: nowrap;
 }
-.btn svg { flex: 0 0 auto; }
+.btn svg { flex: 0 0 auto; transition: transform 0.2s ease; }
+.btn:active { transform: scale(0.96); }
 .btn-sm { min-height: 40px; padding: 0.6rem 1.05rem; font-size: var(--text-xs); }
 .btn-lg { min-height: 52px; padding: 0.9rem 1.75rem; font-size: var(--text-base); }
 .btn-cta { background: var(--color-cta); color: #fff; }
-.btn-cta:hover { background: var(--color-cta-hover); transform: translateY(-2px); box-shadow: 0 10px 22px rgba(37,211,102,0.28); }
+.btn-cta:hover { background: var(--color-cta-hover); }
+.btn-cta:hover svg { transform: translateX(2px); }
 .btn-outline { background: transparent; color: var(--navy-700); border-color: var(--navy-700); }
-.btn-outline:hover { background: var(--navy-700); color: #fff; transform: translateY(-2px); }
+.btn-outline:hover { background: var(--navy-50); }
 .btn-outline-white { background: transparent; color: #fff; border-color: rgba(255,255,255,0.7); }
-.btn-outline-white:hover { background: rgba(255,255,255,0.14); transform: translateY(-2px); }
+.btn-outline-white:hover { background: rgba(255,255,255,0.14); }
+
+/* Links inside body copy */
+p a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+p a:hover { text-decoration-color: var(--thread-accent); }
 
 a:focus-visible, button:focus-visible, input:focus-visible,
 select:focus-visible, textarea:focus-visible, .btn:focus-visible {
-  outline: 2px solid var(--thread-gold);
+  outline: 2px solid var(--thread-accent);
   outline-offset: 2px;
+}
+
+/* ─── Photography: one unified grade so phone photos read as one shoot ─── */
+.hero-bg img, .hero-bg video, .service-img img, .about-img, .hoop-frame img, .texture-band img {
+  filter: saturate(0.92) contrast(1.04);
+}
+.photo-wash { position: relative; }
+.photo-wash::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background: #1B4BA8;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Full-bleed texture band — the craft in close-up between content sections */
+.texture-band {
+  height: 280px;
+  overflow: hidden;
+}
+.texture-band img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+}
+@media (max-width: 767px) {
+  .texture-band { height: 180px; }
+}
+
+/* Embroidery-hoop crop: 3px navy ring, 8px white gap, then the photo */
+.hoop-frame {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 3px solid var(--navy-700);
+  background: #fff;
+  padding: 8px;
+  overflow: hidden;
+}
+.hoop-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .img-placeholder {

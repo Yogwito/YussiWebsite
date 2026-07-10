@@ -1,4 +1,5 @@
-#clients { background: var(--linen-50); }
+/* Clients — flat credibility tiles: hairline borders, no shadows */
+#clients { background: var(--paper); }
 .sectors-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -6,43 +7,76 @@
   margin-top: var(--space-12);
   align-items: stretch;
 }
-@media (min-width: 600px) { .sectors-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 992px) { .sectors-grid { grid-template-columns: repeat(6, 1fr); } }
+@media (min-width: 900px) { .sectors-grid { grid-template-columns: repeat(3, 1fr); } }
 .sector-card {
-  background: var(--paper); border-radius: var(--radius-card); padding: var(--card-padding);
-  text-align: center; border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-1);
-  transition: transform 0.25s, box-shadow 0.25s;
+  background: var(--paper);
+  border: 1px solid var(--navy-100);
+  border-radius: var(--radius-card); /* 2px */
+  padding: var(--card-padding-lg) var(--card-padding);
+  text-align: center;
+  transition: border-color 0.25s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
-.sector-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-2); }
+@media (hover: hover) and (min-width: 768px) {
+  .sector-card:hover {
+    border-color: var(--navy-500);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-2);
+  }
+}
+.sector-card:hover { border-color: var(--navy-500); }
 .sector-icon {
-  width: var(--icon-card-size); height: var(--icon-card-size); min-width: var(--icon-card-size); min-height: var(--icon-card-size); border-radius: var(--icon-card-radius);
-  background: var(--sky-100);
   display: flex; align-items: center; justify-content: center;
-  margin: 0 auto var(--space-6);
+  margin: 0 auto var(--space-5);
 }
-.sector-icon svg { width: 24px; height: 24px; fill: none; stroke: var(--navy-700); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.sector-icon svg {
+  width: 56px; height: 56px;
+  fill: none; stroke: var(--navy-700); stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+  transition: stroke 0.25s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.sector-card:hover .sector-icon svg { stroke: var(--thread-accent); }
+@media (hover: hover) and (min-width: 768px) {
+  .sector-card:hover .sector-icon svg { transform: scale(1.08); }
+}
 .sector-card h4 {
-  font-size: var(--text-base); color: var(--navy-800);
+  font-size: var(--text-lg); color: var(--navy-800);
   letter-spacing: var(--track-tight);
-  margin-top: 0; margin-bottom: var(--space-3); line-height: var(--line-snug);
+  margin: 0; line-height: var(--line-snug);
 }
-.sector-card p { font-size: var(--text-xs); color: var(--color-text-light); margin: 0; line-height: var(--line-relaxed); }
-.logos-strip {
-  margin-top: var(--space-12); padding: var(--card-padding); background: var(--paper);
-  border-radius: var(--radius-card); border: 1px dashed var(--color-border-strong);
-  text-align: center; color: var(--color-text-light);
-  font-family: var(--font-mono); font-size: var(--text-sm);
+
+/* Client logo strip — prominent placeholder boxes */
+.clients-logos { margin-top: var(--space-16); }
+.clients-logos-label {
+  font-family: var(--font-mono); font-weight: 500;
+  font-size: var(--text-sm); letter-spacing: var(--track-mono); text-transform: uppercase;
+  color: var(--navy-800);
+  margin-bottom: var(--space-8);
 }
-.logos-strip strong { color: var(--navy-800); }
+.clients-logos-grid {
+  display: flex; flex-wrap: wrap;
+  gap: var(--space-6);
+}
+.client-logo-box {
+  width: 120px; height: 60px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1.5px dashed var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--linen-50);
+  font-family: var(--font-mono); font-size: var(--text-xs);
+  color: var(--color-text-light);
+  text-align: center;
+}
 
 #testimonials { display: none; }
 
 @media (max-width: 767px) {
   .sectors-grid { gap: var(--grid-gap-mobile); }
   .sector-card { min-height: auto; }
+  .sector-icon svg { width: 44px; height: 44px; }
+  .clients-logos-grid { gap: var(--space-4); }
 }

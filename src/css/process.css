@@ -15,7 +15,7 @@
   height: 3px; z-index: 0;
   background-image: repeating-linear-gradient(
     90deg,
-    var(--thread-gold) 0 9px,
+    var(--thread-accent) 0 9px,
     transparent 9px 15px
   );
   pointer-events: none;
@@ -24,13 +24,20 @@
 .process-step {
   text-align: center; padding: var(--card-padding-lg) var(--card-padding);
   background: var(--paper); border-radius: var(--radius-card);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-1);
+  border: 1px solid var(--navy-100);
   position: relative; z-index: 1;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease;
+}
+@media (hover: hover) and (min-width: 768px) {
+  .process-step:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-2);
+    border-color: var(--navy-100);
+  }
 }
 .step-marker {
   font-family: var(--font-mono); font-weight: 500;
@@ -38,18 +45,20 @@
   color: var(--navy-700);
 }
 .step-icon {
-  width: var(--icon-card-size); height: var(--icon-card-size); min-width: var(--icon-card-size); min-height: var(--icon-card-size); border-radius: var(--icon-card-radius);
-  background: var(--sky-100);
   display: flex; align-items: center; justify-content: center;
-  margin: var(--space-4) auto var(--space-6);
+  margin: var(--space-4) auto var(--space-5);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.step-icon svg { width: 24px; height: 24px; fill: none; stroke: var(--navy-700); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.step-icon svg { width: 40px; height: 40px; fill: none; stroke: var(--navy-700); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+@media (hover: hover) and (min-width: 768px) {
+  .process-step:hover .step-icon { transform: translateY(-3px) scale(1.06); }
+}
 .process-step h3 {
   font-size: var(--text-card-title); color: var(--navy-800);
   letter-spacing: var(--track-tight);
   margin-top: 0; margin-bottom: var(--space-3); line-height: var(--line-snug);
 }
-.process-step p { font-size: var(--text-sm); color: var(--color-text-light); margin: 0; line-height: var(--line-relaxed); }
+.process-step p { font-size: var(--text-base); color: var(--color-text-light); margin: 0; line-height: var(--line-relaxed); }
 
 @media (max-width: 767px) {
   .process-steps { grid-template-columns: 1fr; gap: var(--grid-gap-mobile); }

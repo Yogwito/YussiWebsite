@@ -4,34 +4,48 @@
   overflow: hidden;
 }
 #about .container { position: relative; z-index: 1; }
+/* Asymmetric editorial grid — image column is free to bleed */
 .about-grid {
   display: grid;
-  grid-template-columns: 0.95fr 1.05fr;
+  grid-template-columns: 1fr minmax(340px, 600px);
   gap: var(--space-16);
   align-items: center;
   margin-top: var(--space-8);
 }
 
 .about-media { position: relative; }
+.about-photo {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
 .about-img {
   width: 100%;
   aspect-ratio: 4/3;
   object-fit: cover;
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-2);
+  display: block;
+}
+/* Desktop: the photo bleeds to the viewport's left edge */
+@media (min-width: 901px) {
+  .about-photo {
+    margin-left: calc(-1 * (max((100vw - var(--container-wide)) / 2, 0px) + var(--space-6)));
+    border-radius: 0;
+  }
+  .about-img { aspect-ratio: auto; height: 100%; min-height: 460px; }
+  .about-photo { height: 100%; }
+  .about-media { height: 100%; }
 }
 
 /* Stat block overlaps the image corner and bleeds toward the text */
 .about-stats {
   position: absolute;
   right: calc(-1 * var(--space-8));
-  bottom: calc(-1 * var(--space-6));
+  bottom: var(--space-8);
   display: flex;
   gap: var(--space-8);
-  background: var(--ink-900);
+  background: var(--paper);
+  border: 1px solid var(--navy-100);
   border-radius: var(--radius-card);
   padding: var(--space-6) var(--space-8);
-  box-shadow: var(--shadow-3);
   z-index: 2;
 }
 /* sewn seam along the top edge of the stat block */
@@ -40,18 +54,19 @@
   position: absolute; left: var(--space-8); right: var(--space-8); top: 0;
   height: 3px;
   background-image: repeating-linear-gradient(90deg,
-    var(--thread-gold) 0 9px, transparent 9px 15px);
+    var(--thread-accent) 0 9px, transparent 9px 15px);
 }
 .stat { text-align: left; }
 .stat-num {
   font-family: var(--font-display); font-weight: 700;
-  font-size: var(--text-2xl); color: #fff; line-height: 1;
+  font-size: var(--text-2xl); color: var(--navy-800); line-height: 1;
   letter-spacing: var(--track-tight);
+  font-variant-numeric: tabular-nums;
 }
 .stat-label {
   font-family: var(--font-mono); font-size: var(--text-xs);
   letter-spacing: 0.04em; text-transform: uppercase;
-  color: var(--sky-200); margin-top: var(--space-2); max-width: 8rem;
+  color: var(--navy-700); margin-top: var(--space-2); max-width: 8rem;
 }
 
 .about-text { max-width: var(--content-max); }
@@ -61,17 +76,21 @@
   font-size: var(--text-md);
   line-height: var(--line-relaxed);
 }
+/* Hoop-cropped secondary photo — the digitizer's detail shot */
+.about-hoop { width: 150px; margin-top: var(--space-8); }
 
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; gap: var(--space-12); }
   /* return to clean stacked layout — no overlap */
   .about-media { margin-bottom: var(--space-10); }
   .about-stats {
-    position: static;
+    position: relative;
+    right: auto; bottom: auto;
     margin-top: var(--space-4);
     flex-wrap: wrap;
     gap: var(--space-6);
   }
+  .about-hoop { width: 130px; }
 }
 @media (max-width: 480px) {
   .about-stats { padding: var(--space-5) var(--space-6); }

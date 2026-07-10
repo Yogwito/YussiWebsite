@@ -1,0 +1,34 @@
+/* Certifications — flat placeholder tiles matching the sector-block pattern */
+#certifications { background: var(--paper); }
+.certs-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--grid-gap);
+  margin-top: var(--space-12);
+}
+@media (min-width: 768px) { .certs-row { grid-template-columns: repeat(4, 1fr); } }
+.cert-card {
+  background: var(--paper);
+  border: 1px solid var(--navy-100);
+  border-radius: var(--radius-card); /* 2px */
+  padding: var(--card-padding-lg) var(--card-padding);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: var(--space-4);
+  text-align: center;
+  transition: border-color 0.25s;
+}
+.cert-card:hover { border-color: var(--navy-500); }
+.cert-badge {
+  width: 72px; height: 72px; border-radius: 50%;
+  border: 1.5px dashed var(--color-border-strong);
+  background: var(--linen-50);
+}
+.cert-card span {
+  font-family: var(--font-mono); font-size: var(--text-xs);
+  color: var(--color-text-light);
+  line-height: var(--line-normal);
+}
+
+@media (max-width: 767px) {
+  .certs-row { gap: var(--grid-gap-mobile); }
+}

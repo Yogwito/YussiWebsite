@@ -1,64 +1,72 @@
+/* Services — one flagship card, then flat editorial rows */
 #services { background: var(--paper); }
-.services-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--grid-gap);
-  margin-top: var(--space-12);
-}
-.service-card {
-  background: var(--paper); border-radius: var(--radius-card); overflow: hidden;
-  box-shadow: var(--shadow-1);
-  border: 1px solid var(--color-border);
-  transition: transform 0.25s, box-shadow 0.25s;
-  height: 100%;
+.services-grid { margin-top: var(--space-12); }
+
+/* Flagship (Dotación empresarial) — the ONE service that keeps a card */
+.service-card:first-child {
+  background: var(--paper);
+  border: 1px solid var(--navy-100);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-2);
   display: flex; flex-direction: column;
+  margin-bottom: var(--space-8);
 }
-.service-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-2); }
-@media (max-width: 767px) { .service-card:active { transform: scale(0.97); } }
-.service-img { aspect-ratio: 16/9; overflow: hidden; position: relative; }
-.service-img img { transition: transform 0.4s ease; width: 100%; height: 100%; object-fit: cover; }
-@media (min-width: 768px) { .service-card:hover .service-img img { transform: scale(1.04); } }
-.service-img .img-placeholder { border-radius: 0; height: 100%; font-size: var(--text-xs); }
-.service-body { padding: var(--card-padding); flex: 1; display: flex; flex-direction: column; }
+.service-card:first-child .service-body { padding: var(--card-padding-lg); }
+@media (min-width: 900px) {
+  .service-card:first-child .service-img { aspect-ratio: 21/9; }
+  .service-card:first-child .service-body { padding: var(--space-10); }
+  .service-card:first-child .service-body h3 { font-size: var(--text-xl); }
+  .service-card:first-child .service-body p { max-width: 52rem; }
+  .service-card:first-child .service-body .btn { align-self: flex-start; width: auto; }
+}
+
+.service-img { overflow: hidden; position: relative; }
+.service-card:first-child .service-img { aspect-ratio: 16/9; }
+.service-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+.service-img .img-placeholder { border-radius: 0; height: 100%; width: 100%; font-size: var(--text-xs); }
+@media (hover: hover) and (min-width: 768px) {
+  .service-card:hover .service-img img { transform: scale(1.06); }
+}
+
+.service-body { display: flex; flex-direction: column; align-items: flex-start; }
 .service-body h3 {
   font-size: var(--text-card-title); color: var(--navy-800);
   letter-spacing: var(--track-tight);
   margin-top: 0; margin-bottom: var(--space-3); line-height: var(--line-snug);
 }
 .service-body p {
-  font-size: var(--text-sm); color: var(--color-text-light);
+  font-size: var(--text-base); color: var(--color-text-light);
   margin: 0 0 var(--space-5); line-height: var(--line-relaxed);
 }
-.service-body .btn {
-  width: 100%;
-  justify-content: center; margin-top: auto;
-}
+.service-card:first-child .service-body .btn { width: 100%; justify-content: center; margin-top: auto; }
 
-/* ─── Editorial asymmetric grid (desktop) ───
-   Row 1: flagship (wide) + one card.
-   Row 2: three equal cards. */
-@media (min-width: 900px) {
-  .services-grid {
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--grid-gap);
-  }
-  .service-card:nth-child(1) { grid-column: span 7; }
-  .service-card:nth-child(2) { grid-column: span 5; }
-  .service-card:nth-child(3),
-  .service-card:nth-child(4),
-  .service-card:nth-child(5) { grid-column: span 4; }
-  /* Flagship card breathes more */
-  .service-card:nth-child(1) .service-img { aspect-ratio: 21/9; }
-  .service-card:nth-child(1) .service-body { padding: var(--card-padding-lg); }
-  .service-card:nth-child(1) .service-body h3 { font-size: var(--text-xl); }
+/* Editorial rows — image left, text right, hairline-separated */
+.service-card:not(:first-child) {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space-8);
+  align-items: start;
+  padding: var(--space-8) var(--space-4); /* 32px vertical */
+  margin-inline: calc(-1 * var(--space-4));
+  border-top: 1px solid var(--navy-100);
+  transition: background 0.2s ease;
 }
-
-/* Tablet: clean 2-up */
-@media (min-width: 768px) and (max-width: 899px) {
-  .services-grid { grid-template-columns: 1fr 1fr; }
+.service-card:not(:first-child):hover { background: var(--linen-50); }
+.service-card:not(:first-child) .service-img {
+  width: 200px;
+  aspect-ratio: 4/3;
+  border-radius: var(--radius-card);
 }
+.service-card:not(:first-child) .service-body { padding: 0; }
+.service-card:not(:first-child) .service-body .btn { margin-top: var(--space-2); }
 
 @media (max-width: 767px) {
-  .services-grid { grid-template-columns: 1fr; gap: var(--grid-gap-mobile); }
-  .service-card { min-height: auto; }
+  .service-card:not(:first-child) {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding: var(--space-6) var(--space-4);
+  }
+  .service-card:not(:first-child) .service-img { width: 100%; aspect-ratio: 16/9; }
+  .service-card:not(:first-child) .service-body .btn { width: 100%; justify-content: center; }
 }

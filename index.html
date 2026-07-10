@@ -7,14 +7,25 @@
   <meta name="description" content="Fabricamos dotación empresarial, uniformes médicos antifluido, ropa industrial y bordado profesional en Manizales. Más de 25 años de experiencia. Cotiza por WhatsApp.">
   <meta property="og:title" content="Bordados Yussi | Dotación y bordado en Manizales">
   <meta property="og:description" content="25 años fabricando uniformes y bordado de calidad para empresas de toda Colombia.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bordadosyussi.com">
+  <!-- Stopgap social-share image using the hero photo — swap for a designed 1200x630 card once one exists. -->
+  <meta property="og:image" content="https://bordadosyussi.com/img/landingImage.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://bordadosyussi.com">
-  <!-- TODO: <meta property="og:image" content="/img/og-cover.jpg"> -->
-  <!-- TODO: GA4 — replace GA_MEASUREMENT_ID -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!-- GA4 disabled until a real Measurement ID replaces this placeholder — an unconfigured
+       gtag.js call fires a dead network request on every load for no benefit. -->
+  <!--
   <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','GA_MEASUREMENT_ID');</script>
+  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700&family=IBM+Plex+Sans:wght@400&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=IBM+Plex+Sans:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -26,7 +37,8 @@
 <nav id="navbar">
   <div class="container nav-inner">
     <a href="#hero" class="nav-logo">
-      <img src="/img/yussi-logo-card.png" alt="Bordados Yussi" class="navbar-logo-img" width="900" height="176">
+      <img src="/img/yussi-logo-nav.png" alt="Bordados Yussi" class="navbar-logo-img navbar-logo-light" width="900" height="176">
+      <img src="/img/yussi-logo-card.png" alt="Bordados Yussi" class="navbar-logo-img navbar-logo-dark" width="900" height="176">
     </a>
     <ul class="nav-links">
       <li><a href="#hero" data-es="Inicio" data-en="Home">Inicio</a></li>
@@ -59,16 +71,23 @@
   <a href="https://wa.me/573113858494" class="btn btn-cta btn-lg" target="_blank" rel="noopener">WhatsApp</a>
 </div>
 
-<!-- ═══════════════ HERO ═══════════════ -->
+<!-- ═══════════════ HERO — full-bleed photo, real texture ═══════════════ -->
 <section id="hero" class="hero">
-  <div class="hero-panel">
+  <div class="hero-bg photo-wash" aria-hidden="true">
+    <video id="hero-video" class="hero-media" muted playsinline preload="auto" poster="/img/hero-video-poster.jpg"></video>
+  </div>
+  <!-- Scroll story layers: dark veil the sequence opens on, brand mark that
+       appears first, and a scroll hint. All are inert without JS/GSAP. -->
+  <div class="hero-veil" aria-hidden="true"></div>
+  <img src="/img/yussi-logo-nav.png" alt="" class="hero-brand" width="900" height="176" aria-hidden="true">
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span data-es="Desliza" data-en="Scroll">Desliza</span>
+    <span class="hero-scroll-hint-line"></span>
+  </div>
+  <div class="container hero-inner">
     <div class="hero-content">
       <span class="hero-badge" data-es="EST. 1999 · MANIZALES, COLOMBIA" data-en="EST. 1999 · MANIZALES, COLOMBIA">EST. 1999 · MANIZALES, COLOMBIA</span>
       <h1 data-es="Llevamos 25 años vistiendo a las empresas de Manizales" data-en="25 Years Dressing the Companies of Manizales">Llevamos 25 años vistiendo a las empresas de Manizales</h1>
-      <!-- Signature: needle path that embroiders itself on load -->
-      <svg class="hero-stitch" viewBox="0 0 320 16" fill="none" aria-hidden="true" preserveAspectRatio="none">
-        <path class="hero-stitch-path" d="M2 12 C 60 2, 120 2, 160 8 S 280 14, 318 4" stroke="#B5822A" stroke-width="3" stroke-linecap="round" stroke-dasharray="9 6"/>
-      </svg>
       <p data-es="Fabricamos dotaciones empresariales, uniformes médicos, ropa industrial y bordado de alta calidad para empresas que no le bajan a los detalles." data-en="We manufacture corporate uniforms, medical scrubs, industrial workwear and premium embroidery for businesses that don't compromise on quality.">Fabricamos dotaciones empresariales, uniformes médicos, ropa industrial y bordado de alta calidad para empresas que no le bajan a los detalles.</p>
       <div class="hero-buttons">
         <a href="https://wa.me/573113858494?text=Hola%20Bordados%20Yussi%2C%20quiero%20cotizar" target="_blank" rel="noopener" class="btn btn-cta">
@@ -81,12 +100,6 @@
       </div>
     </div>
   </div>
-  <div class="hero-image">
-    <picture>
-      <source srcset="/img/landingImage.webp" type="image/webp">
-      <img src="/img/landingImage.jpg" alt="Taller de Bordados Yussi — bordado industrial en Manizales" loading="eager" fetchpriority="high">
-    </picture>
-  </div>
 </section>
 
 <!-- ═══════════════ WHY US ═══════════════ -->
@@ -98,30 +111,31 @@
       <p class="section-subtitle" data-es="Calidad, experiencia y compromiso en cada prenda." data-en="Quality, experience and commitment in every garment.">Calidad, experiencia y compromiso en cada prenda.</p>
     </div>
     <div class="why-grid">
-      <div class="why-card">
-        <div class="why-icon">
-          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        </div>
-        <h3 data-es="25 años de experiencia" data-en="25 Years of Experience">25 años de experiencia</h3>
+      <div class="why-card why-card--lead">
+        <div class="why-num" aria-hidden="true">25</div>
+        <h3 data-es="Años de experiencia" data-en="Years of Experience">Años de experiencia</h3>
         <p data-es="Desde 1999 trabajando con empresas de toda Colombia. Conocemos el sector como nadie." data-en="Since 1999 working with companies across Colombia. We know the industry inside and out.">Desde 1999 trabajando con empresas de toda Colombia. Conocemos el sector como nadie.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M19.07 19.07l-1.41-1.41M4.93 19.07l1.41-1.41M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>
+          <!-- custom: cabezal Tajima simplificado — housing, guías de hilo, agujas -->
+          <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="8.5"/><circle cx="8" cy="7" r="1.1"/><circle cx="12" cy="7" r="1.1"/><circle cx="16" cy="7" r="1.1"/><path d="M8 11.5v4.5"/><path d="M12 11.5v6"/><path d="M16 11.5v4.5"/><path d="M12 17.5l-.9 2.5h1.8z"/><path d="M4 21h16"/></svg>
         </div>
         <h3 data-es="Tecnología Tajima" data-en="Tajima Technology">Tecnología Tajima</h3>
         <p data-es="Bordamos con máquinas Tajima de última generación y software Wilcom para digitalizaciones de precisión." data-en="We embroider with cutting-edge Tajima machines and Wilcom software for precision digitizing.">Bordamos con máquinas Tajima de última generación y software Wilcom para digitalizaciones de precisión.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 9v11h18V9M3 9l6-6 3 3 6-6v12M3 9h18"/></svg>
+          <!-- custom: carrete de hilo — flancos, devanado y hebra suelta -->
+          <svg viewBox="0 0 24 24"><path d="M6 3.5h10"/><path d="M6 20.5h10"/><path d="M7.5 3.5v17"/><path d="M14.5 3.5v17"/><path d="M7.5 8h7"/><path d="M7.5 11h7"/><path d="M7.5 14h7"/><path d="M14.5 16.5c3 .5 5 2 6.5 4.5"/></svg>
         </div>
         <h3 data-es="Producción propia" data-en="In-House Production">Producción propia</h3>
         <p data-es="Todo se fabrica en nuestra planta de Manizales. Control total de calidad en cada etapa del proceso." data-en="Everything is made in our Manizales facility. Full quality control at every stage of the process.">Todo se fabrica en nuestra planta de Manizales. Control total de calidad en cada etapa del proceso.</p>
       </div>
       <div class="why-card">
         <div class="why-icon">
-          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          <!-- custom: aguja e hilo — ojo, fuste y hebra que lo atraviesa -->
+          <svg viewBox="0 0 24 24"><path d="M20 5.5L9.5 16"/><circle cx="18.6" cy="6.9" r="1.4"/><path d="M18.6 8.3c-3.5 1-6.5 3-9.1 5.7-2 2.1-3.5 4.5-4.5 7"/></svg>
         </div>
         <h3 data-es="Atención personalizada" data-en="Personalized Service">Atención personalizada</h3>
         <p data-es="Te acompañamos desde el diseño hasta la entrega. Un equipo real que responde y cumple." data-en="We're with you from design to delivery. A real team that responds and delivers.">Te acompañamos desde el diseño hasta la entrega. Un equipo real que responde y cumple.</p>
@@ -139,8 +153,11 @@
     <div class="services-grid">
 
       <div class="service-card">
-        <div class="service-img">
-          <img src="/img/servicio-dotacion.jpg" alt="Dotación empresarial con bordado de logo" loading="lazy">
+        <div class="service-img photo-wash">
+          <picture>
+            <source srcset="/img/servicio-dotacion.webp" type="image/webp">
+            <img src="/img/servicio-dotacion.jpg" alt="Dotación empresarial con bordado de logo" width="1800" height="1350" loading="lazy">
+          </picture>
         </div>
         <div class="service-body">
           <h3 data-es="Dotación empresarial" data-en="Corporate Uniforms">Dotación empresarial</h3>
@@ -153,7 +170,7 @@
       </div>
 
       <div class="service-card">
-        <div class="service-img">
+        <div class="service-img photo-wash">
           <!-- TODO: replace with real photo of medical scrubs once client provides it -->
           <div class="img-placeholder">
             <span>Foto pendiente — Uniformes médicos</span>
@@ -170,8 +187,11 @@
       </div>
 
       <div class="service-card">
-        <div class="service-img">
-          <img src="/img/servicio-industrial.jpg" alt="Dotación para empresas industriales y de servicios" loading="lazy">
+        <div class="service-img photo-wash">
+          <picture>
+            <source srcset="/img/servicio-industrial.webp" type="image/webp">
+            <img src="/img/servicio-industrial.jpg" alt="Dotación para empresas industriales y de servicios" width="600" height="450" loading="lazy">
+          </picture>
         </div>
         <div class="service-body">
           <h3 data-es="Ropa industrial" data-en="Industrial Workwear">Ropa industrial</h3>
@@ -184,7 +204,7 @@
       </div>
 
       <div class="service-card">
-        <div class="service-img">
+        <div class="service-img photo-wash">
           <!-- TODO: replace with real photo of school uniforms once client provides it -->
           <div class="img-placeholder">
             <span>Foto pendiente — Uniformes escolares</span>
@@ -201,8 +221,11 @@
       </div>
 
       <div class="service-card">
-        <div class="service-img">
-          <img src="/img/servicio-bordado.jpg" alt="Bordado de logo sobre prenda con máquina Tajima" loading="lazy">
+        <div class="service-img photo-wash">
+          <picture>
+            <source srcset="/img/servicio-bordado.webp" type="image/webp">
+            <img src="/img/servicio-bordado.jpg" alt="Bordado de logo sobre prenda con máquina Tajima" width="600" height="450" loading="lazy">
+          </picture>
         </div>
         <div class="service-body">
           <h3 data-es="Servicio de bordado" data-en="Embroidery Service">Servicio de bordado</h3>
@@ -270,7 +293,12 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-media">
-        <img class="about-img" src="/img/nosotros.jpg" alt="Taller Bordados Yussi — máquinas Tajima en producción" loading="lazy">
+        <div class="about-photo photo-wash">
+          <picture>
+            <source srcset="/img/nosotros.webp" type="image/webp">
+            <img class="about-img" src="/img/nosotros.jpg" alt="Taller Bordados Yussi — máquinas Tajima en producción" width="1400" height="1050" loading="lazy">
+          </picture>
+        </div>
         <div class="about-stats">
           <div class="stat">
             <div class="stat-num">25+</div>
@@ -292,6 +320,12 @@
         <p data-es="Bordados Yussi nació en Manizales en 1999 con una máquina y la convicción de que cada empresa merece una imagen que la represente. Más de 25 años después, somos referentes del sector textil en la región." data-en="Bordados Yussi was born in Manizales in 1999 with one machine and the conviction that every company deserves an image that represents them. More than 25 years later, we are a regional benchmark in the textile industry.">Bordados Yussi nació en Manizales en 1999 con una máquina y la convicción de que cada empresa merece una imagen que la represente. Más de 25 años después, somos referentes del sector textil en la región.</p>
         <p data-es="Trabajamos con máquinas Tajima de última generación y software Wilcom para digitalizaciones de máxima precisión. Nuestro equipo de bordado acumula más de 20 años de experiencia, asegurando resultados que superan las expectativas." data-en="We work with state-of-the-art Tajima machines and Wilcom software for maximum precision digitizing. Our embroidery team has over 20 years of accumulated experience, delivering results that exceed expectations.">Trabajamos con máquinas Tajima de última generación y software Wilcom para digitalizaciones de máxima precisión. Nuestro equipo de bordado acumula más de 20 años de experiencia, asegurando resultados que superan las expectativas.</p>
         <p data-es="Atendemos clientes nacionales e internacionales: hoteles, clínicas, colegios, restaurantes, concesionarios e industria. Somos aliados de confianza de varias empresas textiles que tercerizan su bordado con nosotros." data-en="We serve national and international clients: hotels, clinics, schools, restaurants, dealerships and industry. We are trusted partners for several textile companies that outsource their embroidery to us.">Atendemos clientes nacionales e internacionales: hoteles, clínicas, colegios, restaurantes, concesionarios e industria. Somos aliados de confianza de varias empresas textiles que tercerizan su bordado con nosotros.</p>
+        <div class="hoop-frame about-hoop">
+          <picture>
+            <source srcset="/img/nosotros-2.webp" type="image/webp">
+            <img src="/img/nosotros-2.jpg" alt="Detalle de bordado en el taller de Bordados Yussi" width="500" height="667" loading="lazy">
+          </picture>
+        </div>
       </div>
     </div>
   </div>
@@ -301,44 +335,89 @@
 <section id="clients" class="section-pad">
   <div class="container">
     <span class="eyebrow" data-es="6 sectores atendidos" data-en="6 sectors served">6 sectores atendidos</span>
-    <h2 class="section-title" data-es="Sectores que atendemos" data-en="Sectors We Serve">Sectores que atendemos</h2>
-    <p class="section-subtitle" data-es="Experiencia comprobada en múltiples industrias." data-en="Proven experience across multiple industries.">Experiencia comprobada en múltiples industrias.</p>
+    <h2 class="section-title" data-es="Empresas que confían en nosotros" data-en="Companies that trust us">Empresas que confían en nosotros</h2>
+    <p class="section-subtitle" data-es="Más de 25 años vistiendo a las mejores empresas de la región" data-en="Over 25 years dressing the best companies in the region">Más de 25 años vistiendo a las mejores empresas de la región</p>
     <div class="sectors-grid">
       <div class="sector-card">
         <div class="sector-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
         <h4 data-es="Hoteles y turismo" data-en="Hotels &amp; Tourism">Hoteles y turismo</h4>
-        <p data-es="Uniformes que reflejan la experiencia de marca." data-en="Uniforms that reflect your brand experience.">Uniformes que reflejan la experiencia de marca.</p>
       </div>
       <div class="sector-card">
         <div class="sector-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
         <h4 data-es="Clínicas y hospitales" data-en="Clinics &amp; Hospitals">Clínicas y hospitales</h4>
-        <p data-es="Uniformes médicos antifluido e higiénicos." data-en="Antifluido and hygienic medical uniforms.">Uniformes médicos antifluido e higiénicos.</p>
       </div>
       <div class="sector-card">
         <div class="sector-icon"><svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
         <h4 data-es="Colegios" data-en="Schools">Colegios</h4>
-        <p data-es="Uniformes escolares de alta durabilidad." data-en="High-durability school uniforms.">Uniformes escolares de alta durabilidad.</p>
       </div>
       <div class="sector-card">
         <div class="sector-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
         <h4 data-es="Restaurantes" data-en="Restaurants">Restaurantes</h4>
-        <p data-es="Delantales, camisas y uniformes de servicio." data-en="Aprons, shirts and service uniforms.">Delantales, camisas y uniformes de servicio.</p>
       </div>
       <div class="sector-card">
         <div class="sector-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
         <h4 data-es="Concesionarios" data-en="Dealerships">Concesionarios</h4>
-        <p data-es="Dotación con imagen corporativa premium." data-en="Corporate image premium workwear.">Dotación con imagen corporativa premium.</p>
       </div>
       <div class="sector-card">
         <div class="sector-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
         <h4 data-es="Industria y construcción" data-en="Industry &amp; Construction">Industria y construcción</h4>
-        <p data-es="Ropa industrial resistente y segura." data-en="Resistant and safe industrial clothing.">Ropa industrial resistente y segura.</p>
       </div>
     </div>
-    <div class="logos-strip">
-      <!-- TODO: client logos here when permissions obtained -->
-      <strong data-es="Nuestros clientes" data-en="Our Clients">Nuestros clientes</strong> —
-      <span data-es="Logos de clientes — próximamente" data-en="Client logos — coming soon">Logos de clientes — próximamente</span>
+    <div class="clients-logos">
+      <p class="clients-logos-label" data-es="Algunos de nuestros clientes" data-en="Some of our clients">Algunos de nuestros clientes</p>
+      <!-- TODO: add real client logos -->
+      <div class="clients-logos-grid">
+        <div class="client-logo-box" data-es="Logo cliente" data-en="Client logo">Logo cliente</div>
+        <div class="client-logo-box" data-es="Logo cliente" data-en="Client logo">Logo cliente</div>
+        <div class="client-logo-box" data-es="Logo cliente" data-en="Client logo">Logo cliente</div>
+        <div class="client-logo-box" data-es="Logo cliente" data-en="Client logo">Logo cliente</div>
+        <div class="client-logo-box" data-es="Logo cliente" data-en="Client logo">Logo cliente</div>
+        <div class="client-logo-box" data-es="Logo cliente" data-en="Client logo">Logo cliente</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ BRANDS / PARTNERS ═══════════════ -->
+<section id="brands" class="section-pad">
+  <div class="container">
+    <span class="eyebrow" data-es="Nuestras marcas" data-en="Our Brands">Nuestras marcas</span>
+    <h2 class="section-title" data-es="Trabajamos con las mejores marcas del sector" data-en="We work with the best brands in the industry">Trabajamos con las mejores marcas del sector</h2>
+    <!-- TODO: replace text badges with actual brand logo images when available -->
+    <div class="brands-row">
+      <div class="brand-badge">Coats Group</div>
+      <div class="brand-badge">Madeira</div>
+      <div class="brand-badge">Lafayette</div>
+      <div class="brand-badge">Tajima</div>
+      <div class="brand-badge">Wilcom</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CERTIFICATIONS ═══════════════ -->
+<section id="certifications" class="section-pad">
+  <div class="container">
+    <span class="eyebrow" data-es="Calidad garantizada" data-en="Guaranteed quality">Calidad garantizada</span>
+    <h2 class="section-title" data-es="Certificaciones y respaldo" data-en="Certifications &amp; Backing">Certificaciones y respaldo</h2>
+    <p class="section-subtitle" data-es="Trabajamos con estándares de calidad que respaldan cada pedido" data-en="We operate with quality standards that back every order">Trabajamos con estándares de calidad que respaldan cada pedido</p>
+    <!-- TODO: add actual certification logos/names when client provides them -->
+    <div class="certs-row">
+      <div class="cert-card">
+        <div class="cert-badge" aria-hidden="true"></div>
+        <span data-es="Certificación próximamente" data-en="Certification coming soon">Certificación próximamente</span>
+      </div>
+      <div class="cert-card">
+        <div class="cert-badge" aria-hidden="true"></div>
+        <span data-es="Certificación próximamente" data-en="Certification coming soon">Certificación próximamente</span>
+      </div>
+      <div class="cert-card">
+        <div class="cert-badge" aria-hidden="true"></div>
+        <span data-es="Certificación próximamente" data-en="Certification coming soon">Certificación próximamente</span>
+      </div>
+      <div class="cert-card">
+        <div class="cert-badge" aria-hidden="true"></div>
+        <span data-es="Certificación próximamente" data-en="Certification coming soon">Certificación próximamente</span>
+      </div>
     </div>
   </div>
 </section>
@@ -349,12 +428,20 @@
   <div class="container section-pad">
     <h2 class="section-title" data-es="Lo que dicen nuestros clientes" data-en="What Our Clients Say">Lo que dicen nuestros clientes</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2rem">
-      <div style="background:#fff;border-radius:14px;padding:1.5rem;border:1px solid var(--color-border)"><p>«Testimonio placeholder 1»</p></div>
-      <div style="background:#fff;border-radius:14px;padding:1.5rem;border:1px solid var(--color-border)"><p>«Testimonio placeholder 2»</p></div>
-      <div style="background:#fff;border-radius:14px;padding:1.5rem;border:1px solid var(--color-border)"><p>«Testimonio placeholder 3»</p></div>
+      <div style="background:#fff;border-radius:2px;padding:1.5rem;border:1px solid var(--color-border)"><p>«Testimonio placeholder 1»</p></div>
+      <div style="background:#fff;border-radius:2px;padding:1.5rem;border:1px solid var(--color-border)"><p>«Testimonio placeholder 2»</p></div>
+      <div style="background:#fff;border-radius:2px;padding:1.5rem;border:1px solid var(--color-border)"><p>«Testimonio placeholder 3»</p></div>
     </div>
   </div>
 </section>
+
+<!-- ═══════════════ TEXTURE BAND — el oficio en primer plano ═══════════════ -->
+<div class="texture-band photo-wash">
+  <picture>
+    <source srcset="/img/hero-2.webp" type="image/webp">
+    <img src="/img/hero-2.jpg" alt="Máquina Tajima bordando un parche multicolor en el taller de Bordados Yussi" width="2000" height="2667" loading="lazy">
+  </picture>
+</div>
 
 <!-- ═══════════════ CTA BANNER ═══════════════ -->
 <section id="cta-banner">
@@ -533,6 +620,12 @@
 </footer>
 
 <!-- ═══════════════ FLOATING WHATSAPP ═══════════════ -->
+<div id="wa-bubble" class="wa-bubble" role="status">
+  <button id="wa-bubble-close" class="wa-bubble-close" aria-label="Cerrar mensaje">&#215;</button>
+  <a class="wa-bubble-link" href="https://wa.me/573113858494?text=Hola%20Bordados%20Yussi%2C%20vengo%20desde%20la%20p%C3%A1gina%20web" target="_blank" rel="noopener">
+    <span data-es="¿Necesitas ayuda?" data-en="Need help?">¿Necesitas ayuda?</span>
+  </a>
+</div>
 <a id="fab-wa" href="https://wa.me/573113858494?text=Hola%20Bordados%20Yussi%2C%20vengo%20desde%20la%20p%C3%A1gina%20web" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.988.586 3.84 1.594 5.394L2.039 22l4.744-1.546A9.956 9.956 0 0011.999 22c5.523 0 10-4.477 10-10S17.522 2 11.999 2zm0 18c-1.72 0-3.32-.463-4.703-1.27l-.337-.2-3.498 1.14 1.163-3.39-.22-.35A7.985 7.985 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-7.999 8z"/></svg>
 </a>
