@@ -18,6 +18,10 @@ npm-debug.log*
 .vite/
 skills-lock.json
 
+# Local browser-test artifacts
+.playwright-cli/
+output/
+
 # Env
 .env
 .env.*

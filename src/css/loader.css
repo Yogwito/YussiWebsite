@@ -1,9 +1,9 @@
 #page-loader {
   position: fixed; inset: 0; z-index: 9999;
-  background: var(--color-gradient);
+  background: var(--ink-900);
   display: flex; align-items: center; justify-content: center;
   pointer-events: none;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
+  transition: opacity 0.35s var(--ease-premium), visibility 0.35s var(--ease-premium);
 }
 #page-loader.hidden { opacity: 0; visibility: hidden; }
 
@@ -12,10 +12,10 @@
   height: auto;
   object-fit: contain;
   border-radius: var(--radius-md);
-  animation: loader-logo-pulse 0.6s ease both;
+  animation: loader-logo-pulse 0.5s var(--ease-premium) both;
 }
 
 @keyframes loader-logo-pulse {
-  from { opacity: 0; transform: scale(0.96); }
-  to { opacity: 1; transform: scale(1); }
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }

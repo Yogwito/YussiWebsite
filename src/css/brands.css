@@ -1,27 +1,93 @@
-/* Brands / Partners — full-bleed linen band, flat tiles matching sector blocks */
+/* Brands / Partners — continuous supplier ribbon */
 #brands { background: var(--color-surface); }
-.brands-row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--grid-gap);
+
+.brands-marquee {
+  --brand-gap: clamp(4rem, 8vw, 8rem);
+  position: relative;
+  overflow: hidden;
   margin-top: var(--space-12);
+  border-top: 1px solid var(--navy-100);
+  border-bottom: 1px solid var(--navy-100);
+  background: rgba(255,255,255,0.48);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
 }
-@media (min-width: 768px) { .brands-row { grid-template-columns: repeat(5, 1fr); } }
-.brand-badge {
-  background: var(--paper);
-  border: 1px solid var(--navy-100);
-  border-radius: var(--radius-card); /* 2px */
-  padding: var(--space-6) var(--space-4);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-body); font-weight: 600;
-  font-size: var(--text-md);
-  color: var(--navy-800);
-  text-align: center;
-  letter-spacing: var(--track-tight);
-  transition: border-color 0.25s;
+
+.brands-track {
+  display: flex;
+  width: max-content;
+  animation: brands-scroll 46s linear infinite;
+  will-change: transform;
 }
-.brand-badge:hover { border-color: var(--navy-500); }
+
+.brands-marquee:hover .brands-track { animation-play-state: paused; }
+
+.brands-set {
+  display: flex;
+  align-items: center;
+  gap: var(--brand-gap);
+  padding: var(--space-6) var(--brand-gap) var(--space-6) 0;
+}
+
+.brand-logo {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: 0 0 clamp(150px, 15vw, 210px);
+  height: 86px;
+}
+
+.brand-logo img {
+  width: 100%;
+  height: 72px;
+  object-fit: contain;
+  filter: saturate(0.88);
+}
+
+.brand-logo--coats img {
+  height: 84px;
+  transform: scale(1.52);
+  transform-origin: center;
+}
+.brand-logo--lafayette img { height: 78px; }
+.brand-logo--flexfit img,
+.brand-logo--wilcom img { height: 58px; }
+.brand-logo--tajima img {
+  width: 92%;
+  height: 64px;
+  object-position: center;
+}
+
+/* The supplied Madeira file is square with large transparent margins. */
+.brand-logo--madeira img {
+  height: 72px;
+  object-fit: cover;
+  object-position: 50% 58%;
+}
+
+@keyframes brands-scroll {
+  to { transform: translateX(-50%); }
+}
 
 @media (max-width: 767px) {
-  .brands-row { gap: var(--grid-gap-mobile); }
+  .brands-marquee {
+    --brand-gap: 3.5rem;
+    margin-top: var(--space-8);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  }
+  .brands-set { padding-block: var(--space-5); }
+  .brand-logo { flex-basis: 145px; height: 72px; }
+  .brand-logo img { max-height: 64px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brands-marquee {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+    scrollbar-width: thin;
+  }
+  .brands-track { animation: none; }
+  .brands-set[aria-hidden="true"] { display: none; }
 }

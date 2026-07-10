@@ -15,17 +15,17 @@
   font-family: var(--font-display); font-weight: 600; font-size: 1.125rem; /* 18 */
   color: var(--ink-900); text-align: left;
   line-height: var(--line-snug);
-  transition: color 0.2s;
+  transition: color var(--motion-fast) ease;
 }
 .faq-question:hover { color: var(--navy-700); }
 .faq-item.open .faq-question { color: var(--navy-700); }
-.faq-arrow { flex-shrink: 0; transition: transform 0.3s ease; color: var(--thread-accent); }
+.faq-arrow { flex-shrink: 0; transition: transform var(--motion-base) var(--ease-premium); color: var(--thread-accent); }
 .faq-item.open .faq-arrow { transform: rotate(180deg); }
 
 /* Grid-based accordion — no JS height measurement needed */
 .faq-answer {
   display: grid; grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s ease;
+  transition: grid-template-rows var(--motion-base) var(--ease-premium);
 }
 .faq-item.open .faq-answer { grid-template-rows: 1fr; }
 .faq-answer > p {
@@ -33,6 +33,6 @@
   font-size: var(--text-base); color: var(--color-text-light);
   margin: 0; line-height: var(--line-relaxed);
   padding: 0;
-  transition: padding 0.35s ease;
+  transition: padding var(--motion-base) var(--ease-premium);
 }
 .faq-item.open .faq-answer > p { padding: 0 0 var(--space-5); }

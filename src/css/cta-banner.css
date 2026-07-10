@@ -9,9 +9,10 @@
 /* a sewn seam runs across the top of the band */
 #cta-banner::before {
   content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background-image: repeating-linear-gradient(90deg,
-    var(--thread-accent) 0 9px, transparent 9px 15px);
+  position: absolute; top: 0; left: 0; right: 0; height: 8px;
+  background-image: var(--stitch-seam);
+  background-size: var(--stitch-seam-size);
+  background-repeat: repeat-x;
 }
 #cta-banner .container { position: relative; z-index: 1; }
 #cta-banner h2 {

@@ -51,21 +51,22 @@
 /* sewn seam along the top edge of the stat block */
 .about-stats::before {
   content: '';
-  position: absolute; left: var(--space-8); right: var(--space-8); top: 0;
-  height: 3px;
-  background-image: repeating-linear-gradient(90deg,
-    var(--thread-accent) 0 9px, transparent 9px 15px);
+  position: absolute; left: var(--space-8); right: var(--space-8); top: -4px;
+  height: 8px;
+  background-image: var(--stitch-seam);
+  background-size: var(--stitch-seam-size);
+  background-repeat: repeat-x;
 }
 .stat { text-align: left; }
 .stat-num {
-  font-family: var(--font-display); font-weight: 700;
+  font-family: var(--font-display); font-weight: 400;
   font-size: var(--text-2xl); color: var(--navy-800); line-height: 1;
   letter-spacing: var(--track-tight);
   font-variant-numeric: tabular-nums;
 }
 .stat-label {
   font-family: var(--font-mono); font-size: var(--text-xs);
-  letter-spacing: 0.04em; text-transform: uppercase;
+  letter-spacing: 0; text-transform: uppercase;
   color: var(--navy-700); margin-top: var(--space-2); max-width: 8rem;
 }
 

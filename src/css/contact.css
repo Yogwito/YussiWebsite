@@ -31,7 +31,7 @@
 }
 .hours-table { width: 100%; border-collapse: collapse; margin-top: var(--space-4); font-size: var(--text-sm); }
 .hours-table td { padding: 0.4rem 0; }
-.hours-table td:first-child { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0.03em; color: var(--ink-900); width: 96px; }
+.hours-table td:first-child { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0; color: var(--ink-900); width: 96px; }
 .hours-table td:last-child { color: var(--color-text-light); }
 .map-placeholder { margin-top: var(--space-6); aspect-ratio: 16/9; border-radius: var(--radius-card); }
 .contact-form { background: var(--paper); border-radius: var(--radius-card); padding: var(--space-8); border: 1px solid var(--navy-100); display: flex; flex-direction: column; }
@@ -39,7 +39,7 @@
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
 .form-group { display: flex; flex-direction: column; gap: 0.375rem; }
 .form-group.full { grid-column: 1 / -1; }
-label { font-family: var(--font-mono); font-size: var(--text-xs); font-weight: 500; letter-spacing: 0.03em; color: var(--ink-900); }
+label { font-family: var(--font-mono); font-size: var(--text-xs); font-weight: 600; letter-spacing: 0; color: var(--ink-900); }
 input, select, textarea {
   border: 1.5px solid var(--color-border-strong); border-radius: var(--radius-sm);
   padding: 0.7rem 0.875rem; font-family: var(--font-body); font-size: var(--text-sm);

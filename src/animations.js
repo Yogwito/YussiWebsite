@@ -10,7 +10,7 @@ export function initAnimations() {
   if (prefersReduced) return
 
   initLogo()
-  initHeroStory()
+  initHeroMotion()
   initScrollReveals()
   initStatCounters()
 
@@ -18,10 +18,6 @@ export function initAnimations() {
   mm.add('(min-width: 768px)', () => {
     initParallax()
     initProcessLine()
-    return () => {}
-  })
-  mm.add('(hover: hover) and (pointer: fine) and (min-width: 900px)', () => {
-    initMagneticButtons()
     return () => {}
   })
 }
@@ -53,7 +49,7 @@ function initLoader(skip) {
 
 function initLogo() {
   const logo = document.querySelector('.nav-logo')
-  if (logo) gsap.from(logo, { scale: 0.9, opacity: 0, duration: 0.4, ease: 'power2.out' })
+  if (logo) gsap.from(logo, { opacity: 0, y: -8, duration: 0.7, ease: 'power3.out' })
 }
 
 // ─── Hero background video ───────────────────────────────────────────────────
@@ -68,94 +64,57 @@ function loadHeroVideo(video, isMobile) {
   const slowNetwork = conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ''))
   if (slowNetwork) return
 
-  // Scrub-optimized encodes (5-frame GOP) so seeking tracks the scrollbar
+  // Lightweight encodes selected per viewport.
   const mp4 = document.createElement('source')
   mp4.src = isMobile ? '/img/hero-video-scrub-mobile.mp4' : '/img/hero-video-scrub.mp4'
   mp4.type = 'video/mp4'
   video.append(mp4)
   video.load()
-  video.pause()
+
+  video.loop = true
+  video.playbackRate = 0.72
+
+  video.addEventListener('loadedmetadata', () => {
+    video.play().then(() => {
+      video.removeAttribute('poster')
+    }).catch(() => {})
+  }, { once: true })
 }
 
 // ─── Hero ────────────────────────────────────────────────────────────────────
 
-function splitWords(el) {
-  const text = el.textContent.trim()
-  el.innerHTML = ''
-  text.split(/\s+/).forEach((word, i, arr) => {
-    const span = document.createElement('span')
-    span.style.cssText = 'display:inline-block'
-    span.textContent = word
-    el.appendChild(span)
-    if (i < arr.length - 1) el.appendChild(document.createTextNode(' '))
-  })
-  return el.querySelectorAll('span')
-}
-
-// The hero pins while the user scrolls through it: the story opens on a dark
-// veil with the brand mark, then the veil lifts and the footage scrubs forward
-// in lockstep with the scrollbar while the copy builds up piece by piece
-// (badge → headline → subtitle → CTAs). Everything stays visible at the end so
-// the CTAs are clickable before the section unpins. Only runs when motion is
-// allowed; without JS the veil/brand layers stay hidden and the hero is static.
-function initHeroStory() {
-  const veil = document.querySelector('.hero-veil')
-  const brand = document.querySelector('.hero-brand')
-  const hint = document.querySelector('.hero-scroll-hint')
+function initHeroMotion() {
   const video = document.getElementById('hero-video')
-  const h1 = document.querySelector('#hero h1')
-  if (!veil || !brand || !h1) return
+  const hero = document.querySelector('#hero')
+  if (!hero) return
 
   const isMobile = window.innerWidth < 768
   loadHeroVideo(video, isMobile)
 
-  const words = splitWords(h1)
   const badge = document.querySelector('.hero-badge')
+  const h1 = document.querySelector('#hero h1')
   const subtitle = document.querySelector('#hero .hero-content > p')
   const buttons = document.querySelectorAll('.hero-buttons > *')
 
-  // Opening state — set from JS so a no-JS/reduced-motion visit never sees it
-  gsap.set(veil, { opacity: 1 })
-  gsap.set(brand, { opacity: 0, scale: 0.92 })
-  if (hint) gsap.set(hint, { opacity: 1 })
-  gsap.set(words, { opacity: 0, y: 40 })
-  if (badge) gsap.set(badge, { opacity: 0, y: 24 })
-  if (subtitle) gsap.set(subtitle, { opacity: 0, y: 24 })
-  if (buttons.length) gsap.set(buttons, { opacity: 0, y: 20 })
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.12 })
+  if (video) tl.fromTo(video, { scale: 1.035 }, { scale: 1, duration: 1.8 }, 0)
+  if (badge) tl.from(badge, { opacity: 0, y: 12, duration: 0.75 }, 0.12)
+  if (h1) tl.from(h1, { opacity: 0, y: 24, duration: 1.05 }, 0.22)
+  if (subtitle) tl.from(subtitle, { opacity: 0, y: 18, duration: 0.85 }, 0.48)
+  if (buttons.length) tl.from(buttons, { opacity: 0, y: 14, duration: 0.75, stagger: 0.1 }, 0.66)
 
-  const scrub = { t: 0 }
-  const applyVideoTime = () => {
-    if (video && video.duration) video.currentTime = video.duration * scrub.t
+  if (video) {
+    gsap.to(video, {
+      yPercent: 4,
+      scale: 1.025,
+      ease: 'none',
+      scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 1.2 }
+    })
   }
-
-  // Timeline positions are abstract units over a 10-unit story; the pin
-  // distance below decides how much real scrolling those units map to.
-  const tl = gsap.timeline({
-    defaults: { ease: 'power2.out' },
-    scrollTrigger: {
-      trigger: '#hero',
-      start: 'top top',
-      end: isMobile ? '+=220%' : '+=320%',
-      pin: true,
-      scrub: 1,
-      anticipatePin: 1
-    }
-  })
-
-  tl.to(brand, { opacity: 1, scale: 1, duration: 1.2 }, 0)
-  if (hint) tl.to(hint, { opacity: 0, duration: 0.6, ease: 'power1.out' }, 1.0)
-  tl.to(scrub, { t: 1, duration: 8.2, ease: 'none', onUpdate: applyVideoTime }, 1.0)
-    .to(veil, { opacity: 0, duration: 1.8, ease: 'power1.inOut' }, 1.6)
-    .to(brand, { opacity: 0, y: -50, duration: 1.0, ease: 'power1.in' }, 3.0)
-  if (badge) tl.to(badge, { opacity: 1, y: 0, duration: 0.7 }, 4.0)
-  tl.to(words, { opacity: 1, y: 0, duration: 1.1, stagger: 0.07 }, 4.3)
-  if (subtitle) tl.to(subtitle, { opacity: 1, y: 0, duration: 0.8 }, 6.0)
-  if (buttons.length) tl.to(buttons, { opacity: 1, y: 0, duration: 0.8, stagger: 0.2 }, 7.0)
-  tl.to({}, { duration: 1.5 }, 8.5) // hold: full composition over the final frames
 }
 
 // ─── Photo parallax (desktop only) ───────────────────────────────────────────
-// The hero footage is scroll-scrubbed by initHeroStory, so no extra zoom there.
+// Secondary photography receives only a very small depth shift.
 
 function initParallax() {
   // Subtle Ken-Burns drift on secondary photography,
@@ -170,7 +129,7 @@ function initParallax() {
     gsap.fromTo(el,
       { scale: 1.0 },
       {
-        scale: 1.1, ease: 'none',
+        scale: 1.045, ease: 'none',
         scrollTrigger: { trigger, start: 'top bottom', end: 'bottom top', scrub: 1.5 }
       }
     )
@@ -198,7 +157,7 @@ function initProcessLine() {
 
 function initScrollReveals() {
   const isMobile = window.innerWidth < 768
-  const dist = isMobile ? 15 : 30
+  const dist = isMobile ? 12 : 22
 
   // Section headers (eyebrow / title / subtitle) — every section gets the same
   // quiet fade-up as it's approached, except About's own header which already
@@ -209,7 +168,7 @@ function initScrollReveals() {
   if (headerEls.length) {
     ScrollTrigger.batch(headerEls, {
       onEnter: (batch) => gsap.from(batch, {
-        opacity: 0, y: dist * 0.6, duration: 0.55, stagger: 0.08, ease: 'power2.out',
+        opacity: 0, y: dist * 0.6, duration: 0.75, stagger: 0.07, ease: 'power3.out',
         clearProps: 'transform,opacity'
       }),
       start: 'top 90%',
@@ -221,7 +180,7 @@ function initScrollReveals() {
     if (!document.querySelector(selector)) return
     ScrollTrigger.batch(selector, {
       onEnter: batch => gsap.from(batch, {
-        opacity: 0, y: dist, duration: 0.6, stagger: 0.1, ease: 'power2.out',
+        opacity: 0, y: dist, duration: 0.78, stagger: 0.08, ease: 'power3.out',
         clearProps: 'transform,opacity',
         ...overrides
       }),
@@ -233,17 +192,15 @@ function initScrollReveals() {
   batchReveal('.why-card')
   batchReveal('.service-card')
   batchReveal('.sector-card', { stagger: 0.08 })
-  batchReveal('.client-logo-box', { y: dist * 0.5, stagger: 0.05, duration: 0.45 })
-  batchReveal('.brand-badge', { stagger: 0.08 })
   batchReveal('.cert-card', { stagger: 0.08 })
   batchReveal('.faq-item', { y: dist * 0.5, stagger: 0.07, duration: 0.5 })
   batchReveal('.contact-grid > *', { stagger: 0.15 })
 
-  // Process — scale entrance
+  // Process — quiet sequential entrance
   if (document.querySelector('.process-step')) {
     ScrollTrigger.batch('.process-step', {
       onEnter: batch => gsap.from(batch, {
-        opacity: 0, scale: 0.88, duration: 0.5, stagger: 0.12, ease: 'back.out(1.4)',
+        opacity: 0, y: dist, duration: 0.8, stagger: 0.1, ease: 'power3.out',
         clearProps: 'transform,opacity'
       }),
       start: 'top 88%', once: true
@@ -255,25 +212,25 @@ function initScrollReveals() {
   if (aboutGrid) {
     gsap.from('.about-text', {
       opacity: 0, x: isMobile ? 0 : -40, y: isMobile ? dist : 0,
-      duration: 0.7, ease: 'power2.out',
+      duration: 0.9, ease: 'power3.out',
       scrollTrigger: { trigger: '.about-grid', start: 'top 82%', once: true }
     })
     gsap.from('.about-photo', {
       opacity: 0, x: isMobile ? 0 : 40, y: isMobile ? dist : 0,
-      duration: 0.7, ease: 'power2.out', delay: 0.15,
+      duration: 0.9, ease: 'power3.out', delay: 0.1,
       scrollTrigger: { trigger: '.about-grid', start: 'top 82%', once: true }
     })
   }
 
   // CTA banner content
   gsap.from('#cta-banner .container > *', {
-    opacity: 0, y: dist * 0.8, duration: 0.6, stagger: 0.15, ease: 'power2.out',
+    opacity: 0, y: dist * 0.8, duration: 0.8, stagger: 0.1, ease: 'power3.out',
     scrollTrigger: { trigger: '#cta-banner', start: 'top 85%', once: true }
   })
 
   // Footer
   gsap.from('#footer', {
-    opacity: 0, y: dist * 0.5, duration: 0.55, ease: 'power2.out',
+    opacity: 0, y: dist * 0.5, duration: 0.75, ease: 'power3.out',
     scrollTrigger: { trigger: '#footer', start: 'top 92%', once: true }
   })
 }
@@ -294,36 +251,11 @@ function initStatCounters() {
     const counter = { val: 0 }
     gsap.to(counter, {
       val: target,
-      duration: 1.4,
-      ease: 'power2.out',
+      duration: 1.1,
+      ease: 'power1.out',
       snap: { val: 1 },
       onUpdate: () => { el.textContent = prefix + counter.val + suffix },
       scrollTrigger: { trigger: el, start: 'top 88%', once: true }
-    })
-  })
-}
-
-// ─── Magnetic buttons (desktop, fine pointer only) ──────────────────────────
-// The primary CTA pills pull gently toward the cursor within their own bounds,
-// then spring back on leave — a small, tactile premium touch.
-
-function initMagneticButtons() {
-  const targets = document.querySelectorAll('.hero-buttons .btn, #cta-banner .btn')
-  targets.forEach((btn) => {
-    const strength = 0.35
-    const xTo = gsap.quickTo(btn, 'x', { duration: 0.4, ease: 'power3.out' })
-    const yTo = gsap.quickTo(btn, 'y', { duration: 0.4, ease: 'power3.out' })
-
-    btn.addEventListener('mousemove', (e) => {
-      const rect = btn.getBoundingClientRect()
-      const relX = e.clientX - (rect.left + rect.width / 2)
-      const relY = e.clientY - (rect.top + rect.height / 2)
-      xTo(relX * strength)
-      yTo(relY * strength)
-    })
-    btn.addEventListener('mouseleave', () => {
-      xTo(0)
-      yTo(0)
     })
   })
 }

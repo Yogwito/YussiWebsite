@@ -14,7 +14,7 @@
   border-radius: var(--radius-card); /* 2px */
   padding: var(--card-padding-lg) var(--card-padding);
   text-align: center;
-  transition: border-color 0.25s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: border-color var(--motion-base) ease, transform var(--motion-base) var(--ease-premium);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -24,8 +24,7 @@
 @media (hover: hover) and (min-width: 768px) {
   .sector-card:hover {
     border-color: var(--navy-500);
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-2);
+    transform: translateY(-2px);
   }
 }
 .sector-card:hover { border-color: var(--navy-500); }
@@ -37,11 +36,11 @@
   width: 56px; height: 56px;
   fill: none; stroke: var(--navy-700); stroke-width: 2;
   stroke-linecap: round; stroke-linejoin: round;
-  transition: stroke 0.25s, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: stroke var(--motion-base) ease, transform var(--motion-base) var(--ease-premium);
 }
 .sector-card:hover .sector-icon svg { stroke: var(--thread-accent); }
 @media (hover: hover) and (min-width: 768px) {
-  .sector-card:hover .sector-icon svg { transform: scale(1.08); }
+  .sector-card:hover .sector-icon svg { transform: scale(1.03); }
 }
 .sector-card h4 {
   font-size: var(--text-lg); color: var(--navy-800);

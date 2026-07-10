@@ -49,7 +49,7 @@
   transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
   font-family: var(--font-mono); font-size: 0.6875rem;
-  letter-spacing: 0.18em; text-transform: uppercase;
+  letter-spacing: 0; text-transform: uppercase;
   color: rgba(255,255,255,0.75);
   opacity: 0;
   pointer-events: none;
@@ -84,18 +84,21 @@
   padding-left: 28px;
   position: relative;
 }
-/* one earned gold accent: a single solid tick before the badge */
+/* one earned accent: a short run of stitches before the badge */
 .hero-badge::before {
   content: '';
   position: absolute; left: 0; top: 50%; transform: translateY(-50%);
-  width: 20px; height: 2px;
-  background: var(--thread-accent);
+  width: 20px; height: 6px;
+  background-image: var(--stitch-seam-sm);
+  background-size: var(--stitch-seam-sm-size);
+  background-repeat: repeat-x;
 }
 
 .hero-content h1 {
   font-size: var(--text-hero);
-  line-height: 1.02;
-  letter-spacing: -0.03em;
+  line-height: 0.98;
+  letter-spacing: 0;
+  font-weight: 400;
   margin-bottom: var(--space-5);
   color: #fff;
 }

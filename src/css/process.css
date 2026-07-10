@@ -11,13 +11,11 @@
 /* The running stitch that sews the steps together (desktop, GSAP clip wipe) */
 .process-connector {
   display: none;
-  position: absolute; top: 4.25rem; left: 12.5%; right: 12.5%;
-  height: 3px; z-index: 0;
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--thread-accent) 0 9px,
-    transparent 9px 15px
-  );
+  position: absolute; top: 4.1rem; left: 12.5%; right: 12.5%;
+  height: 8px; z-index: 0;
+  background-image: var(--stitch-seam);
+  background-size: var(--stitch-seam-size);
+  background-repeat: repeat-x;
   pointer-events: none;
 }
 @media (min-width: 768px) { .process-connector { display: block; } }
@@ -30,13 +28,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease;
+  transition: transform var(--motion-base) var(--ease-premium), border-color var(--motion-base) ease;
 }
 @media (hover: hover) and (min-width: 768px) {
   .process-step:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-2);
-    border-color: var(--navy-100);
+    transform: translateY(-2px);
+    border-color: var(--navy-500);
   }
 }
 .step-marker {
@@ -47,11 +44,11 @@
 .step-icon {
   display: flex; align-items: center; justify-content: center;
   margin: var(--space-4) auto var(--space-5);
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform var(--motion-base) var(--ease-premium);
 }
 .step-icon svg { width: 40px; height: 40px; fill: none; stroke: var(--navy-700); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 @media (hover: hover) and (min-width: 768px) {
-  .process-step:hover .step-icon { transform: translateY(-3px) scale(1.06); }
+  .process-step:hover .step-icon { transform: translateY(-2px); }
 }
 .process-step h3 {
   font-size: var(--text-card-title); color: var(--navy-800);

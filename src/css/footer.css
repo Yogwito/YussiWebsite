@@ -6,19 +6,13 @@
 /* sewn seam along the very top of the footer */
 #footer::before {
   content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background-image: repeating-linear-gradient(90deg,
-    var(--thread-accent) 0 9px, transparent 9px 15px);
+  position: absolute; top: 0; left: 0; right: 0; height: 8px;
+  background-image: var(--stitch-seam);
+  background-size: var(--stitch-seam-size);
+  background-repeat: repeat-x;
 }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: var(--space-12); margin-bottom: var(--space-10); }
 .footer-brand p { font-size: var(--text-sm); color: rgba(255,255,255,0.78); margin-top: var(--space-4); max-width: 18rem; line-height: var(--line-relaxed); }
-.footer-logo-wrap {
-  display: inline-flex;
-  align-items: center;
-  background: #fff;
-  border-radius: var(--radius-md);
-  padding: 10px 14px;
-}
 .footer-logo-img {
   max-height: 56px;
   max-width: 190px;
@@ -45,7 +39,7 @@
 .footer-social svg { width: 18px; height: 18px; fill: #fff; }
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.14); padding-top: var(--space-5); text-align: center;
-  font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0.02em;
+  font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: 0;
   color: rgba(255,255,255,0.6);
 }
 
@@ -56,12 +50,12 @@
   background: var(--color-cta); color: #fff;
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 8px 20px rgba(37,211,102,0.32);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform var(--motion-fast) var(--ease-premium), box-shadow var(--motion-base) ease;
 }
 #fab-wa:hover { box-shadow: 0 10px 24px rgba(37,211,102,0.4); }
 #fab-wa svg { width: 30px; height: 30px; fill: #fff; }
 
-/* Chat bubble — appears left of the button 3s after load (JS adds .visible) */
+/* Chat bubble — a delayed, single-session prompt on desktop. */
 .wa-bubble {
   position: fixed;
   bottom: 2.35rem; /* vertically centered on the 60px fab */
@@ -75,7 +69,7 @@
   visibility: hidden;
   transform: translateX(14px);
   pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+  transition: opacity var(--motion-base) var(--ease-premium), transform var(--motion-base) var(--ease-premium), visibility var(--motion-base);
 }
 .wa-bubble.visible {
   opacity: 1;
@@ -124,10 +118,6 @@
   .footer-grid {
     grid-template-columns: 1fr;
     gap: var(--space-8);
-  }
-  .footer-logo-wrap {
-    border-radius: var(--radius-md);
-    padding: 9px 12px;
   }
   .footer-logo-img {
     max-height: 46px;
