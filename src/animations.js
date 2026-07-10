@@ -10,7 +10,7 @@ export function initAnimations() {
   if (prefersReduced) return
 
   initLogo()
-  initHeroMotion()
+  initHeroStory()
   initScrollReveals()
   initStatCounters()
 
@@ -64,53 +64,104 @@ function loadHeroVideo(video, isMobile) {
   const slowNetwork = conn && (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || ''))
   if (slowNetwork) return
 
-  // Lightweight encodes selected per viewport.
+  // Scrub-optimized encodes (5-frame GOP) so seeking tracks the scrollbar
   const mp4 = document.createElement('source')
   mp4.src = isMobile ? '/img/hero-video-scrub-mobile.mp4' : '/img/hero-video-scrub.mp4'
   mp4.type = 'video/mp4'
   video.append(mp4)
   video.load()
 
-  video.loop = true
-  video.playbackRate = 0.72
-
+  // Browsers keep showing the poster until playback starts at least once —
+  // seeking via currentTime alone never swaps in the first frame (notably
+  // Safari/iOS). Kick the decoder with a muted play→pause, then drop the
+  // poster so scrubbed frames are what's on screen.
   video.addEventListener('loadedmetadata', () => {
     video.play().then(() => {
+      video.pause()
+      video.currentTime = 0
       video.removeAttribute('poster')
-    }).catch(() => {})
+    }).catch(() => {}) // if blocked, poster stays — acceptable fallback
   }, { once: true })
 }
 
-// ─── Hero ────────────────────────────────────────────────────────────────────
+// ─── Hero scroll story ───────────────────────────────────────────────────────
+// The hero pins while the user scrolls through it: the story opens on a dark
+// veil with the brand mark, then the veil lifts and the footage scrubs forward
+// in lockstep with the scrollbar while the copy builds up piece by piece
+// (badge → headline → subtitle → CTAs). Everything stays visible at the end so
+// the CTAs are clickable before the section unpins. Only runs when motion is
+// allowed; without JS the veil/brand layers stay hidden and the hero is static.
 
-function initHeroMotion() {
+function splitWords(el) {
+  const text = el.textContent.trim()
+  el.innerHTML = ''
+  text.split(/\s+/).forEach((word, i, arr) => {
+    const span = document.createElement('span')
+    span.style.cssText = 'display:inline-block'
+    span.textContent = word
+    el.appendChild(span)
+    if (i < arr.length - 1) el.appendChild(document.createTextNode(' '))
+  })
+  return el.querySelectorAll('span')
+}
+
+function initHeroStory() {
+  const veil = document.querySelector('.hero-veil')
+  const brand = document.querySelector('.hero-brand')
+  const hint = document.querySelector('.hero-scroll-hint')
   const video = document.getElementById('hero-video')
-  const hero = document.querySelector('#hero')
-  if (!hero) return
+  const h1 = document.querySelector('#hero h1')
+  if (!veil || !brand || !h1) return
 
   const isMobile = window.innerWidth < 768
   loadHeroVideo(video, isMobile)
 
+  const words = splitWords(h1)
   const badge = document.querySelector('.hero-badge')
-  const h1 = document.querySelector('#hero h1')
   const subtitle = document.querySelector('#hero .hero-content > p')
   const buttons = document.querySelectorAll('.hero-buttons > *')
 
-  const tl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.12 })
-  if (video) tl.fromTo(video, { scale: 1.035 }, { scale: 1, duration: 1.8 }, 0)
-  if (badge) tl.from(badge, { opacity: 0, y: 12, duration: 0.75 }, 0.12)
-  if (h1) tl.from(h1, { opacity: 0, y: 24, duration: 1.05 }, 0.22)
-  if (subtitle) tl.from(subtitle, { opacity: 0, y: 18, duration: 0.85 }, 0.48)
-  if (buttons.length) tl.from(buttons, { opacity: 0, y: 14, duration: 0.75, stagger: 0.1 }, 0.66)
+  // Opening state — set from JS so a no-JS/reduced-motion visit never sees it
+  gsap.set(veil, { opacity: 1 })
+  gsap.set(brand, { opacity: 0, scale: 0.92 })
+  if (hint) gsap.set(hint, { opacity: 1 })
+  gsap.set(words, { opacity: 0, y: 40 })
+  if (badge) gsap.set(badge, { opacity: 0, y: 24 })
+  if (subtitle) gsap.set(subtitle, { opacity: 0, y: 24 })
+  if (buttons.length) gsap.set(buttons, { opacity: 0, y: 20 })
 
-  if (video) {
-    gsap.to(video, {
-      yPercent: 4,
-      scale: 1.025,
-      ease: 'none',
-      scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 1.2 }
-    })
+  const scrub = { t: 0 }
+  const applyVideoTime = () => {
+    // Clamp shy of the true end — seeking to exact duration can render black
+    if (video && video.duration) {
+      video.currentTime = Math.min(video.duration * scrub.t, video.duration - 0.05)
+    }
   }
+
+  // Timeline positions are abstract units over a 10-unit story; the pin
+  // distance below decides how much real scrolling those units map to.
+  const tl = gsap.timeline({
+    defaults: { ease: 'power2.out' },
+    scrollTrigger: {
+      trigger: '#hero',
+      start: 'top top',
+      end: isMobile ? '+=220%' : '+=320%',
+      pin: true,
+      scrub: 1,
+      anticipatePin: 1
+    }
+  })
+
+  tl.to(brand, { opacity: 1, scale: 1, duration: 1.2 }, 0)
+  if (hint) tl.to(hint, { opacity: 0, duration: 0.6, ease: 'power1.out' }, 1.0)
+  tl.to(scrub, { t: 1, duration: 8.2, ease: 'none', onUpdate: applyVideoTime }, 1.0)
+    .to(veil, { opacity: 0, duration: 1.8, ease: 'power1.inOut' }, 1.6)
+    .to(brand, { opacity: 0, y: -50, duration: 1.0, ease: 'power1.in' }, 3.0)
+  if (badge) tl.to(badge, { opacity: 1, y: 0, duration: 0.7 }, 4.0)
+  tl.to(words, { opacity: 1, y: 0, duration: 1.1, stagger: 0.07 }, 4.3)
+  if (subtitle) tl.to(subtitle, { opacity: 1, y: 0, duration: 0.8 }, 6.0)
+  if (buttons.length) tl.to(buttons, { opacity: 1, y: 0, duration: 0.8, stagger: 0.2 }, 7.0)
+  tl.to({}, { duration: 1.5 }, 8.5) // hold: full composition over the final frames
 }
 
 // ─── Photo parallax (desktop only) ───────────────────────────────────────────

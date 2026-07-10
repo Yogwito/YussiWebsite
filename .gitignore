@@ -35,3 +35,6 @@ public/img/FOTOS WEB/
 # webp/jpg pairs in public/img/.
 public/img/originals/
 .claude/
+
+# Full-res brand logo backups (site uses the trimmed versions)
+public/marcasAsociadas/originals/

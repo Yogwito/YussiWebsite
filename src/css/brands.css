@@ -26,44 +26,34 @@
   display: flex;
   align-items: center;
   gap: var(--brand-gap);
+  /* right padding == gap so the seam between repeating sets matches the
+     internal rhythm (no crowding where Tajima meets the next Coats) */
   padding: var(--space-6) var(--brand-gap) var(--space-6) 0;
 }
 
+/* Logos are pre-trimmed to their content bounds, so a natural-width box +
+   constant gap gives even edge-to-edge spacing. Per-brand heights are tuned
+   for optical balance (emblems read a touch taller, wide wordmarks shorter). */
 .brand-logo {
   position: relative;
   display: grid;
   place-items: center;
-  flex: 0 0 clamp(150px, 15vw, 210px);
-  height: 86px;
+  flex: 0 0 auto;
+  height: 88px;
 }
 
 .brand-logo img {
-  width: 100%;
-  height: 72px;
+  width: auto;
   object-fit: contain;
   filter: saturate(0.88);
 }
 
-.brand-logo--coats img {
-  height: 84px;
-  transform: scale(1.52);
-  transform-origin: center;
-}
-.brand-logo--lafayette img { height: 78px; }
-.brand-logo--flexfit img,
-.brand-logo--wilcom img { height: 58px; }
-.brand-logo--tajima img {
-  width: 92%;
-  height: 64px;
-  object-position: center;
-}
-
-/* The supplied Madeira file is square with large transparent margins. */
-.brand-logo--madeira img {
-  height: 72px;
-  object-fit: cover;
-  object-position: 50% 58%;
-}
+.brand-logo--coats img     { height: 62px; }  /* square emblem */
+.brand-logo--lafayette img { height: 54px; }
+.brand-logo--tajima img    { height: 46px; }
+.brand-logo--wilcom img    { height: 34px; }  /* wide wordmark */
+.brand-logo--flexfit img   { height: 34px; }  /* wide wordmark */
+.brand-logo--madeira img   { height: 30px; }  /* ultra-wide wordmark */
 
 @keyframes brands-scroll {
   to { transform: translateX(-50%); }
@@ -77,8 +67,14 @@
     mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
   }
   .brands-set { padding-block: var(--space-5); }
-  .brand-logo { flex-basis: 145px; height: 72px; }
-  .brand-logo img { max-height: 64px; }
+  .brand-logo { height: 68px; }
+  /* scale every logo down proportionally on small screens */
+  .brand-logo--coats img     { height: 50px; }
+  .brand-logo--lafayette img { height: 44px; }
+  .brand-logo--tajima img    { height: 38px; }
+  .brand-logo--wilcom img,
+  .brand-logo--flexfit img   { height: 28px; }
+  .brand-logo--madeira img   { height: 25px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
