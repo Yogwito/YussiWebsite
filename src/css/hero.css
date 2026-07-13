@@ -25,52 +25,26 @@
     rgba(12,26,51,0.10) 100%);
 }
 
-/* ─── Scroll-story layers ─────────────────────────────────────────────────────
-   All hidden by default so the hero renders normally without JS or with
-   reduced motion; GSAP activates them only when the pinned sequence runs. */
-.hero-veil {
-  position: absolute; inset: 0; z-index: 4;
-  background: var(--ink-900);
-  opacity: 0;
-  pointer-events: none;
-}
-.hero-brand {
-  position: absolute; z-index: 5;
-  left: 50%; top: 50%;
-  width: min(56vw, 460px); height: auto;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  pointer-events: none;
-  filter: drop-shadow(0 4px 24px rgba(12,26,51,0.45));
-}
-.hero-scroll-hint {
-  position: absolute; z-index: 5;
-  left: 50%; bottom: 2rem;
-  transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
-  font-family: var(--font-mono); font-size: 0.6875rem;
-  letter-spacing: 0; text-transform: uppercase;
-  color: rgba(255,255,255,0.75);
-  opacity: 0;
-  pointer-events: none;
-}
-.hero-scroll-hint-line {
-  width: 1px; height: 34px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.75), transparent);
-  animation: hero-hint-drop 1.6s ease-in-out infinite;
-  transform-origin: top;
-}
-@keyframes hero-hint-drop {
-  0% { transform: scaleY(0); opacity: 0; }
-  35% { transform: scaleY(1); opacity: 1; }
-  100% { transform: scaleY(1); opacity: 0; }
-}
-
 .hero-inner { position: relative; z-index: 3; width: 100%; }
 .hero-content {
   max-width: 560px;
   color: #fff;
   padding: var(--space-24) 0 var(--space-16);
+}
+
+/* Entrance — pure CSS so it always completes and can never leave the copy
+   stuck hidden (a JS tween can, if rAF is throttled). Content is visible by
+   default; the animation only plays when motion is allowed. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-content > * { animation: hero-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .hero-badge   { animation-delay: 0.15s; }
+  .hero-content h1 { animation-delay: 0.28s; }
+  .hero-content > p { animation-delay: 0.46s; }
+  .hero-buttons { animation-delay: 0.62s; }
+}
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .hero-badge {
@@ -95,10 +69,11 @@
 }
 
 .hero-content h1 {
+  font-family: var(--font-display);
   font-size: var(--text-hero);
-  line-height: 0.98;
+  line-height: 1;
   letter-spacing: 0;
-  font-weight: 400;
+  font-weight: 600;
   margin-bottom: var(--space-5);
   color: #fff;
 }
@@ -120,7 +95,7 @@
 
 /* ─── Tablet & mobile: uniform overlay, stacked content ─── */
 @media (max-width: 900px) {
-  .hero { min-height: 88svh; }
+  .hero { min-height: 100svh; }
   .hero-bg::before {
     background: linear-gradient(180deg,
       rgba(12,26,51,0.92) 0%,
@@ -130,5 +105,5 @@
   .hero-content { max-width: 100%; padding: 8rem 0 var(--space-12); }
 }
 @media (max-width: 767px) {
-  .hero-content { padding: 7rem 0 var(--space-12); }
+  .hero-content { padding: 6.5rem 0 var(--space-10); }
 }

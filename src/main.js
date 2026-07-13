@@ -21,7 +21,18 @@ import { initForm } from './form.js'
 import { initAnimations } from './animations.js'
 import { initWaBubble } from './whatsapp.js'
 
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual'
+}
+
+const resetInitialScroll = () => {
+  if (!window.location.hash) window.scrollTo(0, 0)
+}
+
+resetInitialScroll()
+
 document.addEventListener('DOMContentLoaded', () => {
+  resetInitialScroll()
   initNavbar()
   initLang()
   initFaq()

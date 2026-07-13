@@ -38,3 +38,5 @@ public/img/originals/
 
 # Full-res brand logo backups (site uses the trimmed versions)
 public/marcasAsociadas/originals/
+.vercel
+.env*
