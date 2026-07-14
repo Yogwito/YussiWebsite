@@ -13,6 +13,7 @@ import './css/cta-banner.css'
 import './css/faq.css'
 import './css/contact.css'
 import './css/footer.css'
+import './css/experience.css'
 
 import { initLang } from './lang.js'
 import { initFaq } from './faq.js'

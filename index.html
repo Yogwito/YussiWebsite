@@ -33,6 +33,7 @@
 
 <div id="page-loader" class="page-loader" aria-hidden="true">
   <img src="/img/yussi-logo-nav.png" alt="Bordados Yussi" class="loader-logo" width="900" height="176">
+  <span class="loader-stitch"></span>
 </div>
 
 <!-- ═══════════════ NAVBAR ═══════════════ -->
@@ -75,7 +76,19 @@
 <!-- ═══════════════ HERO — full-bleed photo, real texture ═══════════════ -->
 <section id="hero" class="hero">
   <div class="hero-bg photo-wash" aria-hidden="true">
-    <video id="hero-video" class="hero-media" autoplay muted loop playsinline preload="auto" poster="/img/hero-video-poster.jpg"></video>
+    <picture>
+      <source srcset="/img/hero-video-poster.webp" type="image/webp">
+      <img src="/img/hero-video-poster.jpg" alt="" class="hero-media hero-poster" width="1440" height="1080">
+    </picture>
+    <canvas id="hero-canvas" class="hero-media hero-canvas"></canvas>
+  </div>
+  <!-- Scroll story layers: dark veil the sequence opens on, brand mark that
+       appears first, and a scroll hint. All are inert without JS/GSAP. -->
+  <div class="hero-veil" aria-hidden="true"></div>
+  <img src="/img/yussi-logo-nav.png" alt="" class="hero-brand" width="900" height="176" aria-hidden="true">
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span data-es="Desliza" data-en="Scroll">Desliza</span>
+    <span class="hero-scroll-hint-line"></span>
   </div>
   <div class="container hero-inner">
     <div class="hero-content">

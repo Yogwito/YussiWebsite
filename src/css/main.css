@@ -117,7 +117,9 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+/* NOTE: no `scroll-behavior: smooth` here — it fights Lenis (every programmatic
+   scroll becomes an async animation). Lenis provides the smoothing; anchor
+   clicks are routed through lenis.scrollTo in animations.js. */
 body {
   font-family: var(--font-body);
   color: var(--color-text);

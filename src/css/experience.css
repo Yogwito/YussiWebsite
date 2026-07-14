@@ -1,0 +1,92 @@
+/* ═══════════════ EXPERIENCE LAYER ═══════════════
+   Cursor, scroll progress, title masks, loader stitch, CTA thread field,
+   card tilt. Everything here is progressive enhancement: without JS (or with
+   reduced motion) none of it activates and the site renders normally. */
+
+/* ─── Custom cursor (injected by JS on fine pointers only) ─── */
+.cursor-dot, .cursor-ring {
+  position: fixed; top: 0; left: 0; z-index: 10000;
+  pointer-events: none;
+  border-radius: 50%;
+  will-change: transform;
+}
+.cursor-dot {
+  width: 7px; height: 7px;
+  background: var(--thread-accent);
+  margin: -3.5px 0 0 -3.5px;
+}
+.cursor-ring {
+  width: 34px; height: 34px;
+  margin: -17px 0 0 -17px;
+  border: 1.5px solid rgba(21, 140, 140, 0.55);
+  transition: opacity 0.25s ease;
+}
+html.has-cursor body,
+html.has-cursor a, html.has-cursor button, html.has-cursor [role="button"],
+html.has-cursor .btn, html.has-cursor label, html.has-cursor summary {
+  cursor: none;
+}
+/* keep native affordances where pointer feedback matters for input */
+html.has-cursor input, html.has-cursor textarea, html.has-cursor select {
+  cursor: auto;
+}
+
+/* ─── Scroll progress — a thread being sewn across the top ─── */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px;
+  z-index: 1001;
+  pointer-events: none;
+}
+.scroll-progress span {
+  display: block; height: 100%;
+  background: linear-gradient(90deg, var(--navy-500), var(--thread-accent));
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+/* ─── Section-title reveal masks (JS wraps titles) ─── */
+.title-mask { display: block; overflow: hidden; }
+.title-mask .section-title { will-change: transform; }
+
+/* ─── Image clip reveals ─── */
+.img-reveal { will-change: clip-path; }
+
+/* ─── Loader: stitch progress under the logo ─── */
+.loader-stitch {
+  display: block;
+  width: min(220px, 62vw);
+  height: 6px;
+  margin-top: 18px;
+  background-image: var(--stitch-seam-sm);
+  background-size: var(--stitch-seam-sm-size);
+  background-repeat: repeat-x;
+  clip-path: inset(0 100% 0 0);
+  animation: loader-stitch-fill 0.85s ease-out 0.1s forwards;
+}
+@keyframes loader-stitch-fill {
+  to { clip-path: inset(0 0% 0 0); }
+}
+#page-loader { flex-direction: column; }
+
+/* ─── CTA banner: interactive thread field ─── */
+#cta-banner { position: relative; }
+.cta-threads {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: 0.5;
+}
+#cta-banner .container { position: relative; z-index: 1; }
+
+/* ─── Sector card tilt (JS drives transform; CSS supplies depth) ─── */
+@media (hover: hover) and (pointer: fine) and (min-width: 900px) {
+  .sectors-grid { perspective: 900px; }
+  .sector-card { transform-style: preserve-3d; will-change: transform; }
+  .sector-card .sector-icon { transform: translateZ(28px); }
+  .sector-card h4 { transform: translateZ(18px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-stitch { animation: none; clip-path: inset(0 0% 0 0); }
+  .scroll-progress { display: none; }
+}
