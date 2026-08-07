@@ -1491,6 +1491,124 @@ select:focus-visible {
   to { transform: translateX(-50%); }
 }
 
+/* ── Clientes que han confiado en nosotros ─────────────────────────────── */
+.section-clients {
+  padding-block: var(--section);
+  overflow: hidden;
+  background: var(--white);
+}
+
+.section-clients[hidden] {
+  display: none;
+}
+
+.clients-header {
+  max-width: 760px;
+  margin-inline: auto;
+  margin-bottom: 3.25rem;
+  text-align: center;
+}
+
+.clients-header .eyebrow {
+  justify-content: center;
+}
+
+.clients-header h2 {
+  max-width: 720px;
+  margin-inline: auto;
+  color: var(--navy);
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.02;
+}
+
+.clients-header > p {
+  max-width: 620px;
+  margin: 1.1rem auto 0;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.clients-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.clients-marquee {
+  position: relative;
+  overflow: hidden;
+  padding-block: 0.4rem;
+}
+
+.clients-marquee::before,
+.clients-marquee::after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  pointer-events: none;
+}
+
+.clients-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--white) 10%, rgba(255, 255, 255, 0));
+}
+
+.clients-marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--white) 10%, rgba(255, 255, 255, 0));
+}
+
+.clients-track {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  animation: marquee 64s linear infinite;
+  will-change: transform;
+}
+
+.clients-track--reverse {
+  animation-direction: reverse;
+}
+
+.clients-marquee:hover .clients-track {
+  animation-play-state: paused;
+}
+
+.clients-group {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  padding-right: 5rem;
+}
+
+.client-item {
+  height: 62px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+
+.client-item img {
+  max-height: 100%;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.55;
+  transition: filter 0.35s var(--ease), opacity 0.35s var(--ease), transform 0.35s var(--ease);
+}
+
+.client-item:hover img,
+.client-item:focus-within img {
+  filter: grayscale(0);
+  opacity: 1;
+  transform: scale(1.04);
+}
+
 .section-faq {
   background: var(--ice);
 }
@@ -2345,6 +2463,32 @@ select:focus-visible {
 
   .brand-item {
     height: 70px;
+  }
+
+  .clients-header h2 {
+    font-size: 2.1rem;
+  }
+
+  .clients-track {
+    animation-duration: 46s;
+  }
+
+  .clients-group {
+    gap: 3rem;
+    padding-right: 3rem;
+  }
+
+  .clients-marquee::before,
+  .clients-marquee::after {
+    width: 46px;
+  }
+
+  .client-item {
+    height: 46px;
+  }
+
+  .client-item img {
+    max-width: 150px;
   }
 
   .faq-intro h2 {

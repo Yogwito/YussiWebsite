@@ -7,6 +7,7 @@ import { initForm } from './form.js'
 import { initAnimations } from './animations.js'
 import { initWaBubble } from './whatsapp.js'
 import { initCoverageMap } from './coverage-map.js'
+import { initClients } from './clients.js'
 
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual'
@@ -27,4 +28,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnimations()
   initWaBubble()
   initCoverageMap()
+  initClients()
 })

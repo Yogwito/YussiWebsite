@@ -946,3 +946,78 @@ Localización completa de contenidos, canonical/sitemap cuando exista cutover, p
 ### 19. Próximo paso recomendado
 
 Publicar el staging actualizado, verificar la URL Vercel y configurar el webhook de leads en sus variables de entorno. Sólo después de la autorización explícita del cliente debe abrirse el checklist separado de cutover de dominio.
+
+## Client Logo Showcase Implementation
+
+> Fecha: 2026-08-07 · Sección nueva `#clients` — "Clientes que han confiado en nosotros".
+
+### 1. Objetivo
+
+Añadir una barra/marquee premium de logos de **clientes reales** de Bordados Yussi, separada de la barra de marcas de tecnología/insumos existente (`#brands`), reutilizando su arquitectura de animación y respetando la identidad visual, accesibilidad y performance del sitio.
+
+### 2. Número de clientes proporcionados
+
+64 clientes (el #14 "Otras instituciones/regiones" se omite por instrucción). Ver `docs/client-logo-sources.md`.
+
+### 3. Logos verificados
+
+9, implementados en producción: SENA, Once Caldas, Fiscalía General de la Nación, Policía Nacional de Colombia, Universidad Nacional de Colombia, Universidad de Caldas, Universidad de Manizales, Universidad Católica de Manizales, Universidad del Quindío.
+
+### 4. Logos pendientes
+
+- **NEEDS_USER_ASSET: 50** (incluye marcas reconocibles sin fuente oficial limpia: Cruz Roja, Federación de Cafeteros, Terpel, Juan Valdez, UAM).
+- **NEEDS_USER_CONFIRMATION: 5** (Alcaldía, Gobernación, Cámara de Comercio, Tránsito, Agencia Nacional de Turismo).
+- **SKIPPED: 1** (Otras instituciones/regiones).
+
+Detalle completo y motivos por cliente en `docs/client-logo-sources.md`.
+
+### 5. Fuentes utilizadas
+
+Wikimedia Commons (SVG/PNG oficiales de entidades de identidad nacional/regional única), verificados visualmente uno a uno. No se usaron fuentes secundarias para producción.
+
+### 6. Pipeline de normalización
+
+Descarga del original (SVG preferido) → verificación visual de identidad → chequeo de SVG *paths puros* → SVG intactos / PNG `-trim → -resize x240 → -strip → WebP transparente`. Originales en `assets-source/client-logos/originals/` (git-ignored). **Sin rediseño**: tipografía, proporciones, geometría y color corporativo intactos; el look uniforme es solo CSS.
+
+### 7. Assets finales
+
+`public/img/clients/`: `sena.svg`, `once-caldas.svg`, `fiscalia-general.svg`, `universidad-nacional.svg`, `universidad-de-caldas.svg` (SVG) · `policia-nacional.webp`, `universidad-de-manizales.webp`, `universidad-catolica-manizales.webp`, `universidad-del-quindio.webp` (WebP transparente).
+
+### 8. Peso total
+
+9 assets · **251.3 KB** total · promedio ~28 KB · más pesado `universidad-nacional.svg` (65 KB, SVG → gzip muy eficiente). Ningún asset supera los ~65 KB.
+
+### 9. Implementación visual
+
+- HTML: sección `#clients` con eyebrow "Clientes", heading y copy (bilingüe `data-es/data-en`), y contenedor `[data-clients-rows]`.
+- Datos: manifiesto `src/content/clients.js` (64 entradas, categorizadas, con `status`). El renderer `src/clients.js` (init en `src/main.js`) monta **solo** los `verified`.
+- Marquee: **dos filas** en direcciones opuestas (fila 2 con `animation-direction: reverse`), técnica de la barra existente (`@keyframes marquee` → `translateX(-50%)` con dos grupos idénticos para loop seamless), máscaras laterales en gradiente, `object-fit: contain`, pausa en hover.
+- Estilo: grayscale + opacidad 0.55 por defecto → color y opacidad plena en hover/focus (solo CSS, no se altera el archivo). Sin duplicación física de archivos: el segundo grupo reutiliza las mismas URLs.
+
+### 10. Responsive
+
+Sección con `overflow: hidden`; el marquee desborda solo dentro de su propio viewport. Ajustes móviles (`<=767px`): altura de logo 46px, gaps 3rem, máscaras 46px, `max-width` 150px, velocidad 46s. Sin overflow horizontal del documento.
+
+### 11. Accesibilidad
+
+Sección con `aria-labelledby`. Grupo visible con `alt` = nombre del cliente; grupos/duplicados decorativos con `aria-hidden="true"` y `alt=""` (sin redundancia para lectores de pantalla). Con `prefers-reduced-motion: reduce` la animación se detiene (regla global) y los logos permanecen visibles y navegables.
+
+### 12. Performance
+
+SVG preferido; PNG→WebP comprimido; `loading="lazy"` y `decoding="async"` en todas las imágenes; sin duplicación de archivos. Impacto en CSS: +~2 KB. Build: 365 módulos (antes 363).
+
+### 13. Tests
+
+`npm test` (6/6 pass), `npm run test:quality` (pass), `npm run build` (pass), `git diff --check` (limpio). **Axe (wcag2a/2aa) sobre la página completa: 0 violaciones, 0 Critical/Serious.** Verificación visual del marquee (render, transparencia, grayscale→color, alineación) mediante harness estático servido por el dev server; assets confirmados 200 sin 404 ni errores de consola.
+
+### 14. Archivos modificados
+
+`index.html`, `src/main.js`, `src/css/site.css`, `.claude/launch.json`. **Nuevos:** `src/content/clients.js`, `src/clients.js`, `public/img/clients/*` (9 assets), `docs/client-logo-sources.md`. Originales en `assets-source/client-logos/originals/` (git-ignored).
+
+### 15. Commit
+
+`feat: add trusted clients showcase` (assets verificados + marquee de clientes + manifest + docs).
+
+### 16. Pendientes del usuario
+
+Enviar los logos oficiales de los clientes marcados `NEEDS_USER_ASSET` y confirmar la entidad de los `NEEDS_USER_CONFIRMATION` (ver lista en la entrega y en `docs/client-logo-sources.md`). Al recibirlos se incorporan al mismo pipeline y basta marcar su entrada como `verified` con la ruta del asset en `src/content/clients.js`.
