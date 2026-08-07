@@ -991,8 +991,8 @@ Descarga del original (SVG preferido) → verificación visual de identidad → 
 
 - HTML: sección `#clients` con eyebrow "Clientes", heading y copy (bilingüe `data-es/data-en`), y contenedor `[data-clients-rows]`.
 - Datos: manifiesto `src/content/clients.js` (64 entradas, categorizadas, con `status`). El renderer `src/clients.js` (init en `src/main.js`) monta **solo** los `verified`.
-- Marquee: **dos filas** en direcciones opuestas (fila 2 con `animation-direction: reverse`), técnica de la barra existente (`@keyframes marquee` → `translateX(-50%)` con dos grupos idénticos para loop seamless), máscaras laterales en gradiente, `object-fit: contain`, pausa en hover.
-- Estilo: grayscale + opacidad 0.55 por defecto → color y opacidad plena en hover/focus (solo CSS, no se altera el archivo). Sin duplicación física de archivos: el segundo grupo reutiliza las mismas URLs.
+- Marquee: **dos filas** en direcciones opuestas (fila 2 con `animation-direction: reverse`), técnica de la barra existente (`@keyframes marquee` → `translateX(-50%)` con dos grupos idénticos para loop seamless), máscaras laterales en gradiente reforzadas (160px, 30% sólido) para un desvanecido limpio en los bordes, `object-fit: contain`.
+- Estilo: **logos a color pleno** sobre tiles sutiles (`--ice` + borde `--mist`, radio 16px) que unifican alturas dispares, resuelven el caso de logos con blanco interior sobre fondo blanco (p.ej. Once Caldas) y dan un acabado premium; hover/focus eleva el tile con sombra suave (solo CSS, no se altera el archivo). Los SVG se dimensionan con `height` definido (evita el colapso a 0×0 de SVG con dimensiones intrínsecas en %). Sin duplicación física de archivos: el segundo grupo reutiliza las mismas URLs.
 
 ### 10. Responsive
 
