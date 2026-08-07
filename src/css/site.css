@@ -1581,34 +1581,29 @@ select:focus-visible {
 .clients-group {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  padding-right: 1.5rem;
+  gap: 5rem;
+  padding-right: 5rem;
 }
 
 .client-item {
-  height: 96px;
-  padding: 0 26px;
+  height: 84px;
   display: grid;
   place-items: center;
   flex: 0 0 auto;
-  background: var(--ice);
-  border: 1px solid var(--mist);
-  border-radius: 16px;
-  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
 }
 
 .client-item img {
-  height: 60px;
+  height: 76px;
   width: auto;
-  max-width: 200px;
+  max-width: 240px;
   object-fit: contain;
+  transition: transform 0.35s var(--ease), filter 0.35s var(--ease);
 }
 
-.client-item:hover,
-.client-item:focus-within {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 26px rgba(7, 26, 52, 0.10);
-  border-color: #cdd8e4;
+.client-item:hover img,
+.client-item:focus-within img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 8px 16px rgba(7, 26, 52, 0.16));
 }
 
 .section-faq {
@@ -2476,8 +2471,8 @@ select:focus-visible {
   }
 
   .clients-group {
-    gap: 0.9rem;
-    padding-right: 0.9rem;
+    gap: 3rem;
+    padding-right: 3rem;
   }
 
   .clients-marquee::before,
@@ -2486,14 +2481,12 @@ select:focus-visible {
   }
 
   .client-item {
-    height: 64px;
-    padding: 0 18px;
-    border-radius: 12px;
+    height: 56px;
   }
 
   .client-item img {
-    height: 34px;
-    max-width: 140px;
+    height: 50px;
+    max-width: 170px;
   }
 
   .faq-intro h2 {
