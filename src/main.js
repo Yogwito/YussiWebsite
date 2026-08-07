@@ -1,19 +1,4 @@
-import './css/loader.css'
-import './css/main.css'
-import './css/navbar.css'
-import './css/hero.css'
-import './css/why.css'
-import './css/services.css'
-import './css/process.css'
-import './css/about.css'
-import './css/sectors.css'
-import './css/brands.css'
-import './css/certs.css'
-import './css/cta-banner.css'
-import './css/faq.css'
-import './css/contact.css'
-import './css/footer.css'
-import './css/experience.css'
+import './css/site.css'
 
 import { initLang } from './lang.js'
 import { initFaq } from './faq.js'
@@ -21,6 +6,7 @@ import { initNavbar } from './navbar.js'
 import { initForm } from './form.js'
 import { initAnimations } from './animations.js'
 import { initWaBubble } from './whatsapp.js'
+import { initCoverageMap } from './coverage-map.js'
 
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual'
@@ -40,4 +26,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initForm()
   initAnimations()
   initWaBubble()
+  initCoverageMap()
 })

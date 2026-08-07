@@ -1,6 +1,7 @@
 export function initWaBubble() {
   const bubble = document.getElementById('wa-bubble')
   const close = document.getElementById('wa-bubble-close')
+  initFabContext()
   if (!bubble || !close) return
 
   const isDesktop = window.matchMedia('(min-width: 768px)').matches
@@ -26,4 +27,16 @@ export function initWaBubble() {
   })
 
   bubble.querySelector('.wa-bubble-link').addEventListener('click', dismiss)
+}
+
+function initFabContext() {
+  const fab = document.getElementById('fab-wa')
+  const contact = document.getElementById('contact')
+  if (!fab || !contact) return
+
+  const observer = new IntersectionObserver(([entry]) => {
+    fab.classList.toggle('fab-context-hidden', entry.isIntersecting)
+  }, { threshold: 0.18 })
+
+  observer.observe(contact)
 }

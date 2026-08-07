@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.git/
+.agents/
+.playwright-cli/
+output/
+.env
+.env.*
+
+# Local source material and full-resolution backups.
+HighQualityimages/
+assets-feria/
+assets-source/
+public/img/FOTOS WEB/
+public/img/originals/
+public/marcasAsociadas/originals/

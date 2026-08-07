@@ -4,10 +4,20 @@ export function initFaq() {
       const item = btn.closest('.faq-item')
       const isOpen = item.classList.contains('open')
 
-      // close all open items
-      document.querySelectorAll('.faq-item.open').forEach((i) => i.classList.remove('open'))
+      document.querySelectorAll('.faq-item.open').forEach((openItem) => {
+        setExpanded(openItem, false)
+      })
 
-      if (!isOpen) item.classList.add('open')
+      if (!isOpen) setExpanded(item, true)
     })
   })
+}
+
+function setExpanded(item, expanded) {
+  const question = item.querySelector('.faq-question')
+  const answer = item.querySelector('.faq-answer')
+
+  item.classList.toggle('open', expanded)
+  question?.setAttribute('aria-expanded', String(expanded))
+  answer?.setAttribute('aria-hidden', String(!expanded))
 }

@@ -1,0 +1,3 @@
+# The Vercel URL is the staging/presentation environment until domain cutover is authorized.
+User-agent: *
+Disallow: /
