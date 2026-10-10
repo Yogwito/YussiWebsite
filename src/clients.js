@@ -27,7 +27,7 @@ const balanceRows = (items) => {
 
 // Un grupo = artwork suficiente para cubrir el ancho del viewport. Si hay pocos
 // logos se repite la lista para llenar, pero el alt real solo se asigna una vez.
-const MIN_PER_GROUP = 8
+const MIN_PER_GROUP = 6
 
 const buildItem = (client, { decorative }) => {
   const item = document.createElement('div')

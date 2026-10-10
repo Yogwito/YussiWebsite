@@ -1595,7 +1595,7 @@ select:focus-visible {
 .client-item img {
   height: 76px;
   width: auto;
-  max-width: 240px;
+  max-width: 300px;
   object-fit: contain;
   transition: transform 0.35s var(--ease), filter 0.35s var(--ease);
 }

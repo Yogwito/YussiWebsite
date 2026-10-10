@@ -12,8 +12,8 @@
 ## Resumen
 
 - Clientes en la lista: **64** (el #14 "Otras instituciones/regiones" se omite por instrucción → no genera logo).
-- **Verificados e implementados: 9.**
-- Pendientes de asset del usuario: **50.**
+- **Verificados e implementados: 13** (9 iniciales + 4 añadidos el 2026-10-09).
+- Pendientes de asset del usuario: **46.**
 - Pendientes de confirmación de entidad: **5** (Alcaldía, Gobernación, Cámara de Comercio, Tránsito, Agencia Nacional de Turismo).
 - Fuente de los verificados: Wikimedia Commons (SVG/PNG oficiales de instituciones de identidad nacional/regional única), verificados visualmente uno a uno.
 
@@ -30,6 +30,10 @@
 | Universidad de Manizales | Universidad de Manizales | Manizales | Wikimedia Commons · *Logotipo de la Universidad de Manizales.png* | `universidad-de-manizales.webp` | HIGH | VERIFIED |
 | Universidad Católica | Universidad Católica de Manizales (UCM) | Manizales | Wikimedia Commons · *Escudo UCM-05.png* | `universidad-catolica-manizales.webp` | HIGH | VERIFIED |
 | Universidad del Quindío | Universidad del Quindío | Armenia | Wikimedia Commons · *Uniqlog.PNG* | `universidad-del-quindio.webp` | HIGH | VERIFIED |
+| Cruz Roja | Cruz Roja Colombiana | Colombia | Wikimedia Commons · *Colombian Red Cross Logo.svg* (logo de la infobox de es.wikipedia) — se eliminó el rectángulo blanco de fondo y se recortó el viewBox | `cruz-roja.svg` | HIGH | VERIFIED |
+| Terpel | Organización Terpel S.A. | Colombia | Wikimedia Commons · *Logo terpel.jpg* (infobox es/en.wikipedia) — fondo removido por floodfill desde bordes | `terpel.webp` | HIGH | VERIFIED |
+| Juan Valdez Café | Juan Valdez Café | Colombia | Wikimedia Commons · *Logo JVC.jpg* — fondo removido; fuente de baja resolución (432px), reescalado ×2 Lanczos | `juan-valdez.webp` | HIGH | VERIFIED |
+| Arquidiócesis de Manizales | Arquidiócesis de Manizales | Manizales | Wikimedia Commons · *Escudo de la Arquidiócesis de Manizales.svg* | `arquidiocesis-manizales.svg` | HIGH | VERIFIED |
 
 ## Pendientes — requieren confirmación de entidad (NEEDS_USER_CONFIRMATION)
 
@@ -56,16 +60,13 @@ Instituciones/marcas reconocibles pero sin fuente oficial limpia y verificable, 
 | Instituto para la Ciencia | — | Manizales | Nombre ambiguo; sin fuente oficial. | LOW |
 | Cruzada Social | — | Manizales | Ambiguo; posible institución educativa/benéfica local. | LOW |
 | Universidad Autónoma de Manizales | UAM | Manizales | Sin SVG/PNG oficial limpio en fuentes fiables. | HIGH (identidad) / — (asset) |
-| Cruz Roja | Cruz Roja Colombiana | Colombia | Solo fotos en Commons; se requiere el logo oficial correcto (evitar confundir con el emblema genérico). | HIGH (identidad) / — (asset) |
 | Federación Nacional de Cafeteros | Federación Nacional de Cafeteros | Colombia | Sin SVG oficial; distinguir de "Café de Colombia"/Juan Valdez. | HIGH (identidad) / — (asset) |
-| Arquidiócesis de Manizales | Arquidiócesis de Manizales | Manizales | Sin asset oficial limpio. | MEDIUM |
 | Comité Intergremial de Caldas | Comité Intergremial de Caldas | Caldas | Sin asset oficial. | LOW |
 | Artesanías de Aguadas | — | Aguadas, Caldas | Ambiguo (¿marca?, ¿asociación?); sin fuente. | LOW |
 | Centro Comercial Fundadores | CC Fundadores | Manizales | Logo solo en redes; sin fuente vectorial/PNG limpia. | MEDIUM |
 | Cable Plaza | CC Cable Plaza | Manizales | Logo solo en redes. | MEDIUM |
 | Parque Caldas | — | Manizales | Ambiguo. | LOW |
 | Sancancio | CC Sancancio | Manizales | Logo solo en redes. | MEDIUM |
-| Juan Valdez Café | Juan Valdez Café | Colombia | Marca reconocible pero sin SVG/PNG oficial limpio en fuente confiable. | HIGH (identidad) / — (asset) |
 | Dragón Jar | — | CO | Ambiguo (existe empresa de ciberseguridad "DragonJAR"); confirmar cuál. | LOW |
 | Fandebonos | — | CO | Negocio local; sin fuente verificable. | LOW |
 | Burger House | — | Costa Rica | Homónimos múltiples; sin confirmación del correcto. | LOW |
@@ -75,7 +76,6 @@ Instituciones/marcas reconocibles pero sin fuente oficial limpia y verificable, 
 | La Burguer | — | CO | Ambiguo/genérico. | LOW |
 | Oryza | — | CO | Ambiguo. | LOW |
 | Juicio | — | CO | Ambiguo. | LOW |
-| Terpel | Organización Terpel S.A. | Colombia | Solo JPG en Commons; se requiere asset oficial transparente. | HIGH (identidad) / — (asset) |
 | Unique Detailing Center | — | CO | Negocio local; sin fuente. | LOW |
 | Beauty Market | — | CO | Homónimos; sin confirmación. | LOW |
 | Kuma | — | CO | Nombre muy común; sin confirmación. | LOW |
@@ -115,3 +115,9 @@ Instituciones/marcas reconocibles pero sin fuente oficial limpia y verificable, 
 7. Assets finales en `public/img/clients/`.
 
 **No se rediseñó ningún logo**: sin cambios de tipografía, proporciones, geometría ni colores corporativos. La apariencia uniforme (grayscale + opacidad, color en hover) se controla **solo por CSS**.
+
+## Candidatos en espera de confirmación (no publicados)
+
+En `assets-source/client-logos/pending-confirmation/`:
+- `alcaldia-manizales-escudo.svg` — Escudo oficial de Manizales (Commons). Si "Alcaldía" = Alcaldía de Manizales, puede usarse (o el logo de gobierno vigente si lo prefieren).
+- `gobernacion-caldas-escudo.svg` — Escudo oficial del Departamento de Caldas (Commons). Igual para "Gobernación".

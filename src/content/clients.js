@@ -37,7 +37,7 @@ export const clients = [
   { name: 'Universidad del Quindío', identified: 'Universidad del Quindío', slug: 'universidad-del-quindio', logo: '/img/clients/universidad-del-quindio.webp', category: 'university', location: 'Armenia, CO', confidence: 'high', status: 'verified' },
 
   // ── Instituciones públicas y organizaciones ──────────────────────────────
-  { name: 'Cruz Roja', identified: 'Cruz Roja Colombiana', slug: 'cruz-roja', logo: null, category: 'public', location: 'Colombia', confidence: 'high', status: 'needs_user_asset' },
+  { name: 'Cruz Roja', identified: 'Cruz Roja Colombiana', slug: 'cruz-roja', logo: '/img/clients/cruz-roja.svg', category: 'public', location: 'Colombia', confidence: 'high', status: 'verified' },
   { name: 'Alcaldía', identified: 'Alcaldía de Manizales', slug: 'alcaldia-manizales', logo: null, category: 'public', location: 'Manizales, CO', confidence: 'medium', status: 'needs_user_confirmation' },
   { name: 'Gobernación', identified: 'Gobernación de Caldas', slug: 'gobernacion-caldas', logo: null, category: 'public', location: 'Caldas, CO', confidence: 'medium', status: 'needs_user_confirmation' },
   { name: 'Policía', identified: 'Policía Nacional de Colombia', slug: 'policia-nacional', logo: '/img/clients/policia-nacional.webp', category: 'public', location: 'Colombia', confidence: 'high', status: 'verified' },
@@ -47,7 +47,7 @@ export const clients = [
   { name: 'Registraduría', identified: 'Registraduría Nacional del Estado Civil', slug: 'registraduria-nacional', logo: null, category: 'public', location: 'Colombia', confidence: 'high', status: 'needs_user_asset' },
   { name: 'Cámara de Comercio', identified: 'Cámara de Comercio de Manizales por Caldas', slug: 'camara-comercio-manizales', logo: null, category: 'public', location: 'Manizales, CO', confidence: 'medium', status: 'needs_user_confirmation' },
   { name: 'Federación Nacional de Cafeteros', identified: 'Federación Nacional de Cafeteros de Colombia', slug: 'federacion-cafeteros', logo: null, category: 'public', location: 'Colombia', confidence: 'high', status: 'needs_user_asset' },
-  { name: 'Arquidiócesis de Manizales', identified: 'Arquidiócesis de Manizales', slug: 'arquidiocesis-manizales', logo: null, category: 'public', location: 'Manizales, CO', confidence: 'medium', status: 'needs_user_asset' },
+  { name: 'Arquidiócesis de Manizales', identified: 'Arquidiócesis de Manizales', slug: 'arquidiocesis-manizales', logo: '/img/clients/arquidiocesis-manizales.svg', category: 'public', location: 'Manizales, CO', confidence: 'high', status: 'verified' },
   { name: 'Comité Intergremial de Caldas', identified: 'Comité Intergremial de Caldas', slug: 'comite-intergremial-caldas', logo: null, category: 'public', location: 'Caldas, CO', confidence: 'low', status: 'needs_user_asset' },
   { name: 'Artesanías de Aguadas', identified: null, slug: 'artesanias-de-aguadas', logo: null, category: 'public', location: 'Aguadas, Caldas, CO', confidence: 'low', status: 'needs_user_asset' },
 
@@ -61,7 +61,7 @@ export const clients = [
   { name: 'Sancancio', identified: 'Centro Comercial Sancancio', slug: 'sancancio', logo: null, category: 'mall', location: 'Manizales, CO', confidence: 'medium', status: 'needs_user_asset' },
 
   // ── Alimentos / restaurantes / cafés ─────────────────────────────────────
-  { name: 'Juan Valdez Café', identified: 'Juan Valdez Café', slug: 'juan-valdez', logo: null, category: 'food', location: 'Colombia', confidence: 'high', status: 'needs_user_asset' },
+  { name: 'Juan Valdez Café', identified: 'Juan Valdez Café', slug: 'juan-valdez', logo: '/img/clients/juan-valdez.webp', category: 'food', location: 'Colombia', confidence: 'high', status: 'verified' },
   { name: 'Dragón Jar', identified: null, slug: 'dragon-jar', logo: null, category: 'food', location: 'CO', confidence: 'low', status: 'needs_user_asset' },
   { name: 'Fandebonos', identified: null, slug: 'fandebonos', logo: null, category: 'food', location: 'CO', confidence: 'low', status: 'needs_user_asset' },
   { name: 'Burger House (Costa Rica)', identified: null, slug: 'burger-house-cr', logo: null, category: 'food', location: 'Costa Rica', confidence: 'low', status: 'needs_user_asset' },
@@ -73,7 +73,7 @@ export const clients = [
   { name: 'Juicio', identified: null, slug: 'juicio', logo: null, category: 'food', location: 'CO', confidence: 'low', status: 'needs_user_asset' },
 
   // ── Combustibles / automotriz ────────────────────────────────────────────
-  { name: 'Terpel', identified: 'Organización Terpel S.A.', slug: 'terpel', logo: null, category: 'fuel-auto', location: 'Colombia', confidence: 'high', status: 'needs_user_asset' },
+  { name: 'Terpel', identified: 'Organización Terpel S.A.', slug: 'terpel', logo: '/img/clients/terpel.webp', category: 'fuel-auto', location: 'Colombia', confidence: 'high', status: 'verified' },
   { name: 'Unique Detailing Center', identified: null, slug: 'unique-detailing-center', logo: null, category: 'fuel-auto', location: 'CO', confidence: 'low', status: 'needs_user_asset' },
 
   // ── Belleza / salud / estética ───────────────────────────────────────────
