@@ -12,7 +12,7 @@
 ## Resumen
 
 - Clientes en la lista: **64** (el #14 "Otras instituciones/regiones" se omite por instrucción → no genera logo).
-- **Verificados e implementados: 13** (9 iniciales + 4 añadidos el 2026-10-09).
+- **Verificados e implementados: 15** (9 iniciales + 4 el 2026-10-09 + Alcaldía y Gobernación confirmadas por el cliente).
 - Pendientes de asset del usuario: **46.**
 - Pendientes de confirmación de entidad: **5** (Alcaldía, Gobernación, Cámara de Comercio, Tránsito, Agencia Nacional de Turismo).
 - Fuente de los verificados: Wikimedia Commons (SVG/PNG oficiales de instituciones de identidad nacional/regional única), verificados visualmente uno a uno.
@@ -34,6 +34,8 @@
 | Terpel | Organización Terpel S.A. | Colombia | Wikimedia Commons · *Logo terpel.jpg* (infobox es/en.wikipedia) — fondo removido por floodfill desde bordes | `terpel.webp` | HIGH | VERIFIED |
 | Juan Valdez Café | Juan Valdez Café | Colombia | Wikimedia Commons · *Logo JVC.jpg* — fondo removido; fuente de baja resolución (432px), reescalado ×2 Lanczos | `juan-valdez.webp` | HIGH | VERIFIED |
 | Arquidiócesis de Manizales | Arquidiócesis de Manizales | Manizales | Wikimedia Commons · *Escudo de la Arquidiócesis de Manizales.svg* | `arquidiocesis-manizales.svg` | HIGH | VERIFIED |
+| Alcaldía | Alcaldía de Manizales (confirmado por el cliente) | Manizales | Wikimedia Commons · *Coat of Arms of Manizales.svg* (escudo oficial de la ciudad) | `alcaldia-manizales.svg` | HIGH | VERIFIED |
+| Gobernación | Gobernación de Caldas (confirmado por el cliente) | Caldas | Wikimedia Commons · *Coat of Arms of the Department of Caldas.svg* (escudo oficial del departamento) | `gobernacion-caldas.svg` | HIGH | VERIFIED |
 
 ## Pendientes — requieren confirmación de entidad (NEEDS_USER_CONFIRMATION)
 
@@ -41,9 +43,6 @@ Existe más de una entidad razonable; no se elige arbitrariamente.
 
 | Cliente | Hipótesis (contexto Manizales/Caldas) | Motivo |
 |---|---|---|
-| Alcaldía | Alcaldía de Manizales | Confirmar municipio + asset oficial (marca de gobierno cambia por administración). |
-| Gobernación | Gobernación de Caldas | Confirmar departamento + asset oficial vigente. |
-| Cámara de Comercio | Cámara de Comercio de Manizales por Caldas | Confirmar seccional + asset oficial. |
 | Tránsito | Secretaría/Instituto de Tránsito (¿Manizales? ¿Caldas?) | Entidad ambigua; varias posibles. |
 | Agencia Nacional de Turismo | (sin correspondencia clara en CO) | No existe una "Agencia Nacional de Turismo" de nombre exacto; podría ser FONTUR / MinCIT u otra. |
 
@@ -116,8 +115,6 @@ Instituciones/marcas reconocibles pero sin fuente oficial limpia y verificable, 
 
 **No se rediseñó ningún logo**: sin cambios de tipografía, proporciones, geometría ni colores corporativos. La apariencia uniforme (grayscale + opacidad, color en hover) se controla **solo por CSS**.
 
-## Candidatos en espera de confirmación (no publicados)
-
-En `assets-source/client-logos/pending-confirmation/`:
-- `alcaldia-manizales-escudo.svg` — Escudo oficial de Manizales (Commons). Si "Alcaldía" = Alcaldía de Manizales, puede usarse (o el logo de gobierno vigente si lo prefieren).
-- `gobernacion-caldas-escudo.svg` — Escudo oficial del Departamento de Caldas (Commons). Igual para "Gobernación".
+## Notas
+- **Cámara de Comercio**: entidad confirmada por el cliente (Manizales por Caldas). El sitio oficial bloquea acceso automatizado (403) y no hay logo en Commons → NEEDS_USER_ASSET.
+- **Tránsito** y **Agencia Nacional de Turismo**: quedan pendientes por decisión del cliente (entidad no clara).

@@ -38,14 +38,14 @@ export const clients = [
 
   // ── Instituciones públicas y organizaciones ──────────────────────────────
   { name: 'Cruz Roja', identified: 'Cruz Roja Colombiana', slug: 'cruz-roja', logo: '/img/clients/cruz-roja.svg', category: 'public', location: 'Colombia', confidence: 'high', status: 'verified' },
-  { name: 'Alcaldía', identified: 'Alcaldía de Manizales', slug: 'alcaldia-manizales', logo: null, category: 'public', location: 'Manizales, CO', confidence: 'medium', status: 'needs_user_confirmation' },
-  { name: 'Gobernación', identified: 'Gobernación de Caldas', slug: 'gobernacion-caldas', logo: null, category: 'public', location: 'Caldas, CO', confidence: 'medium', status: 'needs_user_confirmation' },
+  { name: 'Alcaldía', identified: 'Alcaldía de Manizales', slug: 'alcaldia-manizales', logo: '/img/clients/alcaldia-manizales.svg', category: 'public', location: 'Manizales, CO', confidence: 'high', status: 'verified' },
+  { name: 'Gobernación', identified: 'Gobernación de Caldas', slug: 'gobernacion-caldas', logo: '/img/clients/gobernacion-caldas.svg', category: 'public', location: 'Caldas, CO', confidence: 'high', status: 'verified' },
   { name: 'Policía', identified: 'Policía Nacional de Colombia', slug: 'policia-nacional', logo: '/img/clients/policia-nacional.webp', category: 'public', location: 'Colombia', confidence: 'high', status: 'verified' },
   { name: 'Tránsito', identified: null, slug: 'transito', logo: null, category: 'public', location: 'Manizales/Caldas, CO', confidence: 'low', status: 'needs_user_confirmation' },
   { name: 'Agencia Nacional de Turismo', identified: null, slug: 'agencia-nacional-turismo', logo: null, category: 'public', location: 'Colombia', confidence: 'low', status: 'needs_user_confirmation' },
   { name: 'Fiscalía General de la Nación', identified: 'Fiscalía General de la Nación', slug: 'fiscalia-general', logo: '/img/clients/fiscalia-general.svg', category: 'public', location: 'Colombia', confidence: 'high', status: 'verified' },
   { name: 'Registraduría', identified: 'Registraduría Nacional del Estado Civil', slug: 'registraduria-nacional', logo: null, category: 'public', location: 'Colombia', confidence: 'high', status: 'needs_user_asset' },
-  { name: 'Cámara de Comercio', identified: 'Cámara de Comercio de Manizales por Caldas', slug: 'camara-comercio-manizales', logo: null, category: 'public', location: 'Manizales, CO', confidence: 'medium', status: 'needs_user_confirmation' },
+  { name: 'Cámara de Comercio', identified: 'Cámara de Comercio de Manizales por Caldas', slug: 'camara-comercio-manizales', logo: null, category: 'public', location: 'Manizales, CO', confidence: 'high', status: 'needs_user_asset' },
   { name: 'Federación Nacional de Cafeteros', identified: 'Federación Nacional de Cafeteros de Colombia', slug: 'federacion-cafeteros', logo: null, category: 'public', location: 'Colombia', confidence: 'high', status: 'needs_user_asset' },
   { name: 'Arquidiócesis de Manizales', identified: 'Arquidiócesis de Manizales', slug: 'arquidiocesis-manizales', logo: '/img/clients/arquidiocesis-manizales.svg', category: 'public', location: 'Manizales, CO', confidence: 'high', status: 'verified' },
   { name: 'Comité Intergremial de Caldas', identified: 'Comité Intergremial de Caldas', slug: 'comite-intergremial-caldas', logo: null, category: 'public', location: 'Caldas, CO', confidence: 'low', status: 'needs_user_asset' },
