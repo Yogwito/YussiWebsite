@@ -170,7 +170,7 @@ select:focus-visible {
 }
 
 .page-loader small {
-  color: #64758a;
+  color: var(--ink-soft);
   font-size: 0.62rem;
   font-weight: 700;
   line-height: 1;
@@ -1133,6 +1133,10 @@ select:focus-visible {
   margin-top: 0.25rem;
   color: rgba(255, 255, 255, 0.56);
   font-size: 0.9rem;
+}
+
+.section-process .eyebrow {
+  color: var(--cyan);
 }
 
 .section-process .text-link {
