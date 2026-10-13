@@ -235,6 +235,7 @@ function initReveals() {
   const selectors = [
     '.section-header',
     '.product-card',
+    '.line-detail',
     '.work-item',
     '.process-media',
     '.process-copy > *',

@@ -862,6 +862,118 @@ select:focus-visible {
   font-weight: 700;
 }
 
+.line-details {
+  display: grid;
+  gap: 6rem;
+  margin-top: 7rem;
+  padding-top: 6rem;
+  border-top: 1px solid var(--mist);
+}
+
+.line-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 5.5rem;
+  align-items: center;
+}
+
+.line-detail:nth-child(even) .line-detail-media {
+  order: 2;
+}
+
+.line-detail-media img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.line-detail-copy {
+  max-width: 600px;
+}
+
+.line-detail-copy h3 {
+  color: var(--navy);
+  font-size: 2.75rem;
+  font-weight: 600;
+  line-height: 1.02;
+}
+
+.line-detail-copy > p:not(.eyebrow):not(.line-detail-label) {
+  margin-top: 1.25rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.line-detail-list,
+.line-detail-schools {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.line-detail-list li {
+  position: relative;
+  padding-left: 1.6rem;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.line-detail-list li::before {
+  content: '';
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 14px;
+  height: 2px;
+  background: var(--blue);
+}
+
+.line-detail-list strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.line-detail-label {
+  margin-top: 1.9rem;
+  color: var(--ink-soft);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.line-detail-schools {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin-top: 0.85rem;
+}
+
+.line-detail-schools li {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--mist);
+  border-radius: 6px;
+  background: var(--white);
+}
+
+.line-detail-schools strong {
+  color: var(--navy);
+  font-size: 0.95rem;
+}
+
+.line-detail-schools span {
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
+.line-detail-copy .button {
+  margin-top: 2rem;
+}
+
 .section-work {
   background: var(--white);
 }
@@ -2037,6 +2149,25 @@ select:focus-visible {
 }
 
 @media (max-width: 900px) {
+  .line-details {
+    gap: 4.5rem;
+    margin-top: 4.5rem;
+    padding-top: 4rem;
+  }
+
+  .line-detail {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .line-detail:nth-child(even) .line-detail-media {
+    order: 0;
+  }
+
+  .line-detail-copy h3 {
+    font-size: 2.1rem;
+  }
+
   :root {
     --section: 5.5rem;
   }
@@ -2544,6 +2675,14 @@ select:focus-visible {
 }
 
 @media (max-width: 430px) {
+  .line-detail-schools {
+    grid-template-columns: 1fr;
+  }
+
+  .line-detail-copy .button {
+    width: 100%;
+  }
+
   .hero h1 {
     font-size: 2.95rem;
   }
