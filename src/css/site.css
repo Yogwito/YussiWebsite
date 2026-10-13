@@ -1566,7 +1566,7 @@ select:focus-visible {
   width: max-content;
   display: flex;
   align-items: center;
-  animation: marquee 64s linear infinite;
+  animation: marquee var(--clients-duration, 64s) linear infinite;
   will-change: transform;
 }
 
@@ -2467,7 +2467,7 @@ select:focus-visible {
   }
 
   .clients-track {
-    animation-duration: 46s;
+    animation-duration: calc(var(--clients-duration, 64s) * 0.7);
   }
 
   .clients-group {

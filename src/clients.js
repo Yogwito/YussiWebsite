@@ -83,6 +83,8 @@ export function initClients() {
     marquee.className = 'clients-marquee'
     const track = document.createElement('div')
     track.className = 'clients-track'
+    // Velocidad constante sin importar cuántos logos tenga la fila.
+    track.style.setProperty('--clients-duration', `${Math.max(items.length, MIN_PER_GROUP) * 7}s`)
     if (reverse) track.classList.add('clients-track--reverse')
     // Dos grupos idénticos → translateX(-50%) = loop sin salto.
     track.appendChild(buildGroup(items, { hidden: false }))

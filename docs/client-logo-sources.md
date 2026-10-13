@@ -12,8 +12,8 @@
 ## Resumen
 
 - Clientes en la lista: **64** (el #14 "Otras instituciones/regiones" se omite por instrucción → no genera logo).
-- **Verificados e implementados: 15** (9 iniciales + 4 el 2026-10-09 + Alcaldía y Gobernación confirmadas por el cliente).
-- Pendientes de asset del usuario: **46.**
+- **Verificados e implementados: 39** (15 de fuentes oficiales + 24 enviados por el cliente el 2026-10-13).
+- Pendientes de asset del usuario: **22.**
 - Pendientes de confirmación de entidad: **5** (Alcaldía, Gobernación, Cámara de Comercio, Tránsito, Agencia Nacional de Turismo).
 - Fuente de los verificados: Wikimedia Commons (SVG/PNG oficiales de instituciones de identidad nacional/regional única), verificados visualmente uno a uno.
 
@@ -56,41 +56,19 @@ Instituciones/marcas reconocibles pero sin fuente oficial limpia y verificable, 
 | Universitario (Educación Física) | — | Manizales | "Solo el de educación física": no se identifica la escuela/programa específico. | LOW |
 | Tecnológico | — | Manizales | Ambiguo (varias instituciones "Tecnológico"). | LOW |
 | San Felipe Neri | — | Manizales | Colegio homónimo en varias ciudades; sin asset verificable. | LOW |
-| Instituto para la Ciencia | — | Manizales | Nombre ambiguo; sin fuente oficial. | LOW |
 | Cruzada Social | — | Manizales | Ambiguo; posible institución educativa/benéfica local. | LOW |
-| Universidad Autónoma de Manizales | UAM | Manizales | Sin SVG/PNG oficial limpio en fuentes fiables. | HIGH (identidad) / — (asset) |
-| Federación Nacional de Cafeteros | Federación Nacional de Cafeteros | Colombia | Sin SVG oficial; distinguir de "Café de Colombia"/Juan Valdez. | HIGH (identidad) / — (asset) |
-| Comité Intergremial de Caldas | Comité Intergremial de Caldas | Caldas | Sin asset oficial. | LOW |
 | Artesanías de Aguadas | — | Aguadas, Caldas | Ambiguo (¿marca?, ¿asociación?); sin fuente. | LOW |
-| Centro Comercial Fundadores | CC Fundadores | Manizales | Logo solo en redes; sin fuente vectorial/PNG limpia. | MEDIUM |
-| Cable Plaza | CC Cable Plaza | Manizales | Logo solo en redes. | MEDIUM |
-| Parque Caldas | — | Manizales | Ambiguo. | LOW |
 | Sancancio | CC Sancancio | Manizales | Logo solo en redes. | MEDIUM |
-| Dragón Jar | — | CO | Ambiguo (existe empresa de ciberseguridad "DragonJAR"); confirmar cuál. | LOW |
 | Fandebonos | — | CO | Negocio local; sin fuente verificable. | LOW |
 | Burger House | — | Costa Rica | Homónimos múltiples; sin confirmación del correcto. | LOW |
-| La Vikina | — | CO | Negocio local; sin fuente. | LOW |
 | Puerta Negra | — | Manizales | Negocio local; sin fuente. | LOW |
 | Margaritas | — | CO | Ambiguo. | LOW |
-| La Burguer | — | CO | Ambiguo/genérico. | LOW |
-| Oryza | — | CO | Ambiguo. | LOW |
-| Juicio | — | CO | Ambiguo. | LOW |
-| Unique Detailing Center | — | CO | Negocio local; sin fuente. | LOW |
-| Beauty Market | — | CO | Homónimos; sin confirmación. | LOW |
-| Kuma | — | CO | Nombre muy común; sin confirmación. | LOW |
-| Natural Sun Time Spa | — | CO | Negocio local; sin fuente. | LOW |
-| CEDER | — | CO | Acrónimo ambiguo. | LOW |
-| Lumia Odontología | — | CO | Homónimos en Colombia con identidades distintas. | LOW |
 | 24K Odontología | — | CO | Negocio local; sin fuente. | LOW |
 | MK Aesthetic | — | New York, USA | Homónimos; sin confirmación. | LOW |
 | Vanity Clinic | — | Barcelona, ES | Homónimos múltiples. | LOW |
 | Dental Tek | — | Florida, USA | Homónimos múltiples. | LOW |
 | Realto Construcciones | — | CO | Negocio; sin fuente verificable. | LOW |
-| Constructora Hungría | — | CO | Negocio; sin fuente. | LOW |
 | TM SAS | — | CO | Razón social genérica; sin identificación. | LOW |
-| Disblanco | — | CO | Negocio; sin fuente. | LOW |
-| Hotel Carretero | Hotel Carretero | Manizales | Logo solo en redes/OTA; sin fuente limpia. | MEDIUM |
-| Hotel Termales del Ruiz | Hotel Termales del Ruiz | Caldas | Logo solo en redes/OTA. | MEDIUM |
 | Hotel Carolina | — | Costa Rica | Homónimos múltiples. | LOW |
 | Salamina Highs Hotel | — | Salamina, Caldas | Negocio local; sin fuente. | LOW |
 | Bark Pals | — | Miami, USA | Negocio; sin confirmación. | LOW |
@@ -118,3 +96,21 @@ Instituciones/marcas reconocibles pero sin fuente oficial limpia y verificable, 
 ## Notas
 - **Cámara de Comercio**: entidad confirmada por el cliente (Manizales por Caldas). El sitio oficial bloquea acceso automatizado (403) y no hay logo en Commons → NEEDS_USER_ASSET.
 - **Tránsito** y **Agencia Nacional de Turismo**: quedan pendientes por decisión del cliente (entidad no clara).
+
+## Logos enviados por el cliente (2026-10-13)
+
+Fuente: capturas aportadas por Bordados Yussi (`/Users/yogo/Desktop/LogosYussi`), identidad confirmada por el cliente. Originales archivados en `assets-source/client-logos/originals/<slug>-source.png`; pipeline reproducible en `assets-source/client-logos/logo_pipeline.py`.
+
+Verificados (24): Beauty Market, Cable Plaza, Cámara de Comercio de Manizales por Caldas, Comité Intergremial de Caldas, Disblanco, DragonJAR (seguridad informática), Federación Nacional de Cafeteros, Hotel Carretero, Constructora Hungría, Juicio, Kuma, La Burguer, La Vikina, Lumia Odontología, Universidad Autónoma de Manizales, Instituto para la Ciencia ("Fe · Honor · Ciencia", confirmado por el cliente), Hotel Termales del Ruiz, CEDER, Centro Comercial Fundadores, Natural Sun Time Spa, Oryza, Parque Caldas, Registraduría Nacional del Estado Civil, Unique Detailing Center.
+
+Pipeline aplicado:
+1. Recortes de elementos ajenos al logo: leyenda "Versión del logo…" (DragonJAR), "Vigilada Mineducación" (UAM), íconos de interfaz de Facebook (Disblanco), marca de interfaz (Instituto para la Ciencia).
+2. Remoción de fondo con alfa suave (color-to-alpha sobre el color de fondo muestreado en el borde): bordes antialiasados sin halos; los blancos interiores encerrados (escudos, ventanas) se conservan opacos. Modo especial para capturas con cuadrícula de "falsa transparencia" (Cable Plaza, Lumia) y para fondos en degradado (Registraduría, Kuma).
+3. Logos cuyo fondo es parte de la marca conservan su placa con esquinas redondeadas: La Burguer, Oryza, Termales del Ruiz, Unique Detailing Center.
+4. Reescalado en espacio premultiplicado con Lanczos a 320 px de alto (~4× la altura de render de 76 px, nítido en pantallas retina) + máscara de enfoque suave cuando se amplía.
+5. Export WebP q92, `alpha_q 100`, `-sharp_yuv`. 24 assets ≈ 934 KB (carga diferida).
+
+No publicados:
+- **Sancancio**: la captura tiene un ícono de lupa (Google Lens) superpuesto a la "S"; limpiarlo alteraría la letra → se necesita otra captura.
+- **Instituto Universitario de Manizales**: el cliente indicó no usarlo.
+- **transito.png** (logo amarillo/negro tipo "M/TM"): sin confirmar si es Tránsito o TM SAS.
