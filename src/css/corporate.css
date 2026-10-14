@@ -83,6 +83,9 @@ html { scroll-padding-top: 122px; }
 .brands-group { width: 100%; justify-content: space-between; gap: 2rem; padding: 0; }
 .brands-group[aria-hidden] { display: none; }
 .brand-item { width: 140px; height: 65px; flex: 0 1 140px; }
+.brand-item { display: flex; align-items: center; justify-content: center; }
+.brand-item img { width: auto; height: auto; max-width: 100%; max-height: 100%; }
+.brand-tajima img { transform: none; }
 .brand-coats { flex-basis: 72px; }
 
 .section-faq { background: var(--corporate-paper); }
