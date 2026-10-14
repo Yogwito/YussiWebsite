@@ -122,17 +122,43 @@ export function initCoverageMap() {
   document.addEventListener('languagechange', updateCopy)
   updateCopy()
 
-  const observer = new IntersectionObserver(async (entries) => {
-    if (!entries.some((entry) => entry.isIntersecting) || scene) return
-    observer.disconnect()
+  const map = document.getElementById('coverage-map')
 
+  const loadScene = async () => {
+    if (scene) return
     try {
       scene = await createCoverageScene()
       scene.setMode(mode, true)
     } catch (error) {
       console.warn('Coverage map fallback enabled:', error)
-      document.getElementById('coverage-map').dataset.state = 'fallback'
+      map.dataset.state = 'fallback'
     }
+  }
+
+  // En móvil o con ahorro de datos, el globo 3D (Three.js + GeoJSON) no se
+  // descarga solo: se muestra la imagen estática y se carga a pedido.
+  const lite = window.matchMedia('(max-width: 767px)').matches || navigator.connection?.saveData
+  if (lite) {
+    map.dataset.state = 'static'
+    const button = document.createElement('button')
+    button.type = 'button'
+    button.className = 'coverage-activate'
+    button.innerHTML = '<span data-es="Ver mapa interactivo" data-en="View interactive map"></span><span class="icon-stitch" aria-hidden="true"></span>'
+    const label = button.firstElementChild
+    label.textContent = label.dataset[document.documentElement.lang === 'en' ? 'en' : 'es']
+    button.addEventListener('click', () => {
+      button.remove()
+      map.dataset.state = 'idle'
+      loadScene()
+    })
+    map.appendChild(button)
+    return
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries.some((entry) => entry.isIntersecting)) return
+    observer.disconnect()
+    loadScene()
   }, { rootMargin: '500px 0px', threshold: 0 })
 
   observer.observe(section)

@@ -141,3 +141,24 @@
     display: none;
   }
 }
+
+/* ── Área segura (barra de inicio / muesca de iOS) ───────────────────────── */
+#fab-wa {
+  right: calc(1.5rem + env(safe-area-inset-right, 0px));
+  bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+.wa-bubble {
+  right: calc(1.5rem + env(safe-area-inset-right, 0px));
+}
+
+@media (max-width: 767px) {
+  #fab-wa {
+    right: calc(1rem + env(safe-area-inset-right, 0px));
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+  }
+
+  .wa-bubble {
+    right: calc(1rem + env(safe-area-inset-right, 0px));
+  }
+}

@@ -224,3 +224,32 @@ a:hover > .icon-stitch--down { transform: translateY(3px); }
   row-gap: 1.5rem;
   padding-right: 0;
 }
+
+/* Mapa en móvil: imagen estática y carga del globo 3D a pedido. */
+.coverage-map[data-state="static"] #coverage-canvas,
+.coverage-map[data-state="static"] .coverage-loading,
+.coverage-map[data-state="static"] .coverage-origin,
+.coverage-map[data-state="static"] .coverage-legend { display: none; }
+.coverage-map[data-state="static"] .coverage-fallback { display: block; }
+.coverage-visual:has(.coverage-map[data-state="static"]) .coverage-hint { display: none; }
+.coverage-activate {
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  padding: 0 1.1rem;
+  border: 0;
+  border-radius: 999px;
+  color: var(--white);
+  background: var(--navy);
+  font: 700 0.82rem var(--font-body);
+  white-space: nowrap;
+  cursor: pointer;
+  transform: translateX(-50%);
+  box-shadow: 0 10px 24px rgba(7, 26, 52, 0.25);
+}
+.coverage-activate:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
