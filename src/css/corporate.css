@@ -175,3 +175,18 @@ html { scroll-padding-top: 122px; }
 a:hover > .icon-stitch, button:hover > .icon-stitch { transform: translate(2px, -2px); }
 a:hover > .icon-stitch--right { transform: translateX(3px); }
 a:hover > .icon-stitch--down { transform: translateY(3px); }
+
+/* Respaldo del formulario: enviar la solicitud por WhatsApp con los datos. */
+.form-error-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 0.75rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 4px;
+  color: var(--navy);
+  background: var(--green);
+  font-weight: 700;
+  text-decoration: none;
+}
+.form-error-whatsapp:hover { filter: brightness(0.95); }

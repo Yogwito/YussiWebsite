@@ -1,6 +1,20 @@
-const DEFAULT_ERROR = {
-  es: 'No pudimos recibir la solicitud. Tus datos siguen aquí; inténtalo de nuevo o escríbenos por WhatsApp.',
-  en: 'We could not receive the request. Your details are still here; try again or contact us on WhatsApp.'
+const WHATSAPP_NUMBER = '573113858494'
+
+const MESSAGES = {
+  es: {
+    error: 'No pudimos recibir la solicitud. Tus datos siguen aquí; inténtalo de nuevo o envíalos por WhatsApp.',
+    notConfigured: 'El envío por formulario aún no está activo. Tus datos siguen aquí: envíalos por WhatsApp con un clic.',
+    whatsapp: 'Enviar mi solicitud por WhatsApp',
+    greeting: 'Hola Bordados Yussi, quiero cotizar.',
+    labels: { name: 'Nombre', company: 'Empresa', phone: 'Teléfono', email: 'Correo', service: 'Línea', message: 'Detalles' }
+  },
+  en: {
+    error: 'We could not receive the request. Your details are still here; try again or send them on WhatsApp.',
+    notConfigured: 'Form submissions are not active yet. Your details are still here: send them on WhatsApp in one click.',
+    whatsapp: 'Send my request on WhatsApp',
+    greeting: 'Hi Bordados Yussi, I would like a quote.',
+    labels: { name: 'Name', company: 'Company', phone: 'Phone', email: 'Email', service: 'Line', message: 'Details' }
+  }
 }
 
 export function initForm() {
@@ -12,14 +26,45 @@ export function initForm() {
   const submitBtn = form.querySelector('[type="submit"]')
   const startedAt = document.getElementById('form-started-at')
   const endpoint = form.dataset.endpoint || '/api/quote'
-
-  const setMessage = (element, visible, message) => {
-    if (!element) return
-    if (message) element.textContent = message
-    element.hidden = !visible
-  }
+  let errorCode = ''
 
   const currentLanguage = () => document.documentElement.lang === 'en' ? 'en' : 'es'
+
+  // Arma un mensaje de WhatsApp con lo que la persona ya escribió, para que
+  // la solicitud no se pierda si el envío por formulario falla.
+  const whatsappUrl = () => {
+    const t = MESSAGES[currentLanguage()]
+    const data = new FormData(form)
+    const service = form.querySelector('[name="service"]')
+    const values = {
+      ...Object.fromEntries(data.entries()),
+      service: service?.value ? service.selectedOptions[0].textContent.trim() : ''
+    }
+    const lines = Object.entries(t.labels)
+      .filter(([key]) => String(values[key] || '').trim())
+      .map(([key, label]) => `${label}: ${String(values[key]).trim()}`)
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent([t.greeting, ...lines].join('\n'))}`
+  }
+
+  const renderError = () => {
+    if (!errorMsg) return
+    const t = MESSAGES[currentLanguage()]
+    const text = document.createElement('span')
+    text.textContent = errorCode === 'LEAD_PROVIDER_NOT_CONFIGURED' ? t.notConfigured : t.error
+    const link = document.createElement('a')
+    link.className = 'form-error-whatsapp'
+    link.href = whatsappUrl()
+    link.target = '_blank'
+    link.rel = 'noopener'
+    link.textContent = t.whatsapp
+    errorMsg.replaceChildren(text, ' ', link)
+    errorMsg.hidden = false
+  }
+
+  const hideMessages = () => {
+    if (successMsg) successMsg.hidden = true
+    if (errorMsg) errorMsg.hidden = true
+  }
 
   const setState = (state) => {
     const isSubmitting = state === 'submitting'
@@ -38,6 +83,11 @@ export function initForm() {
   form.addEventListener('input', startClock, { once: true })
   form.addEventListener('focusin', startClock, { once: true })
 
+  // Si edita los datos con el error visible, el enlace de WhatsApp se actualiza.
+  form.addEventListener('input', () => {
+    if (form.dataset.state === 'error' && errorMsg && !errorMsg.hidden) renderError()
+  })
+
   form.addEventListener('submit', async (event) => {
     event.preventDefault()
     startClock()
@@ -47,12 +97,10 @@ export function initForm() {
       return
     }
 
-    setMessage(successMsg, false)
-    setMessage(errorMsg, false)
+    hideMessages()
     setState('submitting')
 
-    const formData = new FormData(form)
-    const payload = Object.fromEntries(formData.entries())
+    const payload = Object.fromEntries(new FormData(form).entries())
 
     try {
       const response = await fetch(endpoint, {
@@ -67,24 +115,17 @@ export function initForm() {
       }
 
       setState('success')
-      setMessage(successMsg, true)
+      if (successMsg) successMsg.hidden = false
       form.reset()
       if (startedAt) startedAt.value = ''
     } catch (error) {
       setState('error')
-      const language = currentLanguage()
-      const message = error.message === 'LEAD_PROVIDER_NOT_CONFIGURED'
-        ? language === 'en'
-          ? 'The quote form is ready, but its receiving service is not configured yet. Please use WhatsApp while it is being activated.'
-          : 'El formulario está listo, pero falta configurar el servicio que recibe las solicitudes. Mientras se activa, puedes escribirnos por WhatsApp.'
-        : DEFAULT_ERROR[language]
-      setMessage(errorMsg, true, message)
+      errorCode = error.message
+      renderError()
     }
   })
 
   document.addEventListener('languagechange', () => {
-    if (form.dataset.state === 'error' && errorMsg?.hidden === false) {
-      setMessage(errorMsg, true, DEFAULT_ERROR[currentLanguage()])
-    }
+    if (form.dataset.state === 'error' && errorMsg && !errorMsg.hidden) renderError()
   })
 }
