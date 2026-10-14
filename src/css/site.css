@@ -1643,83 +1643,6 @@ select:focus-visible {
   line-height: 1.7;
 }
 
-.clients-rows {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.clients-marquee {
-  position: relative;
-  overflow: hidden;
-  padding-block: 0.85rem;
-}
-
-.clients-marquee::before,
-.clients-marquee::after {
-  content: '';
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  bottom: 0;
-  width: 160px;
-  pointer-events: none;
-}
-
-.clients-marquee::before {
-  left: 0;
-  background: linear-gradient(90deg, var(--white) 0, var(--white) 30%, rgba(255, 255, 255, 0));
-}
-
-.clients-marquee::after {
-  right: 0;
-  background: linear-gradient(270deg, var(--white) 0, var(--white) 30%, rgba(255, 255, 255, 0));
-}
-
-.clients-track {
-  width: max-content;
-  display: flex;
-  align-items: center;
-  animation: marquee var(--clients-duration, 64s) linear infinite;
-  will-change: transform;
-}
-
-.clients-track--reverse {
-  animation-direction: reverse;
-}
-
-.clients-marquee:hover .clients-track {
-  animation-play-state: paused;
-}
-
-.clients-group {
-  display: flex;
-  align-items: center;
-  gap: 5rem;
-  padding-right: 5rem;
-}
-
-.client-item {
-  height: 84px;
-  display: grid;
-  place-items: center;
-  flex: 0 0 auto;
-}
-
-.client-item img {
-  height: 76px;
-  width: auto;
-  max-width: 300px;
-  object-fit: contain;
-  transition: transform 0.35s var(--ease), filter 0.35s var(--ease);
-}
-
-.client-item:hover img,
-.client-item:focus-within img {
-  transform: scale(1.05);
-  filter: drop-shadow(0 8px 16px rgba(7, 26, 52, 0.16));
-}
-
 .section-faq {
   background: var(--ice);
 }
@@ -2606,29 +2529,6 @@ select:focus-visible {
 
   .clients-header h2 {
     font-size: 2.1rem;
-  }
-
-  .clients-track {
-    animation-duration: calc(var(--clients-duration, 64s) * 0.7);
-  }
-
-  .clients-group {
-    gap: 3rem;
-    padding-right: 3rem;
-  }
-
-  .clients-marquee::before,
-  .clients-marquee::after {
-    width: 56px;
-  }
-
-  .client-item {
-    height: 56px;
-  }
-
-  .client-item img {
-    height: 50px;
-    max-width: 170px;
   }
 
   .faq-intro h2 {

@@ -1,21 +1,27 @@
-// Franja de marcas: avanza siempre a una velocidad mínima y se acelera con la
-// velocidad del scroll. Al hacer scroll hacia arriba invierte el sentido.
-const BASE_SPEED = 40 // px/s cuando la página está quieta
-const SCROLL_FACTOR = 0.45 // px de franja por px de scroll
-const MAX_SPEED = 900 // px/s
-const EASE = 5 // qué tan rápido vuelve a la velocidad base
+// Carruseles de logos ligados al scroll: avanzan siempre a una velocidad mínima
+// y se aceleran con la velocidad del scroll. Al hacer scroll hacia arriba
+// invierten el sentido. Se usan en la franja de marcas y en la de clientes.
+const DEFAULTS = {
+  baseSpeed: 40, // px/s cuando la página está quieta
+  scrollFactor: 0.45, // px de franja por px de scroll
+  maxSpeed: 900, // px/s
+  ease: 5 // qué tan rápido vuelve a la velocidad base
+}
 
-export function initBrandsMarquee() {
-  const marquee = document.querySelector('.brands-marquee')
-  const track = marquee?.querySelector('.brands-track')
-  const group = track?.querySelector('.brands-group')
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+
+// `marquee` debe contener un hijo con clase que termine en "-track" y, dentro,
+// dos grupos idénticos (el segundo aria-hidden) para el loop sin saltos.
+export function createScrollMarquee(marquee, options = {}) {
+  const { baseSpeed, scrollFactor, maxSpeed, ease } = { ...DEFAULTS, ...options }
+  const track = marquee?.querySelector('[class$="-track"]')
+  const group = track?.firstElementChild
   if (!track || !group) return
 
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
   let groupWidth = group.getBoundingClientRect().width
   let x = 0
   let direction = -1
-  let speed = BASE_SPEED
+  let speed = baseSpeed
   let lastY = window.scrollY
   let lastTime = 0
   let frame = 0
@@ -35,9 +41,9 @@ export function initBrandsMarquee() {
     if (dy) direction = dy > 0 ? -1 : 1
 
     const scrollSpeed = dt ? Math.abs(dy) / dt : 0
-    const target = Math.min(BASE_SPEED + scrollSpeed * SCROLL_FACTOR, MAX_SPEED)
+    const target = Math.min(baseSpeed + scrollSpeed * scrollFactor, maxSpeed)
     // Acelera de inmediato y desacelera de forma suave.
-    speed = target > speed ? target : speed + (target - speed) * Math.min(1, dt * EASE)
+    speed = target > speed ? target : speed + (target - speed) * Math.min(1, dt * ease)
 
     if (groupWidth) {
       x = (x + direction * speed * dt) % groupWidth
@@ -72,4 +78,8 @@ export function initBrandsMarquee() {
       start()
     }
   })
+}
+
+export function initBrandsMarquee() {
+  createScrollMarquee(document.querySelector('.brands-marquee'))
 }

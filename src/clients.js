@@ -1,44 +1,48 @@
 import { verifiedClients } from './content/clients.js'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { createScrollMarquee } from './brands-marquee.js'
 
-// Reparte los clientes en dos filas intercalando categorías para lograr
-// variedad visual (no agrupar todas las instituciones juntas).
-const balanceRows = (items) => {
-  const shuffledByCategory = []
+// Intercala categorías para lograr variedad visual en el carrusel
+// (no agrupar todas las instituciones juntas).
+const interleaveByCategory = (items) => {
   const buckets = new Map()
   items.forEach((c) => {
     if (!buckets.has(c.category)) buckets.set(c.category, [])
     buckets.get(c.category).push(c)
   })
-  // Round-robin entre categorías.
-  let remaining = items.length
-  while (remaining > 0) {
+  const out = []
+  while (out.length < items.length) {
     for (const list of buckets.values()) {
-      if (list.length) {
-        shuffledByCategory.push(list.shift())
-        remaining--
-      }
+      if (list.length) out.push(list.shift())
     }
   }
-  const rowA = []
-  const rowB = []
-  shuffledByCategory.forEach((c, i) => (i % 2 === 0 ? rowA : rowB).push(c))
-  return [rowA, rowB.length ? rowB : rowA.slice()]
+  return out
 }
 
-const buildItem = (client, { decorative }) => {
+// Tamaño óptico: cada logo ocupa la misma área visual sin importar su
+// proporción, así un wordmark ancho y un escudo pesan lo mismo.
+const sizeOptically = (img, area) => {
+  const apply = () => {
+    const ratio = img.naturalWidth / img.naturalHeight
+    if (!ratio) return
+    const maxHeight = Math.sqrt(area) * 1.15
+    let height = Math.sqrt(area / ratio)
+    if (height > maxHeight) height = maxHeight
+    img.style.width = `${Math.round(height * ratio)}px`
+    img.style.height = `${Math.round(height)}px`
+  }
+  if (img.complete && img.naturalWidth) apply()
+  else img.addEventListener('load', apply, { once: true })
+}
+
+const buildLogo = (client, { area, decorative = false }) => {
   const item = document.createElement('div')
-  item.className = 'client-item'
+  item.className = 'client-logo'
   const img = document.createElement('img')
   img.src = client.logo
+  img.alt = decorative ? '' : client.name
   img.loading = 'lazy'
   img.decoding = 'async'
-  if (decorative) {
-    img.alt = ''
-    item.setAttribute('aria-hidden', 'true')
-  } else {
-    img.alt = client.name
-  }
+  sizeOptically(img, area)
   item.appendChild(img)
   return item
 }
@@ -52,21 +56,42 @@ export function initClients() {
     return
   }
 
-  const [first, second] = balanceRows(verifiedClients)
-  const clients = verifiedClients.length === 1 ? first : [...first, ...second]
-  const buildDirectory = (items) => {
+  const featured = verifiedClients
+    .filter((c) => c.featured)
+    .sort((a, b) => a.featured - b.featured)
+  const rest = interleaveByCategory(verifiedClients.filter((c) => !c.featured))
+  const mobile = window.matchMedia('(max-width: 600px)').matches
+
+  if (featured.length) {
     const grid = document.createElement('div')
-    grid.className = 'client-directory'
-    items.forEach((client) => grid.appendChild(buildItem(client, { decorative: false })))
-    return grid
+    grid.className = 'clients-featured'
+    featured.forEach((c) => grid.appendChild(buildLogo(c, { area: mobile ? 4200 : 7600 })))
+    wrapper.appendChild(grid)
   }
-  wrapper.appendChild(buildDirectory(clients.slice(0, 12)))
-  if (clients.length > 12) {
-    const details = document.createElement('details')
-    details.className = 'client-more'
-    details.innerHTML = '<summary><span class="clients-open" data-es="Ver más clientes" data-en="View more clients">Ver más clientes</span><span class="clients-close" data-es="Ver menos clientes" data-en="View fewer clients">Ver menos clientes</span></summary>'
-    details.appendChild(buildDirectory(clients.slice(12)))
-    details.addEventListener('toggle', () => ScrollTrigger.refresh())
-    wrapper.appendChild(details)
-  }
+
+  if (!rest.length) return
+
+  const label = document.createElement('p')
+  label.className = 'clients-more-label'
+  label.dataset.es = `Y ${rest.length} empresas, colegios y marcas más`
+  label.dataset.en = `And ${rest.length} more companies, schools and brands`
+  label.textContent = document.documentElement.lang === 'en' ? label.dataset.en : label.dataset.es
+  wrapper.appendChild(label)
+
+  const marquee = document.createElement('div')
+  marquee.className = 'clients-marquee'
+  const track = document.createElement('div')
+  track.className = 'clients-track'
+  const area = mobile ? 1600 : 2200
+  ;[false, true].forEach((decorative) => {
+    const group = document.createElement('div')
+    group.className = 'clients-group'
+    if (decorative) group.setAttribute('aria-hidden', 'true')
+    rest.forEach((c) => group.appendChild(buildLogo(c, { area, decorative })))
+    track.appendChild(group)
+  })
+  marquee.appendChild(track)
+  wrapper.appendChild(marquee)
+
+  createScrollMarquee(marquee)
 }

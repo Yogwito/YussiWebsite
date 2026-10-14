@@ -15,6 +15,7 @@
 //   location    Ciudad/país de referencia comercial.
 //   confidence  high | medium | low  (certeza de identidad).
 //   status      verified | needs_user_confirmation | needs_user_asset | skipped
+//   featured    (opcional) orden entre las marcas destacadas de la sección.
 //
 // REGLA: no se marca `verified` un logo cuya identidad no esté comprobada.
 
@@ -25,7 +26,7 @@ export const clients = [
   { name: 'Tecnológico', identified: null, slug: 'tecnologico', logo: null, category: 'education', location: 'Manizales, CO', confidence: 'low', status: 'needs_user_asset' },
   { name: 'San Felipe Neri', identified: null, slug: 'san-felipe-neri', logo: null, category: 'education', location: 'Manizales, CO', confidence: 'low', status: 'needs_user_asset' },
   { name: 'Instituto para la Ciencia', identified: null, slug: 'instituto-para-la-ciencia', logo: '/img/clients/instituto-para-la-ciencia.webp', category: 'education', location: 'Manizales, CO', confidence: 'high', status: 'verified' },
-  { name: 'SENA', identified: 'Servicio Nacional de Aprendizaje (SENA)', slug: 'sena', logo: '/img/clients/sena.svg', category: 'education', location: 'Colombia', confidence: 'high', status: 'verified' },
+  { name: 'SENA', identified: 'Servicio Nacional de Aprendizaje (SENA)', slug: 'sena', logo: '/img/clients/sena.svg', category: 'education', location: 'Colombia', confidence: 'high', status: 'verified', featured: 1 },
   { name: 'Cruzada Social', identified: null, slug: 'cruzada-social', logo: null, category: 'education', location: 'Manizales, CO', confidence: 'low', status: 'needs_user_asset' },
 
   // ── Universidades ─────────────────────────────────────────────────────────
@@ -33,14 +34,14 @@ export const clients = [
   { name: 'Universidad de Manizales', identified: 'Universidad de Manizales', slug: 'universidad-de-manizales', logo: '/img/clients/universidad-de-manizales.webp', category: 'university', location: 'Manizales, CO', confidence: 'high', status: 'verified' },
   { name: 'Universidad Autónoma de Manizales', identified: 'Universidad Autónoma de Manizales (UAM)', slug: 'universidad-autonoma-manizales', logo: '/img/clients/universidad-autonoma-manizales.webp', category: 'university', location: 'Manizales, CO', confidence: 'high', status: 'verified' },
   { name: 'Universidad de Caldas', identified: 'Universidad de Caldas', slug: 'universidad-de-caldas', logo: '/img/clients/universidad-de-caldas.svg', category: 'university', location: 'Manizales, CO', confidence: 'high', status: 'verified' },
-  { name: 'Universidad Nacional', identified: 'Universidad Nacional de Colombia (Sede Manizales)', slug: 'universidad-nacional', logo: '/img/clients/universidad-nacional.svg', category: 'university', location: 'Colombia', confidence: 'high', status: 'verified' },
+  { name: 'Universidad Nacional', identified: 'Universidad Nacional de Colombia (Sede Manizales)', slug: 'universidad-nacional', logo: '/img/clients/universidad-nacional.svg', category: 'university', location: 'Colombia', confidence: 'high', status: 'verified', featured: 6 },
   { name: 'Universidad del Quindío', identified: 'Universidad del Quindío', slug: 'universidad-del-quindio', logo: '/img/clients/universidad-del-quindio.webp', category: 'university', location: 'Armenia, CO', confidence: 'high', status: 'verified' },
 
   // ── Instituciones públicas y organizaciones ──────────────────────────────
   { name: 'Cruz Roja', identified: 'Cruz Roja Colombiana', slug: 'cruz-roja', logo: '/img/clients/cruz-roja.svg', category: 'public', location: 'Colombia', confidence: 'high', status: 'verified' },
   { name: 'Alcaldía', identified: 'Alcaldía de Manizales', slug: 'alcaldia-manizales', logo: '/img/clients/alcaldia-manizales.svg', category: 'public', location: 'Manizales, CO', confidence: 'high', status: 'verified' },
   { name: 'Gobernación', identified: 'Gobernación de Caldas', slug: 'gobernacion-caldas', logo: '/img/clients/gobernacion-caldas.svg', category: 'public', location: 'Caldas, CO', confidence: 'high', status: 'verified' },
-  { name: 'Policía', identified: 'Policía Nacional de Colombia', slug: 'policia-nacional', logo: '/img/clients/policia-nacional.webp', category: 'public', location: 'Colombia', confidence: 'high', status: 'verified' },
+  { name: 'Policía', identified: 'Policía Nacional de Colombia', slug: 'policia-nacional', logo: '/img/clients/policia-nacional.webp', category: 'public', location: 'Colombia', confidence: 'high', status: 'verified', featured: 2 },
   { name: 'Tránsito', identified: null, slug: 'transito', logo: null, category: 'public', location: 'Manizales/Caldas, CO', confidence: 'low', status: 'needs_user_confirmation' },
   { name: 'Agencia Nacional de Turismo', identified: null, slug: 'agencia-nacional-turismo', logo: null, category: 'public', location: 'Colombia', confidence: 'low', status: 'needs_user_confirmation' },
   { name: 'Fiscalía General de la Nación', identified: 'Fiscalía General de la Nación', slug: 'fiscalia-general', logo: '/img/clients/fiscalia-general.svg', category: 'public', location: 'Colombia', confidence: 'high', status: 'verified' },
@@ -52,7 +53,7 @@ export const clients = [
   { name: 'Artesanías de Aguadas', identified: null, slug: 'artesanias-de-aguadas', logo: null, category: 'public', location: 'Aguadas, Caldas, CO', confidence: 'low', status: 'needs_user_asset' },
 
   // ── Deportes ──────────────────────────────────────────────────────────────
-  { name: 'Once Caldas', identified: 'Once Caldas S.A.', slug: 'once-caldas', logo: '/img/clients/once-caldas.svg', category: 'sports', location: 'Manizales, CO', confidence: 'high', status: 'verified' },
+  { name: 'Once Caldas', identified: 'Once Caldas S.A.', slug: 'once-caldas', logo: '/img/clients/once-caldas.svg', category: 'sports', location: 'Manizales, CO', confidence: 'high', status: 'verified', featured: 3 },
 
   // ── Centros comerciales ──────────────────────────────────────────────────
   { name: 'Centro Comercial Fundadores', identified: 'Centro Comercial Fundadores', slug: 'cc-fundadores', logo: '/img/clients/cc-fundadores.webp', category: 'mall', location: 'Manizales, CO', confidence: 'high', status: 'verified' },
@@ -61,7 +62,7 @@ export const clients = [
   { name: 'Sancancio', identified: 'Centro Comercial Sancancio', slug: 'sancancio', logo: null, category: 'mall', location: 'Manizales, CO', confidence: 'medium', status: 'needs_user_asset' },
 
   // ── Alimentos / restaurantes / cafés ─────────────────────────────────────
-  { name: 'Juan Valdez Café', identified: 'Juan Valdez Café', slug: 'juan-valdez', logo: '/img/clients/juan-valdez.webp', category: 'food', location: 'Colombia', confidence: 'high', status: 'verified' },
+  { name: 'Juan Valdez Café', identified: 'Juan Valdez Café', slug: 'juan-valdez', logo: '/img/clients/juan-valdez.webp', category: 'food', location: 'Colombia', confidence: 'high', status: 'verified', featured: 4 },
   { name: 'Dragón Jar', identified: 'DragonJAR (seguridad informática)', slug: 'dragon-jar', logo: '/img/clients/dragon-jar.webp', category: 'food', location: 'CO', confidence: 'high', status: 'verified' },
   { name: 'Fandebonos', identified: null, slug: 'fandebonos', logo: null, category: 'food', location: 'CO', confidence: 'low', status: 'needs_user_asset' },
   { name: 'Burger House (Costa Rica)', identified: null, slug: 'burger-house-cr', logo: null, category: 'food', location: 'Costa Rica', confidence: 'low', status: 'needs_user_asset' },
@@ -73,7 +74,7 @@ export const clients = [
   { name: 'Juicio', identified: null, slug: 'juicio', logo: '/img/clients/juicio.webp', category: 'food', location: 'CO', confidence: 'high', status: 'verified' },
 
   // ── Combustibles / automotriz ────────────────────────────────────────────
-  { name: 'Terpel', identified: 'Organización Terpel S.A.', slug: 'terpel', logo: '/img/clients/terpel.webp', category: 'fuel-auto', location: 'Colombia', confidence: 'high', status: 'verified' },
+  { name: 'Terpel', identified: 'Organización Terpel S.A.', slug: 'terpel', logo: '/img/clients/terpel.webp', category: 'fuel-auto', location: 'Colombia', confidence: 'high', status: 'verified', featured: 5 },
   { name: 'Unique Detailing Center', identified: null, slug: 'unique-detailing-center', logo: '/img/clients/unique-detailing-center.webp', category: 'fuel-auto', location: 'CO', confidence: 'high', status: 'verified' },
 
   // ── Belleza / salud / estética ───────────────────────────────────────────
