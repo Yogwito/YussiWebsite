@@ -1,56 +1,55 @@
-/* Ajustes de legibilidad y uso táctil en móvil.
-   Se carga al final para corregir mínimos sin tocar el diseño de escritorio:
-   texto >= 12px y objetivos táctiles >= 44px. */
+/* Ajustes de legibilidad, uso táctil y pantallas bajas.
+   Se carga al final: texto >= 12px en todos los tamaños, objetivos táctiles
+   >= 44px en pantallas táctiles o de hasta 1120px (teléfonos, tablets y
+   portátiles táctiles) y hero que cabe en teléfonos en horizontal. */
 
 /* La burbuja hereda color blanco de otras hojas y su texto quedaba invisible. */
 .wa-bubble a {
   color: var(--navy);
 }
 
-@media (max-width: 767px) {
-  /* ── Texto mínimo legible ─────────────────────────────────────────────── */
-  .announcement span,
-  .eyebrow,
-  .coverage-hint,
-  .coverage-loading,
-  #coverage-kicker,
-  .brands-heading,
-  .footer-col h3 {
-    font-size: 0.75rem;
-  }
+/* ── Texto mínimo legible (12px) ─────────────────────────────────────────── */
+.announcement span,
+.eyebrow,
+.line-detail-copy .eyebrow,
+.coverage-hint,
+.coverage-loading,
+#coverage-kicker,
+.brands-heading,
+.production-film figcaption,
+.stats-grid span,
+.footer-col h3,
+.footer-bottom {
+  font-size: 0.75rem;
+}
 
-  .line-detail-copy .eyebrow,
-  .production-film figcaption,
-  .stats-grid span,
-  .footer-bottom {
-    font-size: 0.75rem;
-  }
+.hero-proof li,
+.form-privacy,
+.lang-toggle {
+  font-size: 0.8rem;
+}
 
-  .hero-proof li,
-  .form-privacy,
-  .lang-toggle {
-    font-size: 0.8rem;
-  }
+.coverage-origin small,
+.coverage-legend {
+  font-size: 0.75rem;
+}
 
-  .coverage-origin small,
-  .coverage-legend {
-    font-size: 0.72rem;
-  }
+.page-loader small {
+  font-size: 0.75rem;
+}
 
-  .page-loader small {
-    font-size: 0.7rem;
+@media (max-width: 900px) {
+  .product-option-label strong {
+    font-size: 0.78rem;
   }
+}
 
-  /* Barra superior: que sus frases quepan sin cortarse. */
-  .announcement {
-    padding-inline: 12px;
-    column-gap: 0.4rem;
-  }
-
-  /* ── Objetivos táctiles de 44px ──────────────────────────────────────── */
+/* ── Objetivos táctiles de 44px ──────────────────────────────────────────── */
+@media (max-width: 1120px), (pointer: coarse) {
   .nav-logo,
   .text-link,
   .product-request,
+  .quick-links-heading a,
   .contact-details a,
   .footer-col a,
   .mobile-menu > a {
@@ -90,8 +89,55 @@
   }
 }
 
+/* ── Barra superior en pantallas angostas ────────────────────────────────── */
+@media (max-width: 767px) {
+  .announcement {
+    padding-inline: 12px;
+    column-gap: 0.4rem;
+  }
+}
+
 @media (max-width: 389px) {
   .announcement > :nth-child(n + 2) {
+    display: none;
+  }
+}
+
+/* ── Hero en pantallas bajas ─────────────────────────────────────────────── */
+/* Teléfonos pequeños: el botón principal queda dentro de la primera pantalla. */
+@media (max-width: 360px) {
+  .hero h1 {
+    font-size: 2.85rem;
+  }
+}
+
+/* Teléfonos en horizontal: titular y botón principal visibles sin scroll. */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero,
+  .hero-inner {
+    min-height: auto;
+  }
+
+  .hero-inner {
+    align-items: center;
+    padding-block: 1.5rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 9vh, 2.75rem);
+  }
+
+  .hero-kicker {
+    margin-bottom: 0.6rem;
+  }
+
+  .hero-actions {
+    margin-top: 1rem;
+  }
+
+  .hero-lead,
+  .hero-proof,
+  .hero-scroll {
     display: none;
   }
 }

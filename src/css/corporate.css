@@ -61,6 +61,8 @@ html { scroll-padding-top: 122px; }
   border-bottom: 1px solid var(--corporate-line);
 }
 .clients-featured .client-logo { display: grid; place-items: center; min-height: 104px; }
+.client-logo { min-width: 0; }
+.client-logo img { max-width: 100%; object-fit: contain; }
 .clients-featured img { transition: transform 0.35s var(--ease); }
 .clients-featured .client-logo:hover img { transform: scale(1.05); }
 .clients-more-label {

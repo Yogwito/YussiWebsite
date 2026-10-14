@@ -20,6 +20,11 @@ const interleaveByCategory = (items) => {
 
 // Tamaño óptico: cada logo ocupa la misma área visual sin importar su
 // proporción, así un wordmark ancho y un escudo pesan lo mismo.
+// El área depende del ancho de pantalla y se recalcula al cruzar el breakpoint.
+const mobileQuery = window.matchMedia('(max-width: 600px)')
+const AREAS = { featured: [7600, 4200], marquee: [2200, 1600] }
+const areaFor = (kind) => AREAS[kind][mobileQuery.matches ? 1 : 0]
+
 const sizeOptically = (img, area) => {
   const apply = () => {
     const ratio = img.naturalWidth / img.naturalHeight
@@ -34,7 +39,7 @@ const sizeOptically = (img, area) => {
   else img.addEventListener('load', apply, { once: true })
 }
 
-const buildLogo = (client, { area, decorative = false }) => {
+const buildLogo = (client, { kind, decorative = false }) => {
   const item = document.createElement('div')
   item.className = 'client-logo'
   const img = document.createElement('img')
@@ -42,7 +47,8 @@ const buildLogo = (client, { area, decorative = false }) => {
   img.alt = decorative ? '' : client.name
   img.loading = 'lazy'
   img.decoding = 'async'
-  sizeOptically(img, area)
+  img.dataset.kind = kind
+  sizeOptically(img, areaFor(kind))
   item.appendChild(img)
   return item
 }
@@ -60,12 +66,11 @@ export function initClients() {
     .filter((c) => c.featured)
     .sort((a, b) => a.featured - b.featured)
   const rest = interleaveByCategory(verifiedClients.filter((c) => !c.featured))
-  const mobile = window.matchMedia('(max-width: 600px)').matches
 
   if (featured.length) {
     const grid = document.createElement('div')
     grid.className = 'clients-featured'
-    featured.forEach((c) => grid.appendChild(buildLogo(c, { area: mobile ? 4200 : 7600 })))
+    featured.forEach((c) => grid.appendChild(buildLogo(c, { kind: 'featured' })))
     wrapper.appendChild(grid)
   }
 
@@ -82,16 +87,19 @@ export function initClients() {
   marquee.className = 'clients-marquee'
   const track = document.createElement('div')
   track.className = 'clients-track'
-  const area = mobile ? 1600 : 2200
   ;[false, true].forEach((decorative) => {
     const group = document.createElement('div')
     group.className = 'clients-group'
     if (decorative) group.setAttribute('aria-hidden', 'true')
-    rest.forEach((c) => group.appendChild(buildLogo(c, { area, decorative })))
+    rest.forEach((c) => group.appendChild(buildLogo(c, { kind: 'marquee', decorative })))
     track.appendChild(group)
   })
   marquee.appendChild(track)
   wrapper.appendChild(marquee)
 
   createScrollMarquee(marquee)
+
+  mobileQuery.addEventListener('change', () => {
+    wrapper.querySelectorAll('img[data-kind]').forEach((img) => sizeOptically(img, areaFor(img.dataset.kind)))
+  })
 }
