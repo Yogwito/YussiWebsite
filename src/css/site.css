@@ -747,7 +747,7 @@ select:focus-visible {
 
 .product-card {
   position: relative;
-  grid-column: span 6;
+  grid-column: span 4;
   min-height: 490px;
   overflow: hidden;
   border-radius: 6px;
@@ -788,7 +788,7 @@ select:focus-visible {
   position: absolute;
   inset: 0;
   opacity: 0;
-  animation: school-product-cycle 28s ease-in-out infinite;
+  animation: school-product-cycle 20s ease-in-out infinite;
   will-change: opacity;
 }
 
@@ -800,16 +800,14 @@ select:focus-visible {
 .product-slideshow img:nth-child(3) { animation-delay: 8s; }
 .product-slideshow img:nth-child(4) { animation-delay: 12s; }
 .product-slideshow img:nth-child(5) { animation-delay: 16s; }
-.product-slideshow img:nth-child(6) { animation-delay: 20s; }
-.product-slideshow img:nth-child(7) { animation-delay: 24s; }
 
 @keyframes school-product-cycle {
   0%,
-  12.5% {
+  17.5% {
     opacity: 1;
   }
 
-  14.3%,
+  20%,
   100% {
     opacity: 0;
   }
@@ -2108,6 +2106,15 @@ select:focus-visible {
 .motion-ready .hero-copy > :nth-child(5) { transition-delay: 0.4s; }
 
 @media (max-width: 1120px) {
+  .product-card {
+    grid-column: span 6;
+  }
+
+  .product-card:nth-child(4),
+  .product-card-wide {
+    grid-column: span 12;
+  }
+
   .nav-links {
     display: none;
   }
