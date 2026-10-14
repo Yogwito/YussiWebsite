@@ -58,7 +58,7 @@ function initSkipLink() {
 
     event.preventDefault()
     window.history.pushState({}, '', selector)
-    const headerOffset = document.getElementById('navbar')?.offsetHeight || 0
+    const headerOffset = document.querySelector('.site-header')?.offsetHeight || 0
     const top = target.getBoundingClientRect().top + window.scrollY - headerOffset
     window.scrollTo({ top, behavior: 'auto' })
     target.focus({ preventScroll: true })
@@ -176,7 +176,7 @@ function initSmoothScroll() {
   gsap.ticker.lagSmoothing(0)
 
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    if (link === skipLink) return
+    if (link === skipLink || link.matches('[data-product]')) return
     const handler = (event) => {
       const selector = link.getAttribute('href')
       if (!selector || selector === '#') return
@@ -186,7 +186,8 @@ function initSmoothScroll() {
 
       event.preventDefault()
       window.history.pushState({}, '', selector)
-      lenis.scrollTo(target, { duration: 1.1 })
+      const offset = -(document.querySelector('.site-header')?.offsetHeight || 0) - 16
+      lenis.scrollTo(target, { duration: 1.1, offset })
     }
     link.addEventListener('click', handler)
     anchorHandlers.push(() => link.removeEventListener('click', handler))
@@ -206,7 +207,8 @@ function initSmoothScroll() {
     if (!target) return
 
     lenis.resize()
-    lenis.scrollTo(target, { immediate: true, force: true })
+    const offset = -(document.querySelector('.site-header')?.offsetHeight || 0) - 16
+    lenis.scrollTo(target, { immediate: true, force: true, offset })
   }
 
   window.requestAnimationFrame(syncInitialHash)
@@ -235,7 +237,6 @@ function initReveals() {
   const selectors = [
     '.section-header',
     '.product-card',
-    '.line-detail',
     '.work-item',
     '.process-media',
     '.process-copy > *',
@@ -309,6 +310,7 @@ function initParallax() {
 }
 
 function initScrollProgress() {
+  document.querySelector('.scroll-progress')?.remove()
   const progress = document.createElement('div')
   progress.className = 'scroll-progress'
   progress.setAttribute('aria-hidden', 'true')

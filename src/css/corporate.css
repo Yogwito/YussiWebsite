@@ -1,0 +1,141 @@
+/* Corporate presentation; the established hero and coverage map retain their styling. */
+:root {
+  --corporate-paper: #f6f8fa;
+  --corporate-line: #dce3ea;
+  --corporate-muted: #59677a;
+  --corporate-radius: 8px;
+}
+
+.site-header { position: sticky; top: 0; z-index: 100; }
+#navbar { position: relative; }
+html { scroll-padding-top: 122px; }
+
+.section:not(.hero):not(.section-coverage) {
+  padding-block: clamp(4rem, 7vw, 7rem);
+}
+
+.section:not(.hero):not(.section-coverage) h2 {
+  font-size: clamp(2rem, 3.6vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+.section-header {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  margin-bottom: 3rem;
+}
+
+.section-header h2 { max-width: 710px; }
+.section-header > p { max-width: 400px; font-size: 0.95rem; }
+.eyebrow { letter-spacing: 0.11em; }
+.quick-links { border-bottom: 1px solid var(--corporate-line); }
+.quick-links-row a { transition: background 180ms, color 180ms; }
+.quick-links-row a:hover { background: var(--corporate-paper); }
+.stats-band { background: var(--white); }
+.stats-grid > div { min-height: 115px; }
+.stats-grid > div::before { display: none; }
+.stats-grid strong { font-size: 1.9rem; }
+.stats-grid span { color: var(--corporate-muted); }
+
+.button, .form-submit { border-radius: 5px; }
+.button span:last-child, .text-link span:last-child {
+  display: inline-block;
+  transition: transform 220ms var(--ease);
+}
+.button:hover span:last-child, .text-link:hover span:last-child { transform: translate(3px, -2px); }
+
+.section-clients { background: var(--white); }
+.clients-header { max-width: var(--container); text-align: left; margin-bottom: 2.5rem; }
+.clients-header .eyebrow { justify-content: flex-start; }
+.clients-header h2 { margin: 0; max-width: 750px; }
+.clients-header > p { margin: 1rem 0 0; max-width: 620px; font-size: 0.95rem; }
+.client-directory {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-left: 1px solid var(--corporate-line);
+  border-top: 1px solid var(--corporate-line);
+}
+.client-directory .client-item {
+  height: 132px;
+  padding: 1.5rem;
+  border-right: 1px solid var(--corporate-line);
+  border-bottom: 1px solid var(--corporate-line);
+  background: var(--white);
+}
+.client-directory .client-item img {
+  width: 100%;
+  max-width: 150px;
+  height: 68px;
+  filter: grayscale(1);
+  opacity: 0.8;
+}
+.client-directory .client-item:hover img { filter: none; opacity: 1; transform: scale(1.04); }
+.client-more summary { cursor: pointer; width: fit-content; margin: 1.5rem 0; color: var(--blue-dark); font-weight: 700; font-size: 0.85rem; padding: 0.5rem 0; }
+.client-more summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+.client-more[open] .clients-open, .client-more:not([open]) .clients-close { display: none; }
+.brands-strip { padding-block: 2.75rem; background: var(--corporate-paper); }
+.brands-heading { margin-bottom: 1.5rem; }
+.brands-marquee { max-width: var(--container); width: calc(100% - 3rem); margin: auto; padding: 0; }
+.brands-marquee::before, .brands-marquee::after { display: none; }
+.brands-track { width: 100%; animation: none; }
+.brands-group { width: 100%; justify-content: space-between; gap: 2rem; padding: 0; }
+.brands-group[aria-hidden] { display: none; }
+.brand-item { width: 140px; height: 65px; flex: 0 1 140px; }
+.brand-coats { flex-basis: 72px; }
+
+.section-faq { background: var(--corporate-paper); }
+.faq-layout { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 5rem; }
+.faq-question { font-size: 1.1rem; min-height: 80px; }
+.faq-item { transition: padding 220ms, background 220ms; }
+.faq-item.open { background: var(--white); padding-inline: 1.2rem; }
+.faq-answer p { font-size: 0.92rem; }
+
+.section-contact { background: var(--navy); }
+.contact-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2.5rem, 7vw, 7rem); }
+.contact-copy { position: sticky; top: 140px; }
+.contact-copy h2 { max-width: 490px; }
+.contact-copy > p { color: #c2cedd; font-size: 0.95rem; max-width: 440px; }
+.contact-copy .eyebrow { color: var(--cyan); }
+.contact-copy .button { margin-top: 0.75rem; background: var(--white); color: var(--navy); }
+.contact-copy .button:hover { background: var(--cyan-soft); }
+.contact-details { border-top: 1px solid #32425a; padding-top: 2rem; color: #c2cedd; overflow-wrap: anywhere; }
+.quote-form { background: var(--white); color: var(--navy); padding: clamp(1.5rem, 3vw, 2.75rem); border: none; border-radius: var(--corporate-radius); }
+.quote-heading { margin-bottom: 2rem; }
+.quote-heading h3 { font-size: 1.45rem; font-weight: 600; }
+.quote-heading p { color: var(--corporate-muted); font-size: 0.8rem; margin-top: 0.6rem; }
+.quote-form label { color: var(--navy); font-size: 0.8rem; }
+.quote-form input, .quote-form textarea, .quote-form select { color: var(--navy); background: var(--corporate-paper); border: 1px solid var(--corporate-line); border-radius: 4px; }
+.quote-form input:focus, .quote-form textarea:focus, .quote-form select:focus { background: var(--white); border-color: var(--blue); color: var(--navy); }
+.quote-form input::placeholder, .quote-form textarea::placeholder { color: var(--corporate-muted); opacity: 1; }
+.form-submit { background: var(--blue-dark); color: var(--white); min-height: 52px; }
+.form-submit:hover { background: var(--navy); }
+.form-privacy { color: var(--corporate-muted); }
+.form-error { color: #ad2929; }
+.form-success { color: #17603e; }
+#footer { background: #06152b; }
+.footer-main { padding-block: 3.5rem; }
+
+@media (max-width: 900px) {
+  .section-header, .faq-layout, .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .section-header > p { max-width: 620px; }
+  .contact-copy, .faq-intro { position: static; }
+  .client-directory { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .brands-group { flex-wrap: wrap; justify-content: center; gap: 1.5rem 2.5rem; }
+  .brand-item { flex: 0 0 110px; }
+}
+
+@media (max-width: 600px) {
+  html { scroll-padding-top: 116px; }
+  .section-header { margin-bottom: 2rem; gap: 1rem; }
+  .stats-grid > div { padding: 1.4rem 1rem; min-height: 105px; }
+  .stats-grid strong { font-size: 1.5rem; }
+  .client-directory { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .client-directory .client-item { padding: 1rem; height: 100px; }
+  .client-directory .client-item img { height: 50px; }
+  .faq-question { font-size: 1rem; gap: 1rem; }
+  .faq-answer p { padding-right: 0; }
+  .quote-form { padding: 1.4rem; }
+  .form-row-split { grid-template-columns: 1fr; gap: 1rem; }
+}

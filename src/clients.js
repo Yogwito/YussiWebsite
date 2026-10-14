@@ -1,4 +1,5 @@
 import { verifiedClients } from './content/clients.js'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 // Reparte los clientes en dos filas intercalando categorías para lograr
 // variedad visual (no agrupar todas las instituciones juntas).
@@ -25,10 +26,6 @@ const balanceRows = (items) => {
   return [rowA, rowB.length ? rowB : rowA.slice()]
 }
 
-// Un grupo = artwork suficiente para cubrir el ancho del viewport. Si hay pocos
-// logos se repite la lista para llenar, pero el alt real solo se asigna una vez.
-const MIN_PER_GROUP = 6
-
 const buildItem = (client, { decorative }) => {
   const item = document.createElement('div')
   item.className = 'client-item'
@@ -46,50 +43,30 @@ const buildItem = (client, { decorative }) => {
   return item
 }
 
-const buildGroup = (items, { hidden }) => {
-  const group = document.createElement('div')
-  group.className = 'clients-group'
-  if (hidden) group.setAttribute('aria-hidden', 'true')
-  const target = Math.max(items.length, MIN_PER_GROUP)
-  for (let i = 0; i < target; i++) {
-    const client = items[i % items.length]
-    // alt real solo en el grupo visible y solo la primera aparición de cada logo.
-    const decorative = hidden || i >= items.length
-    group.appendChild(buildItem(client, { decorative }))
-  }
-  return group
-}
-
 export function initClients() {
   const section = document.querySelector('#clients')
-  if (!section) return
-  const rowsWrap = section.querySelector('[data-clients-rows]')
-  if (!rowsWrap) return
-
+  const wrapper = section?.querySelector('[data-clients-rows]')
+  if (!wrapper) return
   if (!verifiedClients.length) {
     section.hidden = true
     return
   }
 
-  const [rowA, rowB] = balanceRows(verifiedClients)
-  const rows = [
-    { items: rowA, reverse: false },
-    { items: rowB, reverse: true }
-  ]
-
-  rows.forEach(({ items, reverse }) => {
-    if (!items.length) return
-    const marquee = document.createElement('div')
-    marquee.className = 'clients-marquee'
-    const track = document.createElement('div')
-    track.className = 'clients-track'
-    // Velocidad constante sin importar cuántos logos tenga la fila.
-    track.style.setProperty('--clients-duration', `${Math.max(items.length, MIN_PER_GROUP) * 7}s`)
-    if (reverse) track.classList.add('clients-track--reverse')
-    // Dos grupos idénticos → translateX(-50%) = loop sin salto.
-    track.appendChild(buildGroup(items, { hidden: false }))
-    track.appendChild(buildGroup(items, { hidden: true }))
-    marquee.appendChild(track)
-    rowsWrap.appendChild(marquee)
-  })
+  const [first, second] = balanceRows(verifiedClients)
+  const clients = verifiedClients.length === 1 ? first : [...first, ...second]
+  const buildDirectory = (items) => {
+    const grid = document.createElement('div')
+    grid.className = 'client-directory'
+    items.forEach((client) => grid.appendChild(buildItem(client, { decorative: false })))
+    return grid
+  }
+  wrapper.appendChild(buildDirectory(clients.slice(0, 12)))
+  if (clients.length > 12) {
+    const details = document.createElement('details')
+    details.className = 'client-more'
+    details.innerHTML = '<summary><span class="clients-open" data-es="Ver más clientes" data-en="View more clients">Ver más clientes</span><span class="clients-close" data-es="Ver menos clientes" data-en="View fewer clients">Ver menos clientes</span></summary>'
+    details.appendChild(buildDirectory(clients.slice(12)))
+    details.addEventListener('toggle', () => ScrollTrigger.refresh())
+    wrapper.appendChild(details)
+  }
 }

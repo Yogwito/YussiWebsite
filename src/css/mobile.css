@@ -1,0 +1,97 @@
+/* Ajustes de legibilidad y uso táctil en móvil.
+   Se carga al final para corregir mínimos sin tocar el diseño de escritorio:
+   texto >= 12px y objetivos táctiles >= 44px. */
+
+/* La burbuja hereda color blanco de otras hojas y su texto quedaba invisible. */
+.wa-bubble a {
+  color: var(--navy);
+}
+
+@media (max-width: 767px) {
+  /* ── Texto mínimo legible ─────────────────────────────────────────────── */
+  .announcement span,
+  .eyebrow,
+  .coverage-hint,
+  .coverage-loading,
+  #coverage-kicker,
+  .brands-heading,
+  .footer-col h3 {
+    font-size: 0.75rem;
+  }
+
+  .line-detail-copy .eyebrow,
+  .production-film figcaption,
+  .stats-grid span,
+  .footer-bottom {
+    font-size: 0.75rem;
+  }
+
+  .hero-proof li,
+  .form-privacy,
+  .lang-toggle {
+    font-size: 0.8rem;
+  }
+
+  .coverage-origin small,
+  .coverage-legend {
+    font-size: 0.72rem;
+  }
+
+  .page-loader small {
+    font-size: 0.7rem;
+  }
+
+  /* Barra superior: que sus frases quepan sin cortarse. */
+  .announcement {
+    padding-inline: 12px;
+    column-gap: 0.4rem;
+  }
+
+  /* ── Objetivos táctiles de 44px ──────────────────────────────────────── */
+  .nav-logo,
+  .text-link,
+  .product-request,
+  .contact-details a,
+  .footer-col a,
+  .mobile-menu > a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .contact-details a,
+  .footer-col a,
+  .mobile-menu > a {
+    display: flex;
+  }
+
+  .hamburger,
+  #lang-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  [role="tab"] {
+    min-height: 44px;
+    font-size: 0.8rem;
+  }
+
+  .wa-bubble a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .wa-bubble button {
+    top: 0;
+    right: 0;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (max-width: 389px) {
+  .announcement > :nth-child(n + 2) {
+    display: none;
+  }
+}
