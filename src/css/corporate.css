@@ -30,14 +30,27 @@ html { scroll-padding-top: 122px; }
 .section-header h2 { max-width: 710px; }
 .section-header > p { max-width: 400px; font-size: 0.95rem; }
 .eyebrow { letter-spacing: 0.11em; }
-.quick-links { border-bottom: 1px solid var(--corporate-line); }
-.quick-links-row a { transition: background 180ms, color 180ms; }
-.quick-links-row a:hover { background: var(--corporate-paper); }
-.stats-band { background: var(--white); }
-.stats-grid > div { min-height: 115px; }
-.stats-grid > div::before { display: none; }
-.stats-grid strong { font-size: 1.9rem; }
-.stats-grid span { color: var(--corporate-muted); }
+/* Credenciales: tarjeta que flota sobre el borde inferior del hero. */
+.hero-inner { padding-bottom: calc(4rem + 64px); }
+.stats-band {
+  position: relative;
+  z-index: 5;
+  margin-top: -64px;
+  padding-bottom: 0.5rem;
+  border: 0;
+  background: linear-gradient(to bottom, transparent 64px, var(--corporate-paper) 64px);
+}
+.stats-grid {
+  background: var(--white);
+  border: 1px solid var(--corporate-line);
+  border-radius: 10px;
+  box-shadow: 0 24px 60px rgba(7, 26, 52, 0.14);
+  overflow: hidden;
+}
+.stats-grid > div { min-height: 0; justify-content: flex-start; padding: 1.9rem 2rem; border-right: 1px solid var(--corporate-line); }
+.stats-grid > div::before { display: block; position: static; width: 28px; height: 3px; margin-bottom: 1.1rem; }
+.stats-grid strong { font-size: 2rem; }
+.stats-grid span { margin-top: 0.6rem; color: var(--corporate-muted); font-size: 0.84rem; }
 
 .button, .form-submit { border-radius: 5px; }
 .button span:last-child, .text-link span:last-child {
@@ -146,7 +159,9 @@ html { scroll-padding-top: 122px; }
 @media (max-width: 600px) {
   html { scroll-padding-top: 116px; }
   .section-header { margin-bottom: 2rem; gap: 1rem; }
-  .stats-grid > div { padding: 1.4rem 1rem; min-height: 105px; }
+  .hero-inner { padding-bottom: calc(3.75rem + 40px); }
+  .stats-band { margin-top: -40px; background: linear-gradient(to bottom, transparent 40px, var(--corporate-paper) 40px); }
+  .stats-grid > div { padding: 1.3rem 1.1rem; }
   .stats-grid strong { font-size: 1.5rem; }
   .clients-featured { gap: 1.5rem 1rem; padding-bottom: 2.25rem; }
   .clients-featured .client-logo { min-height: 80px; }
