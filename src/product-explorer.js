@@ -1,7 +1,36 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+// Galería de cada línea: las miniaturas cambian la foto principal.
+// Sin reproducción automática; el texto alternativo sigue el idioma activo.
+function initGalleries() {
+  const altFor = (button) => button.dataset[document.documentElement.lang === 'en' ? 'altEn' : 'altEs']
+
+  document.querySelectorAll('[data-gallery]').forEach((gallery) => {
+    const main = gallery.querySelector('.line-detail-main')
+    const thumbs = [...gallery.querySelectorAll('.line-detail-thumb')]
+    if (!main || !thumbs.length) return
+
+    thumbs.forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        if (thumb.getAttribute('aria-pressed') === 'true') return
+        const base = `/img/products/${thumb.dataset.photo}`
+        main.srcset = `${base}-800.webp 800w, ${base}-1200.webp 1200w`
+        main.src = `${base}-1200.webp`
+        main.alt = altFor(thumb)
+        thumbs.forEach((item) => item.setAttribute('aria-pressed', String(item === thumb)))
+      })
+    })
+
+    document.addEventListener('languagechange', () => {
+      const current = thumbs.find((item) => item.getAttribute('aria-pressed') === 'true')
+      if (current) main.alt = altFor(current)
+    })
+  })
+}
+
 export function initProductExplorer() {
+  initGalleries()
   const selector = document.querySelector('.product-selector')
   if (!selector) return
   const options = [...selector.querySelectorAll('[data-product]')]
