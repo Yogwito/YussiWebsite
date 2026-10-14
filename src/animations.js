@@ -107,7 +107,8 @@ function initAutoplayVideos(motionQuery) {
         video.pause()
         video.removeAttribute('autoplay')
       } else {
-        video.setAttribute('autoplay', '')
+        // "in-view": solo se reproduce al llegar a la sección, sin descargarse antes.
+        if (video.dataset.autoplay !== 'in-view') video.setAttribute('autoplay', '')
         if (isVisible(video)) play(video)
       }
     })
