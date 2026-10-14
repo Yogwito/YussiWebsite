@@ -77,11 +77,13 @@ html { scroll-padding-top: 122px; }
 .client-more[open] .clients-open, .client-more:not([open]) .clients-close { display: none; }
 .brands-strip { padding-block: 2.75rem; background: var(--corporate-paper); }
 .brands-heading { margin-bottom: 1.5rem; }
-.brands-marquee { max-width: var(--container); width: calc(100% - 3rem); margin: auto; padding: 0; }
+.brands-marquee { max-width: var(--container); width: calc(100% - 3rem); margin: auto; padding: 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
 .brands-marquee::before, .brands-marquee::after { display: none; }
-.brands-track { width: 100%; animation: none; }
-.brands-group { width: 100%; justify-content: space-between; gap: 2rem; padding: 0; }
-.brands-group[aria-hidden] { display: none; }
+.brands-track { width: max-content; animation: marquee 40s linear infinite; }
+.brands-marquee:hover .brands-track { animation-play-state: paused; }
+.brands-group { gap: 4rem; padding-right: 4rem; }
 .brand-item { width: 140px; height: 65px; flex: 0 1 140px; }
 .brand-item { display: flex; align-items: center; justify-content: center; }
 .brand-item img { width: auto; height: auto; max-width: 100%; max-height: 100%; }
@@ -126,7 +128,8 @@ html { scroll-padding-top: 122px; }
   .section-header > p { max-width: 620px; }
   .contact-copy, .faq-intro { position: static; }
   .client-directory { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .brands-group { flex-wrap: wrap; justify-content: center; gap: 1.5rem 2.5rem; }
+  .brands-group { gap: 2.5rem; padding-right: 2.5rem; }
+  .brands-track { animation-duration: 30s; }
   .brand-item { flex: 0 0 110px; }
   .brand-groz-beckert { flex-basis: 170px; }
 }
