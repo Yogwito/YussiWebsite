@@ -14,6 +14,7 @@ import { initCoverageMap } from './coverage-map.js'
 import { initClients } from './clients.js'
 import { initProductExplorer } from './product-explorer.js'
 import { initProduction } from './production.js'
+import { initBrandsMarquee } from './brands-marquee.js'
 
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual'
@@ -37,4 +38,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initWaBubble()
   initCoverageMap()
   initClients()
+  initBrandsMarquee()
 })
