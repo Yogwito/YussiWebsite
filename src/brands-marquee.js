@@ -8,6 +8,16 @@ const DEFAULTS = {
   ease: 5 // qué tan rápido vuelve a la velocidad base
 }
 
+const LABELS = {
+  es: { pause: 'Pausar animación', play: 'Reanudar animación' },
+  en: { pause: 'Pause animation', play: 'Resume animation' }
+}
+
+const ICONS = {
+  pause: '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>',
+  play: '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>'
+}
+
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 
 // `marquee` debe contener un hijo con clase que termine en "-track" y, dentro,
@@ -26,6 +36,19 @@ export function createScrollMarquee(marquee, options = {}) {
   let lastTime = 0
   let frame = 0
   let visible = false
+  let paused = false
+
+  // Control visible de pausa (WCAG 2.2.2: contenido en movimiento > 5 s).
+  const toggle = document.createElement('button')
+  toggle.type = 'button'
+  toggle.className = 'marquee-toggle'
+  marquee.after(toggle)
+
+  const renderToggle = () => {
+    const t = LABELS[document.documentElement.lang === 'en' ? 'en' : 'es']
+    toggle.setAttribute('aria-pressed', String(paused))
+    toggle.innerHTML = `${paused ? ICONS.play : ICONS.pause}<span>${paused ? t.play : t.pause}</span>`
+  }
 
   new ResizeObserver(() => {
     groupWidth = group.getBoundingClientRect().width
@@ -53,8 +76,10 @@ export function createScrollMarquee(marquee, options = {}) {
     frame = requestAnimationFrame(tick)
   }
 
+  const canRun = () => visible && !paused && !document.hidden && !reducedMotion.matches
+
   const start = () => {
-    if (frame || !visible || reducedMotion.matches) return
+    if (frame || !canRun()) return
     lastTime = 0
     lastY = window.scrollY
     frame = requestAnimationFrame(tick)
@@ -65,19 +90,36 @@ export function createScrollMarquee(marquee, options = {}) {
     frame = 0
   }
 
-  new IntersectionObserver(([entry]) => {
-    visible = entry.isIntersecting
-    visible ? start() : stop()
-  }).observe(marquee)
-
-  reducedMotion.addEventListener('change', () => {
-    if (reducedMotion.matches) {
+  // Con movimiento reducido: grilla estática con todos los logos visibles.
+  const applyMotionPreference = () => {
+    const isStatic = reducedMotion.matches
+    marquee.classList.toggle('is-static', isStatic)
+    toggle.hidden = isStatic
+    if (isStatic) {
       stop()
       track.style.transform = ''
     } else {
       start()
     }
+  }
+
+  toggle.addEventListener('click', () => {
+    paused = !paused
+    renderToggle()
+    paused ? stop() : start()
   })
+
+  new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting
+    visible ? start() : stop()
+  }).observe(marquee)
+
+  document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()))
+  document.addEventListener('languagechange', renderToggle)
+  reducedMotion.addEventListener('change', applyMotionPreference)
+
+  renderToggle()
+  applyMotionPreference()
 }
 
 export function initBrandsMarquee() {
