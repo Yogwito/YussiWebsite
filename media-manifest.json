@@ -1,7 +1,7 @@
 {
   "generated": "2026-10-19",
   "note": "Medios publicados que usa la página. alt_es/alt_en vacíos = decorativo o sin texto alternativo. Ver public/media/README.md.",
-  "count": 386,
+  "count": 387,
   "files": [
     {
       "path": "/media/brand/apple-touch-icon.png",
@@ -446,10 +446,19 @@
       "duration_s": 16.4
     },
     {
+      "path": "/media/hero/hero-produccion-poster-movil.webp",
+      "file": "public/media/hero/hero-produccion-poster-movil.webp",
+      "section": "hero",
+      "bytes": 57786,
+      "dimensions": "720x1280",
+      "alt_es": null,
+      "alt_en": null
+    },
+    {
       "path": "/media/hero/hero-produccion-poster.webp",
       "file": "public/media/hero/hero-produccion-poster.webp",
       "section": "hero",
-      "bytes": 111614,
+      "bytes": 145604,
       "dimensions": "1920x1080",
       "alt_es": null,
       "alt_en": null

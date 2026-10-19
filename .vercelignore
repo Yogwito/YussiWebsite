@@ -4,6 +4,7 @@ dist/
 .agents/
 .playwright-cli/
 output/
+docs/
 .env
 .env.*
 

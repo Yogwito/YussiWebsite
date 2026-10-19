@@ -112,7 +112,11 @@
   <main id="main-content" tabindex="-1">
     <section id="hero" class="hero">
       <div class="hero-media" aria-hidden="true">
-        <video id="hero-video" data-autoplay muted loop playsinline preload="metadata" poster="/media/hero/hero-produccion-poster.webp?v=2">
+        <picture class="hero-poster">
+          <source media="(max-width: 767px)" srcset="/media/hero/hero-produccion-poster-movil.webp?v=5">
+          <img src="/media/hero/hero-produccion-poster.webp?v=5" alt="" width="1920" height="1080" fetchpriority="high">
+        </picture>
+        <video id="hero-video" data-autoplay muted loop playsinline preload="metadata">
           <source media="(max-width: 767px)" src="/media/hero/hero-produccion-movil.mp4?v=4" type="video/mp4">
           <source src="/media/hero/hero-produccion.mp4?v=4" type="video/mp4">
         </video>
@@ -523,7 +527,7 @@
 
     <section id="about" class="section section-about">
       <div class="container about-layout">
-        <figure class="about-photograph" data-lightbox><img src="/media/nosotros/nosotros-planta-tajima-6-cabezales-1400.webp" srcset="/media/nosotros/nosotros-planta-tajima-6-cabezales-800.webp 800w, /media/nosotros/nosotros-planta-tajima-6-cabezales-1400.webp 1400w" sizes="(max-width: 767px) calc(100vw - 2rem), 760px" data-full="/media/nosotros/nosotros-planta-tajima-6-cabezales-2000.webp" data-full-avif="/media/nosotros/nosotros-planta-tajima-6-cabezales-2000.avif" alt="Bordadora Tajima de 6 cabezales en la planta de Bordados Yussi en Manizales" data-alt-es="Bordadora Tajima de 6 cabezales en la planta de Bordados Yussi en Manizales" data-alt-en="Six-head Tajima embroidery machine at the Bordados Yussi facility in Manizales" width="1400" height="788" loading="lazy"><figcaption><span data-es="Desde Manizales. Desde 1999." data-en="From Manizales. Since 1999.">Desde Manizales. Desde 1999.</span></figcaption></figure>
+        <figure class="about-photograph" data-lightbox><img src="/media/nosotros/nosotros-planta-tajima-6-cabezales-1400.webp" srcset="/media/nosotros/nosotros-planta-tajima-6-cabezales-800.webp 800w, /media/nosotros/nosotros-planta-tajima-6-cabezales-1400.webp 1400w, /media/nosotros/nosotros-planta-tajima-6-cabezales-2000.webp 2000w" sizes="(max-width: 767px) calc(100vw - 2rem), 760px" data-full="/media/nosotros/nosotros-planta-tajima-6-cabezales-2000.webp" data-full-avif="/media/nosotros/nosotros-planta-tajima-6-cabezales-2000.avif" alt="Bordadora Tajima de 6 cabezales en la planta de Bordados Yussi en Manizales" data-alt-es="Bordadora Tajima de 6 cabezales en la planta de Bordados Yussi en Manizales" data-alt-en="Six-head Tajima embroidery machine at the Bordados Yussi facility in Manizales" width="1400" height="788" loading="lazy"><figcaption><span data-es="Desde Manizales. Desde 1999." data-en="From Manizales. Since 1999.">Desde Manizales. Desde 1999.</span></figcaption></figure>
         <div class="about-title">
           <p class="eyebrow" data-es="Bordados Yussi" data-en="Bordados Yussi">Bordados Yussi</p>
           <h2 data-es="Tu imagen, en manos de quienes la fabrican." data-en="Your image, in the hands of the people who make it.">Tu imagen, en manos de quienes la fabrican.</h2>

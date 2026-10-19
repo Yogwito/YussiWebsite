@@ -126,6 +126,11 @@ function initAutoplayVideos(motionQuery) {
     video.muted = true
     video.defaultMuted = true
     video.playsInline = true
+    if (video.id === 'hero-video') {
+      video.addEventListener('playing', () => video.classList.add('is-playing'))
+      video.addEventListener('pause', () => video.classList.remove('is-playing'))
+      video.addEventListener('error', () => video.classList.remove('is-playing'))
+    }
     if (reduced) video.removeAttribute('autoplay')
     else if (video.readyState >= 2) play(video)
     else video.addEventListener('canplay', () => play(video), { once: true })
