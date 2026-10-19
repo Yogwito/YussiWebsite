@@ -16,7 +16,8 @@
 .story-slide video { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 .story-steps { min-width: 0; }
-.story-step h2 { margin-top: 0.4rem; font-size: clamp(1.9rem, 3vw, 2.9rem); line-height: 1.12; letter-spacing: -0.025em; }
+.story-step h2,
+.story-heading h2 { margin-top: 0.4rem; font-size: clamp(1.9rem, 3vw, 2.9rem); line-height: 1.12; letter-spacing: -0.025em; }
 .story-step > p:not(.eyebrow) { margin-top: 1rem; max-width: 34rem; font-size: 1rem; line-height: 1.7; color: var(--ink-soft); }
 .story-list { display: grid; gap: 0.85rem; margin: 0; padding: 0; list-style: none; }
 .story-list li { position: relative; padding-left: 1.6rem; color: var(--ink); font-size: 1rem; font-weight: 500; line-height: 1.5; }
@@ -40,55 +41,108 @@
   .story[data-mode="static"] .story-steps { position: sticky; top: var(--story-top); }
 }
 
-/* ── Escritorio (pin): foto fija que cambia, texto en pasos ─────────────── */
+/* ── Escritorio (pin): panel fijo; el scroll cambia foto y texto en su sitio ── */
 .story[data-mode="pin"] {
+  --story-bar: 4.25rem;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(3rem, 6vw, 6rem);
-  align-items: start;
+  grid-template-rows: auto var(--story-bar);
+  column-gap: clamp(3rem, 6vw, 6rem);
+  align-items: center;
+  height: calc(100svh - var(--story-top) - 1rem);
+  max-height: 900px;
 }
-.story[data-mode="pin"] .story-media {
-  position: sticky;
-  top: var(--story-top);
-  display: grid;
-  gap: 1rem;
-  justify-items: start;
-}
+.story[data-mode="pin"] .story-media { display: contents; }
 .story[data-mode="pin"] .story-frame {
-  /* Llena el ancho de la columna; la altura se limita a la pantalla y la foto
-     se recorta centrada, así no quedan márgenes vacíos a los lados. */
-  width: 100%;
-  height: min(calc(100svh - var(--story-top) - 4.5rem), calc((100vw - 8rem) / 2 * 1.12), 760px);
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: center;
+  width: min(100%, calc((100svh - var(--story-top) - var(--story-bar) - 2.5rem) / 1.12));
+  aspect-ratio: 1 / 1.12;
 }
 .story[data-mode="pin"] .story-slide {
-  aspect-ratio: auto;
   position: absolute;
   inset: 0;
   opacity: 0;
+  pointer-events: none;
   transform: scale(1.04);
   transition: opacity 0.7s var(--ease), transform 1.2s var(--ease);
 }
-.story[data-mode="pin"] .story-slide { pointer-events: none; }
 .story[data-mode="pin"] .story-slide.is-active { opacity: 1; transform: none; pointer-events: auto; }
-.story[data-mode="pin"] .story-step {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* ~65 vh por foto: con 2 fotos por bloque, cada bloque mide ~130 vh. */
-  min-height: calc(var(--shots, 1) * 65svh);
-  opacity: 0.28;
-  transition: opacity 0.45s var(--ease);
+/* Etiqueta de la foto activa, sobre la esquina inferior. */
+.story-tag { display: none; }
+.story[data-mode="pin"] .story-tag {
+  position: absolute;
+  z-index: 2;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  display: block;
+  width: fit-content;
+  max-width: calc(100% - 2rem);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  color: var(--white);
+  background: rgba(7, 26, 52, 0.72);
+  backdrop-filter: blur(6px);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  pointer-events: none;
 }
-.story[data-mode="pin"] .story-step:first-child { min-height: max(min(calc(100svh - var(--story-top) - 4.5rem), 760px), calc(var(--shots, 1) * 65svh)); }
-.story[data-mode="pin"] .story-step.is-active { opacity: 1; }
-.story[data-mode="pin"] .story-cta {
-  position: sticky;
-  bottom: 1.5rem;
-  margin-top: 2rem;
-  padding: 1rem 0;
-  background: var(--white);
+/* Barra inferior: progreso + capítulos, bajo la foto. */
+.story[data-mode="pin"] .story-progress { grid-column: 1; grid-row: 2; align-self: center; justify-self: center; width: min(100%, calc((100svh - var(--story-top) - var(--story-bar) - 2.5rem) / 1.12)); gap: 0.35rem; }
+.story[data-mode="pin"] .story-dot { flex: 1; height: 32px; }
+.story[data-mode="pin"] .story-dot::before { inset: 14px 0; }
+/* Texto: los bloques se apilan en la misma celda y solo se ve el activo. */
+.story[data-mode="pin"] .story-steps {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  align-self: stretch;
+  padding-block: 1.5rem;
+}
+.story[data-mode="pin"] .story-heading { grid-row: 2; margin-top: 1.75rem; }
+.story[data-mode="pin"] .story-heading h2 { font-size: clamp(2rem, 3vw, 3rem); }
+.story[data-mode="pin"] .story-step > p:not(.eyebrow) { font-size: 1.05rem; }
+.story[data-mode="pin"] .story-list { gap: 1.1rem; }
+.story[data-mode="pin"] .story-list li { font-size: 1.08rem; }
+.story-meta { display: none; }
+.story[data-mode="pin"] .story-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+.story[data-mode="pin"] .story-meta b { color: var(--blue); }
+.story[data-mode="pin"] .story-chapters { display: flex; gap: 0.5rem; margin: 0 0 0 auto; padding: 0; list-style: none; font-weight: 600; letter-spacing: 0; }
+.story[data-mode="pin"] .story-chapters li { color: #9aa8bb; transition: color 0.3s; }
+.story[data-mode="pin"] .story-chapters li + li::before { content: '·'; margin-right: 0.5rem; color: #c3ccd8; }
+.story[data-mode="pin"] .story-chapters li.is-active { color: var(--navy); }
+.story[data-mode="pin"] .story-step {
+  grid-row: 3;
+  grid-column: 1;
+  align-self: start;
+  margin-top: 1.75rem;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(12px);
+  transform: translateY(18px);
+  transition: opacity 0.45s var(--ease), transform 0.6s var(--ease), visibility 0s 0.45s;
+}
+.story[data-mode="pin"] .story-step.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.45s var(--ease) 0.1s, transform 0.6s var(--ease) 0.1s, visibility 0s;
+}
+.story[data-mode="pin"] .story-cta {
+  grid-row: 4;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
   transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), visibility 0s 0.4s;
 }
 .story[data-mode="pin"].is-cta-visible .story-cta {
@@ -128,15 +182,4 @@
 
 @media (min-width: 600px) {
   .story[data-mode="carousel"] .story-slide { flex-basis: min(62%, calc((100svh - 9rem) / 1.12)); }
-}
-/* El texto que sube se desvanece detrás del CTA fijo en vez de cortarse. */
-.story[data-mode="pin"] .story-cta::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 100%;
-  height: 3.5rem;
-  background: linear-gradient(to top, var(--white), rgba(255, 255, 255, 0));
-  pointer-events: none;
 }

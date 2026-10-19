@@ -76,8 +76,6 @@ function createStory(root) {
     const own = [...step.querySelectorAll('[data-shot]')]
     return (own.length ? own : [step]).map((el) => ({ el, step: s }))
   })
-  const shotsIn = steps.map((_, s) => shots.filter((shot) => shot.step === s).length)
-  steps.forEach((step, s) => step.style.setProperty('--shots', shotsIn[s]))
 
   const slides = shots.map((shot, i) => frame.appendChild(buildMedia(shot.el, i)))
   const dots = shots.map(() => {
@@ -87,6 +85,17 @@ function createStory(root) {
     progress?.appendChild(dot)
     return dot
   })
+
+  // Etiqueta de la foto activa (panel fijo) y contador / capítulos de la barra.
+  const tag = document.createElement('p')
+  tag.className = 'story-tag'
+  tag.setAttribute('aria-hidden', 'true')
+  frame.appendChild(tag)
+  const current = root.querySelector('[data-story-current]')
+  const total = root.querySelector('[data-story-total]')
+  const chapterItems = [...root.querySelectorAll('.story-chapters li')]
+  const pad = (n) => String(n).padStart(2, '0')
+  if (total) total.textContent = pad(shots.length)
 
   // Contador "1 / N" del carrusel (decorativo; los puntos llevan la etiqueta).
   const count = document.createElement('p')
@@ -107,13 +116,21 @@ function createStory(root) {
       else media.setAttribute('aria-label', altFor(shot.el))
       dots[i].setAttribute('aria-label', LABELS[lang()].shot(i + 1, shots.length))
     })
+    if (active >= 0) tag.textContent = altFor(shots[active].el)
   }
 
   const setActive = (index) => {
     if (index === active) return
     active = index
     const step = shots[index].step
-    steps.forEach((el, s) => el.classList.toggle('is-active', s === step))
+    steps.forEach((el, s) => {
+      el.classList.toggle('is-active', s === step)
+      // En el panel fijo los bloques ocultos no reciben foco ni se leen.
+      el.inert = mode === 'pin' && s !== step
+    })
+    chapterItems.forEach((item, s) => item.classList.toggle('is-active', s === step))
+    if (current) current.textContent = pad(index + 1)
+    tag.textContent = altFor(shots[index].el)
     slides.forEach((slide, i) => {
       slide.classList.toggle('is-active', i === index)
       const video = slide.querySelector('video')
@@ -126,26 +143,22 @@ function createStory(root) {
     renderCount()
   }
 
-  // Primera toma de cada paso (índice global).
-  const firstShot = steps.map((_, s) => shots.findIndex((shot) => shot.step === s))
-
-  // Escritorio: la columna de medios es sticky (CSS). Cada paso ocupa una
-  // altura por toma y, mientras cruza el 55 % de la pantalla, avanza sus tomas.
+  // Escritorio: la sección entera se fija bajo el header y el progreso del
+  // scroll elige la toma; foto y texto cambian en su sitio (sin huecos).
   const setupPin = () => {
-    const header = document.querySelector('.site-header')
-    root.style.setProperty('--story-top', `${(header?.offsetHeight || 96) + 24}px`)
-    const triggers = steps.map((step, s) => ScrollTrigger.create({
-      trigger: step,
-      start: 'top 55%',
-      end: 'bottom 55%',
-      onToggle: (self) => { if (self.isActive) setActive(firstShot[s] + Math.min(shotsIn[s] - 1, Math.floor(self.progress * shotsIn[s]))) },
-      onUpdate: (self) => { if (self.isActive) setActive(firstShot[s] + Math.min(shotsIn[s] - 1, Math.floor(self.progress * shotsIn[s]))) }
-    }))
+    const header = () => document.querySelector('.site-header')?.offsetHeight || 96
+    root.style.setProperty('--story-top', `${header() + 16}px`)
+    const trigger = ScrollTrigger.create({
+      trigger: root,
+      start: () => `top top+=${header() + 16}`,
+      end: () => `+=${Math.round(window.innerHeight * 0.55 * shots.length)}`,
+      pin: true,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+      onUpdate: (self) => setActive(Math.min(shots.length - 1, Math.floor(self.progress * shots.length)))
+    })
     const goTo = (i) => {
-      const { step } = shots[i]
-      const k = i - firstShot[step]
-      const rect = steps[step].getBoundingClientRect()
-      const y = window.scrollY + rect.top + rect.height * ((k + 0.5) / shotsIn[step]) - window.innerHeight * 0.55
+      const y = trigger.start + (trigger.end - trigger.start) * ((i + 0.5) / shots.length)
       window.scrollTo({ top: y, behavior: 'smooth' })
     }
     const handlers = dots.map((dot, i) => {
@@ -157,9 +170,10 @@ function createStory(root) {
     document.addEventListener('languagechange', refresh)
     requestAnimationFrame(refresh)
     return () => {
-      triggers.forEach((trigger) => trigger.kill())
+      trigger.kill(true)
       dots.forEach((dot, i) => dot.removeEventListener('click', handlers[i]))
       document.removeEventListener('languagechange', refresh)
+      steps.forEach((el) => { el.inert = false })
       root.style.removeProperty('--story-top')
     }
   }
