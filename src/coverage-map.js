@@ -162,8 +162,9 @@ async function createCoverageScene(map) {
     fetch('/media/cobertura/colombia-departamentos.min.geojson').then(assertResponse).then((response) => response.json())
   ])
 
+  // Colombia se queda como base bajo los departamentos: tapa los huecos del
+  // contorno de baja resolución para que no se vean como océano.
   const worldFeatures = countries.features
-    .filter((feature) => feature.properties.NAME !== 'Colombia')
     .map((feature) => ({ ...feature, properties: { ...feature.properties, mapLayer: 'country' } }))
   const departmentFeatures = departments.features.map((feature) => ({
     ...feature,
@@ -227,8 +228,9 @@ async function createCoverageScene(map) {
   controls.enableZoom = false
   controls.enablePan = false
   controls.enableDamping = !reducedMotion
-  controls.dampingFactor = 0.08
-  controls.rotateSpeed = 0.45
+  // Arrastre más suave; en vistas cercanas (setMode) gira aún más lento.
+  controls.dampingFactor = 0.12
+  controls.rotateSpeed = 0.12
   let dragging = false
   let releasedAt = 0
   controls.addEventListener('start', () => { dragging = true; map.dataset.dragging = 'true' })
@@ -308,6 +310,9 @@ async function createCoverageScene(map) {
   const setMode = (mode) => {
     currentMode = mode
     map.dataset.mode = mode
+    // Vistas cercanas: el arrastre gira mucho más lento para no marearse.
+    controls.rotateSpeed = mode === 'caldas' ? 0.05 : mode === 'colombia' ? 0.1 : 0.2
+    controls.dampingFactor = 0.12
     placeMarker(mode === 'caldas' ? 0.022 : mode === 'colombia' ? 0.02 : 0.018)
     globe
       .polygonsData(allFeatures)
@@ -352,6 +357,11 @@ function polygonStyle(feature, mode) {
   if (mapLayer === 'country') {
     const shades = ['#335f8c', '#386591', '#3e6b96']
     const shade = shades[[...(NAME || '')].reduce((sum, char) => sum + char.charCodeAt(0), 0) % shades.length]
+    // Colombia: base del color de los departamentos, un poco por debajo de ellos.
+    if (NAME === 'Colombia') {
+      const color = mode === 'caldas' ? '#1d5a99' : '#2270c2'
+      return { altitude: 0.002, color, side: color }
+    }
     const color = mode === 'world' ? shade : '#2f5a86'
     // Casi planos y con lateral del mismo tono: sin "sombra" corrida.
     return { altitude: 0.003, color, side: color }
@@ -363,6 +373,8 @@ function polygonStyle(feature, mode) {
 
 function polygonStroke(feature, mode) {
   if (feature.properties.isCaldas) return 'rgba(225, 247, 255, 0.95)'
+  // La base de Colombia no dibuja contorno (su línea sería la de baja resolución).
+  if (feature.properties.mapLayer === 'country' && feature.properties.NAME === 'Colombia') return 'rgba(0, 0, 0, 0)'
   if (feature.properties.mapLayer === 'department') return mode === 'caldas' ? 'rgba(160, 215, 250, 0.4)' : 'rgba(190, 230, 255, 0.5)'
   return 'rgba(140, 195, 235, 0.22)'
 }
