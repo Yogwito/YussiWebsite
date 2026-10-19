@@ -365,3 +365,31 @@ Verificación al terminar: `grep` de `/img/`, `marcasAsociadas`, `/data/` y de l
 4. **Los geojson pasan a `media/cobertura/`**: son datos, no imágenes, pero son assets del mapa como indica la estructura.
 5. **Logos del JSON-LD y OG**: cambian de URL (`/img/...` → `/media/brand/...`). Google y las redes vuelven a leerlos solos; no hace falta redirección.
 6. **No se cambian los nombres de las galerías de producto** (salvo la carpeta), para no romper el patrón de anchos ni el pipeline `export_gallery.py`.
+
+---
+
+## Resultado de la ejecución (Fases 2 y 3, 18 oct 2026)
+
+Decisiones aprobadas:
+- `favicon.ico` se queda en la raíz.
+- El `.glb` va a `media-archive/`.
+- El logo maestro va a `media-source/brand/` y sale de git.
+- Los geojson van a `media/cobertura/`.
+- `data-photo` incluye la carpeta de la línea.
+- OG y logo del JSON-LD pasan a `/media/brand/`.
+
+| | Antes | Después |
+|---|---|---|
+| Peso de `public/` | 50,1 MB (293 medios) | 14,0 MB (117 medios + `README.md`, `robots.txt` y `sitemap.xml`) |
+| `media-archive/` (versionado, no se publica) | — | 35 MB, 174 archivos |
+| `media-source/` (ignorado por git y Vercel) | 3 carpetas sueltas | 2,0 GB en una sola carpeta |
+| `dist/` local | 63 MB | 20 MB |
+
+Verificación:
+- **Build:** `npm run build` pasa; solo queda el aviso de siempre por el tamaño de three/three-globe.
+- **Pruebas:** `npm test` (6/6) y `npm run test:quality` pasan. El chequeo de calidad ahora falla si reaparece una carpeta de medios vieja en `public/` o si `media-source/` deja de estar ignorada.
+- **Rutas viejas:** el `grep` en código y documentación da **0** resultados. Solo este plan conserva las rutas viejas a propósito, como registro.
+- **Referencias:** las 159 rutas `/media/...` del HTML y el JS, incluidas las 45 que arma la galería por `data-photo`, apuntan a archivos que existen.
+- **Navegador (375 y 1440 px, pestaña limpia):** cargan las 123 imágenes; los 4 videos, los geojson, los favicons, la imagen OG y el logo PNG responden 200; la galería cambia de foto con las rutas nuevas; se ven los 39 logos de clientes y los 7 de proveedores. Sin errores de consola ni scroll horizontal.
+
+Pendiente de optimización (no convertido en esta tarea): ver la sección E. En uso, lo prioritario es `hero/hero-produccion.mp4` (3,5 MB) y tres fotos de galería de 200-280 KB que irían mejor en AVIF.
