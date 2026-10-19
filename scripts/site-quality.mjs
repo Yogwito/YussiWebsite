@@ -21,7 +21,10 @@ assert.match(read('src/animations.js'), /window\.history\.pushState/)
 assert.match(read('src/css/site.css'), /\.nav-links \{\s*display: none;/)
 assert.match(read('src/css/site.css'), /\.footer-bottom[\s\S]*color: rgba\(255, 255, 255, 0\.72\)/)
 assert.equal(JSON.parse(read('vercel.json')).headers.length, 1)
-assert.match(read('public/robots.txt'), /Disallow: \/$/m)
+assert.match(read('public/robots.txt'), /Allow: \/$/m)
+assert.match(read('public/robots.txt'), /Sitemap: https:\/\/bordadosyussi\.com\/sitemap\.xml/)
+assert.doesNotMatch(index, /noindex/)
+assert.match(index, /rel="canonical" href="https:\/\/bordadosyussi\.com\/"/)
 assert.match(read('public/sitemap.xml'), /https:\/\/bordadosyussi\.com\//)
 
 for (const media of [
