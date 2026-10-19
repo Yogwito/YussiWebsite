@@ -54,10 +54,13 @@
   justify-items: start;
 }
 .story[data-mode="pin"] .story-frame {
-  width: min(100%, calc((100svh - var(--story-top) - 5rem) / 1.12));
-  aspect-ratio: 1 / 1.12;
+  /* Llena el ancho de la columna; la altura se limita a la pantalla y la foto
+     se recorta centrada, así no quedan márgenes vacíos a los lados. */
+  width: 100%;
+  height: min(calc(100svh - var(--story-top) - 4.5rem), calc((100vw - 8rem) / 2 * 1.12), 760px);
 }
 .story[data-mode="pin"] .story-slide {
+  aspect-ratio: auto;
   position: absolute;
   inset: 0;
   opacity: 0;
@@ -69,11 +72,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 72svh;
+  min-height: 55svh;
   opacity: 0.28;
   transition: opacity 0.45s var(--ease);
 }
-.story[data-mode="pin"] .story-step:first-child { min-height: calc(100svh - var(--story-top) - 6rem); justify-content: flex-start; padding-top: 2rem; }
+.story[data-mode="pin"] .story-step:first-child { min-height: min(calc(100svh - var(--story-top) - 4.5rem), 760px); }
 .story[data-mode="pin"] .story-step.is-active { opacity: 1; }
 .story[data-mode="pin"] .story-cta {
   position: sticky;
