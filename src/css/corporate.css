@@ -67,6 +67,10 @@ html { scroll-padding-top: 122px; }
   transition: filter 0.35s var(--ease), opacity 0.35s var(--ease);
 }
 .clients-group .client-logo:hover img { filter: none; opacity: 1; }
+/* Sin cursor (táctil) no hay hover: los logos se muestran a color. */
+@media (hover: none) {
+  .clients-group img { filter: none; opacity: 1; }
+}
 .brands-strip { padding-block: 2.75rem; background: var(--corporate-paper); }
 .brands-heading { margin-bottom: 1.5rem; }
 .brands-marquee { max-width: var(--container); width: calc(100% - 3rem); margin: auto; padding: 0;
