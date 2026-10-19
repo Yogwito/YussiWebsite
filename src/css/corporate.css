@@ -239,21 +239,17 @@ a:hover > .icon-stitch--down { transform: translateY(3px); }
 .coverage-chapters li.is-active { border-color: var(--blue); color: var(--ink); }
 .coverage-chapters li.is-active strong { color: var(--blue); }
 
-/* Globo en un panel oscuro con brillo: se gira arrastrando (sin zoom). */
-.section-coverage .coverage-map {
-  border-radius: 16px;
-  background:
-    radial-gradient(circle at 58% 42%, rgba(91, 184, 240, 0.28), transparent 46%),
-    radial-gradient(circle at 50% 120%, rgba(13, 103, 213, 0.35), transparent 60%),
-    linear-gradient(160deg, #0b2547 0%, #061529 70%);
-  box-shadow: 0 30px 60px -30px rgba(7, 26, 52, 0.55), inset 0 0 0 1px rgba(105, 201, 244, 0.12);
-}
+/* Globo sobre el fondo claro de la sección (como la imagen estática); se gira arrastrando, sin zoom. */
 .section-coverage .coverage-map::before,
 .section-coverage .coverage-map::after { display: none; }
-.section-coverage #coverage-canvas { -webkit-mask-image: none; mask-image: none; cursor: grab; touch-action: pan-y; }
+.section-coverage #coverage-canvas { cursor: grab; touch-action: pan-y; }
 .section-coverage .coverage-map[data-dragging] #coverage-canvas { cursor: grabbing; }
-.section-coverage .coverage-map[data-state="static"] { background: none; box-shadow: none; }
-.section-coverage .coverage-loading { color: #9fc4e6; }
+/* En las vistas cercanas el mapa se funde con el fondo claro (sin bordes rectos). */
+.section-coverage .coverage-map[data-mode="caldas"] #coverage-canvas,
+.section-coverage .coverage-map[data-mode="colombia"] #coverage-canvas {
+  -webkit-mask-image: radial-gradient(ellipse 78% 76% at 50% 50%, #000 74%, transparent 100%);
+  mask-image: radial-gradient(ellipse 78% 76% at 50% 50%, #000 74%, transparent 100%);
+}
 /* Mientras la sección está fija, el bloque cabe en la pantalla. */
 .coverage-layout.is-pinned { min-height: calc(100svh - 120px); align-content: center; }
 .coverage-layout.is-pinned .coverage-map { height: min(clamp(520px, 50vw, 720px), calc(100svh - 190px)); min-height: 0; }

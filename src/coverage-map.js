@@ -3,7 +3,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// Cobertura: globo 3D (three + three-globe).
+// Cobertura: globo 3D (three + three-globe), con el estilo de la imagen estática.
 // En escritorio la sección se fija al llegar y el scroll recorre la animación
 // de principio a fin (Caldas → Colombia → mundo); al terminar, la página sigue.
 // El globo se puede girar arrastrando; al volver a hacer scroll la cámara
@@ -88,7 +88,8 @@ export function initCoverageMap() {
       trigger = ScrollTrigger.create({
         trigger: layout,
         start: () => `top top+=${header()}`,
-        end: () => `+=${Math.round(window.innerHeight * 2.4)}`,
+        // Recorrido largo: el scroll avanza la animación con calma.
+        end: () => `+=${Math.round(window.innerHeight * 5.5)}`,
         pin: true,
         anticipatePin: 1,
         invalidateOnRefresh: true,
@@ -161,11 +162,14 @@ async function createCoverageScene(map) {
     fetch('/media/cobertura/colombia-departamentos.min.geojson').then(assertResponse).then((response) => response.json())
   ])
 
-  const worldFeatures = countries.features.filter((feature) => feature.properties.NAME !== 'Colombia')
+  const worldFeatures = countries.features
+    .filter((feature) => feature.properties.NAME !== 'Colombia')
+    .map((feature) => ({ ...feature, properties: { ...feature.properties, mapLayer: 'country' } }))
   const departmentFeatures = departments.features.map((feature) => ({
     ...feature,
-    properties: { ...feature.properties, isCaldas: feature.properties.dpto_cnmbr === 'CALDAS' }
+    properties: { ...feature.properties, mapLayer: 'department', isCaldas: feature.properties.dpto_cnmbr === 'CALDAS' }
   }))
+  const allFeatures = [...worldFeatures, ...departmentFeatures]
 
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'high-performance' })
   renderer.outputColorSpace = THREE.SRGBColorSpace
@@ -173,48 +177,25 @@ async function createCoverageScene(map) {
 
   const scene = new THREE.Scene()
   const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 3000)
-  scene.add(new THREE.AmbientLight(0x9fd4ff, 0.55))
-  const keyLight = new THREE.DirectionalLight(0xffffff, 1.6)
-  keyLight.position.set(-220, 180, 260)
+  scene.add(new THREE.HemisphereLight(0xdff4ff, 0x020b18, 0.82))
+  const keyLight = new THREE.DirectionalLight(0xffffff, 1.35)
+  keyLight.position.set(-180, 140, 220)
   scene.add(keyLight)
-  const rimLight = new THREE.DirectionalLight(0x69c9f4, 0.9)
-  rimLight.position.set(260, -120, -200)
-  scene.add(rimLight)
-
-  // Campo de estrellas sutil detrás del globo.
-  const starGeometry = new THREE.BufferGeometry()
-  const starPositions = new Float32Array(1400 * 3)
-  for (let i = 0; i < 1400; i++) {
-    const r = 700 + Math.random() * 500
-    const t = Math.random() * Math.PI * 2
-    const u = Math.acos(2 * Math.random() - 1)
-    starPositions.set([r * Math.sin(u) * Math.cos(t), r * Math.sin(u) * Math.sin(t), r * Math.cos(u)], i * 3)
-  }
-  starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3))
-  const stars = new THREE.Points(starGeometry, new THREE.PointsMaterial({ color: 0xbfe6ff, size: 1.4, transparent: true, opacity: 0.55, sizeAttenuation: false }))
-  scene.add(stars)
 
   let currentMode = 'caldas'
   const globe = new ThreeGlobe({ animateIn: false })
     .showAtmosphere(true)
-    .atmosphereColor('#5ab8f0')
-    .atmosphereAltitude(0.16)
+    .atmosphereColor('#8fd3ff')
+    .atmosphereAltitude(0.14)
     .showGraticules(false)
-    // Países como malla de puntos: textura liviana y reconocible.
-    .hexPolygonsData(worldFeatures)
-    .hexPolygonResolution(3)
-    .hexPolygonMargin(0.42)
-    .hexPolygonAltitude(0.004)
-    .hexPolygonColor(() => 'rgba(140, 205, 245, 0.62)')
-    // Colombia en relieve, con Caldas elevado.
-    .polygonsData(departmentFeatures)
-    .polygonCapCurvatureResolution(2)
+    .polygonsData(allFeatures)
+    .polygonCapCurvatureResolution(1)
     .polygonsTransitionDuration(reducedMotion ? 0 : 600)
     .arcStartLat(() => MANIZALES.lat)
     .arcStartLng(() => MANIZALES.lng)
     .arcEndLat('endLat')
     .arcEndLng('endLng')
-    .arcColor(() => ['rgba(105, 201, 244, 0.95)', 'rgba(255, 255, 255, 0.95)'])
+    .arcColor(() => ['#2f9fe4', '#dff4ff'])
     .arcStroke(0.42)
     .arcDashLength(reducedMotion ? 1 : 0.45)
     .arcDashGap(reducedMotion ? 0 : 0.18)
@@ -229,16 +210,15 @@ async function createCoverageScene(map) {
     .ringRepeatPeriod(1100)
     .pointLat('lat')
     .pointLng('lng')
-    .pointColor(() => '#e6f7ff')
+    .pointColor(() => '#b9ecff')
     .pointResolution(14)
     .pointsTransitionDuration(reducedMotion ? 0 : 500)
 
   globe.globeMaterial(new THREE.MeshPhongMaterial({
-    color: '#08203f',
-    emissive: '#0b2c55',
-    emissiveIntensity: 0.32,
-    specular: '#3d7fb8',
-    shininess: 14
+    color: '#0a2343',
+    emissive: '#06162c',
+    emissiveIntensity: 0.18,
+    shininess: 18
   }))
   scene.add(globe)
 
@@ -303,12 +283,11 @@ async function createCoverageScene(map) {
       const c = globe.getCoords(v.lat, v.lng, v.altitude)
       target.set(c.x, c.y, c.z)
       // Interpolación suave que conserva la distancia (no atraviesa el globo).
-      const ease = reducedMotion ? 1 : 0.12
+      const ease = reducedMotion ? 1 : 0.07
       const len = camera.position.length() + (target.length() - camera.position.length()) * ease
       camera.position.lerp(target, ease).setLength(len)
       camera.lookAt(0, 0, 0)
     }
-    if (!reducedMotion) stars.rotation.y += 0.00012
     markerAnchor.getWorldPosition(projected)
     projected.project(camera)
     const x = (projected.x * 0.5 + 0.5) * map.clientWidth
@@ -329,18 +308,21 @@ async function createCoverageScene(map) {
   const setMode = (mode) => {
     currentMode = mode
     map.dataset.mode = mode
-    placeMarker(mode === 'caldas' ? 0.05 : mode === 'colombia' ? 0.04 : 0.03)
+    placeMarker(mode === 'caldas' ? 0.022 : mode === 'colombia' ? 0.02 : 0.018)
     globe
-      .atmosphereAltitude(mode === 'world' ? 0.22 : 0.15)
-      .polygonAltitude((f) => (f.properties.isCaldas ? (mode === 'caldas' ? 0.045 : 0.034) : mode === 'caldas' ? 0.012 : 0.02))
-      .polygonCapColor((f) => (f.properties.isCaldas ? '#69c9f4' : mode === 'caldas' ? 'rgba(20, 70, 122, 0.95)' : 'rgba(27, 106, 186, 0.95)'))
-      .polygonSideColor((f) => (f.properties.isCaldas ? 'rgba(20, 110, 175, 0.95)' : 'rgba(8, 40, 80, 0.9)'))
-      .polygonStrokeColor((f) => (f.properties.isCaldas ? 'rgba(230, 248, 255, 1)' : 'rgba(170, 225, 255, 0.55)'))
+      .polygonsData(allFeatures)
+      .polygonAltitude((f) => polygonStyle(f, mode).altitude)
+      .polygonCapColor((f) => polygonStyle(f, mode).color)
+      .polygonSideColor((f) => polygonStyle(f, mode).side)
+      .polygonStrokeColor((f) => polygonStroke(f, mode))
       .arcsData(ROUTES[mode])
-      .arcAltitudeAutoScale(mode === 'caldas' ? 0.2 : mode === 'colombia' ? 0.3 : 0.45)
-      .pointsData(mode === 'colombia' ? CITIES : mode === 'world' ? ROUTES.world.map((r) => ({ lat: r.endLat, lng: r.endLng })) : [])
-      .pointAltitude(mode === 'world' ? 0.02 : 0.03)
-      .pointRadius(mode === 'world' ? 0.45 : 0.16)
+      // En vistas cercanas los arcos van bajos (vistos desde arriba, los altos parecen trazos verticales).
+      .arcAltitude(mode === 'world' ? null : mode === 'caldas' ? 0.006 : 0.018)
+      .arcAltitudeAutoScale(0.45)
+      .arcStroke(mode === 'world' ? 0.42 : mode === 'colombia' ? 0.12 : 0.06)
+      .pointsData(mode === 'world' ? ROUTES.world.map((r) => ({ lat: r.endLat, lng: r.endLng })) : [])
+      .pointAltitude(0.02)
+      .pointRadius(0.34)
       .ringMaxRadius(mode === 'caldas' ? 0.9 : mode === 'colombia' ? 2.2 : 4)
   }
 
@@ -361,6 +343,28 @@ async function createCoverageScene(map) {
   map.dataset.state = 'ready'
   render()
   return { setMode, setProgress }
+}
+
+// Colores del globo original (los de la imagen estática): continentes azul
+// acero sobre océano marino, Colombia más viva y Caldas en cian.
+function polygonStyle(feature, mode) {
+  const { mapLayer, isCaldas, NAME } = feature.properties
+  if (mapLayer === 'country') {
+    const shades = ['#335f8c', '#386591', '#3e6b96']
+    const shade = shades[[...(NAME || '')].reduce((sum, char) => sum + char.charCodeAt(0), 0) % shades.length]
+    const color = mode === 'world' ? shade : '#2f5a86'
+    // Casi planos y con lateral del mismo tono: sin "sombra" corrida.
+    return { altitude: 0.003, color, side: color }
+  }
+  if (isCaldas) return { altitude: mode === 'caldas' ? 0.016 : 0.018, color: '#69c9f4', side: '#4fb2e6' }
+  const color = mode === 'caldas' ? '#1d5a99' : '#2270c2'
+  return { altitude: 0.008, color, side: mode === 'caldas' ? '#1a5190' : '#1e65b0' }
+}
+
+function polygonStroke(feature, mode) {
+  if (feature.properties.isCaldas) return 'rgba(225, 247, 255, 0.95)'
+  if (feature.properties.mapLayer === 'department') return mode === 'caldas' ? 'rgba(160, 215, 250, 0.4)' : 'rgba(190, 230, 255, 0.5)'
+  return 'rgba(140, 195, 235, 0.22)'
 }
 
 function supportsWebGL(canvas) {
