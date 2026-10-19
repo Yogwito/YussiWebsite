@@ -70,6 +70,13 @@ function createStory(root) {
     return dot
   })
 
+  // Contador "1 / N" del carrusel (decorativo; los puntos llevan la etiqueta).
+  const count = document.createElement('p')
+  count.className = 'story-count'
+  count.setAttribute('aria-hidden', 'true')
+  progress?.appendChild(count)
+  const renderCount = () => { count.textContent = `${Math.max(active, 0) + 1} / ${steps.length}` }
+
   const renderLabels = () => {
     steps.forEach((step, i) => {
       const media = slides[i].firstElementChild
@@ -97,6 +104,7 @@ function createStory(root) {
     })
     dots.forEach((dot, i) => dot.setAttribute('aria-current', String(i === index)))
     root.classList.toggle('is-cta-visible', index >= ctaFrom)
+    renderCount()
   }
 
   // Escritorio: la columna de medios es sticky (CSS) y cada paso activa su
@@ -130,14 +138,42 @@ function createStory(root) {
     }
   }
 
+  // Móvil o pantalla baja: fotos en carrusel horizontal con scroll-snap; la
+  // siguiente foto asoma para indicar que hay más. El texto va completo debajo.
+  const setupCarousel = () => {
+    frame.tabIndex = 0
+    const nearest = () => {
+      const start = slides[0].offsetLeft
+      let best = 0
+      slides.forEach((slide, i) => {
+        if (Math.abs(slide.offsetLeft - start - frame.scrollLeft) < Math.abs(slides[best].offsetLeft - start - frame.scrollLeft)) best = i
+      })
+      return best
+    }
+    const onScroll = () => setActive(nearest())
+    const goTo = (i) => frame.scrollTo({ left: slides[i].offsetLeft - slides[0].offsetLeft, behavior: 'smooth' })
+    const handlers = dots.map((dot, i) => {
+      const handler = () => goTo(i)
+      dot.addEventListener('click', handler)
+      return handler
+    })
+    frame.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      frame.removeEventListener('scroll', onScroll)
+      dots.forEach((dot, i) => dot.removeEventListener('click', handlers[i]))
+      frame.removeAttribute('tabindex')
+      frame.scrollLeft = 0
+    }
+  }
+
   const applyMode = () => {
-    const next = reducedMotion.matches ? 'static' : pinQuery.matches ? 'pin' : 'static'
+    const next = reducedMotion.matches ? 'static' : pinQuery.matches ? 'pin' : 'carousel'
     if (next === mode) return
     cleanup()
     mode = next
     root.dataset.mode = mode
     active = -1
-    cleanup = mode === 'pin' ? setupPin() : () => {}
+    cleanup = mode === 'pin' ? setupPin() : mode === 'carousel' ? setupCarousel() : () => {}
     setActive(0)
   }
 

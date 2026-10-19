@@ -93,3 +93,35 @@
   transform: none;
   transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), visibility 0s;
 }
+
+/* ── Móvil / pantalla baja (carrusel): fotos con scroll-snap horizontal ─── */
+.story-count { display: none; }
+.story[data-mode="carousel"] .story-frame {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  border-radius: 4px;
+}
+.story[data-mode="carousel"] .story-frame::-webkit-scrollbar { display: none; }
+.story[data-mode="carousel"] .story-frame:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.story[data-mode="carousel"] .story-slide { flex: 0 0 min(86%, calc((100svh - 9rem) / 1.12)); scroll-snap-align: start; }
+.story[data-mode="carousel"] .story-progress { align-items: center; justify-content: space-between; margin-top: 0.75rem; }
+.story[data-mode="carousel"] .story-count {
+  display: block;
+  margin: 0 0 0 auto;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.story[data-mode="carousel"] .story-dot { width: 44px; height: 44px; }
+.story[data-mode="carousel"] .story-dot::before { inset: 20px 8px; }
+.story[data-mode="carousel"] .story-steps { display: grid; gap: 1.5rem; }
+.story[data-mode="carousel"] .story-cta { margin-top: 0.5rem; }
+
+@media (min-width: 600px) {
+  .story[data-mode="carousel"] .story-slide { flex-basis: min(62%, calc((100svh - 9rem) / 1.12)); }
+}
