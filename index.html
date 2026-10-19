@@ -18,20 +18,29 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!--
+    TODO (schema LocalBusiness), completar con datos exactos del perfil de Google Maps, sin inventar:
+    - "geo": { "@type": "GeoCoordinates", "latitude": ..., "longitude": ... }
+      (en Google Maps: clic derecho sobre el pin → copiar coordenadas)
+    - "openingHoursSpecification": [ ... ] con el horario publicado en Maps
+    - "sameAs": [ enlace de Google Maps, Instagram, Facebook ]
+  -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "LocalBusiness",
       "name": "Bordados Yussi",
-      "url": "https://bordadosyussi.com",
+      "url": "https://bordadosyussi.com/",
       "logo": "https://bordadosyussi.com/img/yussi-logo-nav.png",
+      "image": "https://bordadosyussi.com/img/og-cover.jpg",
       "email": "logosbordadosyussi@gmail.com",
       "telephone": "+57 311 385 8494",
       "foundingDate": "1999",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Cra 21 No 26-44",
+        "streetAddress": "Cra. 21 #26-44, Centro",
         "addressLocality": "Manizales",
+        "addressRegion": "Caldas",
         "addressCountry": "CO"
       },
       "areaServed": "Colombia"
@@ -506,7 +515,7 @@
           <div class="contact-details">
             <a href="tel:+573113858494">+57 311 385 8494</a>
             <a href="mailto:logosbordadosyussi@gmail.com">logosbordadosyussi@gmail.com</a>
-            <span>Cra 21 No 26-44 · Manizales, Colombia</span>
+            <span>Cra. 21 #26-44, Centro, Manizales, Caldas</span>
           </div>
         </div>
         <form id="contact-form" class="quote-form" data-endpoint="/api/quote">
@@ -578,8 +587,8 @@
         <h3 data-es="Contacto" data-en="Contact">Contacto</h3>
         <a href="https://wa.me/573113858494" target="_blank" rel="noopener">+57 311 385 8494</a>
         <a href="mailto:logosbordadosyussi@gmail.com">logosbordadosyussi@gmail.com</a>
-        <span>Cra 21 No 26-44</span>
-        <span>Manizales, Colombia</span>
+        <span>Cra. 21 #26-44, Centro</span>
+        <span>Manizales, Caldas</span>
       </div>
       <div class="footer-col">
         <h3 data-es="Horario" data-en="Hours">Horario</h3>
