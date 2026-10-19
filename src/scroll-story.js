@@ -21,6 +21,8 @@ const LABELS = {
 
 const lang = () => (document.documentElement.lang === 'en' ? 'en' : 'es')
 const altFor = (el) => el.dataset[lang() === 'en' ? 'altEn' : 'altEs'] || ''
+// Pie corto para la etiqueta del panel; el alt queda para lectores de pantalla.
+const captionFor = (el) => el.dataset[lang() === 'en' ? 'captionEn' : 'captionEs'] || altFor(el)
 
 // Foto (data-photo, AVIF + WebP) o video (data-video + data-poster) de una toma.
 function buildMedia(shot, index) {
@@ -116,7 +118,7 @@ function createStory(root) {
       else media.setAttribute('aria-label', altFor(shot.el))
       dots[i].setAttribute('aria-label', LABELS[lang()].shot(i + 1, shots.length))
     })
-    if (active >= 0) tag.textContent = altFor(shots[active].el)
+    if (active >= 0) tag.textContent = captionFor(shots[active].el)
   }
 
   const setActive = (index) => {
@@ -130,7 +132,7 @@ function createStory(root) {
     })
     chapterItems.forEach((item, s) => item.classList.toggle('is-active', s === step))
     if (current) current.textContent = pad(index + 1)
-    tag.textContent = altFor(shots[index].el)
+    tag.textContent = captionFor(shots[index].el)
     slides.forEach((slide, i) => {
       slide.classList.toggle('is-active', i === index)
       const video = slide.querySelector('video')
@@ -154,6 +156,8 @@ function createStory(root) {
     }
     measure()
     window.addEventListener('resize', measure)
+    // Safari: el header puede cambiar de alto tras la carga; se mide en cada refresh.
+    ScrollTrigger.addEventListener('refreshInit', measure)
     const trigger = ScrollTrigger.create({
       trigger: root,
       start: () => `top top+=${header() + 16}`,
@@ -181,6 +185,7 @@ function createStory(root) {
       document.removeEventListener('languagechange', refresh)
       steps.forEach((el) => { el.inert = false })
       window.removeEventListener('resize', measure)
+      ScrollTrigger.removeEventListener('refreshInit', measure)
       root.style.removeProperty('--story-top')
       root.style.removeProperty('--story-vh')
     }
