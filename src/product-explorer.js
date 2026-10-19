@@ -65,6 +65,9 @@ export function initProductExplorer() {
       const left = selected.offsetLeft - start - (selector.clientWidth - selected.offsetWidth) / 2
       selector.scrollTo({ left: Math.max(0, left), behavior: 'instant' })
     }
+    // Safari puede no cargar imágenes lazy que estaban en un panel oculto:
+    // al mostrar el panel, sus fotos pasan a carga inmediata.
+    panel.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager' })
     panel.classList.add('is-visible')
     gsap.killTweensOf(panel.children)
     if (animate && !reducedMotion.matches) {
