@@ -61,6 +61,9 @@ html { scroll-padding-top: 122px; }
 .clients-track { display: flex; align-items: center; width: max-content; will-change: transform; }
 .clients-group { display: flex; align-items: center; gap: 4rem; padding-right: 4rem; }
 .clients-group .client-logo { display: grid; place-items: center; min-height: 64px; flex: 0 0 auto; }
+/* Hasta que el JS fija el tamaño óptico, el logo no puede crecer a su tamaño
+   natural (evita que la fila salte y mueva el contenido de abajo). */
+.clients-group .client-logo img { max-height: 64px; width: auto; }
 .clients-group img {
   filter: grayscale(1);
   opacity: 0.55;

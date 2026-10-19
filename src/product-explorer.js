@@ -69,8 +69,9 @@ export function initProductExplorer() {
       selector.scrollTo({ left: Math.max(0, left), behavior: 'instant' })
     }
     // Safari puede no cargar imágenes lazy que estaban en un panel oculto:
-    // al mostrar el panel, sus fotos pasan a carga inmediata.
-    panel.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager' })
+    // al abrir otra pestaña, sus fotos pasan a carga inmediata. En la carga
+    // inicial se quedan lazy para no descargar una pestaña fuera de vista.
+    if (animate) panel.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager' })
     panel.classList.add('is-visible')
     gsap.killTweensOf(panel.children)
     if (animate && !reducedMotion.matches) {
