@@ -728,7 +728,7 @@ select:focus-visible {
 
 .section-header > p,
 .process-intro,
-.faq-intro > p:last-child,
+.faq-intro > p:not(.eyebrow),
 .contact-copy > p {
   color: var(--ink-soft);
   line-height: 1.7;

@@ -219,3 +219,6 @@ a:hover > .icon-stitch--down { transform: translateY(3px); }
 .contact-instagram,
 .footer-instagram { display: inline-flex; align-items: center; gap: 0.5rem; }
 .icon-instagram { flex: 0 0 auto; width: 1.15em; height: 1.15em; }
+
+/* Enlace secundario bajo la intro de preguntas. */
+.faq-intro .text-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.25rem; }
