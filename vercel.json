@@ -3,17 +3,601 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
       ]
     },
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": ".*\\.vercel\\.app" }],
+      "has": [
+        {
+          "type": "host",
+          "value": ".*\\.vercel\\.app"
+        }
+      ],
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex" }
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/apple-touch-icon.png",
+      "destination": "/media/brand/apple-touch-icon.png",
+      "permanent": true
+    },
+    {
+      "source": "/favicon-16.png",
+      "destination": "/media/brand/favicon-16.png",
+      "permanent": true
+    },
+    {
+      "source": "/favicon-32.png",
+      "destination": "/media/brand/favicon-32.png",
+      "permanent": true
+    },
+    {
+      "source": "/img/og-cover.jpg",
+      "destination": "/media/brand/og-cover.jpg",
+      "permanent": true
+    },
+    {
+      "source": "/img/yussi-logo-nav.png",
+      "destination": "/media/brand/yussi-logo.png",
+      "permanent": true
+    },
+    {
+      "source": "/img/yussi-logo-nav.webp",
+      "destination": "/media/brand/yussi-logo.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/alcaldia-manizales.svg",
+      "destination": "/media/clientes/cliente-alcaldia-manizales.svg",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/arquidiocesis-manizales.svg",
+      "destination": "/media/clientes/cliente-arquidiocesis-manizales.svg",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/beauty-market.webp",
+      "destination": "/media/clientes/cliente-beauty-market.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/cable-plaza.webp",
+      "destination": "/media/clientes/cliente-cable-plaza.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/camara-comercio-manizales.webp",
+      "destination": "/media/clientes/cliente-camara-comercio-manizales.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/cc-fundadores.webp",
+      "destination": "/media/clientes/cliente-cc-fundadores.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/ceder.webp",
+      "destination": "/media/clientes/cliente-ceder.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/comite-intergremial-caldas.webp",
+      "destination": "/media/clientes/cliente-comite-intergremial-caldas.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/constructora-hungria.webp",
+      "destination": "/media/clientes/cliente-constructora-hungria.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/cruz-roja.svg",
+      "destination": "/media/clientes/cliente-cruz-roja.svg",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/disblanco.webp",
+      "destination": "/media/clientes/cliente-disblanco.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/dragon-jar.webp",
+      "destination": "/media/clientes/cliente-dragon-jar.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/federacion-cafeteros.webp",
+      "destination": "/media/clientes/cliente-federacion-cafeteros.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/fiscalia-general.svg",
+      "destination": "/media/clientes/cliente-fiscalia-general.svg",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/gobernacion-caldas.svg",
+      "destination": "/media/clientes/cliente-gobernacion-caldas.svg",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/hotel-carretero.webp",
+      "destination": "/media/clientes/cliente-hotel-carretero.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/instituto-para-la-ciencia.webp",
+      "destination": "/media/clientes/cliente-instituto-para-la-ciencia.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/juan-valdez.webp",
+      "destination": "/media/clientes/cliente-juan-valdez.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/juicio.webp",
+      "destination": "/media/clientes/cliente-juicio.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/kuma.webp",
+      "destination": "/media/clientes/cliente-kuma.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/la-burguer.webp",
+      "destination": "/media/clientes/cliente-la-burguer.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/la-vikina.webp",
+      "destination": "/media/clientes/cliente-la-vikina.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/lumia-odontologia.webp",
+      "destination": "/media/clientes/cliente-lumia-odontologia.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/natural-sun-time-spa.webp",
+      "destination": "/media/clientes/cliente-natural-sun-time-spa.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/once-caldas.svg",
+      "destination": "/media/clientes/cliente-once-caldas.svg",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/oryza.webp",
+      "destination": "/media/clientes/cliente-oryza.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/parque-caldas.webp",
+      "destination": "/media/clientes/cliente-parque-caldas.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/policia-nacional.webp",
+      "destination": "/media/clientes/cliente-policia-nacional.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/registraduria-nacional.webp",
+      "destination": "/media/clientes/cliente-registraduria-nacional.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/sena.svg",
+      "destination": "/media/clientes/cliente-sena.svg",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/termales-del-ruiz.webp",
+      "destination": "/media/clientes/cliente-termales-del-ruiz.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/terpel.webp",
+      "destination": "/media/clientes/cliente-terpel.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/unique-detailing-center.webp",
+      "destination": "/media/clientes/cliente-unique-detailing-center.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/universidad-autonoma-manizales.webp",
+      "destination": "/media/clientes/cliente-universidad-autonoma-manizales.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/universidad-catolica-manizales.webp",
+      "destination": "/media/clientes/cliente-universidad-catolica-manizales.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/universidad-de-caldas.svg",
+      "destination": "/media/clientes/cliente-universidad-de-caldas.svg",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/universidad-de-manizales.webp",
+      "destination": "/media/clientes/cliente-universidad-de-manizales.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/universidad-del-quindio.webp",
+      "destination": "/media/clientes/cliente-universidad-del-quindio.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/clients/universidad-nacional.svg",
+      "destination": "/media/clientes/cliente-universidad-nacional.svg",
+      "permanent": true
+    },
+    {
+      "source": "/media/yussi-hero-production-mobile.mp4",
+      "destination": "/media/hero/hero-produccion-movil.mp4",
+      "permanent": true
+    },
+    {
+      "source": "/img/work/hero-production.webp",
+      "destination": "/media/hero/hero-produccion-poster.webp",
+      "permanent": true
+    },
+    {
+      "source": "/media/yussi-hero-production.mp4",
+      "destination": "/media/hero/hero-produccion.mp4",
+      "permanent": true
+    },
+    {
+      "source": "/img/work/produccion-tajima-1400.webp",
+      "destination": "/media/nosotros/nosotros-planta-tajima-1400.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/work/produccion-tajima-800.webp",
+      "destination": "/media/nosotros/nosotros-planta-tajima-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/work/bordado-maquina.webp",
+      "destination": "/media/proceso/proceso-bordado-poster.webp",
+      "permanent": true
+    },
+    {
+      "source": "/media/bordado-en-proceso.mp4",
+      "destination": "/media/proceso/proceso-bordado.mp4",
+      "permanent": true
+    },
+    {
+      "source": "/img/work/confeccion.webp",
+      "destination": "/media/proceso/proceso-confeccion-poster.webp",
+      "permanent": true
+    },
+    {
+      "source": "/media/confeccion-en-proceso.mp4",
+      "destination": "/media/proceso/proceso-confeccion.mp4",
+      "permanent": true
+    },
+    {
+      "source": "/img/work/digitalizacion-wilcom-320.webp",
+      "destination": "/media/proceso/proceso-digitalizacion-wilcom-320.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/work/hilos-320.webp",
+      "destination": "/media/proceso/proceso-hilos-320.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/antifluido-bata-1200.webp",
+      "destination": "/media/productos/antifluido/antifluido-bata-1200.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/antifluido-bata-400.webp",
+      "destination": "/media/productos/antifluido/antifluido-bata-400.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/antifluido-bata-800.webp",
+      "destination": "/media/productos/antifluido/antifluido-bata-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/antifluido-chef-blanca-1200.webp",
+      "destination": "/media/productos/antifluido/antifluido-chef-blanca-1200.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/antifluido-chef-blanca-400.webp",
+      "destination": "/media/productos/antifluido/antifluido-chef-blanca-400.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/antifluido-chef-blanca-800.webp",
+      "destination": "/media/productos/antifluido/antifluido-chef-blanca-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/antifluido-medica-1200.webp",
+      "destination": "/media/productos/antifluido/antifluido-medica-1200.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/antifluido-medica-400.webp",
+      "destination": "/media/productos/antifluido/antifluido-medica-400.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/antifluido-medica-800.webp",
+      "destination": "/media/productos/antifluido/antifluido-medica-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/work/antifluido-duo-560.webp",
+      "destination": "/media/productos/antifluido/antifluido-portada-duo-560.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/bordado-detalle-cerdo-1200.webp",
+      "destination": "/media/productos/bordado/bordado-detalle-cerdo-1200.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/bordado-detalle-cerdo-400.webp",
+      "destination": "/media/productos/bordado/bordado-detalle-cerdo-400.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/bordado-detalle-cerdo-800.webp",
+      "destination": "/media/productos/bordado/bordado-detalle-cerdo-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/bordado-gorras-palmo-1200.webp",
+      "destination": "/media/productos/bordado/bordado-gorras-palmo-1200.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/bordado-gorras-palmo-400.webp",
+      "destination": "/media/productos/bordado/bordado-gorras-palmo-400.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/bordado-gorras-palmo-800.webp",
+      "destination": "/media/productos/bordado/bordado-gorras-palmo-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/bordado-la-carolina-1200.webp",
+      "destination": "/media/productos/bordado/bordado-la-carolina-1200.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/bordado-la-carolina-400.webp",
+      "destination": "/media/productos/bordado/bordado-la-carolina-400.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/bordado-la-carolina-800.webp",
+      "destination": "/media/productos/bordado/bordado-la-carolina-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/work/bordado-gorras-dsc-560.webp",
+      "destination": "/media/productos/bordado/bordado-portada-gorras-560.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/dotacion-kit-flags-1200.webp",
+      "destination": "/media/productos/dotacion/dotacion-kit-flags-1200.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/dotacion-kit-flags-400.webp",
+      "destination": "/media/productos/dotacion/dotacion-kit-flags-400.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/dotacion-kit-flags-800.webp",
+      "destination": "/media/productos/dotacion/dotacion-kit-flags-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/dotacion-polo-maquina-1200.webp",
+      "destination": "/media/productos/dotacion/dotacion-polo-maquina-1200.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/dotacion-polo-maquina-400.webp",
+      "destination": "/media/productos/dotacion/dotacion-polo-maquina-400.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/dotacion-polo-maquina-800.webp",
+      "destination": "/media/productos/dotacion/dotacion-polo-maquina-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/dotacion-polos-luseny-1200.webp",
+      "destination": "/media/productos/dotacion/dotacion-polos-luseny-1200.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/dotacion-polos-luseny-400.webp",
+      "destination": "/media/productos/dotacion/dotacion-polos-luseny-400.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/dotacion-polos-luseny-800.webp",
+      "destination": "/media/productos/dotacion/dotacion-polos-luseny-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/work/dotacion-equipo-polos-560.webp",
+      "destination": "/media/productos/dotacion/dotacion-portada-equipo-polos-560.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/escolar-lans-buzo-1200.webp",
+      "destination": "/media/productos/escolares/escolar-lans-buzo-1200.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/escolar-lans-buzo-400.webp",
+      "destination": "/media/productos/escolares/escolar-lans-buzo-400.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/escolar-lans-buzo-800.webp",
+      "destination": "/media/productos/escolares/escolar-lans-buzo-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/escolar-lans-escudo-1200.webp",
+      "destination": "/media/productos/escolares/escolar-lans-escudo-1200.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/escolar-lans-escudo-400.webp",
+      "destination": "/media/productos/escolares/escolar-lans-escudo-400.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/escolar-lans-escudo-800.webp",
+      "destination": "/media/productos/escolares/escolar-lans-escudo-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/escolar-lans-polo-1200.webp",
+      "destination": "/media/productos/escolares/escolar-lans-polo-1200.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/escolar-lans-polo-400.webp",
+      "destination": "/media/productos/escolares/escolar-lans-polo-400.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/escolar-lans-polo-800.webp",
+      "destination": "/media/productos/escolares/escolar-lans-polo-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/work/escolar-lans-escalera-560.webp",
+      "destination": "/media/productos/escolares/escolar-portada-lans-escalera-560.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/industrial-contraloria-1200.webp",
+      "destination": "/media/productos/industrial/industrial-contraloria-1200.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/industrial-contraloria-400.webp",
+      "destination": "/media/productos/industrial/industrial-contraloria-400.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/industrial-contraloria-800.webp",
+      "destination": "/media/productos/industrial/industrial-contraloria-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/work/industrial-reflectivo-560.webp",
+      "destination": "/media/productos/industrial/industrial-portada-reflectivo-560.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/industrial-reflectivo-1200.webp",
+      "destination": "/media/productos/industrial/industrial-reflectivo-1200.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/industrial-reflectivo-400.webp",
+      "destination": "/media/productos/industrial/industrial-reflectivo-400.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/industrial-reflectivo-800.webp",
+      "destination": "/media/productos/industrial/industrial-reflectivo-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/industrial-servicontrol-1200.webp",
+      "destination": "/media/productos/industrial/industrial-servicontrol-1200.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/industrial-servicontrol-400.webp",
+      "destination": "/media/productos/industrial/industrial-servicontrol-400.webp",
+      "permanent": true
+    },
+    {
+      "source": "/img/products/industrial-servicontrol-800.webp",
+      "destination": "/media/productos/industrial/industrial-servicontrol-800.webp",
+      "permanent": true
+    },
+    {
+      "source": "/marcasAsociadas/hilosCoatsfondoblanco.webp",
+      "destination": "/media/proveedores/proveedor-coats.webp",
+      "permanent": true
+    },
+    {
+      "source": "/marcasAsociadas/flexfit.webp",
+      "destination": "/media/proveedores/proveedor-flexfit.webp",
+      "permanent": true
+    },
+    {
+      "source": "/marcasAsociadas/groz-beckert.webp",
+      "destination": "/media/proveedores/proveedor-groz-beckert.webp",
+      "permanent": true
+    },
+    {
+      "source": "/marcasAsociadas/lafayette.webp",
+      "destination": "/media/proveedores/proveedor-lafayette.webp",
+      "permanent": true
+    },
+    {
+      "source": "/marcasAsociadas/MAderia.webp",
+      "destination": "/media/proveedores/proveedor-madeira.webp",
+      "permanent": true
+    },
+    {
+      "source": "/marcasAsociadas/tajima.webp",
+      "destination": "/media/proveedores/proveedor-tajima.webp",
+      "permanent": true
+    },
+    {
+      "source": "/marcasAsociadas/wilcome.webp",
+      "destination": "/media/proveedores/proveedor-wilcom.webp",
+      "permanent": true
     }
   ]
 }
