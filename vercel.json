@@ -346,17 +346,17 @@
     },
     {
       "source": "/img/products/antifluido-medica-1200.webp",
-      "destination": "/media/productos/antifluido/antifluido-medica-1200.webp",
+      "destination": "/media/productos/antifluido/antifluido-delantal-repelente-1200.webp",
       "statusCode": 301
     },
     {
       "source": "/img/products/antifluido-medica-400.webp",
-      "destination": "/media/productos/antifluido/antifluido-medica-400.webp",
+      "destination": "/media/productos/antifluido/antifluido-delantal-repelente-400.webp",
       "statusCode": 301
     },
     {
       "source": "/img/products/antifluido-medica-800.webp",
-      "destination": "/media/productos/antifluido/antifluido-medica-800.webp",
+      "destination": "/media/productos/antifluido/antifluido-delantal-repelente-800.webp",
       "statusCode": 301
     },
     {
@@ -366,47 +366,47 @@
     },
     {
       "source": "/img/products/bordado-detalle-cerdo-1200.webp",
-      "destination": "/media/productos/bordado/bordado-detalle-cerdo-1200.webp",
+      "destination": "/media/productos/bordado/bordado-carne-de-cerdo-1200.webp",
       "statusCode": 301
     },
     {
       "source": "/img/products/bordado-detalle-cerdo-400.webp",
-      "destination": "/media/productos/bordado/bordado-detalle-cerdo-400.webp",
+      "destination": "/media/productos/bordado/bordado-carne-de-cerdo-400.webp",
       "statusCode": 301
     },
     {
       "source": "/img/products/bordado-detalle-cerdo-800.webp",
-      "destination": "/media/productos/bordado/bordado-detalle-cerdo-800.webp",
+      "destination": "/media/productos/bordado/bordado-carne-de-cerdo-800.webp",
       "statusCode": 301
     },
     {
       "source": "/img/products/bordado-gorras-palmo-1200.webp",
-      "destination": "/media/productos/bordado/bordado-gorras-palmo-1200.webp",
+      "destination": "/media/productos/bordado/bordado-toalla-personalizada-1200.webp",
       "statusCode": 301
     },
     {
       "source": "/img/products/bordado-gorras-palmo-400.webp",
-      "destination": "/media/productos/bordado/bordado-gorras-palmo-400.webp",
+      "destination": "/media/productos/bordado/bordado-toalla-personalizada-400.webp",
       "statusCode": 301
     },
     {
       "source": "/img/products/bordado-gorras-palmo-800.webp",
-      "destination": "/media/productos/bordado/bordado-gorras-palmo-800.webp",
+      "destination": "/media/productos/bordado/bordado-toalla-personalizada-800.webp",
       "statusCode": 301
     },
     {
       "source": "/img/products/bordado-la-carolina-1200.webp",
-      "destination": "/media/productos/bordado/bordado-la-carolina-1200.webp",
+      "destination": "/media/productos/bordado/bordado-la-arcadia-1200.webp",
       "statusCode": 301
     },
     {
       "source": "/img/products/bordado-la-carolina-400.webp",
-      "destination": "/media/productos/bordado/bordado-la-carolina-400.webp",
+      "destination": "/media/productos/bordado/bordado-la-arcadia-400.webp",
       "statusCode": 301
     },
     {
       "source": "/img/products/bordado-la-carolina-800.webp",
-      "destination": "/media/productos/bordado/bordado-la-carolina-800.webp",
+      "destination": "/media/productos/bordado/bordado-la-arcadia-800.webp",
       "statusCode": 301
     },
     {
@@ -446,17 +446,17 @@
     },
     {
       "source": "/img/products/dotacion-polos-luseny-1200.webp",
-      "destination": "/media/productos/dotacion/dotacion-polos-luseny-1200.webp",
+      "destination": "/media/productos/dotacion/dotacion-polo-maquina-1200.webp",
       "statusCode": 301
     },
     {
       "source": "/img/products/dotacion-polos-luseny-400.webp",
-      "destination": "/media/productos/dotacion/dotacion-polos-luseny-400.webp",
+      "destination": "/media/productos/dotacion/dotacion-polo-maquina-400.webp",
       "statusCode": 301
     },
     {
       "source": "/img/products/dotacion-polos-luseny-800.webp",
-      "destination": "/media/productos/dotacion/dotacion-polos-luseny-800.webp",
+      "destination": "/media/productos/dotacion/dotacion-polo-maquina-800.webp",
       "statusCode": 301
     },
     {
@@ -466,17 +466,17 @@
     },
     {
       "source": "/img/products/escolar-lans-buzo-1200.webp",
-      "destination": "/media/productos/escolares/escolar-lans-buzo-1200.webp",
+      "destination": "/media/productos/escolares/escolar-lans-manga-1200.webp",
       "statusCode": 301
     },
     {
       "source": "/img/products/escolar-lans-buzo-400.webp",
-      "destination": "/media/productos/escolares/escolar-lans-buzo-400.webp",
+      "destination": "/media/productos/escolares/escolar-lans-manga-400.webp",
       "statusCode": 301
     },
     {
       "source": "/img/products/escolar-lans-buzo-800.webp",
-      "destination": "/media/productos/escolares/escolar-lans-buzo-800.webp",
+      "destination": "/media/productos/escolares/escolar-lans-manga-800.webp",
       "statusCode": 301
     },
     {
@@ -496,22 +496,22 @@
     },
     {
       "source": "/img/products/escolar-lans-polo-1200.webp",
-      "destination": "/media/productos/escolares/escolar-lans-polo-1200.webp",
+      "destination": "/media/productos/escolares/escolar-lans-escudo-1200.webp",
       "statusCode": 301
     },
     {
       "source": "/img/products/escolar-lans-polo-400.webp",
-      "destination": "/media/productos/escolares/escolar-lans-polo-400.webp",
+      "destination": "/media/productos/escolares/escolar-lans-escudo-400.webp",
       "statusCode": 301
     },
     {
       "source": "/img/products/escolar-lans-polo-800.webp",
-      "destination": "/media/productos/escolares/escolar-lans-polo-800.webp",
+      "destination": "/media/productos/escolares/escolar-lans-escudo-800.webp",
       "statusCode": 301
     },
     {
       "source": "/img/work/escolar-lans-escalera-560.webp",
-      "destination": "/media/productos/escolares/escolar-portada-lans-escalera-560.webp",
+      "destination": "/media/productos/escolares/escolar-portada-lans-escudo-560.webp",
       "statusCode": 301
     },
     {
@@ -632,6 +632,116 @@
     {
       "source": "/img/coverage-map-fallback.webp",
       "destination": "/media/cobertura/cobertura-mapa-estatico.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/antifluido/antifluido-medica-1200.webp",
+      "destination": "/media/productos/antifluido/antifluido-delantal-repelente-1200.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/antifluido/antifluido-medica-400.webp",
+      "destination": "/media/productos/antifluido/antifluido-delantal-repelente-400.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/antifluido/antifluido-medica-800.webp",
+      "destination": "/media/productos/antifluido/antifluido-delantal-repelente-800.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/bordado/bordado-detalle-cerdo-1200.webp",
+      "destination": "/media/productos/bordado/bordado-carne-de-cerdo-1200.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/bordado/bordado-detalle-cerdo-400.webp",
+      "destination": "/media/productos/bordado/bordado-carne-de-cerdo-400.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/bordado/bordado-detalle-cerdo-800.webp",
+      "destination": "/media/productos/bordado/bordado-carne-de-cerdo-800.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/bordado/bordado-gorras-palmo-1200.webp",
+      "destination": "/media/productos/bordado/bordado-toalla-personalizada-1200.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/bordado/bordado-gorras-palmo-400.webp",
+      "destination": "/media/productos/bordado/bordado-toalla-personalizada-400.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/bordado/bordado-gorras-palmo-800.webp",
+      "destination": "/media/productos/bordado/bordado-toalla-personalizada-800.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/bordado/bordado-la-carolina-1200.webp",
+      "destination": "/media/productos/bordado/bordado-la-arcadia-1200.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/bordado/bordado-la-carolina-400.webp",
+      "destination": "/media/productos/bordado/bordado-la-arcadia-400.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/bordado/bordado-la-carolina-800.webp",
+      "destination": "/media/productos/bordado/bordado-la-arcadia-800.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/dotacion/dotacion-polos-luseny-1200.webp",
+      "destination": "/media/productos/dotacion/dotacion-polo-maquina-1200.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/dotacion/dotacion-polos-luseny-400.webp",
+      "destination": "/media/productos/dotacion/dotacion-polo-maquina-400.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/dotacion/dotacion-polos-luseny-800.webp",
+      "destination": "/media/productos/dotacion/dotacion-polo-maquina-800.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/escolares/escolar-lans-buzo-1200.webp",
+      "destination": "/media/productos/escolares/escolar-lans-manga-1200.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/escolares/escolar-lans-buzo-400.webp",
+      "destination": "/media/productos/escolares/escolar-lans-manga-400.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/escolares/escolar-lans-buzo-800.webp",
+      "destination": "/media/productos/escolares/escolar-lans-manga-800.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/escolares/escolar-lans-polo-1200.webp",
+      "destination": "/media/productos/escolares/escolar-lans-escudo-1200.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/escolares/escolar-lans-polo-400.webp",
+      "destination": "/media/productos/escolares/escolar-lans-escudo-400.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/escolares/escolar-lans-polo-800.webp",
+      "destination": "/media/productos/escolares/escolar-lans-escudo-800.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/productos/escolares/escolar-portada-lans-escalera-560.webp",
+      "destination": "/media/productos/escolares/escolar-portada-lans-escudo-560.webp",
       "statusCode": 301
     }
   ]

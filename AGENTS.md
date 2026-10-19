@@ -12,7 +12,7 @@ All published media lives in `public/media/` and is served at `/media/...`:
 
 - `brand/`: logo, favicons, OG image. `public/favicon.ico` stays at the root.
 - `hero/`: hero video and poster.
-- `productos/{dotacion,antifluido,industrial,escolares,bordado}/`: galleries (`-400/-800/-1200.webp`) and selector covers (`-560`).
+- `productos/{dotacion,antifluido,industrial,escolares,bordado}/`: galleries (`-400/-800/-1200/-1600` in `.webp` and `.avif`) and selector covers (`-560`).
 - `proceso/`, `nosotros/`, `clientes/` (`cliente-*`), `proveedores/` (`proveedor-*`), `cobertura/` (3D globe geojson and the static mobile map).
 
 Naming: lowercase kebab-case, no spaces or accents, section prefix first, pixel width last. Gallery `data-photo` values include the line folder (`dotacion/dotacion-kit-flags`). See `public/media/README.md` for where each new file goes, and keep `media-manifest.json` updated.

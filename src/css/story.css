@@ -72,11 +72,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 55svh;
+  /* ~65 vh por foto: con 2 fotos por bloque, cada bloque mide ~130 vh. */
+  min-height: calc(var(--shots, 1) * 65svh);
   opacity: 0.28;
   transition: opacity 0.45s var(--ease);
 }
-.story[data-mode="pin"] .story-step:first-child { min-height: min(calc(100svh - var(--story-top) - 4.5rem), 760px); }
+.story[data-mode="pin"] .story-step:first-child { min-height: max(min(calc(100svh - var(--story-top) - 4.5rem), 760px), calc(var(--shots, 1) * 65svh)); }
 .story[data-mode="pin"] .story-step.is-active { opacity: 1; }
 .story[data-mode="pin"] .story-cta {
   position: sticky;

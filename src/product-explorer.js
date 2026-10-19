@@ -15,7 +15,10 @@ function initGalleries() {
       thumb.addEventListener('click', () => {
         if (thumb.getAttribute('aria-pressed') === 'true') return
         const base = `/media/productos/${thumb.dataset.photo}`
-        main.srcset = `${base}-800.webp 800w, ${base}-1200.webp 1200w`
+        const set = (ext) => [800, 1200, 1600].map((w) => `${base}-${w}.${ext} ${w}w`).join(', ')
+        const avif = main.closest('picture')?.querySelector('source[type="image/avif"]')
+        if (avif) avif.srcset = set('avif')
+        main.srcset = set('webp')
         main.src = `${base}-1200.webp`
         main.alt = altFor(thumb)
         thumbs.forEach((item) => item.setAttribute('aria-pressed', String(item === thumb)))
@@ -66,8 +69,9 @@ export function initProductExplorer() {
       selector.scrollTo({ left: Math.max(0, left), behavior: 'instant' })
     }
     // Safari puede no cargar imágenes lazy que estaban en un panel oculto:
-    // al mostrar el panel, sus fotos pasan a carga inmediata.
-    panel.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager' })
+    // al abrir otra pestaña, sus fotos pasan a carga inmediata. En la carga
+    // inicial se quedan lazy para no descargar una pestaña fuera de vista.
+    if (animate) panel.querySelectorAll('img[loading="lazy"]').forEach((img) => { img.loading = 'eager' })
     panel.classList.add('is-visible')
     gsap.killTweensOf(panel.children)
     if (animate && !reducedMotion.matches) {
