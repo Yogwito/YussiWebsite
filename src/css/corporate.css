@@ -239,8 +239,28 @@ a:hover > .icon-stitch--down { transform: translateY(3px); }
 .coverage-chapters li.is-active { border-color: var(--blue); color: var(--ink); }
 .coverage-chapters li.is-active strong { color: var(--blue); }
 
-/* Sin interacción: el globo no se arrastra. */
-.section-coverage #coverage-canvas { cursor: default; pointer-events: none; }
+/* Globo en un panel oscuro con brillo: se gira arrastrando (sin zoom). */
+.section-coverage .coverage-map {
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 58% 42%, rgba(91, 184, 240, 0.28), transparent 46%),
+    radial-gradient(circle at 50% 120%, rgba(13, 103, 213, 0.35), transparent 60%),
+    linear-gradient(160deg, #0b2547 0%, #061529 70%);
+  box-shadow: 0 30px 60px -30px rgba(7, 26, 52, 0.55), inset 0 0 0 1px rgba(105, 201, 244, 0.12);
+}
+.section-coverage .coverage-map::before,
+.section-coverage .coverage-map::after { display: none; }
+.section-coverage #coverage-canvas { -webkit-mask-image: none; mask-image: none; cursor: grab; touch-action: pan-y; }
+.section-coverage .coverage-map[data-dragging] #coverage-canvas { cursor: grabbing; }
+.section-coverage .coverage-map[data-state="static"] { background: none; box-shadow: none; }
+.section-coverage .coverage-loading { color: #9fc4e6; }
+/* Mientras la sección está fija, el bloque cabe en la pantalla. */
+.coverage-layout.is-pinned { min-height: calc(100svh - 120px); align-content: center; }
+.coverage-layout.is-pinned .coverage-map { height: min(clamp(520px, 50vw, 720px), calc(100svh - 190px)); min-height: 0; }
+.coverage-layout.is-pinned .coverage-copy h2 { font-size: clamp(2.2rem, 3.6vw, 3.8rem); }
+.coverage-layout.is-pinned .coverage-intro { margin-top: 1rem; }
+.coverage-layout.is-pinned .coverage-chapters { margin-top: 1.25rem; }
+.coverage-layout.is-pinned .coverage-chapters li { padding-block: 0.6rem; }
 .coverage-caption { display: flex; justify-content: flex-end; min-height: 1.5rem; margin-top: 0.5rem; }
 .coverage-abroad-label { color: var(--blue-dark); font-size: 0.8rem; font-weight: 700; opacity: 0; transition: opacity 0.6s var(--ease); }
 .coverage-visual[data-stage="abroad"] .coverage-abroad-label,

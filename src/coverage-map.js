@@ -3,86 +3,114 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// Cobertura: globo 3D (three + three-globe) sin interacción. La cámara avanza
-// sola con el scroll según los capítulos: Caldas → Colombia → mundo
-// (proyectos para marcas del exterior). En móvil o con ahorro de datos se
-// muestra la imagen estática y el globo se carga a pedido; con movimiento
-// reducido también se muestra la imagen estática (el globo, si se abre, queda
-// fijo en la vista de Colombia).
+// Cobertura: globo 3D (three + three-globe).
+// En escritorio la sección se fija al llegar y el scroll recorre la animación
+// de principio a fin (Caldas → Colombia → mundo); al terminar, la página sigue.
+// El globo se puede girar arrastrando; al volver a hacer scroll la cámara
+// retoma su recorrido. En móvil, con ahorro de datos o con movimiento reducido
+// se muestra la imagen estática y el globo se carga a pedido.
 const MANIZALES = { lat: 5.0703, lng: -75.5138 }
-// Capítulo del HTML (data-stage) → vista del globo.
 const STAGE_MODE = { caldas: 'caldas', colombia: 'colombia', abroad: 'world' }
-const STAGES = Object.keys(STAGE_MODE)
 
+// Recorrido de cámara: pausas en cada vista y transiciones entre ellas.
+const KEYS = [
+  { at: 0, view: { lat: 5.15, lng: -75.35, altitude: 0.42 } },
+  { at: 0.18, view: { lat: 5.15, lng: -75.35, altitude: 0.42 } },
+  { at: 0.42, view: { lat: 4.4, lng: -73.9, altitude: 1.15 } },
+  { at: 0.58, view: { lat: 4.4, lng: -73.9, altitude: 1.15 } },
+  { at: 0.84, view: { lat: 16, lng: -58, altitude: 2.5 } },
+  { at: 1, view: { lat: 16, lng: -58, altitude: 2.5 } }
+]
+const stageAt = (p) => (p < 0.3 ? 'caldas' : p < 0.71 ? 'colombia' : 'abroad')
+
+const CITIES = [
+  [4.711, -74.0721], [6.2442, -75.5812], [3.4516, -76.532], [10.9685, -74.7813],
+  [10.391, -75.4794], [7.1193, -73.1227], [7.8939, -72.5078], [4.4389, -75.2322],
+  [11.2408, -74.199], [1.2136, -77.2811], [4.142, -73.6266], [4.8133, -75.6961]
+].map(([lat, lng]) => ({ lat, lng }))
 const ROUTES = {
   caldas: [
-    { endLat: 5.4478, endLng: -74.6631 },
-    { endLat: 5.4216, endLng: -75.7032 },
-    { endLat: 4.9825, endLng: -75.6036 },
-    { endLat: 5.2536, endLng: -75.154 }
+    { endLat: 5.4478, endLng: -74.6631 }, { endLat: 5.4216, endLng: -75.7032 },
+    { endLat: 4.9825, endLng: -75.6036 }, { endLat: 5.2536, endLng: -75.154 }
   ],
-  colombia: [
-    { endLat: 10.9685, endLng: -74.7813 },
-    { endLat: 6.2442, endLng: -75.5812 },
-    { endLat: 4.711, endLng: -74.0721 },
-    { endLat: 3.4516, endLng: -76.532 },
-    { endLat: 7.1193, endLng: -73.1227 }
-  ],
+  colombia: CITIES.map(({ lat, lng }) => ({ endLat: lat, endLng: lng })),
   world: [
-    { endLat: 39, endLng: -98, region: 'North America' },
-    { endLat: -16, endLng: -60, region: 'Latin America' },
-    { endLat: 50, endLng: 10, region: 'Europe' }
+    { endLat: 39, endLng: -98 }, { endLat: 25.8, endLng: -80.2 },
+    { endLat: 40.4, endLng: -3.7 }, { endLat: 48.9, endLng: 2.35 }, { endLat: 19.4, endLng: -99.1 }
   ]
 }
 
-const VIEW = {
-  caldas: { lat: 5.08, lng: -75.28, altitude: 0.45 },
-  colombia: { lat: 4.4, lng: -73.9, altitude: 1.18 },
-  world: { lat: 14, lng: -61, altitude: 2.45 }
-}
-
 export function initCoverageMap() {
-  const layout = document.querySelector('[data-coverage]')
+  const section = document.getElementById('coverage')
+  const layout = section?.querySelector('[data-coverage]')
   const visual = layout?.querySelector('.coverage-visual')
   const map = document.getElementById('coverage-map')
   if (!layout || !visual || !map) return
   const chapters = [...layout.querySelectorAll('.coverage-chapters [data-stage]')]
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
-  let stage = 'caldas'
+  const pinQuery = window.matchMedia('(min-width: 900px) and (min-height: 640px)')
+  let progress = 0
+  let stage = ''
   let scene = null
   let trigger = null
 
+  // En móvil, con ahorro de datos o con movimiento reducido, el globo
+  // (Three.js + GeoJSON) no se descarga solo: imagen estática y botón.
+  const lite = () => window.matchMedia('(max-width: 767px)').matches || navigator.connection?.saveData || reducedMotion.matches
+
   const setStage = (next) => {
+    if (next === stage) return
     stage = next
     visual.dataset.stage = next
     chapters.forEach((item) => item.classList.toggle('is-active', next === 'all' || item.dataset.stage === next))
     scene?.setMode(next === 'all' ? 'colombia' : STAGE_MODE[next])
   }
 
+  const setProgress = (p) => {
+    progress = p
+    setStage(stageAt(p))
+    scene?.setProgress(p)
+  }
+
   const applyMotion = () => {
-    trigger?.kill()
+    trigger?.kill(true)
     trigger = null
+    layout.classList.remove('is-pinned')
+    stage = ''
     if (reducedMotion.matches) {
       setStage('all')
       return
     }
-    setStage(stage === 'all' ? 'caldas' : stage)
-    trigger = ScrollTrigger.create({
-      trigger: layout,
-      start: 'top 65%',
-      end: 'bottom 55%',
-      onUpdate: (self) => {
-        const next = STAGES[Math.min(STAGES.length - 1, Math.floor(self.progress * STAGES.length))]
-        if (next !== stage) setStage(next)
-      }
-    })
+    if (pinQuery.matches && !lite()) {
+      // La sección se fija bajo el header y el scroll recorre la animación.
+      const header = () => document.querySelector('.site-header')?.offsetHeight || 96
+      layout.classList.add('is-pinned')
+      trigger = ScrollTrigger.create({
+        trigger: layout,
+        start: () => `top top+=${header()}`,
+        end: () => `+=${Math.round(window.innerHeight * 2.4)}`,
+        pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => setProgress(self.progress)
+      })
+    } else {
+      trigger = ScrollTrigger.create({
+        trigger: layout,
+        start: 'top 65%',
+        end: 'bottom 45%',
+        onUpdate: (self) => setProgress(self.progress)
+      })
+    }
+    setProgress(trigger.progress || 0)
   }
 
   const loadScene = async () => {
     if (scene) return
     try {
-      scene = await createCoverageScene()
-      scene.setMode(stage === 'all' ? 'colombia' : STAGE_MODE[stage], true)
+      scene = await createCoverageScene(map)
+      scene.setMode(stage === 'all' ? 'colombia' : STAGE_MODE[stage || 'caldas'])
+      scene.setProgress(stage === 'all' ? 0.5 : progress, true)
     } catch (error) {
       console.warn('Coverage map fallback enabled:', error)
       map.dataset.state = 'fallback'
@@ -91,12 +119,9 @@ export function initCoverageMap() {
 
   applyMotion()
   reducedMotion.addEventListener('change', applyMotion)
+  pinQuery.addEventListener('change', applyMotion)
 
-  // En móvil, con ahorro de datos o con movimiento reducido, el globo
-  // (Three.js + GeoJSON) no se descarga solo: se muestra la imagen estática
-  // y se carga a pedido con el botón.
-  const lite = window.matchMedia('(max-width: 767px)').matches || navigator.connection?.saveData || reducedMotion.matches
-  if (lite) {
+  if (lite()) {
     map.dataset.state = 'static'
     const button = document.createElement('button')
     button.type = 'button'
@@ -121,113 +146,142 @@ export function initCoverageMap() {
   observer.observe(layout)
 }
 
-async function createCoverageScene() {
-  const map = document.getElementById('coverage-map')
+async function createCoverageScene(map) {
   const canvas = document.getElementById('coverage-canvas')
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
   if (!supportsWebGL(canvas)) throw new Error('WebGL is not available')
 
-  const [
-    THREE,
-    { default: ThreeGlobe }
-  ] = await Promise.all([
+  const [THREE, { default: ThreeGlobe }, { OrbitControls }] = await Promise.all([
     import('three'),
-    import('three-globe')
+    import('three-globe'),
+    import('three/examples/jsm/controls/OrbitControls.js')
   ])
-
   const [countries, departments] = await Promise.all([
     fetch('/media/cobertura/paises.min.geojson').then(assertResponse).then((response) => response.json()),
     fetch('/media/cobertura/colombia-departamentos.min.geojson').then(assertResponse).then((response) => response.json())
   ])
 
-  const worldFeatures = countries.features
-    .filter((feature) => feature.properties.NAME !== 'Colombia')
-    .map((feature) => ({
-      ...feature,
-      properties: { ...feature.properties, mapLayer: 'country' }
-    }))
-
+  const worldFeatures = countries.features.filter((feature) => feature.properties.NAME !== 'Colombia')
   const departmentFeatures = departments.features.map((feature) => ({
     ...feature,
-    properties: {
-      ...feature.properties,
-      mapLayer: 'department',
-      isCaldas: feature.properties.dpto_cnmbr === 'CALDAS'
-    }
+    properties: { ...feature.properties, isCaldas: feature.properties.dpto_cnmbr === 'CALDAS' }
   }))
 
-  const renderer = new THREE.WebGLRenderer({
-    canvas,
-    alpha: true,
-    antialias: true,
-    powerPreference: 'high-performance'
-  })
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'high-performance' })
   renderer.outputColorSpace = THREE.SRGBColorSpace
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, window.innerWidth < 768 ? 1.35 : 1.7))
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, window.innerWidth < 768 ? 1.35 : 1.75))
 
   const scene = new THREE.Scene()
-  const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 2000)
-  scene.add(new THREE.HemisphereLight(0xdff4ff, 0x020b18, 0.82))
-
-  const keyLight = new THREE.DirectionalLight(0xffffff, 1.35)
-  keyLight.position.set(-180, 140, 220)
+  const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 3000)
+  scene.add(new THREE.AmbientLight(0x9fd4ff, 0.55))
+  const keyLight = new THREE.DirectionalLight(0xffffff, 1.6)
+  keyLight.position.set(-220, 180, 260)
   scene.add(keyLight)
+  const rimLight = new THREE.DirectionalLight(0x69c9f4, 0.9)
+  rimLight.position.set(260, -120, -200)
+  scene.add(rimLight)
+
+  // Campo de estrellas sutil detrás del globo.
+  const starGeometry = new THREE.BufferGeometry()
+  const starPositions = new Float32Array(1400 * 3)
+  for (let i = 0; i < 1400; i++) {
+    const r = 700 + Math.random() * 500
+    const t = Math.random() * Math.PI * 2
+    const u = Math.acos(2 * Math.random() - 1)
+    starPositions.set([r * Math.sin(u) * Math.cos(t), r * Math.sin(u) * Math.sin(t), r * Math.cos(u)], i * 3)
+  }
+  starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3))
+  const stars = new THREE.Points(starGeometry, new THREE.PointsMaterial({ color: 0xbfe6ff, size: 1.4, transparent: true, opacity: 0.55, sizeAttenuation: false }))
+  scene.add(stars)
 
   let currentMode = 'caldas'
-  const globe = new ThreeGlobe()
-    .showAtmosphere(false)
-    .atmosphereColor('#071a34')
-    .atmosphereAltitude(0.14)
+  const globe = new ThreeGlobe({ animateIn: false })
+    .showAtmosphere(true)
+    .atmosphereColor('#5ab8f0')
+    .atmosphereAltitude(0.16)
     .showGraticules(false)
-    .polygonsData([...worldFeatures, ...departmentFeatures])
-    .polygonStrokeColor((feature) => getPolygonStroke(feature, currentMode))
+    // Países como malla de puntos: textura liviana y reconocible.
+    .hexPolygonsData(worldFeatures)
+    .hexPolygonResolution(3)
+    .hexPolygonMargin(0.42)
+    .hexPolygonAltitude(0.004)
+    .hexPolygonColor(() => 'rgba(140, 205, 245, 0.62)')
+    // Colombia en relieve, con Caldas elevado.
+    .polygonsData(departmentFeatures)
     .polygonCapCurvatureResolution(2)
-    .polygonsTransitionDuration(reducedMotion ? 0 : 700)
+    .polygonsTransitionDuration(reducedMotion ? 0 : 600)
     .arcStartLat(() => MANIZALES.lat)
     .arcStartLng(() => MANIZALES.lng)
     .arcEndLat('endLat')
     .arcEndLng('endLng')
-    .arcColor(() => ['#2f9fe4', '#dff4ff'])
-    .arcStroke(0.46)
-    .arcDashLength(reducedMotion ? 1 : 0.52)
-    .arcDashGap(reducedMotion ? 0 : 0.12)
+    .arcColor(() => ['rgba(105, 201, 244, 0.95)', 'rgba(255, 255, 255, 0.95)'])
+    .arcStroke(0.42)
+    .arcDashLength(reducedMotion ? 1 : 0.45)
+    .arcDashGap(reducedMotion ? 0 : 0.18)
     .arcDashInitialGap(() => Math.random())
-    .arcDashAnimateTime(reducedMotion ? 0 : 2500)
-    .ringsData(reducedMotion ? [] : [MANIZALES])
+    .arcDashAnimateTime(reducedMotion ? 0 : 2200)
+    .arcsTransitionDuration(reducedMotion ? 0 : 500)
+    .ringsData(reducedMotion ? [] : [MANIZALES, MANIZALES])
     .ringLat('lat')
     .ringLng('lng')
-    .ringColor(() => (time) => `rgba(105, 201, 244, ${Math.max(0, 1 - time)})`)
-    .ringMaxRadius(3)
-    .ringPropagationSpeed(1.4)
-    .ringRepeatPeriod(1300)
-    .pointLat('endLat')
-    .pointLng('endLng')
-    .pointAltitude(0.035)
-    .pointRadius((point) => point.region ? 0.34 : currentMode === 'caldas' ? 0.08 : 0.18)
-    .pointResolution(12)
-    .pointColor(() => '#b9ecff')
-    .pointsTransitionDuration(reducedMotion ? 0 : 700)
+    .ringColor(() => (t) => `rgba(105, 201, 244, ${Math.max(0, 1 - t) * 0.9})`)
+    .ringPropagationSpeed(1.6)
+    .ringRepeatPeriod(1100)
+    .pointLat('lat')
+    .pointLng('lng')
+    .pointColor(() => '#e6f7ff')
+    .pointResolution(14)
+    .pointsTransitionDuration(reducedMotion ? 0 : 500)
 
   globe.globeMaterial(new THREE.MeshPhongMaterial({
-    color: '#0a2343',
-    emissive: '#06162c',
-    emissiveIntensity: 0.18,
-    shininess: 18
+    color: '#08203f',
+    emissive: '#0b2c55',
+    emissiveIntensity: 0.32,
+    specular: '#3d7fb8',
+    shininess: 14
   }))
   scene.add(globe)
 
+  // Girar arrastrando (sin zoom ni desplazamiento, para no competir con el scroll).
+  const controls = new OrbitControls(camera, canvas)
+  controls.enableZoom = false
+  controls.enablePan = false
+  controls.enableDamping = !reducedMotion
+  controls.dampingFactor = 0.08
+  controls.rotateSpeed = 0.45
+  let dragging = false
+  let releasedAt = 0
+  controls.addEventListener('start', () => { dragging = true; map.dataset.dragging = 'true' })
+  controls.addEventListener('end', () => { dragging = false; releasedAt = performance.now(); delete map.dataset.dragging })
+
   const markerAnchor = new THREE.Group()
-  markerAnchor.name = 'yussi-production-origin'
-  placeOnGlobe(markerAnchor, globe, THREE, 0.034)
   globe.add(markerAnchor)
+  const placeMarker = (alt) => {
+    const p = globe.getCoords(MANIZALES.lat, MANIZALES.lng, alt)
+    markerAnchor.position.set(p.x, p.y, p.z)
+  }
 
   const originLabel = map.querySelector('.coverage-origin')
   const projected = new THREE.Vector3()
+  const target = new THREE.Vector3()
+  let targetProgress = 0
+  let following = true
   let visible = true
   let rafId = 0
-  let cameraTween = null
-  let worldMotionStartedAt = performance.now()
+
+  const viewAt = (p) => {
+    let i = 0
+    while (i < KEYS.length - 2 && p > KEYS[i + 1].at) i++
+    const a = KEYS[i]
+    const b = KEYS[i + 1]
+    const raw = b.at === a.at ? 0 : Math.min(1, Math.max(0, (p - a.at) / (b.at - a.at)))
+    const t = raw * raw * (3 - 2 * raw)
+    return {
+      lat: a.view.lat + (b.view.lat - a.view.lat) * t,
+      lng: a.view.lng + (b.view.lng - a.view.lng) * t,
+      altitude: a.view.altitude + (b.view.altitude - a.view.altitude) * t
+    }
+  }
 
   const resize = () => {
     const { width, height } = map.getBoundingClientRect()
@@ -236,154 +290,82 @@ async function createCoverageScene() {
     camera.aspect = width / height
     camera.updateProjectionMatrix()
   }
-
-  const resizeObserver = new ResizeObserver(resize)
-  resizeObserver.observe(map)
+  new ResizeObserver(resize).observe(map)
   resize()
 
   const render = () => {
-    if (!visible) {
-      rafId = 0
-      return
+    if (!visible) { rafId = 0; return }
+    if (dragging || performance.now() - releasedAt < 700) {
+      following = false
+      controls.update()
+    } else if (following) {
+      const v = viewAt(targetProgress)
+      const c = globe.getCoords(v.lat, v.lng, v.altitude)
+      target.set(c.x, c.y, c.z)
+      // Interpolación suave que conserva la distancia (no atraviesa el globo).
+      const ease = reducedMotion ? 1 : 0.12
+      const len = camera.position.length() + (target.length() - camera.position.length()) * ease
+      camera.position.lerp(target, ease).setLength(len)
+      camera.lookAt(0, 0, 0)
     }
-
-    if (currentMode === 'world' && !reducedMotion) {
-      const elapsed = performance.now() - worldMotionStartedAt
-      globe.rotation.y = Math.sin(elapsed / 7200) * 0.09
-    }
+    if (!reducedMotion) stars.rotation.y += 0.00012
     markerAnchor.getWorldPosition(projected)
     projected.project(camera)
-    const originX = (projected.x * 0.5 + 0.5) * map.clientWidth
-    const originY = (-projected.y * 0.5 + 0.5) * map.clientHeight
-    originLabel.style.setProperty('--origin-x', `${originX}px`)
-    originLabel.style.setProperty('--origin-y', `${originY}px`)
-    originLabel.classList.toggle('align-left', originX > map.clientWidth * 0.72)
+    const x = (projected.x * 0.5 + 0.5) * map.clientWidth
+    const y = (-projected.y * 0.5 + 0.5) * map.clientHeight
+    originLabel.style.setProperty('--origin-x', `${x}px`)
+    originLabel.style.setProperty('--origin-y', `${y}px`)
+    originLabel.classList.toggle('align-left', x > map.clientWidth * 0.68)
     originLabel.classList.toggle('is-behind', projected.z > 1)
     renderer.render(scene, camera)
     rafId = requestAnimationFrame(render)
   }
 
-  const visibilityObserver = new IntersectionObserver((entries) => {
+  new IntersectionObserver((entries) => {
     visible = entries[0]?.isIntersecting ?? false
     if (visible && !rafId) render()
-  }, { threshold: 0.01 })
-  visibilityObserver.observe(map)
+  }, { threshold: 0.01 }).observe(map)
 
-  const setMode = (mode, immediate = false) => {
+  const setMode = (mode) => {
     currentMode = mode
     map.dataset.mode = mode
-    if (mode === 'world') worldMotionStartedAt = performance.now()
-    else globe.rotation.y = 0
-    placeOnGlobe(
-      markerAnchor,
-      globe,
-      THREE,
-      mode === 'caldas' ? 0.034 : mode === 'colombia' ? 0.03 : 0.024
-    )
-    const view = VIEW[mode]
-    const destination = globe.getCoords(view.lat, view.lng, view.altitude)
-
-    cameraTween?.kill()
-    if (immediate || reducedMotion) {
-      camera.position.set(destination.x, destination.y, destination.z)
-      camera.lookAt(0, 0, 0)
-    } else {
-      cameraTween = gsap.to(camera.position, {
-        x: destination.x,
-        y: destination.y,
-        z: destination.z,
-        duration: 1.4,
-        ease: 'power3.inOut',
-        onUpdate: () => camera.lookAt(0, 0, 0)
-      })
-    }
-
+    placeMarker(mode === 'caldas' ? 0.05 : mode === 'colombia' ? 0.04 : 0.03)
     globe
-      .showAtmosphere(mode === 'world')
-      .showGraticules(mode === 'world')
-      .atmosphereColor(mode === 'world' ? '#69c9f4' : '#071a34')
-      .ringsData(reducedMotion || mode === 'caldas' ? [] : [MANIZALES])
-      .ringMaxRadius(mode === 'caldas' ? 0.1 : mode === 'colombia' ? 0.65 : 3)
-      .polygonsData([...worldFeatures, ...departmentFeatures])
-      .polygonAltitude((feature) => getPolygonStyle(feature, mode).altitude)
-      .polygonCapColor((feature) => getPolygonStyle(feature, mode).color)
-      .polygonSideColor((feature) => getPolygonStyle(feature, mode).side)
-      .polygonStrokeColor((feature) => getPolygonStroke(feature, mode))
+      .atmosphereAltitude(mode === 'world' ? 0.22 : 0.15)
+      .polygonAltitude((f) => (f.properties.isCaldas ? (mode === 'caldas' ? 0.045 : 0.034) : mode === 'caldas' ? 0.012 : 0.02))
+      .polygonCapColor((f) => (f.properties.isCaldas ? '#69c9f4' : mode === 'caldas' ? 'rgba(20, 70, 122, 0.95)' : 'rgba(27, 106, 186, 0.95)'))
+      .polygonSideColor((f) => (f.properties.isCaldas ? 'rgba(20, 110, 175, 0.95)' : 'rgba(8, 40, 80, 0.9)'))
+      .polygonStrokeColor((f) => (f.properties.isCaldas ? 'rgba(230, 248, 255, 1)' : 'rgba(170, 225, 255, 0.55)'))
       .arcsData(ROUTES[mode])
-      .pointsData(mode === 'world' ? ROUTES[mode] : [])
-      .arcAltitudeAutoScale(mode === 'caldas' ? 0.18 : mode === 'colombia' ? 0.28 : 0.42)
+      .arcAltitudeAutoScale(mode === 'caldas' ? 0.2 : mode === 'colombia' ? 0.3 : 0.45)
+      .pointsData(mode === 'colombia' ? CITIES : mode === 'world' ? ROUTES.world.map((r) => ({ lat: r.endLat, lng: r.endLng })) : [])
+      .pointAltitude(mode === 'world' ? 0.02 : 0.03)
+      .pointRadius(mode === 'world' ? 0.45 : 0.16)
+      .ringMaxRadius(mode === 'caldas' ? 0.9 : mode === 'colombia' ? 2.2 : 4)
   }
 
-  camera.position.set(0, 0, 260)
-  camera.lookAt(0, 0, 0)
+  // El scroll manda: cada cambio de progreso retoma el recorrido de la cámara.
+  const setProgress = (p, immediate = false) => {
+    targetProgress = p
+    following = true
+    if (immediate) {
+      const v = viewAt(p)
+      const c = globe.getCoords(v.lat, v.lng, v.altitude)
+      camera.position.set(c.x, c.y, c.z)
+      camera.lookAt(0, 0, 0)
+    }
+  }
+
+  setMode(currentMode)
+  setProgress(0, true)
   map.dataset.state = 'ready'
   render()
-
-  return { setMode }
-}
-
-function getPolygonStyle(feature, mode) {
-  const { mapLayer, isCaldas, NAME } = feature.properties
-
-  if (mapLayer === 'country') {
-    const worldShades = [
-      'rgba(45, 91, 133, 0.82)',
-      'rgba(58, 108, 151, 0.78)',
-      'rgba(72, 120, 158, 0.72)'
-    ]
-    const shadeIndex = [...(NAME || '')].reduce((sum, char) => sum + char.charCodeAt(0), 0) % worldShades.length
-
-    return {
-      altitude: 0.008,
-      color: mode === 'world' ? worldShades[shadeIndex] : 'rgba(22, 54, 87, 0.58)',
-      side: '#09213e'
-    }
-  }
-
-  if (isCaldas) {
-    return {
-      altitude: mode === 'caldas' ? 0.026 : 0.034,
-      color: '#69c9f4',
-      side: '#145f9b'
-    }
-  }
-
-  return {
-    altitude: mode === 'colombia' ? 0.018 : 0.012,
-    color: mode === 'caldas'
-      ? 'rgba(18, 62, 102, 0.96)'
-      : mode === 'world'
-        ? 'rgba(25, 89, 151, 0.9)'
-        : 'rgba(22, 96, 169, 0.9)',
-    side: mode === 'caldas' ? '#071f3c' : '#0a3769'
-  }
-}
-
-function getPolygonStroke(feature, mode) {
-  if (feature.properties.isCaldas) return 'rgba(215, 246, 255, 0.98)'
-  if (feature.properties.mapLayer === 'department') {
-    return mode === 'caldas'
-      ? 'rgba(105, 201, 244, 0.28)'
-      : 'rgba(195, 235, 255, 0.62)'
-  }
-  return mode === 'world'
-    ? 'rgba(105, 201, 244, 0.2)'
-    : 'rgba(105, 201, 244, 0.1)'
-}
-
-function placeOnGlobe(object, globe, THREE, altitude = 0.035) {
-  const position = globe.getCoords(MANIZALES.lat, MANIZALES.lng, altitude)
-  const normal = new THREE.Vector3(position.x, position.y, position.z).normalize()
-  object.position.set(position.x, position.y, position.z)
-  object.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), normal)
+  return { setMode, setProgress }
 }
 
 function supportsWebGL(canvas) {
   try {
-    return Boolean(
-      window.WebGLRenderingContext &&
-      (canvas.getContext('webgl2') || canvas.getContext('webgl'))
-    )
+    return Boolean(window.WebGLRenderingContext && (canvas.getContext('webgl2') || canvas.getContext('webgl')))
   } catch {
     return false
   }
