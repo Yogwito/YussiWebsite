@@ -306,12 +306,12 @@
     },
     {
       "source": "/img/work/digitalizacion-wilcom-320.webp",
-      "destination": "/media/proceso/proceso-bordado-bastidor-240.webp",
+      "destination": "/media/proceso/proceso-montaje-tarjeta-480.webp",
       "statusCode": 301
     },
     {
       "source": "/img/work/hilos-320.webp",
-      "destination": "/media/proceso/proceso-detalle-puntada-240.webp",
+      "destination": "/media/proceso/proceso-detalle-puntada-480.webp",
       "statusCode": 301
     },
     {
@@ -601,12 +601,12 @@
     },
     {
       "source": "/media/proceso/proceso-digitalizacion-wilcom-320.webp",
-      "destination": "/media/proceso/proceso-bordado-bastidor-240.webp",
+      "destination": "/media/proceso/proceso-montaje-tarjeta-480.webp",
       "statusCode": 301
     },
     {
       "source": "/media/proceso/proceso-hilos-320.webp",
-      "destination": "/media/proceso/proceso-detalle-puntada-240.webp",
+      "destination": "/media/proceso/proceso-detalle-puntada-480.webp",
       "statusCode": 301
     },
     {
@@ -742,6 +742,21 @@
     {
       "source": "/media/productos/escolares/escolar-portada-lans-escalera-560.webp",
       "destination": "/media/productos/escolares/escolar-portada-lans-escudo-560.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/proceso/proceso-bordado-bastidor-240.webp",
+      "destination": "/media/proceso/proceso-montaje-tarjeta-480.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/proceso/proceso-bordado-bastidor-480.webp",
+      "destination": "/media/proceso/proceso-montaje-tarjeta-960.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/proceso/proceso-detalle-puntada-240.webp",
+      "destination": "/media/proceso/proceso-detalle-puntada-480.webp",
       "statusCode": 301
     }
   ]

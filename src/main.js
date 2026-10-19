@@ -17,6 +17,7 @@ import { initProductExplorer } from './product-explorer.js'
 import { initProduction } from './production.js'
 import { initScrollStories } from './scroll-story.js'
 import { initBrandsMarquee } from './brands-marquee.js'
+import { initLightbox } from './lightbox.js'
 
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual'
@@ -42,4 +43,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initCoverageMap()
   initClients()
   initBrandsMarquee()
+  initLightbox()
 })

@@ -173,6 +173,9 @@ function initSmoothScroll() {
 
   const ticker = (time) => lenis.raf(time * 1000)
   lenis.on('scroll', ScrollTrigger.update)
+  // Con el visor de fotos abierto, la página no se desplaza.
+  const onLightbox = (event) => (event.detail.open ? lenis.stop() : lenis.start())
+  document.addEventListener('lightbox:toggle', onLightbox)
   gsap.ticker.add(ticker)
   gsap.ticker.lagSmoothing(0)
 
@@ -223,6 +226,7 @@ function initSmoothScroll() {
     window.removeEventListener('popstate', syncInitialHash)
     window.removeEventListener('hashchange', syncInitialHash)
     gsap.ticker.remove(ticker)
+    document.removeEventListener('lightbox:toggle', onLightbox)
     lenis.destroy()
   }
 }

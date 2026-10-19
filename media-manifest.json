@@ -1,7 +1,7 @@
 {
   "generated": "2026-10-19",
   "note": "Medios publicados que usa la página. alt_es/alt_en vacíos = decorativo o sin texto alternativo. Ver public/media/README.md.",
-  "count": 378,
+  "count": 386,
   "files": [
     {
       "path": "/media/brand/apple-touch-icon.png",
@@ -690,6 +690,24 @@
       "alt_en": "Six-head Tajima embroidery machine at the Bordados Yussi facility in Manizales"
     },
     {
+      "path": "/media/nosotros/nosotros-planta-tajima-6-cabezales-2000.avif",
+      "file": "public/media/nosotros/nosotros-planta-tajima-6-cabezales-2000.avif",
+      "section": "nosotros",
+      "bytes": 216886,
+      "dimensions": "2000x1125",
+      "alt_es": "Bordadora Tajima de 6 cabezales en la planta de Bordados Yussi en Manizales",
+      "alt_en": "Six-head Tajima embroidery machine at the Bordados Yussi facility in Manizales"
+    },
+    {
+      "path": "/media/nosotros/nosotros-planta-tajima-6-cabezales-2000.webp",
+      "file": "public/media/nosotros/nosotros-planta-tajima-6-cabezales-2000.webp",
+      "section": "nosotros",
+      "bytes": 323620,
+      "dimensions": "2000x1125",
+      "alt_es": "Bordadora Tajima de 6 cabezales en la planta de Bordados Yussi en Manizales",
+      "alt_en": "Six-head Tajima embroidery machine at the Bordados Yussi facility in Manizales"
+    },
+    {
       "path": "/media/nosotros/nosotros-planta-tajima-6-cabezales-800.webp",
       "file": "public/media/nosotros/nosotros-planta-tajima-6-cabezales-800.webp",
       "section": "nosotros",
@@ -915,24 +933,6 @@
       "alt_en": "Several hoops embroidering at once on the multi-head machine"
     },
     {
-      "path": "/media/proceso/proceso-bordado-bastidor-240.webp",
-      "file": "public/media/proceso/proceso-bordado-bastidor-240.webp",
-      "section": "planta y proceso",
-      "bytes": 12722,
-      "dimensions": "240x271",
-      "alt_es": "Logo listo en el bastidor de la bordadora",
-      "alt_en": "Logo ready in the embroidery machine hoop"
-    },
-    {
-      "path": "/media/proceso/proceso-bordado-bastidor-480.webp",
-      "file": "public/media/proceso/proceso-bordado-bastidor-480.webp",
-      "section": "planta y proceso",
-      "bytes": 37020,
-      "dimensions": "480x543",
-      "alt_es": "Logo listo en el bastidor de la bordadora",
-      "alt_en": "Logo ready in the embroidery machine hoop"
-    },
-    {
       "path": "/media/proceso/proceso-bordado-la-arcadia-1200.avif",
       "file": "public/media/proceso/proceso-bordado-la-arcadia-1200.avif",
       "section": "planta y proceso",
@@ -1008,20 +1008,20 @@
       "path": "/media/proceso/proceso-bordado-poster.webp",
       "file": "public/media/proceso/proceso-bordado-poster.webp",
       "section": "planta y proceso",
-      "bytes": 130710,
-      "dimensions": "1600x900",
-      "alt_es": "Bordado en nuestra planta",
-      "alt_en": "Embroidery in our workshop"
+      "bytes": 122064,
+      "dimensions": "1920x1080",
+      "alt_es": null,
+      "alt_en": null
     },
     {
       "path": "/media/proceso/proceso-bordado.mp4",
       "file": "public/media/proceso/proceso-bordado.mp4",
       "section": "planta y proceso",
-      "bytes": 3511004,
-      "dimensions": "1280x720",
+      "bytes": 14050340,
+      "dimensions": "1920x1080",
       "alt_es": null,
       "alt_en": null,
-      "duration_s": 11.33
+      "duration_s": 11.34
     },
     {
       "path": "/media/proceso/proceso-cabezal-bordando-1200.avif",
@@ -1115,11 +1115,11 @@
       "duration_s": 11.7
     },
     {
-      "path": "/media/proceso/proceso-detalle-puntada-240.webp",
-      "file": "public/media/proceso/proceso-detalle-puntada-240.webp",
+      "path": "/media/proceso/proceso-detalle-puntada-480.avif",
+      "file": "public/media/proceso/proceso-detalle-puntada-480.avif",
       "section": "planta y proceso",
-      "bytes": 20756,
-      "dimensions": "240x271",
+      "bytes": 62280,
+      "dimensions": "480x543",
       "alt_es": "Detalle de puntada de un bordado a color",
       "alt_en": "Close-up of the stitching on a color embroidery"
     },
@@ -1127,8 +1127,44 @@
       "path": "/media/proceso/proceso-detalle-puntada-480.webp",
       "file": "public/media/proceso/proceso-detalle-puntada-480.webp",
       "section": "planta y proceso",
-      "bytes": 73096,
+      "bytes": 102488,
       "dimensions": "480x543",
+      "alt_es": "Detalle de puntada de un bordado a color",
+      "alt_en": "Close-up of the stitching on a color embroidery"
+    },
+    {
+      "path": "/media/proceso/proceso-detalle-puntada-960.avif",
+      "file": "public/media/proceso/proceso-detalle-puntada-960.avif",
+      "section": "planta y proceso",
+      "bytes": 187016,
+      "dimensions": "960x1085",
+      "alt_es": "Detalle de puntada de un bordado a color",
+      "alt_en": "Close-up of the stitching on a color embroidery"
+    },
+    {
+      "path": "/media/proceso/proceso-detalle-puntada-960.webp",
+      "file": "public/media/proceso/proceso-detalle-puntada-960.webp",
+      "section": "planta y proceso",
+      "bytes": 335554,
+      "dimensions": "960x1085",
+      "alt_es": "Detalle de puntada de un bordado a color",
+      "alt_en": "Close-up of the stitching on a color embroidery"
+    },
+    {
+      "path": "/media/proceso/proceso-detalle-puntada-grande.avif",
+      "file": "public/media/proceso/proceso-detalle-puntada-grande.avif",
+      "section": "planta y proceso",
+      "bytes": 244302,
+      "dimensions": "1269x1600",
+      "alt_es": "Detalle de puntada de un bordado a color",
+      "alt_en": "Close-up of the stitching on a color embroidery"
+    },
+    {
+      "path": "/media/proceso/proceso-detalle-puntada-grande.webp",
+      "file": "public/media/proceso/proceso-detalle-puntada-grande.webp",
+      "section": "planta y proceso",
+      "bytes": 435830,
+      "dimensions": "1269x1600",
       "alt_es": "Detalle de puntada de un bordado a color",
       "alt_en": "Close-up of the stitching on a color embroidery"
     },
@@ -1201,6 +1237,42 @@
       "section": "planta y proceso",
       "bytes": 48294,
       "dimensions": "800x600",
+      "alt_es": "Operaria montando una prenda en el bastidor de la bordadora",
+      "alt_en": "Operator hooping a garment on the embroidery machine"
+    },
+    {
+      "path": "/media/proceso/proceso-montaje-tarjeta-480.avif",
+      "file": "public/media/proceso/proceso-montaje-tarjeta-480.avif",
+      "section": "planta y proceso",
+      "bytes": 22111,
+      "dimensions": "480x543",
+      "alt_es": "Operaria montando una prenda en el bastidor de la bordadora",
+      "alt_en": "Operator hooping a garment on the embroidery machine"
+    },
+    {
+      "path": "/media/proceso/proceso-montaje-tarjeta-480.webp",
+      "file": "public/media/proceso/proceso-montaje-tarjeta-480.webp",
+      "section": "planta y proceso",
+      "bytes": 33344,
+      "dimensions": "480x543",
+      "alt_es": "Operaria montando una prenda en el bastidor de la bordadora",
+      "alt_en": "Operator hooping a garment on the embroidery machine"
+    },
+    {
+      "path": "/media/proceso/proceso-montaje-tarjeta-960.avif",
+      "file": "public/media/proceso/proceso-montaje-tarjeta-960.avif",
+      "section": "planta y proceso",
+      "bytes": 79291,
+      "dimensions": "960x1085",
+      "alt_es": "Operaria montando una prenda en el bastidor de la bordadora",
+      "alt_en": "Operator hooping a garment on the embroidery machine"
+    },
+    {
+      "path": "/media/proceso/proceso-montaje-tarjeta-960.webp",
+      "file": "public/media/proceso/proceso-montaje-tarjeta-960.webp",
+      "section": "planta y proceso",
+      "bytes": 127122,
+      "dimensions": "960x1085",
       "alt_es": "Operaria montando una prenda en el bastidor de la bordadora",
       "alt_en": "Operator hooping a garment on the embroidery machine"
     },

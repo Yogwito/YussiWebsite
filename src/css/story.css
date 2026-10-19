@@ -67,7 +67,8 @@
   transform: scale(1.04);
   transition: opacity 0.7s var(--ease), transform 1.2s var(--ease);
 }
-.story[data-mode="pin"] .story-slide.is-active { opacity: 1; transform: none; }
+.story[data-mode="pin"] .story-slide { pointer-events: none; }
+.story[data-mode="pin"] .story-slide.is-active { opacity: 1; transform: none; pointer-events: auto; }
 .story[data-mode="pin"] .story-step {
   display: flex;
   flex-direction: column;
