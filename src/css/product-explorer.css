@@ -38,7 +38,7 @@
 .line-detail-copy h3 { font-size: clamp(1.75rem, 2.55vw, 2.5rem); line-height: 1.15; letter-spacing: -0.025em; }
 .line-detail-copy > p:not(.eyebrow):not(.line-detail-label) { font-size: 0.92rem; margin-top: 1rem; line-height: 1.7; }
 .line-detail-list { gap: 0.6rem; margin-top: 1.2rem; }
-.line-detail-list li { font-size: 1rem; font-weight: 500; line-height: 1.5; }
+.line-detail-list li { font-size: 0.92rem; font-weight: 500; line-height: 1.5; } /* mismo tamaño que el párrafo de la ficha */
 .line-detail-list li::before { width: 6px; height: 6px; top: 0.6em; border-radius: 50%; }
 .line-detail-copy .eyebrow { font-size: 0.65rem; }
 .line-detail-copy .button { margin-top: 1.6rem; font-size: 0.8rem; }
