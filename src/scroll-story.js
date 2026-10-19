@@ -166,6 +166,14 @@ function createStory(root) {
     }
   }
 
+  // Movimiento reducido: todas las fotos visibles y apiladas, sin transiciones
+  // ni reproducción automática; los videos se controlan a mano.
+  const setupStatic = () => {
+    const videos = slides.map((slide) => slide.querySelector('video')).filter(Boolean)
+    videos.forEach((video) => { video.controls = true })
+    return () => videos.forEach((video) => { video.controls = false })
+  }
+
   const applyMode = () => {
     const next = reducedMotion.matches ? 'static' : pinQuery.matches ? 'pin' : 'carousel'
     if (next === mode) return
@@ -173,7 +181,8 @@ function createStory(root) {
     mode = next
     root.dataset.mode = mode
     active = -1
-    cleanup = mode === 'pin' ? setupPin() : mode === 'carousel' ? setupCarousel() : () => {}
+    const setup = { pin: setupPin, carousel: setupCarousel, static: setupStatic }[mode]
+    cleanup = setup()
     setActive(0)
   }
 
