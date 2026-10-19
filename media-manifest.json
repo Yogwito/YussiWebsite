@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-18",
+  "generated": "2026-10-19",
   "note": "Medios publicados que usa la página. alt_es/alt_en vacíos = decorativo o sin texto alternativo. Ver public/media/README.md.",
   "count": 119,
   "files": [
@@ -409,21 +409,48 @@
       "alt_en": "Universidad Nacional"
     },
     {
+      "path": "/media/cobertura/cobertura-mapa-estatico.webp",
+      "file": "public/media/cobertura/cobertura-mapa-estatico.webp",
+      "section": "cobertura",
+      "bytes": 17712,
+      "dimensions": "1000x1000",
+      "alt_es": "Mapa de cobertura desde Manizales hacia Caldas, Colombia y proyectos en el exterior",
+      "alt_en": "Coverage map from Manizales to Caldas, Colombia and projects abroad"
+    },
+    {
+      "path": "/media/cobertura/colombia-departamentos.min.geojson",
+      "file": "public/media/cobertura/colombia-departamentos.min.geojson",
+      "section": "cobertura",
+      "bytes": 129128,
+      "dimensions": null,
+      "alt_es": null,
+      "alt_en": null
+    },
+    {
+      "path": "/media/cobertura/paises.min.geojson",
+      "file": "public/media/cobertura/paises.min.geojson",
+      "section": "cobertura",
+      "bytes": 93073,
+      "dimensions": null,
+      "alt_es": null,
+      "alt_en": null
+    },
+    {
       "path": "/media/hero/hero-produccion-movil.mp4",
       "file": "public/media/hero/hero-produccion-movil.mp4",
       "section": "hero",
-      "bytes": 1314847,
-      "dimensions": "540x960",
+      "bytes": 5674103,
+      "dimensions": "720x1280",
       "alt_es": null,
       "alt_en": null,
-      "duration_s": 16.42
+      "duration_s": 16.4
     },
     {
       "path": "/media/hero/hero-produccion-poster.webp",
       "file": "public/media/hero/hero-produccion-poster.webp",
       "section": "hero",
-      "bytes": 46350,
-      "dimensions": "1280x720",
+      "bytes": 111614,
+      "dimensions": "1920x1080",
       "alt_es": null,
       "alt_en": null
     },
@@ -431,11 +458,47 @@
       "path": "/media/hero/hero-produccion.mp4",
       "file": "public/media/hero/hero-produccion.mp4",
       "section": "hero",
-      "bytes": 3640166,
-      "dimensions": "1600x900",
+      "bytes": 13411593,
+      "dimensions": "1920x1080",
       "alt_es": null,
       "alt_en": null,
-      "duration_s": 16.42
+      "duration_s": 16.4
+    },
+    {
+      "path": "/media/nosotros/nosotros-planta-tajima-6-cabezales-1400.webp",
+      "file": "public/media/nosotros/nosotros-planta-tajima-6-cabezales-1400.webp",
+      "section": "nosotros",
+      "bytes": 133784,
+      "dimensions": "1400x788",
+      "alt_es": "Bordadora Tajima de 6 cabezales en la planta de Bordados Yussi en Manizales",
+      "alt_en": "Six-head Tajima embroidery machine at the Bordados Yussi facility in Manizales"
+    },
+    {
+      "path": "/media/nosotros/nosotros-planta-tajima-6-cabezales-800.webp",
+      "file": "public/media/nosotros/nosotros-planta-tajima-6-cabezales-800.webp",
+      "section": "nosotros",
+      "bytes": 57966,
+      "dimensions": "800x450",
+      "alt_es": "Bordadora Tajima de 6 cabezales en la planta de Bordados Yussi en Manizales",
+      "alt_en": "Six-head Tajima embroidery machine at the Bordados Yussi facility in Manizales"
+    },
+    {
+      "path": "/media/proceso/proceso-bordado-bastidor-240.webp",
+      "file": "public/media/proceso/proceso-bordado-bastidor-240.webp",
+      "section": "planta y proceso",
+      "bytes": 12722,
+      "dimensions": "240x271",
+      "alt_es": "Logo listo en el bastidor de la bordadora",
+      "alt_en": "Logo ready in the embroidery machine hoop"
+    },
+    {
+      "path": "/media/proceso/proceso-bordado-bastidor-480.webp",
+      "file": "public/media/proceso/proceso-bordado-bastidor-480.webp",
+      "section": "planta y proceso",
+      "bytes": 37020,
+      "dimensions": "480x543",
+      "alt_es": "Logo listo en el bastidor de la bordadora",
+      "alt_en": "Logo ready in the embroidery machine hoop"
     },
     {
       "path": "/media/proceso/proceso-bordado-poster.webp",
@@ -450,10 +513,10 @@
       "path": "/media/proceso/proceso-bordado.mp4",
       "file": "public/media/proceso/proceso-bordado.mp4",
       "section": "planta y proceso",
-      "bytes": 1451290,
+      "bytes": 3511004,
       "dimensions": "1280x720",
-      "alt_es": "Bordado en nuestra planta",
-      "alt_en": "Embroidery in our workshop",
+      "alt_es": null,
+      "alt_en": null,
       "duration_s": 11.33
     },
     {
@@ -469,11 +532,29 @@
       "path": "/media/proceso/proceso-confeccion.mp4",
       "file": "public/media/proceso/proceso-confeccion.mp4",
       "section": "planta y proceso",
-      "bytes": 1805079,
+      "bytes": 3731941,
       "dimensions": "1280x720",
-      "alt_es": "Confección en nuestra planta",
-      "alt_en": "Garment making in our workshop",
+      "alt_es": null,
+      "alt_en": null,
       "duration_s": 11.7
+    },
+    {
+      "path": "/media/proceso/proceso-detalle-puntada-240.webp",
+      "file": "public/media/proceso/proceso-detalle-puntada-240.webp",
+      "section": "planta y proceso",
+      "bytes": 20756,
+      "dimensions": "240x271",
+      "alt_es": "Detalle de puntada de un bordado a color",
+      "alt_en": "Close-up of the stitching on a color embroidery"
+    },
+    {
+      "path": "/media/proceso/proceso-detalle-puntada-480.webp",
+      "file": "public/media/proceso/proceso-detalle-puntada-480.webp",
+      "section": "planta y proceso",
+      "bytes": 73096,
+      "dimensions": "480x543",
+      "alt_es": "Detalle de puntada de un bordado a color",
+      "alt_en": "Close-up of the stitching on a color embroidery"
     },
     {
       "path": "/media/productos/antifluido/antifluido-bata-1200.webp",
@@ -994,87 +1075,6 @@
       "section": "marca",
       "bytes": 15086,
       "dimensions": "48x48",
-      "alt_es": null,
-      "alt_en": null
-    },
-    {
-      "path": "/media/proceso/proceso-bordado-bastidor-240.webp",
-      "file": "public/media/proceso/proceso-bordado-bastidor-240.webp",
-      "section": "planta y proceso",
-      "bytes": 12722,
-      "dimensions": "240x271",
-      "alt_es": "Logo listo en el bastidor de la bordadora",
-      "alt_en": "Logo ready in the embroidery machine hoop"
-    },
-    {
-      "path": "/media/proceso/proceso-bordado-bastidor-480.webp",
-      "file": "public/media/proceso/proceso-bordado-bastidor-480.webp",
-      "section": "planta y proceso",
-      "bytes": 37020,
-      "dimensions": "480x543",
-      "alt_es": "Logo listo en el bastidor de la bordadora",
-      "alt_en": "Logo ready in the embroidery machine hoop"
-    },
-    {
-      "path": "/media/proceso/proceso-detalle-puntada-240.webp",
-      "file": "public/media/proceso/proceso-detalle-puntada-240.webp",
-      "section": "planta y proceso",
-      "bytes": 20756,
-      "dimensions": "240x271",
-      "alt_es": "Detalle de puntada de un bordado a color",
-      "alt_en": "Close-up of the stitching on a color embroidery"
-    },
-    {
-      "path": "/media/proceso/proceso-detalle-puntada-480.webp",
-      "file": "public/media/proceso/proceso-detalle-puntada-480.webp",
-      "section": "planta y proceso",
-      "bytes": 73096,
-      "dimensions": "480x543",
-      "alt_es": "Detalle de puntada de un bordado a color",
-      "alt_en": "Close-up of the stitching on a color embroidery"
-    },
-    {
-      "path": "/media/nosotros/nosotros-planta-tajima-6-cabezales-800.webp",
-      "file": "public/media/nosotros/nosotros-planta-tajima-6-cabezales-800.webp",
-      "section": "nosotros",
-      "bytes": 57966,
-      "dimensions": "800x450",
-      "alt_es": "Bordadora Tajima de 6 cabezales en la planta de Bordados Yussi en Manizales",
-      "alt_en": null
-    },
-    {
-      "path": "/media/nosotros/nosotros-planta-tajima-6-cabezales-1400.webp",
-      "file": "public/media/nosotros/nosotros-planta-tajima-6-cabezales-1400.webp",
-      "section": "nosotros",
-      "bytes": 133784,
-      "dimensions": "1400x788",
-      "alt_es": "Bordadora Tajima de 6 cabezales en la planta de Bordados Yussi en Manizales",
-      "alt_en": null
-    },
-    {
-      "path": "/media/cobertura/cobertura-mapa-estatico.webp",
-      "file": "public/media/cobertura/cobertura-mapa-estatico.webp",
-      "section": "cobertura",
-      "bytes": 17712,
-      "dimensions": "1000x1000",
-      "alt_es": "Mapa de cobertura desde Manizales hacia Caldas, Colombia y proyectos en el exterior",
-      "alt_en": "Coverage map from Manizales to Caldas, Colombia and projects abroad"
-    },
-    {
-      "path": "/media/cobertura/colombia-departamentos.min.geojson",
-      "file": "public/media/cobertura/colombia-departamentos.min.geojson",
-      "section": "cobertura",
-      "bytes": 129128,
-      "dimensions": null,
-      "alt_es": null,
-      "alt_en": null
-    },
-    {
-      "path": "/media/cobertura/paises.min.geojson",
-      "file": "public/media/cobertura/paises.min.geojson",
-      "section": "cobertura",
-      "bytes": 93073,
-      "dimensions": null,
       "alt_es": null,
       "alt_en": null
     }

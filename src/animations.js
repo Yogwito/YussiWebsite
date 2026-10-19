@@ -274,10 +274,11 @@ function initReveals() {
 function initParallax() {
   const media = document.querySelector('.hero-media video')
   if (media) {
+    // Escala leve: el video es 1080p y agrandarlo más lo ablanda.
     gsap.fromTo(media,
-      { scale: 1.02 },
+      { scale: 1 },
       {
-        scale: 1.1,
+        scale: 1.04,
         ease: 'none',
         scrollTrigger: {
           trigger: '#hero',
