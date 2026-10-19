@@ -40,3 +40,56 @@
   .story[data-mode="static"] { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2.5rem, 5vw, 5rem); align-items: start; }
   .story[data-mode="static"] .story-steps { position: sticky; top: var(--story-top); }
 }
+
+/* ── Escritorio (pin): foto fija que cambia, texto en pasos ─────────────── */
+.story[data-mode="pin"] {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: start;
+}
+.story[data-mode="pin"] .story-media {
+  position: sticky;
+  top: var(--story-top);
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+}
+.story[data-mode="pin"] .story-frame {
+  width: min(100%, calc((100svh - var(--story-top) - 5rem) / 1.12));
+  aspect-ratio: 1 / 1.12;
+}
+.story[data-mode="pin"] .story-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.7s var(--ease), transform 1.2s var(--ease);
+}
+.story[data-mode="pin"] .story-slide.is-active { opacity: 1; transform: none; }
+.story[data-mode="pin"] .story-step {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 72svh;
+  opacity: 0.28;
+  transition: opacity 0.45s var(--ease);
+}
+.story[data-mode="pin"] .story-step:first-child { min-height: calc(100svh - var(--story-top) - 6rem); justify-content: flex-start; padding-top: 2rem; }
+.story[data-mode="pin"] .story-step.is-active { opacity: 1; }
+.story[data-mode="pin"] .story-cta {
+  position: sticky;
+  bottom: 1.5rem;
+  margin-top: 2rem;
+  padding: 1rem 0;
+  background: var(--white);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), visibility 0s 0.4s;
+}
+.story[data-mode="pin"].is-cta-visible .story-cta {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), visibility 0s;
+}
