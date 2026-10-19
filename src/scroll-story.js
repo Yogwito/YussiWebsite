@@ -147,7 +147,13 @@ function createStory(root) {
   // scroll elige la toma; foto y texto cambian en su sitio (sin huecos).
   const setupPin = () => {
     const header = () => document.querySelector('.site-header')?.offsetHeight || 96
-    root.style.setProperty('--story-top', `${header() + 16}px`)
+    // Altura real de la ventana (algunos navegadores calculan svh más corto).
+    const measure = () => {
+      root.style.setProperty('--story-top', `${header() + 16}px`)
+      root.style.setProperty('--story-vh', `${window.innerHeight}px`)
+    }
+    measure()
+    window.addEventListener('resize', measure)
     const trigger = ScrollTrigger.create({
       trigger: root,
       start: () => `top top+=${header() + 16}`,
@@ -174,7 +180,9 @@ function createStory(root) {
       dots.forEach((dot, i) => dot.removeEventListener('click', handlers[i]))
       document.removeEventListener('languagechange', refresh)
       steps.forEach((el) => { el.inert = false })
+      window.removeEventListener('resize', measure)
       root.style.removeProperty('--story-top')
+      root.style.removeProperty('--story-vh')
     }
   }
 
