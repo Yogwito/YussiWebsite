@@ -2,6 +2,7 @@ import './css/site.css'
 import './css/corporate.css'
 import './css/product-explorer.css'
 import './css/production.css'
+import './css/story.css'
 import './css/mobile.css'
 
 import { initLang } from './lang.js'
@@ -14,6 +15,7 @@ import { initCoverageMap } from './coverage-map.js'
 import { initClients } from './clients.js'
 import { initProductExplorer } from './product-explorer.js'
 import { initProduction } from './production.js'
+import { initScrollStories } from './scroll-story.js'
 import { initBrandsMarquee } from './brands-marquee.js'
 
 if ('scrollRestoration' in history) {
@@ -33,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaq()
   initForm()
   initProductExplorer()
+  initScrollStories()
   initProduction()
   initAnimations()
   initWaBubble()

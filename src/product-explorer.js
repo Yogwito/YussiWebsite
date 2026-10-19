@@ -33,12 +33,14 @@ export function initProductExplorer() {
   initGalleries()
   const selector = document.querySelector('.product-selector')
   if (!selector) return
-  const options = [...selector.querySelectorAll('[data-product]')]
+  // Las pestañas viven en .product-tabs; Dotación es un enlace a su propia sección.
+  const tablist = selector.querySelector('.product-tabs') || selector
+  const options = [...tablist.querySelectorAll('[data-product]')]
   const panels = options.map((option) => document.getElementById(`${option.dataset.product}-detalle`))
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
   let active = -1
 
-  selector.setAttribute('role', 'tablist')
+  tablist.setAttribute('role', 'tablist')
   options.forEach((option, index) => {
     option.setAttribute('role', 'tab')
     option.setAttribute('aria-controls', panels[index].id)
@@ -57,8 +59,11 @@ export function initProductExplorer() {
     })
     const panel = panels[index]
     const selected = options[index]
-    if (selector.scrollWidth > selector.clientWidth) {
-      selector.scrollTo({ left: selected.offsetLeft - options[0].offsetLeft, behavior: 'instant' })
+    // En móvil el selector es un carrusel: centra la tarjeta elegida, salvo al cargar.
+    if (animate && selector.scrollWidth > selector.clientWidth) {
+      const start = selector.firstElementChild.offsetLeft
+      const left = selected.offsetLeft - start - (selector.clientWidth - selected.offsetWidth) / 2
+      selector.scrollTo({ left: Math.max(0, left), behavior: 'instant' })
     }
     panel.classList.add('is-visible')
     gsap.killTweensOf(panel.children)

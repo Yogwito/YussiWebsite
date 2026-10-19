@@ -86,3 +86,4 @@
   .line-detail-copy { padding: 0.3rem; }
   .line-detail-copy .button { width: 100%; justify-content: space-between; }
 }
+.product-tabs { display: contents; }
