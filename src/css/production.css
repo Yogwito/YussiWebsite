@@ -79,3 +79,25 @@
 .photo-strip figcaption { margin-top: 0.6rem; color: var(--corporate-muted); font-size: 0.8rem; font-weight: 600; }
 .section-work .photo-strip figcaption { color: #b9c7d8; }
 .section-about .photo-strip { margin-top: 3rem; }
+/* La tira llega hasta el borde derecho de la pantalla (la foto siguiente
+   asoma ahí, no cortada en el borde del contenedor) y se desvanece. */
+.photo-strip-wrap { position: relative; }
+.photo-strip {
+  margin-right: calc(50% - 50vw);
+  padding-right: max(1.5rem, calc(50vw - 50%));
+  scroll-padding-inline: 0;
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 7rem), transparent);
+  mask-image: linear-gradient(90deg, #000 calc(100% - 7rem), transparent);
+  scrollbar-width: none;
+}
+.photo-strip::-webkit-scrollbar { display: none; }
+.photo-strip-nav { display: none; }
+@media (hover: hover) and (min-width: 768px) {
+  .photo-strip-nav { position: absolute; top: calc(50% - 1.5rem); z-index: 2; display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 50%; color: var(--white); background: rgba(7, 26, 52, 0.7); backdrop-filter: blur(6px); font-size: 1.6rem; line-height: 1; cursor: pointer; transition: opacity 0.2s, background 0.2s; }
+  .photo-strip-nav:hover { background: rgba(7, 26, 52, 0.9); }
+  .photo-strip-nav:focus-visible { outline: 3px solid var(--cyan); outline-offset: 2px; }
+  .photo-strip-nav[disabled] { opacity: 0; pointer-events: none; }
+  .photo-strip-prev { left: -0.75rem; }
+  .photo-strip-next { right: -0.75rem; }
+}
+.photo-strip.is-end { -webkit-mask-image: none; mask-image: none; }
