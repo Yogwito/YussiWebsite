@@ -15,7 +15,10 @@ function initGalleries() {
       thumb.addEventListener('click', () => {
         if (thumb.getAttribute('aria-pressed') === 'true') return
         const base = `/media/productos/${thumb.dataset.photo}`
-        main.srcset = `${base}-800.webp 800w, ${base}-1200.webp 1200w`
+        const set = (ext) => [800, 1200, 1600].map((w) => `${base}-${w}.${ext} ${w}w`).join(', ')
+        const avif = main.closest('picture')?.querySelector('source[type="image/avif"]')
+        if (avif) avif.srcset = set('avif')
+        main.srcset = set('webp')
         main.src = `${base}-1200.webp`
         main.alt = altFor(thumb)
         thumbs.forEach((item) => item.setAttribute('aria-pressed', String(item === thumb)))
