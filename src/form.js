@@ -51,6 +51,19 @@ export function initForm() {
     submitLabel.textContent = MESSAGES[currentLanguage()][key]
   }
 
+  // Por WhatsApp el teléfono ya llega con el mensaje: el correo es opcional.
+  // Solo es obligatorio cuando el formulario envía al webhook.
+  const email = form.querySelector('[name="email"]')
+  const emailLabel = email && form.querySelector(`label[for="${email.id}"]`)
+  if (email && !WEBHOOK_ENABLED) {
+    email.required = false
+    if (emailLabel) {
+      emailLabel.dataset.es = 'Correo'
+      emailLabel.dataset.en = 'Email'
+      emailLabel.textContent = currentLanguage() === 'en' ? 'Email' : 'Correo'
+    }
+  }
+
   // Arma un mensaje de WhatsApp con lo que la persona ya escribió.
   const whatsappUrl = () => {
     const t = MESSAGES[currentLanguage()]
