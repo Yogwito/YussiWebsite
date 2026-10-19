@@ -214,3 +214,8 @@ a:hover > .icon-stitch--down { transform: translateY(3px); }
   box-shadow: 0 10px 24px rgba(7, 26, 52, 0.25);
 }
 .coverage-activate:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
+
+/* Instagram en contacto y footer: ícono SVG en línea con el color del texto. */
+.contact-instagram,
+.footer-instagram { display: inline-flex; align-items: center; gap: 0.5rem; }
+.icon-instagram { flex: 0 0 auto; width: 1.15em; height: 1.15em; }
