@@ -9,7 +9,6 @@
   color: var(--navy);
   background: var(--white);
   transition: border-color 200ms, box-shadow 200ms;
-  scroll-margin-top: 120px;
 }
 .product-option:hover { border-color: #8ba5c2; }
 .product-option[aria-selected="true"] { border-color: var(--blue); box-shadow: 0 0 0 1px var(--blue); }
@@ -29,7 +28,6 @@
   border: 1px solid var(--corporate-line);
   border-radius: var(--corporate-radius);
   background: var(--white);
-  scroll-margin-top: 120px;
 }
 .line-detail[hidden] { display: none; }
 .line-detail:nth-child(even) .line-detail-media { order: 0; }

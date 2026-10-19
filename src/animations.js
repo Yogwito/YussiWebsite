@@ -187,8 +187,8 @@ function initSmoothScroll() {
 
       event.preventDefault()
       window.history.pushState({}, '', selector)
-      const offset = -(document.querySelector('.site-header')?.offsetHeight || 0) - 16
-      lenis.scrollTo(target, { duration: 1.1, offset })
+      // Lenis already subtracts scroll-padding-top and scroll-margin-top
+      lenis.scrollTo(target, { duration: 1.1 })
     }
     link.addEventListener('click', handler)
     anchorHandlers.push(() => link.removeEventListener('click', handler))
@@ -208,8 +208,7 @@ function initSmoothScroll() {
     if (!target) return
 
     lenis.resize()
-    const offset = -(document.querySelector('.site-header')?.offsetHeight || 0) - 16
-    lenis.scrollTo(target, { immediate: true, force: true, offset })
+    lenis.scrollTo(target, { immediate: true, force: true })
   }
 
   window.requestAnimationFrame(syncInitialHash)
