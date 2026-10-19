@@ -222,3 +222,85 @@ a:hover > .icon-stitch--down { transform: translateY(3px); }
 
 /* Enlace secundario bajo la intro de preguntas. */
 .faq-intro .text-link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1.25rem; }
+
+/* ── Cobertura: mapa SVG que avanza con el scroll (src/coverage-map.js) ── */
+.section-coverage .coverage-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; }
+.section-coverage .coverage-copy h2 { font-size: clamp(2.4rem, 4.2vw, 4.4rem); line-height: 1; }
+.coverage-chapters { display: grid; gap: 0.25rem; margin: 2rem 0 0; padding: 0; list-style: none; counter-reset: chapter; }
+.coverage-chapters li {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.9rem 0 0.9rem 1.25rem;
+  border-left: 2px solid var(--mist);
+  color: var(--ink-soft);
+  transition: border-color 0.4s var(--ease), color 0.4s var(--ease);
+}
+.coverage-chapters strong { color: var(--navy); font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; }
+.coverage-chapters span { font-size: 0.92rem; line-height: 1.55; }
+.coverage-chapters li.is-active { border-color: var(--blue); color: var(--ink); }
+.coverage-chapters li.is-active strong { color: var(--blue); }
+
+.section-coverage .coverage-visual { display: grid; gap: 0.75rem; margin: 0; }
+.section-coverage .coverage-map {
+  width: min(100%, 520px);
+  height: auto;
+  min-height: 0;
+  margin-inline: auto;
+  aspect-ratio: 560 / 752;
+  overflow: visible;
+}
+.section-coverage .coverage-map::before,
+.section-coverage .coverage-map::after { display: none; }
+.coverage-map svg { display: block; width: 100%; height: 100%; overflow: visible; }
+
+.cov-dept { fill: var(--white); stroke: #c9d5e3; stroke-width: 0.8; transition: fill 0.6s var(--ease); }
+.cov-caldas { fill: #cfe3fb; stroke: var(--blue); stroke-width: 1.2; }
+.coverage-visual:not([data-stage="caldas"]) .cov-dept:not(.cov-caldas) { fill: #eef4fb; }
+.cov-route { fill: none; stroke: var(--blue); stroke-width: 1.4; stroke-dasharray: 0.012 0.01; stroke-dashoffset: 0; opacity: 0; transition: opacity 0.6s var(--ease); }
+.cov-city { fill: var(--blue); opacity: 0; transition: opacity 0.5s var(--ease) 0.3s; }
+.cov-arc { fill: none; stroke: var(--cyan); stroke-width: 1.6; stroke-dasharray: 0.015 0.012; opacity: 0; transition: opacity 0.6s var(--ease); }
+.cov-origin { fill: var(--navy); stroke: var(--white); stroke-width: 2; }
+.cov-pulse { fill: var(--blue); opacity: 0.35; transform-box: fill-box; transform-origin: center; animation: cov-pulse 2.4s var(--ease) infinite; }
+@keyframes cov-pulse { from { transform: scale(1); opacity: 0.4; } to { transform: scale(4); opacity: 0; } }
+
+.coverage-visual[data-stage="colombia"] .cov-route,
+.coverage-visual[data-stage="colombia"] .cov-city,
+.coverage-visual[data-stage="abroad"] .cov-route,
+.coverage-visual[data-stage="abroad"] .cov-city,
+.coverage-visual[data-stage="all"] .cov-route,
+.coverage-visual[data-stage="all"] .cov-city { opacity: 1; }
+.coverage-visual[data-stage="abroad"] .cov-arc,
+.coverage-visual[data-stage="all"] .cov-arc { opacity: 1; }
+.coverage-visual[data-stage="abroad"] .cov-route,
+.coverage-visual[data-stage="abroad"] .cov-city { opacity: 0.45; }
+
+.section-coverage .coverage-legend {
+  position: static;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.25rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  backdrop-filter: none;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  text-shadow: none;
+  text-transform: none;
+}
+.coverage-origin-label { display: inline-flex; align-items: center; gap: 0.4rem; }
+.coverage-origin-label i { width: 8px; height: 8px; border-radius: 50%; background: var(--navy); }
+.coverage-origin-label b { color: var(--navy); }
+.coverage-abroad-label { color: var(--blue-dark); font-weight: 700; opacity: 0; transition: opacity 0.6s var(--ease); }
+.coverage-visual[data-stage="abroad"] .coverage-abroad-label,
+.coverage-visual[data-stage="all"] .coverage-abroad-label { opacity: 1; }
+
+@media (max-width: 900px) {
+  .section-coverage .coverage-layout { grid-template-columns: 1fr; }
+  .section-coverage .coverage-map { width: min(100%, 420px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cov-pulse { animation: none; opacity: 0; }
+}
+.coverage-origin-label small { font-size: inherit; }

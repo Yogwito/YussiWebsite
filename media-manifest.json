@@ -1,7 +1,7 @@
 {
   "generated": "2026-10-18",
   "note": "Medios publicados que usa la página. alt_es/alt_en vacíos = decorativo o sin texto alternativo. Ver public/media/README.md.",
-  "count": 117,
+  "count": 115,
   "files": [
     {
       "path": "/media/brand/apple-touch-icon.png",
@@ -407,33 +407,6 @@
       "dimensions": "svg viewBox 0 0 590 757",
       "alt_es": "Universidad Nacional",
       "alt_en": "Universidad Nacional"
-    },
-    {
-      "path": "/media/cobertura/cobertura-mapa-estatico.webp",
-      "file": "public/media/cobertura/cobertura-mapa-estatico.webp",
-      "section": "cobertura",
-      "bytes": 17712,
-      "dimensions": "1000x1000",
-      "alt_es": "Mapa estilizado de cobertura desde Manizales hacia Caldas, Colombia y otras regiones",
-      "alt_en": null
-    },
-    {
-      "path": "/media/cobertura/colombia-departamentos.min.geojson",
-      "file": "public/media/cobertura/colombia-departamentos.min.geojson",
-      "section": "cobertura",
-      "bytes": 129128,
-      "dimensions": null,
-      "alt_es": null,
-      "alt_en": null
-    },
-    {
-      "path": "/media/cobertura/paises.min.geojson",
-      "file": "public/media/cobertura/paises.min.geojson",
-      "section": "cobertura",
-      "bytes": 93073,
-      "dimensions": null,
-      "alt_es": null,
-      "alt_en": null
     },
     {
       "path": "/media/hero/hero-produccion-movil.mp4",
@@ -1057,6 +1030,15 @@
       "section": "marca",
       "bytes": 15086,
       "dimensions": "48x48",
+      "alt_es": null,
+      "alt_en": null
+    },
+    {
+      "path": "/media/cobertura/cobertura-colombia.svg",
+      "file": "public/media/cobertura/cobertura-colombia.svg",
+      "section": "cobertura",
+      "bytes": 33886,
+      "dimensions": "svg viewBox 0 0 560 752",
       "alt_es": null,
       "alt_en": null
     }

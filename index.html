@@ -395,47 +395,28 @@
     </section>
 
     <section id="coverage" class="section section-coverage" aria-labelledby="coverage-title">
-      <div class="container coverage-layout">
+      <div class="container coverage-layout" data-coverage>
         <div class="coverage-copy">
-          <p class="eyebrow" data-es="Cobertura desde Manizales" data-en="Coverage from Manizales">Cobertura desde Manizales</p>
-          <h2 id="coverage-title" data-es="Desde Caldas, llegamos más lejos." data-en="From Caldas, we reach farther.">Desde Caldas, llegamos más lejos.</h2>
-          <p class="coverage-intro" data-es="Producimos en Manizales y coordinamos entregas regionales, nacionales e internacionales según las necesidades de cada pedido." data-en="We produce in Manizales and coordinate regional, national and international deliveries according to each order.">Producimos en Manizales y coordinamos entregas regionales, nacionales e internacionales según las necesidades de cada pedido.</p>
+          <p class="eyebrow" data-es="Desde Manizales" data-en="From Manizales">Desde Manizales</p>
+          <h2 id="coverage-title" data-es="Hecho en Caldas, presente en toda Colombia." data-en="Made in Caldas, present across Colombia.">Hecho en Caldas, presente en toda Colombia.</h2>
+          <p class="coverage-intro" data-es="Trabajamos principalmente para empresas de Caldas y del resto del país, y hemos trabajado con empresas e instituciones de toda la región. Marcas de otros países, incluidas firmas de moda, también nos eligen para desarrollar sus productos." data-en="We work mainly for companies in Caldas and across the rest of the country, and we have worked with companies and institutions throughout the region. Brands from other countries, including fashion labels, also choose us to develop their products.">Trabajamos principalmente para empresas de Caldas y del resto del país, y hemos trabajado con empresas e instituciones de toda la región. Marcas de otros países, incluidas firmas de moda, también nos eligen para desarrollar sus productos.</p>
 
-          <div class="coverage-tabs" role="tablist" aria-label="Escala de cobertura" data-aria-es="Escala de cobertura" data-aria-en="Coverage scale">
-            <button id="coverage-tab-caldas" class="coverage-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="coverage-panel" tabindex="0" data-coverage-mode="caldas" data-es="Caldas" data-en="Caldas">Caldas</button>
-            <button id="coverage-tab-colombia" class="coverage-tab" type="button" role="tab" aria-selected="false" aria-controls="coverage-panel" tabindex="-1" data-coverage-mode="colombia" data-es="Colombia" data-en="Colombia">Colombia</button>
-            <button id="coverage-tab-world" class="coverage-tab" type="button" role="tab" aria-selected="false" aria-controls="coverage-panel" tabindex="-1" data-coverage-mode="world" data-es="Internacional" data-en="International">Internacional</button>
-          </div>
+          <ol class="coverage-chapters">
+            <li data-stage="caldas"><strong data-es="Caldas" data-en="Caldas">Caldas</strong><span data-es="Nuestra base: atendemos de cerca a empresas, instituciones y colegios de la región." data-en="Our home base: we work closely with companies, institutions and schools in the region.">Nuestra base: atendemos de cerca a empresas, instituciones y colegios de la región.</span></li>
+            <li data-stage="colombia"><strong data-es="Colombia" data-en="Colombia">Colombia</strong><span data-es="Despachamos a cualquier ciudad del país." data-en="We ship to any city in the country.">Despachamos a cualquier ciudad del país.</span></li>
+            <li data-stage="abroad"><strong data-es="Proyectos internacionales" data-en="International projects">Proyectos internacionales</strong><span data-es="Marcas del exterior, incluidas firmas de moda, desarrollan sus productos con nosotros." data-en="Brands abroad, including fashion labels, develop their products with us.">Marcas del exterior, incluidas firmas de moda, desarrollan sus productos con nosotros.</span></li>
+          </ol>
 
-          <div id="coverage-panel" class="coverage-panel" role="tabpanel" aria-labelledby="coverage-tab-caldas">
-            <p class="coverage-kicker" id="coverage-kicker">Cobertura regional</p>
-            <p class="coverage-status" id="coverage-status" aria-live="polite">Atendemos pedidos en Caldas desde nuestra planta en Manizales.</p>
-            <ul class="coverage-points" id="coverage-points">
-              <li>Origen de producción en Manizales</li>
-              <li>Coordinación directa de cada despacho</li>
-            </ul>
-          </div>
-
-          <a class="text-link coverage-link" href="#contact"><span data-es="Consultar cobertura para mi pedido" data-en="Check coverage for my order">Consultar cobertura para mi pedido</span> <span class="icon-stitch icon-stitch--right" aria-hidden="true"></span></a>
+          <a class="text-link coverage-link" href="#contact"><span data-es="Cuéntanos de tu proyecto" data-en="Tell us about your project">Cuéntanos de tu proyecto</span> <span class="icon-stitch icon-stitch--right" aria-hidden="true"></span></a>
         </div>
 
-        <div class="coverage-visual">
-          <div id="coverage-map" class="coverage-map" data-state="idle">
-            <canvas id="coverage-canvas" aria-hidden="true"></canvas>
-            <img id="coverage-fallback" class="coverage-fallback" src="/media/cobertura/cobertura-mapa-estatico.webp" alt="Mapa estilizado de cobertura desde Manizales hacia Caldas, Colombia y otras regiones" width="1000" height="1000" loading="lazy">
-            <div class="coverage-origin" aria-hidden="true">
-              <span></span>
-              <strong>Manizales</strong>
-              <small data-es="Planta Yussi · Caldas" data-en="Yussi facility · Caldas">Planta Yussi · Caldas</small>
-            </div>
-            <div class="coverage-legend" aria-hidden="true">
-              <span><i></i><b data-es="Origen" data-en="Origin">Origen</b></span>
-              <span><i></i><b data-es="Cobertura" data-en="Coverage">Cobertura</b></span>
-            </div>
-            <p class="coverage-loading" data-es="Preparando mapa interactivo" data-en="Preparing interactive map">Preparando mapa interactivo</p>
-          </div>
-          <p class="coverage-hint" data-es="Arrastra para explorar · usa los controles para cambiar de escala" data-en="Drag to explore · use the controls to change scale">Arrastra para explorar · usa los controles para cambiar de escala</p>
-        </div>
+        <figure class="coverage-visual" data-stage="caldas">
+          <div class="coverage-map" data-coverage-map data-src="/media/cobertura/cobertura-colombia.svg"></div>
+          <figcaption class="coverage-legend">
+            <span class="coverage-origin-label"><i aria-hidden="true"></i><b>Manizales</b> <small data-es="Planta Yussi · Caldas" data-en="Yussi facility · Caldas">Planta Yussi · Caldas</small></span>
+            <span class="coverage-abroad-label" data-es="Desarrollo de producto para marcas del exterior" data-en="Product development for brands abroad">Desarrollo de producto para marcas del exterior</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
 

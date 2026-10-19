@@ -18,7 +18,7 @@ public/
     nosotros/            foto de la planta
     clientes/            cliente-{slug}.svg|webp
     proveedores/         proveedor-{marca}.webp
-    cobertura/           mapa estático y geojson del globo 3D
+    cobertura/           mapa SVG de Colombia (scripts/build-coverage-map.py)
 
 media-source/            originales en alta, FUERA de public/ (git y Vercel lo ignoran)
 media-archive/public/    archivos que ya no se usan, con su ruta original (versionado, no se publica)
