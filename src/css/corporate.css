@@ -194,26 +194,6 @@ a:hover > .icon-stitch--down { transform: translateY(3px); }
 }
 .form-error-whatsapp:hover { filter: brightness(0.95); }
 
-/* Control de pausa de las franjas de logos. */
-.marquee-toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  min-height: 44px;
-  margin: 1rem auto 0;
-  padding: 0 1rem;
-  border: 1px solid var(--corporate-line);
-  border-radius: 999px;
-  color: var(--ink-soft);
-  background: var(--white);
-  font: 600 0.78rem var(--font-body);
-  cursor: pointer;
-  transition: color 0.2s, border-color 0.2s;
-}
-.marquee-toggle:hover { color: var(--navy); border-color: #8ba5c2; }
-.marquee-toggle:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
-.marquee-toggle[hidden] { display: none; }
-
 /* Movimiento reducido: todos los logos visibles en una grilla estática. */
 .is-static { -webkit-mask-image: none; mask-image: none; }
 .is-static > [class$="-track"] { width: 100%; transform: none !important; }
