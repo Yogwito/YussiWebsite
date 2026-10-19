@@ -7,7 +7,8 @@ gsap.registerPlugin(ScrollTrigger)
 // sola con el scroll según los capítulos: Caldas → Colombia → mundo
 // (proyectos para marcas del exterior). En móvil o con ahorro de datos se
 // muestra la imagen estática y el globo se carga a pedido; con movimiento
-// reducido queda fijo en la vista de Colombia.
+// reducido también se muestra la imagen estática (el globo, si se abre, queda
+// fijo en la vista de Colombia).
 const MANIZALES = { lat: 5.0703, lng: -75.5138 }
 // Capítulo del HTML (data-stage) → vista del globo.
 const STAGE_MODE = { caldas: 'caldas', colombia: 'colombia', abroad: 'world' }
@@ -91,9 +92,10 @@ export function initCoverageMap() {
   applyMotion()
   reducedMotion.addEventListener('change', applyMotion)
 
-  // En móvil o con ahorro de datos, el globo (Three.js + GeoJSON) no se
-  // descarga solo: se muestra la imagen estática y se carga a pedido.
-  const lite = window.matchMedia('(max-width: 767px)').matches || navigator.connection?.saveData
+  // En móvil, con ahorro de datos o con movimiento reducido, el globo
+  // (Three.js + GeoJSON) no se descarga solo: se muestra la imagen estática
+  // y se carga a pedido con el botón.
+  const lite = window.matchMedia('(max-width: 767px)').matches || navigator.connection?.saveData || reducedMotion.matches
   if (lite) {
     map.dataset.state = 'static'
     const button = document.createElement('button')
