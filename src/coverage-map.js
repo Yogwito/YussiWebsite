@@ -182,8 +182,8 @@ async function createCoverageScene() {
   ])
 
   const [countries, departments] = await Promise.all([
-    fetch('/data/countries.min.geojson').then(assertResponse).then((response) => response.json()),
-    fetch('/data/colombia-departments.min.geojson').then(assertResponse).then((response) => response.json())
+    fetch('/media/cobertura/paises.min.geojson').then(assertResponse).then((response) => response.json()),
+    fetch('/media/cobertura/colombia-departamentos.min.geojson').then(assertResponse).then((response) => response.json())
   ])
 
   const worldFeatures = countries.features

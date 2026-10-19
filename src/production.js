@@ -8,8 +8,8 @@ export function initProduction() {
   const buttons = [...document.querySelectorAll('[data-film]')]
   if (!video) return
   const films = {
-    bordado: { src: '/media/bordado-en-proceso.mp4', poster: '/img/work/bordado-maquina.webp', es: 'Bordado en nuestra planta', en: 'Embroidery in our workshop' },
-    confeccion: { src: '/media/confeccion-en-proceso.mp4', poster: '/img/work/confeccion.webp', es: 'Confección en nuestra planta', en: 'Garment making in our workshop' }
+    bordado: { src: '/media/proceso/proceso-bordado.mp4', poster: '/media/proceso/proceso-bordado-poster.webp', es: 'Bordado en nuestra planta', en: 'Embroidery in our workshop' },
+    confeccion: { src: '/media/proceso/proceso-confeccion.mp4', poster: '/media/proceso/proceso-confeccion-poster.webp', es: 'Confección en nuestra planta', en: 'Garment making in our workshop' }
   }
 
   buttons.forEach((button) => {

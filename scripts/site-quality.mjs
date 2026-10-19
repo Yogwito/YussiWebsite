@@ -29,17 +29,22 @@ assert.match(index, /rel="canonical" href="https:\/\/bordadosyussi\.com\/"/)
 assert.match(read('public/sitemap.xml'), /https:\/\/bordadosyussi\.com\//)
 
 for (const media of [
-  'public/media/yussi-hero-production.mp4',
-  'public/media/yussi-hero-production-mobile.mp4',
-  'public/media/bordado-en-proceso.mp4',
-  'public/media/confeccion-en-proceso.mp4',
-  'public/data/countries.min.geojson',
-  'public/data/colombia-departments.min.geojson'
+  'public/media/hero/hero-produccion.mp4',
+  'public/media/hero/hero-produccion-movil.mp4',
+  'public/media/proceso/proceso-bordado.mp4',
+  'public/media/proceso/proceso-confeccion.mp4',
+  'public/media/cobertura/paises.min.geojson',
+  'public/media/cobertura/colombia-departamentos.min.geojson'
 ]) {
   assert.ok(fs.existsSync(path.join(root, media)), `Missing runtime asset: ${media}`)
 }
 
-assert.equal(fs.existsSync(path.join(root, 'public/img/FOTOS WEB')), false)
-assert.equal(fs.existsSync(path.join(root, 'public/img/originals')), false)
-assert.equal(fs.existsSync(path.join(root, 'public/marcasAsociadas/originals')), false)
+// Medios organizados: todo lo publicado vive en public/media/ (ver public/media/README.md).
+for (const legacy of ['public/img', 'public/marcasAsociadas', 'public/models', 'public/data', 'public/media-source', 'public/media-archive']) {
+  assert.equal(fs.existsSync(path.join(root, legacy)), false, `Legacy media folder must not exist: ${legacy}`)
+}
+const ignored = read('.gitignore')
+assert.match(ignored, /^media-source\/$/m, 'media-source/ must stay out of git')
+assert.match(read('.vercelignore'), /^media-source\/$/m)
+assert.match(read('.vercelignore'), /^media-archive\/$/m)
 console.log('Static website quality checks passed')

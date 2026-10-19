@@ -14,7 +14,7 @@ function initGalleries() {
     thumbs.forEach((thumb) => {
       thumb.addEventListener('click', () => {
         if (thumb.getAttribute('aria-pressed') === 'true') return
-        const base = `/img/products/${thumb.dataset.photo}`
+        const base = `/media/productos/${thumb.dataset.photo}`
         main.srcset = `${base}-800.webp 800w, ${base}-1200.webp 1200w`
         main.src = `${base}-1200.webp`
         main.alt = altFor(thumb)

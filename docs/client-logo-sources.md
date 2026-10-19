@@ -1,5 +1,7 @@
 # Client Logo Sources — Bordados Yussi
 
+> Nota (oct 2026): las rutas de medios de este documento se actualizaron a la estructura de `MEDIA-PLAN.md` (`public/media/`, `media-source/`, `media-archive/`).
+
 > Registro de investigación, verificación y trazabilidad de los logos de la sección
 > **"Clientes que han confiado en nosotros"** (`#clients`).
 > Fecha: 2026-08-07 · Fuente de la lista: Bordados Yussi.
@@ -88,8 +90,8 @@ Instituciones/marcas reconocibles pero sin fuente oficial limpia y verificable, 
 3. Comprobación de que los SVG son **paths puros** (sin `<text>` dependiente de fuentes → seguro en producción).
 4. SVG: se conservan tal cual (vectoriales, transparentes, color corporativo intacto).
 5. PNG: `magick -trim +repage` (bounding box ajustado) → `-resize x240` (retina para 62px) → `-strip` (sin metadata) → export **WebP** transparente (`cwebp -lossless` para arte plano; `-q 88 -alpha_q 100` para el escudo detallado de Policía).
-6. Originales conservados en `assets-source/client-logos/originals/` (fuera de runtime, git-ignored).
-7. Assets finales en `public/img/clients/`.
+6. Originales conservados en `media-source/clientes/originals/` (fuera de runtime, git-ignored).
+7. Assets finales en `public/media/clientes/`.
 
 **No se rediseñó ningún logo**: sin cambios de tipografía, proporciones, geometría ni colores corporativos. La apariencia uniforme (grayscale + opacidad, color en hover) se controla **solo por CSS**.
 
@@ -99,7 +101,7 @@ Instituciones/marcas reconocibles pero sin fuente oficial limpia y verificable, 
 
 ## Logos enviados por el cliente (2026-10-13)
 
-Fuente: capturas aportadas por Bordados Yussi (`/Users/yogo/Desktop/LogosYussi`), identidad confirmada por el cliente. Originales archivados en `assets-source/client-logos/originals/<slug>-source.png`; pipeline reproducible en `assets-source/client-logos/logo_pipeline.py`.
+Fuente: capturas aportadas por Bordados Yussi (`/Users/yogo/Desktop/LogosYussi`), identidad confirmada por el cliente. Originales archivados en `media-source/clientes/originals/<slug>-source.png`; pipeline reproducible en `media-source/clientes/logo_pipeline.py`.
 
 Verificados (24): Beauty Market, Cable Plaza, Cámara de Comercio de Manizales por Caldas, Comité Intergremial de Caldas, Disblanco, DragonJAR (seguridad informática), Federación Nacional de Cafeteros, Hotel Carretero, Constructora Hungría, Juicio, Kuma, La Burguer, La Vikina, Lumia Odontología, Universidad Autónoma de Manizales, Instituto para la Ciencia ("Fe · Honor · Ciencia", confirmado por el cliente), Hotel Termales del Ruiz, CEDER, Centro Comercial Fundadores, Natural Sun Time Spa, Oryza, Parque Caldas, Registraduría Nacional del Estado Civil, Unique Detailing Center.
 

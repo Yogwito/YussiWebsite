@@ -4,7 +4,20 @@
 
 This is a Vite static site for Bordados Yussi using vanilla JavaScript, CSS, and GSAP. The main entry point is `src/main.js`, which imports section CSS and initializes feature modules. Keep behavior in focused modules under `src/` such as `navbar.js`, `faq.js`, `form.js`, `animations.js`, and `whatsapp.js`.
 
-CSS is organized by page section in `src/css/`, with shared tokens and base styles in `src/css/main.css`. Static assets live in `public/`; media is mainly under `public/img/`. Root `index.html` contains page markup, while `vite.config.js` holds build configuration.
+Active CSS is imported in `src/main.js`: `site.css` (tokens in `:root` and base styles), `corporate.css`, `product-explorer.css`, `production.css` and `mobile.css`. Other files in `src/css/` are legacy and not loaded. Root `index.html` contains page markup, while `vite.config.js` holds build configuration.
+
+### Media
+
+All published media lives in `public/media/` and is served at `/media/...`:
+
+- `brand/`: logo, favicons, OG image. `public/favicon.ico` stays at the root.
+- `hero/`: hero video and poster.
+- `productos/{dotacion,antifluido,industrial,escolares,bordado}/`: galleries (`-400/-800/-1200.webp`) and selector covers (`-560`).
+- `proceso/`, `nosotros/`, `clientes/` (`cliente-*`), `proveedores/` (`proveedor-*`), `cobertura/` (static map and geojson).
+
+Naming: lowercase kebab-case, no spaces or accents, section prefix first, pixel width last. Gallery `data-photo` values include the line folder (`dotacion/dotacion-kit-flags`). See `public/media/README.md` for where each new file goes, and keep `media-manifest.json` updated.
+
+High-resolution originals and pipelines live in `media-source/` (git- and Vercel-ignored, local only). Unused files are moved with `git mv` to `media-archive/public/...` (tracked, not deployed); never delete them.
 
 ## Build, Test, and Development Commands
 
@@ -19,7 +32,7 @@ Run `npm run build` before a pull request to catch bundling or asset path proble
 
 Use ES modules, two-space indentation, single quotes, and no semicolons. Prefer small exported initializer functions named `initFeature`, then call them from `src/main.js` after `DOMContentLoaded`.
 
-Keep section styles in the matching CSS file, for example hero styles in `src/css/hero.css` and FAQ styles in `src/css/faq.css`. Put shared colors, spacing, typography, and radius values in `:root` variables in `src/css/main.css`.
+Add styles to the active stylesheets imported by `src/main.js` (layout and sections in `site.css`/`corporate.css`, product explorer in `product-explorer.css`, production in `production.css`, small-screen and touch fixes in `mobile.css`). Put shared colors, spacing, typography, and radius values in the `:root` variables of `src/css/site.css`.
 
 ## Testing Guidelines
 
@@ -35,4 +48,4 @@ Pull requests should include a clear summary, key visual or behavioral changes, 
 
 ## Security & Configuration Tips
 
-Do not commit secrets or local environment files. Optimize new images and videos before adding them to `public/img/`, and verify that asset paths work after `npm run build` and `npm run preview`.
+Do not commit secrets or local environment files. Optimize new images and videos before adding them to `public/media/`, and verify that asset paths work after `npm run build` and `npm run preview`.

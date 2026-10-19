@@ -1,0 +1,1064 @@
+{
+  "generated": "2026-10-18",
+  "note": "Medios publicados que usa la página. alt_es/alt_en vacíos = decorativo o sin texto alternativo. Ver public/media/README.md.",
+  "count": 117,
+  "files": [
+    {
+      "path": "/media/brand/apple-touch-icon.png",
+      "file": "public/media/brand/apple-touch-icon.png",
+      "section": "marca",
+      "bytes": 10616,
+      "dimensions": "180x180",
+      "alt_es": null,
+      "alt_en": null
+    },
+    {
+      "path": "/media/brand/favicon-16.png",
+      "file": "public/media/brand/favicon-16.png",
+      "section": "marca",
+      "bytes": 660,
+      "dimensions": "16x16",
+      "alt_es": null,
+      "alt_en": null
+    },
+    {
+      "path": "/media/brand/favicon-32.png",
+      "file": "public/media/brand/favicon-32.png",
+      "section": "marca",
+      "bytes": 1328,
+      "dimensions": "32x32",
+      "alt_es": null,
+      "alt_en": null
+    },
+    {
+      "path": "/media/brand/og-cover.jpg",
+      "file": "public/media/brand/og-cover.jpg",
+      "section": "marca",
+      "bytes": 176810,
+      "dimensions": "1200x630",
+      "alt_es": null,
+      "alt_en": null
+    },
+    {
+      "path": "/media/brand/yussi-logo.png",
+      "file": "public/media/brand/yussi-logo.png",
+      "section": "marca",
+      "bytes": 68540,
+      "dimensions": "900x176",
+      "alt_es": null,
+      "alt_en": null
+    },
+    {
+      "path": "/media/brand/yussi-logo.webp",
+      "file": "public/media/brand/yussi-logo.webp",
+      "section": "marca",
+      "bytes": 18614,
+      "dimensions": "480x94",
+      "alt_es": "Bordados Yussi",
+      "alt_en": null
+    },
+    {
+      "path": "/media/clientes/cliente-alcaldia-manizales.svg",
+      "file": "public/media/clientes/cliente-alcaldia-manizales.svg",
+      "section": "clientes",
+      "bytes": 90705,
+      "dimensions": "svg",
+      "alt_es": "Alcaldía",
+      "alt_en": "Alcaldía"
+    },
+    {
+      "path": "/media/clientes/cliente-arquidiocesis-manizales.svg",
+      "file": "public/media/clientes/cliente-arquidiocesis-manizales.svg",
+      "section": "clientes",
+      "bytes": 42813,
+      "dimensions": "svg viewBox 0 0 136.4 281.4",
+      "alt_es": "Arquidiócesis de Manizales",
+      "alt_en": "Arquidiócesis de Manizales"
+    },
+    {
+      "path": "/media/clientes/cliente-beauty-market.webp",
+      "file": "public/media/clientes/cliente-beauty-market.webp",
+      "section": "clientes",
+      "bytes": 50736,
+      "dimensions": "907x320",
+      "alt_es": "Beauty Market",
+      "alt_en": "Beauty Market"
+    },
+    {
+      "path": "/media/clientes/cliente-cable-plaza.webp",
+      "file": "public/media/clientes/cliente-cable-plaza.webp",
+      "section": "clientes",
+      "bytes": 39098,
+      "dimensions": "408x320",
+      "alt_es": "Cable Plaza",
+      "alt_en": "Cable Plaza"
+    },
+    {
+      "path": "/media/clientes/cliente-camara-comercio-manizales.webp",
+      "file": "public/media/clientes/cliente-camara-comercio-manizales.webp",
+      "section": "clientes",
+      "bytes": 45108,
+      "dimensions": "527x320",
+      "alt_es": "Cámara de Comercio",
+      "alt_en": "Cámara de Comercio"
+    },
+    {
+      "path": "/media/clientes/cliente-cc-fundadores.webp",
+      "file": "public/media/clientes/cliente-cc-fundadores.webp",
+      "section": "clientes",
+      "bytes": 79676,
+      "dimensions": "1002x320",
+      "alt_es": "Centro Comercial Fundadores",
+      "alt_en": "Centro Comercial Fundadores"
+    },
+    {
+      "path": "/media/clientes/cliente-ceder.webp",
+      "file": "public/media/clientes/cliente-ceder.webp",
+      "section": "clientes",
+      "bytes": 27422,
+      "dimensions": "420x320",
+      "alt_es": "CEDER",
+      "alt_en": "CEDER"
+    },
+    {
+      "path": "/media/clientes/cliente-comite-intergremial-caldas.webp",
+      "file": "public/media/clientes/cliente-comite-intergremial-caldas.webp",
+      "section": "clientes",
+      "bytes": 104592,
+      "dimensions": "882x320",
+      "alt_es": "Comité Intergremial de Caldas",
+      "alt_en": "Comité Intergremial de Caldas"
+    },
+    {
+      "path": "/media/clientes/cliente-constructora-hungria.webp",
+      "file": "public/media/clientes/cliente-constructora-hungria.webp",
+      "section": "clientes",
+      "bytes": 44046,
+      "dimensions": "761x320",
+      "alt_es": "Constructora Hungría",
+      "alt_en": "Constructora Hungría"
+    },
+    {
+      "path": "/media/clientes/cliente-cruz-roja.svg",
+      "file": "public/media/clientes/cliente-cruz-roja.svg",
+      "section": "clientes",
+      "bytes": 26292,
+      "dimensions": "svg viewBox 17 24 690 82",
+      "alt_es": "Cruz Roja",
+      "alt_en": "Cruz Roja"
+    },
+    {
+      "path": "/media/clientes/cliente-disblanco.webp",
+      "file": "public/media/clientes/cliente-disblanco.webp",
+      "section": "clientes",
+      "bytes": 16370,
+      "dimensions": "365x320",
+      "alt_es": "Disblanco",
+      "alt_en": "Disblanco"
+    },
+    {
+      "path": "/media/clientes/cliente-dragon-jar.webp",
+      "file": "public/media/clientes/cliente-dragon-jar.webp",
+      "section": "clientes",
+      "bytes": 45304,
+      "dimensions": "1100x230",
+      "alt_es": "Dragón Jar",
+      "alt_en": "Dragón Jar"
+    },
+    {
+      "path": "/media/clientes/cliente-federacion-cafeteros.webp",
+      "file": "public/media/clientes/cliente-federacion-cafeteros.webp",
+      "section": "clientes",
+      "bytes": 50786,
+      "dimensions": "361x320",
+      "alt_es": "Federación Nacional de Cafeteros",
+      "alt_en": "Federación Nacional de Cafeteros"
+    },
+    {
+      "path": "/media/clientes/cliente-fiscalia-general.svg",
+      "file": "public/media/clientes/cliente-fiscalia-general.svg",
+      "section": "clientes",
+      "bytes": 17338,
+      "dimensions": "svg viewBox 0 0 800.00004 236.85818",
+      "alt_es": "Fiscalía General de la Nación",
+      "alt_en": "Fiscalía General de la Nación"
+    },
+    {
+      "path": "/media/clientes/cliente-gobernacion-caldas.svg",
+      "file": "public/media/clientes/cliente-gobernacion-caldas.svg",
+      "section": "clientes",
+      "bytes": 18529,
+      "dimensions": "svg",
+      "alt_es": "Gobernación",
+      "alt_en": "Gobernación"
+    },
+    {
+      "path": "/media/clientes/cliente-hotel-carretero.webp",
+      "file": "public/media/clientes/cliente-hotel-carretero.webp",
+      "section": "clientes",
+      "bytes": 30834,
+      "dimensions": "472x320",
+      "alt_es": "Hotel Carretero",
+      "alt_en": "Hotel Carretero"
+    },
+    {
+      "path": "/media/clientes/cliente-instituto-para-la-ciencia.webp",
+      "file": "public/media/clientes/cliente-instituto-para-la-ciencia.webp",
+      "section": "clientes",
+      "bytes": 16396,
+      "dimensions": "269x320",
+      "alt_es": "Instituto para la Ciencia",
+      "alt_en": "Instituto para la Ciencia"
+    },
+    {
+      "path": "/media/clientes/cliente-juan-valdez.webp",
+      "file": "public/media/clientes/cliente-juan-valdez.webp",
+      "section": "clientes",
+      "bytes": 75780,
+      "dimensions": "448x174",
+      "alt_es": "Juan Valdez Café",
+      "alt_en": "Juan Valdez Café"
+    },
+    {
+      "path": "/media/clientes/cliente-juicio.webp",
+      "file": "public/media/clientes/cliente-juicio.webp",
+      "section": "clientes",
+      "bytes": 42458,
+      "dimensions": "537x320",
+      "alt_es": "Juicio",
+      "alt_en": "Juicio"
+    },
+    {
+      "path": "/media/clientes/cliente-kuma.webp",
+      "file": "public/media/clientes/cliente-kuma.webp",
+      "section": "clientes",
+      "bytes": 51702,
+      "dimensions": "1035x320",
+      "alt_es": "Kuma",
+      "alt_en": "Kuma"
+    },
+    {
+      "path": "/media/clientes/cliente-la-burguer.webp",
+      "file": "public/media/clientes/cliente-la-burguer.webp",
+      "section": "clientes",
+      "bytes": 6852,
+      "dimensions": "444x320",
+      "alt_es": "La Burguer",
+      "alt_en": "La Burguer"
+    },
+    {
+      "path": "/media/clientes/cliente-la-vikina.webp",
+      "file": "public/media/clientes/cliente-la-vikina.webp",
+      "section": "clientes",
+      "bytes": 17582,
+      "dimensions": "309x320",
+      "alt_es": "La Vikina",
+      "alt_en": "La Vikina"
+    },
+    {
+      "path": "/media/clientes/cliente-lumia-odontologia.webp",
+      "file": "public/media/clientes/cliente-lumia-odontologia.webp",
+      "section": "clientes",
+      "bytes": 72966,
+      "dimensions": "789x320",
+      "alt_es": "Lumia Odontología",
+      "alt_en": "Lumia Odontología"
+    },
+    {
+      "path": "/media/clientes/cliente-natural-sun-time-spa.webp",
+      "file": "public/media/clientes/cliente-natural-sun-time-spa.webp",
+      "section": "clientes",
+      "bytes": 36976,
+      "dimensions": "284x320",
+      "alt_es": "Natural Sun Time Spa",
+      "alt_en": "Natural Sun Time Spa"
+    },
+    {
+      "path": "/media/clientes/cliente-once-caldas.svg",
+      "file": "public/media/clientes/cliente-once-caldas.svg",
+      "section": "clientes",
+      "bytes": 38709,
+      "dimensions": "svg viewBox 0 0 268 394",
+      "alt_es": "Once Caldas",
+      "alt_en": "Once Caldas"
+    },
+    {
+      "path": "/media/clientes/cliente-oryza.webp",
+      "file": "public/media/clientes/cliente-oryza.webp",
+      "section": "clientes",
+      "bytes": 11262,
+      "dimensions": "723x320",
+      "alt_es": "Oryza",
+      "alt_en": "Oryza"
+    },
+    {
+      "path": "/media/clientes/cliente-parque-caldas.webp",
+      "file": "public/media/clientes/cliente-parque-caldas.webp",
+      "section": "clientes",
+      "bytes": 25838,
+      "dimensions": "326x320",
+      "alt_es": "Parque Caldas",
+      "alt_en": "Parque Caldas"
+    },
+    {
+      "path": "/media/clientes/cliente-policia-nacional.webp",
+      "file": "public/media/clientes/cliente-policia-nacional.webp",
+      "section": "clientes",
+      "bytes": 21716,
+      "dimensions": "240x240",
+      "alt_es": "Policía",
+      "alt_en": "Policía"
+    },
+    {
+      "path": "/media/clientes/cliente-registraduria-nacional.webp",
+      "file": "public/media/clientes/cliente-registraduria-nacional.webp",
+      "section": "clientes",
+      "bytes": 71534,
+      "dimensions": "523x320",
+      "alt_es": "Registraduría",
+      "alt_en": "Registraduría"
+    },
+    {
+      "path": "/media/clientes/cliente-sena.svg",
+      "file": "public/media/clientes/cliente-sena.svg",
+      "section": "clientes",
+      "bytes": 3160,
+      "dimensions": "svg",
+      "alt_es": "SENA",
+      "alt_en": "SENA"
+    },
+    {
+      "path": "/media/clientes/cliente-termales-del-ruiz.webp",
+      "file": "public/media/clientes/cliente-termales-del-ruiz.webp",
+      "section": "clientes",
+      "bytes": 11750,
+      "dimensions": "411x320",
+      "alt_es": "Hotel Termales del Ruiz",
+      "alt_en": "Hotel Termales del Ruiz"
+    },
+    {
+      "path": "/media/clientes/cliente-terpel.webp",
+      "file": "public/media/clientes/cliente-terpel.webp",
+      "section": "clientes",
+      "bytes": 69906,
+      "dimensions": "837x240",
+      "alt_es": "Terpel",
+      "alt_en": "Terpel"
+    },
+    {
+      "path": "/media/clientes/cliente-unique-detailing-center.webp",
+      "file": "public/media/clientes/cliente-unique-detailing-center.webp",
+      "section": "clientes",
+      "bytes": 24554,
+      "dimensions": "363x320",
+      "alt_es": "Unique Detailing Center",
+      "alt_en": "Unique Detailing Center"
+    },
+    {
+      "path": "/media/clientes/cliente-universidad-autonoma-manizales.webp",
+      "file": "public/media/clientes/cliente-universidad-autonoma-manizales.webp",
+      "section": "clientes",
+      "bytes": 33156,
+      "dimensions": "258x320",
+      "alt_es": "Universidad Autónoma de Manizales",
+      "alt_en": "Universidad Autónoma de Manizales"
+    },
+    {
+      "path": "/media/clientes/cliente-universidad-catolica-manizales.webp",
+      "file": "public/media/clientes/cliente-universidad-catolica-manizales.webp",
+      "section": "clientes",
+      "bytes": 32512,
+      "dimensions": "570x240",
+      "alt_es": "Universidad Católica",
+      "alt_en": "Universidad Católica"
+    },
+    {
+      "path": "/media/clientes/cliente-universidad-de-caldas.svg",
+      "file": "public/media/clientes/cliente-universidad-de-caldas.svg",
+      "section": "clientes",
+      "bytes": 58028,
+      "dimensions": "svg viewBox 0 0 107.7600021 107.8799973",
+      "alt_es": "Universidad de Caldas",
+      "alt_en": "Universidad de Caldas"
+    },
+    {
+      "path": "/media/clientes/cliente-universidad-de-manizales.webp",
+      "file": "public/media/clientes/cliente-universidad-de-manizales.webp",
+      "section": "clientes",
+      "bytes": 10070,
+      "dimensions": "351x240",
+      "alt_es": "Universidad de Manizales",
+      "alt_en": "Universidad de Manizales"
+    },
+    {
+      "path": "/media/clientes/cliente-universidad-del-quindio.webp",
+      "file": "public/media/clientes/cliente-universidad-del-quindio.webp",
+      "section": "clientes",
+      "bytes": 10688,
+      "dimensions": "193x240",
+      "alt_es": "Universidad del Quindío",
+      "alt_en": "Universidad del Quindío"
+    },
+    {
+      "path": "/media/clientes/cliente-universidad-nacional.svg",
+      "file": "public/media/clientes/cliente-universidad-nacional.svg",
+      "section": "clientes",
+      "bytes": 65203,
+      "dimensions": "svg viewBox 0 0 590 757",
+      "alt_es": "Universidad Nacional",
+      "alt_en": "Universidad Nacional"
+    },
+    {
+      "path": "/media/cobertura/cobertura-mapa-estatico.webp",
+      "file": "public/media/cobertura/cobertura-mapa-estatico.webp",
+      "section": "cobertura",
+      "bytes": 17712,
+      "dimensions": "1000x1000",
+      "alt_es": "Mapa estilizado de cobertura desde Manizales hacia Caldas, Colombia y otras regiones",
+      "alt_en": null
+    },
+    {
+      "path": "/media/cobertura/colombia-departamentos.min.geojson",
+      "file": "public/media/cobertura/colombia-departamentos.min.geojson",
+      "section": "cobertura",
+      "bytes": 129128,
+      "dimensions": null,
+      "alt_es": null,
+      "alt_en": null
+    },
+    {
+      "path": "/media/cobertura/paises.min.geojson",
+      "file": "public/media/cobertura/paises.min.geojson",
+      "section": "cobertura",
+      "bytes": 93073,
+      "dimensions": null,
+      "alt_es": null,
+      "alt_en": null
+    },
+    {
+      "path": "/media/hero/hero-produccion-movil.mp4",
+      "file": "public/media/hero/hero-produccion-movil.mp4",
+      "section": "hero",
+      "bytes": 1314847,
+      "dimensions": "540x960",
+      "alt_es": null,
+      "alt_en": null,
+      "duration_s": 16.42
+    },
+    {
+      "path": "/media/hero/hero-produccion-poster.webp",
+      "file": "public/media/hero/hero-produccion-poster.webp",
+      "section": "hero",
+      "bytes": 46350,
+      "dimensions": "1280x720",
+      "alt_es": null,
+      "alt_en": null
+    },
+    {
+      "path": "/media/hero/hero-produccion.mp4",
+      "file": "public/media/hero/hero-produccion.mp4",
+      "section": "hero",
+      "bytes": 3640166,
+      "dimensions": "1600x900",
+      "alt_es": null,
+      "alt_en": null,
+      "duration_s": 16.42
+    },
+    {
+      "path": "/media/nosotros/nosotros-planta-tajima-1400.webp",
+      "file": "public/media/nosotros/nosotros-planta-tajima-1400.webp",
+      "section": "nosotros",
+      "bytes": 101068,
+      "dimensions": "1400x1866",
+      "alt_es": "Planta de producción de Bordados Yussi en Manizales",
+      "alt_en": null
+    },
+    {
+      "path": "/media/nosotros/nosotros-planta-tajima-800.webp",
+      "file": "public/media/nosotros/nosotros-planta-tajima-800.webp",
+      "section": "nosotros",
+      "bytes": 52122,
+      "dimensions": "800x1067",
+      "alt_es": "Planta de producción de Bordados Yussi en Manizales",
+      "alt_en": null
+    },
+    {
+      "path": "/media/proceso/proceso-bordado-poster.webp",
+      "file": "public/media/proceso/proceso-bordado-poster.webp",
+      "section": "planta y proceso",
+      "bytes": 130710,
+      "dimensions": "1600x900",
+      "alt_es": "Bordado en nuestra planta",
+      "alt_en": "Embroidery in our workshop"
+    },
+    {
+      "path": "/media/proceso/proceso-bordado.mp4",
+      "file": "public/media/proceso/proceso-bordado.mp4",
+      "section": "planta y proceso",
+      "bytes": 1451290,
+      "dimensions": "1280x720",
+      "alt_es": "Bordado en nuestra planta",
+      "alt_en": "Embroidery in our workshop",
+      "duration_s": 11.33
+    },
+    {
+      "path": "/media/proceso/proceso-confeccion-poster.webp",
+      "file": "public/media/proceso/proceso-confeccion-poster.webp",
+      "section": "planta y proceso",
+      "bytes": 57148,
+      "dimensions": "1400x788",
+      "alt_es": "Confección en nuestra planta",
+      "alt_en": "Garment making in our workshop"
+    },
+    {
+      "path": "/media/proceso/proceso-confeccion.mp4",
+      "file": "public/media/proceso/proceso-confeccion.mp4",
+      "section": "planta y proceso",
+      "bytes": 1805079,
+      "dimensions": "1280x720",
+      "alt_es": "Confección en nuestra planta",
+      "alt_en": "Garment making in our workshop",
+      "duration_s": 11.7
+    },
+    {
+      "path": "/media/proceso/proceso-digitalizacion-wilcom-320.webp",
+      "file": "public/media/proceso/proceso-digitalizacion-wilcom-320.webp",
+      "section": "planta y proceso",
+      "bytes": 5134,
+      "dimensions": "320x175",
+      "alt_es": "Diseño de bordado en Wilcom",
+      "alt_en": null
+    },
+    {
+      "path": "/media/proceso/proceso-hilos-320.webp",
+      "file": "public/media/proceso/proceso-hilos-320.webp",
+      "section": "planta y proceso",
+      "bytes": 6908,
+      "dimensions": "320x180",
+      "alt_es": "Selección de hilos de bordado",
+      "alt_en": null
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-bata-1200.webp",
+      "file": "public/media/productos/antifluido/antifluido-bata-1200.webp",
+      "section": "productos/antifluido",
+      "bytes": 60124,
+      "dimensions": "1200x1344",
+      "alt_es": "Bata blanca de laboratorio sobre uniforme antifluido",
+      "alt_en": "White lab coat over a fluid-repellent uniform"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-bata-400.webp",
+      "file": "public/media/productos/antifluido/antifluido-bata-400.webp",
+      "section": "productos/antifluido",
+      "bytes": 13652,
+      "dimensions": "400x448",
+      "alt_es": "Bata blanca de laboratorio sobre uniforme antifluido",
+      "alt_en": "White lab coat over a fluid-repellent uniform"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-bata-800.webp",
+      "file": "public/media/productos/antifluido/antifluido-bata-800.webp",
+      "section": "productos/antifluido",
+      "bytes": 34880,
+      "dimensions": "800x896",
+      "alt_es": "Bata blanca de laboratorio sobre uniforme antifluido",
+      "alt_en": "White lab coat over a fluid-repellent uniform"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-chef-blanca-1200.webp",
+      "file": "public/media/productos/antifluido/antifluido-chef-blanca-1200.webp",
+      "section": "productos/antifluido",
+      "bytes": 76262,
+      "dimensions": "1200x1344",
+      "alt_es": "Chaqueta de chef blanca con ribete rojo y gorro de cocina",
+      "alt_en": "White chef jacket with red piping and chef hat"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-chef-blanca-400.webp",
+      "file": "public/media/productos/antifluido/antifluido-chef-blanca-400.webp",
+      "section": "productos/antifluido",
+      "bytes": 14294,
+      "dimensions": "400x448",
+      "alt_es": "Chaqueta de chef blanca con ribete rojo y gorro de cocina",
+      "alt_en": "White chef jacket with red piping and chef hat"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-chef-blanca-800.webp",
+      "file": "public/media/productos/antifluido/antifluido-chef-blanca-800.webp",
+      "section": "productos/antifluido",
+      "bytes": 40266,
+      "dimensions": "800x896",
+      "alt_es": "Chaqueta de chef blanca con ribete rojo y gorro de cocina",
+      "alt_en": "White chef jacket with red piping and chef hat"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-medica-1200.webp",
+      "file": "public/media/productos/antifluido/antifluido-medica-1200.webp",
+      "section": "productos/antifluido",
+      "bytes": 64132,
+      "dimensions": "1200x1344",
+      "alt_es": "Profesional de la salud con uniforme antifluido morado",
+      "alt_en": "Healthcare professional in a purple fluid-repellent uniform"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-medica-400.webp",
+      "file": "public/media/productos/antifluido/antifluido-medica-400.webp",
+      "section": "productos/antifluido",
+      "bytes": 12734,
+      "dimensions": "400x448",
+      "alt_es": "Profesional de la salud con uniforme antifluido morado",
+      "alt_en": "Healthcare professional in a purple fluid-repellent uniform"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-medica-800.webp",
+      "file": "public/media/productos/antifluido/antifluido-medica-800.webp",
+      "section": "productos/antifluido",
+      "bytes": 34810,
+      "dimensions": "800x896",
+      "alt_es": "Profesional de la salud con uniforme antifluido morado",
+      "alt_en": "Healthcare professional in a purple fluid-repellent uniform"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-portada-duo-560.webp",
+      "file": "public/media/productos/antifluido/antifluido-portada-duo-560.webp",
+      "section": "productos/antifluido",
+      "bytes": 21824,
+      "dimensions": "560x420",
+      "alt_es": null,
+      "alt_en": null
+    },
+    {
+      "path": "/media/productos/bordado/bordado-detalle-cerdo-1200.webp",
+      "file": "public/media/productos/bordado/bordado-detalle-cerdo-1200.webp",
+      "section": "productos/bordado",
+      "bytes": 286862,
+      "dimensions": "1200x1344",
+      "alt_es": "Bordado de alta definición con muchos colores y detalle fino",
+      "alt_en": "High-definition embroidery with many colors and fine detail"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-detalle-cerdo-400.webp",
+      "file": "public/media/productos/bordado/bordado-detalle-cerdo-400.webp",
+      "section": "productos/bordado",
+      "bytes": 47982,
+      "dimensions": "400x448",
+      "alt_es": "Bordado de alta definición con muchos colores y detalle fino",
+      "alt_en": "High-definition embroidery with many colors and fine detail"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-detalle-cerdo-800.webp",
+      "file": "public/media/productos/bordado/bordado-detalle-cerdo-800.webp",
+      "section": "productos/bordado",
+      "bytes": 173406,
+      "dimensions": "800x896",
+      "alt_es": "Bordado de alta definición con muchos colores y detalle fino",
+      "alt_en": "High-definition embroidery with many colors and fine detail"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-gorras-palmo-1200.webp",
+      "file": "public/media/productos/bordado/bordado-gorras-palmo-1200.webp",
+      "section": "productos/bordado",
+      "bytes": 160652,
+      "dimensions": "1200x1344",
+      "alt_es": "Gorras bordadas de Palmo en producción",
+      "alt_en": "Palmo embroidered caps in production"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-gorras-palmo-400.webp",
+      "file": "public/media/productos/bordado/bordado-gorras-palmo-400.webp",
+      "section": "productos/bordado",
+      "bytes": 29282,
+      "dimensions": "400x448",
+      "alt_es": "Gorras bordadas de Palmo en producción",
+      "alt_en": "Palmo embroidered caps in production"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-gorras-palmo-800.webp",
+      "file": "public/media/productos/bordado/bordado-gorras-palmo-800.webp",
+      "section": "productos/bordado",
+      "bytes": 85816,
+      "dimensions": "800x896",
+      "alt_es": "Gorras bordadas de Palmo en producción",
+      "alt_en": "Palmo embroidered caps in production"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-la-carolina-1200.webp",
+      "file": "public/media/productos/bordado/bordado-la-carolina-1200.webp",
+      "section": "productos/bordado",
+      "bytes": 131584,
+      "dimensions": "1200x1344",
+      "alt_es": "Logo de La Carolina bordándose en el bastidor de una Tajima",
+      "alt_en": "La Carolina logo being embroidered in a Tajima hoop"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-la-carolina-400.webp",
+      "file": "public/media/productos/bordado/bordado-la-carolina-400.webp",
+      "section": "productos/bordado",
+      "bytes": 23334,
+      "dimensions": "400x448",
+      "alt_es": "Logo de La Carolina bordándose en el bastidor de una Tajima",
+      "alt_en": "La Carolina logo being embroidered in a Tajima hoop"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-la-carolina-800.webp",
+      "file": "public/media/productos/bordado/bordado-la-carolina-800.webp",
+      "section": "productos/bordado",
+      "bytes": 70246,
+      "dimensions": "800x896",
+      "alt_es": "Logo de La Carolina bordándose en el bastidor de una Tajima",
+      "alt_en": "La Carolina logo being embroidered in a Tajima hoop"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-portada-gorras-560.webp",
+      "file": "public/media/productos/bordado/bordado-portada-gorras-560.webp",
+      "section": "productos/bordado",
+      "bytes": 27292,
+      "dimensions": "560x420",
+      "alt_es": null,
+      "alt_en": null
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-kit-flags-1200.webp",
+      "file": "public/media/productos/dotacion/dotacion-kit-flags-1200.webp",
+      "section": "productos/dotacion",
+      "bytes": 125352,
+      "dimensions": "1200x1344",
+      "alt_es": "Chaleco, chaqueta y gorras con logo bordado para la dotación de Flags",
+      "alt_en": "Vest, jacket and caps with embroidered logo for Flags uniforms"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-kit-flags-400.webp",
+      "file": "public/media/productos/dotacion/dotacion-kit-flags-400.webp",
+      "section": "productos/dotacion",
+      "bytes": 25996,
+      "dimensions": "400x448",
+      "alt_es": "Chaleco, chaqueta y gorras con logo bordado para la dotación de Flags",
+      "alt_en": "Vest, jacket and caps with embroidered logo for Flags uniforms"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-kit-flags-800.webp",
+      "file": "public/media/productos/dotacion/dotacion-kit-flags-800.webp",
+      "section": "productos/dotacion",
+      "bytes": 69392,
+      "dimensions": "800x896",
+      "alt_es": "Chaleco, chaqueta y gorras con logo bordado para la dotación de Flags",
+      "alt_en": "Vest, jacket and caps with embroidered logo for Flags uniforms"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-polo-maquina-1200.webp",
+      "file": "public/media/productos/dotacion/dotacion-polo-maquina-1200.webp",
+      "section": "productos/dotacion",
+      "bytes": 112962,
+      "dimensions": "1200x1344",
+      "alt_es": "Polo azul marino con logo bordado junto a las bordadoras",
+      "alt_en": "Navy polo with embroidered logo next to the embroidery machines"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-polo-maquina-400.webp",
+      "file": "public/media/productos/dotacion/dotacion-polo-maquina-400.webp",
+      "section": "productos/dotacion",
+      "bytes": 12324,
+      "dimensions": "400x448",
+      "alt_es": "Polo azul marino con logo bordado junto a las bordadoras",
+      "alt_en": "Navy polo with embroidered logo next to the embroidery machines"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-polo-maquina-800.webp",
+      "file": "public/media/productos/dotacion/dotacion-polo-maquina-800.webp",
+      "section": "productos/dotacion",
+      "bytes": 34422,
+      "dimensions": "800x896",
+      "alt_es": "Polo azul marino con logo bordado junto a las bordadoras",
+      "alt_en": "Navy polo with embroidered logo next to the embroidery machines"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-polos-luseny-1200.webp",
+      "file": "public/media/productos/dotacion/dotacion-polos-luseny-1200.webp",
+      "section": "productos/dotacion",
+      "bytes": 137934,
+      "dimensions": "1200x1344",
+      "alt_es": "Polos negros con ribete dorado y escudo bordado",
+      "alt_en": "Black polos with gold trim and embroidered crest"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-polos-luseny-400.webp",
+      "file": "public/media/productos/dotacion/dotacion-polos-luseny-400.webp",
+      "section": "productos/dotacion",
+      "bytes": 21546,
+      "dimensions": "400x448",
+      "alt_es": "Polos negros con ribete dorado y escudo bordado",
+      "alt_en": "Black polos with gold trim and embroidered crest"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-polos-luseny-800.webp",
+      "file": "public/media/productos/dotacion/dotacion-polos-luseny-800.webp",
+      "section": "productos/dotacion",
+      "bytes": 64292,
+      "dimensions": "800x896",
+      "alt_es": "Polos negros con ribete dorado y escudo bordado",
+      "alt_en": "Black polos with gold trim and embroidered crest"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-portada-equipo-polos-560.webp",
+      "file": "public/media/productos/dotacion/dotacion-portada-equipo-polos-560.webp",
+      "section": "productos/dotacion",
+      "bytes": 16380,
+      "dimensions": "560x420",
+      "alt_es": null,
+      "alt_en": null
+    },
+    {
+      "path": "/media/productos/escolares/escolar-lans-buzo-1200.webp",
+      "file": "public/media/productos/escolares/escolar-lans-buzo-1200.webp",
+      "section": "productos/escolares",
+      "bytes": 91530,
+      "dimensions": "1200x1344",
+      "alt_es": "Buzo con capucha del colegio Lans",
+      "alt_en": "Lans school hoodie"
+    },
+    {
+      "path": "/media/productos/escolares/escolar-lans-buzo-400.webp",
+      "file": "public/media/productos/escolares/escolar-lans-buzo-400.webp",
+      "section": "productos/escolares",
+      "bytes": 21410,
+      "dimensions": "400x448",
+      "alt_es": "Buzo con capucha del colegio Lans",
+      "alt_en": "Lans school hoodie"
+    },
+    {
+      "path": "/media/productos/escolares/escolar-lans-buzo-800.webp",
+      "file": "public/media/productos/escolares/escolar-lans-buzo-800.webp",
+      "section": "productos/escolares",
+      "bytes": 53950,
+      "dimensions": "800x896",
+      "alt_es": "Buzo con capucha del colegio Lans",
+      "alt_en": "Lans school hoodie"
+    },
+    {
+      "path": "/media/productos/escolares/escolar-lans-escudo-1200.webp",
+      "file": "public/media/productos/escolares/escolar-lans-escudo-1200.webp",
+      "section": "productos/escolares",
+      "bytes": 87362,
+      "dimensions": "1200x1344",
+      "alt_es": "Escudo del colegio Lans bordado en el polo",
+      "alt_en": "Lans school crest embroidered on the polo"
+    },
+    {
+      "path": "/media/productos/escolares/escolar-lans-escudo-400.webp",
+      "file": "public/media/productos/escolares/escolar-lans-escudo-400.webp",
+      "section": "productos/escolares",
+      "bytes": 11142,
+      "dimensions": "400x448",
+      "alt_es": "Escudo del colegio Lans bordado en el polo",
+      "alt_en": "Lans school crest embroidered on the polo"
+    },
+    {
+      "path": "/media/productos/escolares/escolar-lans-escudo-800.webp",
+      "file": "public/media/productos/escolares/escolar-lans-escudo-800.webp",
+      "section": "productos/escolares",
+      "bytes": 37922,
+      "dimensions": "800x896",
+      "alt_es": "Escudo del colegio Lans bordado en el polo",
+      "alt_en": "Lans school crest embroidered on the polo"
+    },
+    {
+      "path": "/media/productos/escolares/escolar-lans-polo-1200.webp",
+      "file": "public/media/productos/escolares/escolar-lans-polo-1200.webp",
+      "section": "productos/escolares",
+      "bytes": 76410,
+      "dimensions": "1200x1344",
+      "alt_es": "Estudiante con polo y sudadera del colegio Lans",
+      "alt_en": "Student wearing the Lans school polo and track pants"
+    },
+    {
+      "path": "/media/productos/escolares/escolar-lans-polo-400.webp",
+      "file": "public/media/productos/escolares/escolar-lans-polo-400.webp",
+      "section": "productos/escolares",
+      "bytes": 19138,
+      "dimensions": "400x448",
+      "alt_es": "Estudiante con polo y sudadera del colegio Lans",
+      "alt_en": "Student wearing the Lans school polo and track pants"
+    },
+    {
+      "path": "/media/productos/escolares/escolar-lans-polo-800.webp",
+      "file": "public/media/productos/escolares/escolar-lans-polo-800.webp",
+      "section": "productos/escolares",
+      "bytes": 44746,
+      "dimensions": "800x896",
+      "alt_es": "Estudiante con polo y sudadera del colegio Lans",
+      "alt_en": "Student wearing the Lans school polo and track pants"
+    },
+    {
+      "path": "/media/productos/escolares/escolar-portada-lans-escalera-560.webp",
+      "file": "public/media/productos/escolares/escolar-portada-lans-escalera-560.webp",
+      "section": "productos/escolares",
+      "bytes": 31432,
+      "dimensions": "560x420",
+      "alt_es": null,
+      "alt_en": null
+    },
+    {
+      "path": "/media/productos/industrial/industrial-contraloria-1200.webp",
+      "file": "public/media/productos/industrial/industrial-contraloria-1200.webp",
+      "section": "productos/industrial",
+      "bytes": 238068,
+      "dimensions": "1200x1344",
+      "alt_es": "Camisa institucional con escudo bordado de la Contraloría General de Caldas",
+      "alt_en": "Institutional shirt with the embroidered crest of the Contraloría General de Caldas"
+    },
+    {
+      "path": "/media/productos/industrial/industrial-contraloria-400.webp",
+      "file": "public/media/productos/industrial/industrial-contraloria-400.webp",
+      "section": "productos/industrial",
+      "bytes": 7070,
+      "dimensions": "400x448",
+      "alt_es": "Camisa institucional con escudo bordado de la Contraloría General de Caldas",
+      "alt_en": "Institutional shirt with the embroidered crest of the Contraloría General de Caldas"
+    },
+    {
+      "path": "/media/productos/industrial/industrial-contraloria-800.webp",
+      "file": "public/media/productos/industrial/industrial-contraloria-800.webp",
+      "section": "productos/industrial",
+      "bytes": 95094,
+      "dimensions": "800x896",
+      "alt_es": "Camisa institucional con escudo bordado de la Contraloría General de Caldas",
+      "alt_en": "Institutional shirt with the embroidered crest of the Contraloría General de Caldas"
+    },
+    {
+      "path": "/media/productos/industrial/industrial-portada-reflectivo-560.webp",
+      "file": "public/media/productos/industrial/industrial-portada-reflectivo-560.webp",
+      "section": "productos/industrial",
+      "bytes": 31796,
+      "dimensions": "560x420",
+      "alt_es": null,
+      "alt_en": null
+    },
+    {
+      "path": "/media/productos/industrial/industrial-reflectivo-1200.webp",
+      "file": "public/media/productos/industrial/industrial-reflectivo-1200.webp",
+      "section": "productos/industrial",
+      "bytes": 153366,
+      "dimensions": "1200x1344",
+      "alt_es": "Pantalón de trabajo con cinta reflectiva, bolsillo de carga y parche bordado",
+      "alt_en": "Work trousers with reflective tape, cargo pocket and embroidered patch"
+    },
+    {
+      "path": "/media/productos/industrial/industrial-reflectivo-400.webp",
+      "file": "public/media/productos/industrial/industrial-reflectivo-400.webp",
+      "section": "productos/industrial",
+      "bytes": 17620,
+      "dimensions": "400x448",
+      "alt_es": "Pantalón de trabajo con cinta reflectiva, bolsillo de carga y parche bordado",
+      "alt_en": "Work trousers with reflective tape, cargo pocket and embroidered patch"
+    },
+    {
+      "path": "/media/productos/industrial/industrial-reflectivo-800.webp",
+      "file": "public/media/productos/industrial/industrial-reflectivo-800.webp",
+      "section": "productos/industrial",
+      "bytes": 59050,
+      "dimensions": "800x896",
+      "alt_es": "Pantalón de trabajo con cinta reflectiva, bolsillo de carga y parche bordado",
+      "alt_en": "Work trousers with reflective tape, cargo pocket and embroidered patch"
+    },
+    {
+      "path": "/media/productos/industrial/industrial-servicontrol-1200.webp",
+      "file": "public/media/productos/industrial/industrial-servicontrol-1200.webp",
+      "section": "productos/industrial",
+      "bytes": 211182,
+      "dimensions": "1200x1344",
+      "alt_es": "Logo de Servicontrol bordado en camisa de trabajo",
+      "alt_en": "Servicontrol logo embroidered on a work shirt"
+    },
+    {
+      "path": "/media/productos/industrial/industrial-servicontrol-400.webp",
+      "file": "public/media/productos/industrial/industrial-servicontrol-400.webp",
+      "section": "productos/industrial",
+      "bytes": 39542,
+      "dimensions": "400x448",
+      "alt_es": "Logo de Servicontrol bordado en camisa de trabajo",
+      "alt_en": "Servicontrol logo embroidered on a work shirt"
+    },
+    {
+      "path": "/media/productos/industrial/industrial-servicontrol-800.webp",
+      "file": "public/media/productos/industrial/industrial-servicontrol-800.webp",
+      "section": "productos/industrial",
+      "bytes": 121434,
+      "dimensions": "800x896",
+      "alt_es": "Logo de Servicontrol bordado en camisa de trabajo",
+      "alt_en": "Servicontrol logo embroidered on a work shirt"
+    },
+    {
+      "path": "/media/proveedores/proveedor-coats.webp",
+      "file": "public/media/proveedores/proveedor-coats.webp",
+      "section": "proveedores",
+      "bytes": 28152,
+      "dimensions": "258x240",
+      "alt_es": "Coats",
+      "alt_en": null
+    },
+    {
+      "path": "/media/proveedores/proveedor-flexfit.webp",
+      "file": "public/media/proveedores/proveedor-flexfit.webp",
+      "section": "proveedores",
+      "bytes": 46878,
+      "dimensions": "864x240",
+      "alt_es": "Flexfit",
+      "alt_en": null
+    },
+    {
+      "path": "/media/proveedores/proveedor-groz-beckert.webp",
+      "file": "public/media/proveedores/proveedor-groz-beckert.webp",
+      "section": "proveedores",
+      "bytes": 53448,
+      "dimensions": "1135x100",
+      "alt_es": "Groz-Beckert",
+      "alt_en": null
+    },
+    {
+      "path": "/media/proveedores/proveedor-lafayette.webp",
+      "file": "public/media/proveedores/proveedor-lafayette.webp",
+      "section": "proveedores",
+      "bytes": 13722,
+      "dimensions": "357x240",
+      "alt_es": "Lafayette",
+      "alt_en": null
+    },
+    {
+      "path": "/media/proveedores/proveedor-madeira.webp",
+      "file": "public/media/proveedores/proveedor-madeira.webp",
+      "section": "proveedores",
+      "bytes": 75278,
+      "dimensions": "1781x240",
+      "alt_es": "Madeira",
+      "alt_en": null
+    },
+    {
+      "path": "/media/proveedores/proveedor-tajima.webp",
+      "file": "public/media/proveedores/proveedor-tajima.webp",
+      "section": "proveedores",
+      "bytes": 43076,
+      "dimensions": "457x320",
+      "alt_es": "Tajima",
+      "alt_en": null
+    },
+    {
+      "path": "/media/proveedores/proveedor-wilcom.webp",
+      "file": "public/media/proveedores/proveedor-wilcom.webp",
+      "section": "proveedores",
+      "bytes": 45676,
+      "dimensions": "822x240",
+      "alt_es": "Wilcom",
+      "alt_en": null
+    },
+    {
+      "path": "/favicon.ico",
+      "file": "public/favicon.ico",
+      "section": "marca",
+      "bytes": 15086,
+      "dimensions": "48x48",
+      "alt_es": null,
+      "alt_en": null
+    }
+  ]
+}

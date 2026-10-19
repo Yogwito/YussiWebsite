@@ -26,20 +26,12 @@ output/
 .env
 .env.*
 
-# Raw photo source dump — 430MB of unused originals, not referenced by the site.
-# Keep these out of git history. Use Git LFS or external storage if you need them tracked.
-public/img/FOTOS WEB/
-HighQualityimages/
-assets-feria/
+# Originales de medios en alta (fotos, video crudo, logos, piezas de feria y
+# pipelines). Pesan ~2 GB: viven solo en local y nunca se publican.
+media-source/
 
-# Full-resolution backups of in-use photos, kept locally in case higher-res
-# crops/reprints are needed later. The site only ever loads the optimized
-# webp/jpg pairs in public/img/.
-public/img/originals/
-assets-source/
+# Herramientas locales del agente
 .claude/
 
-# Full-res brand logo backups (site uses the trimmed versions)
-public/marcasAsociadas/originals/
 .vercel
 .env*

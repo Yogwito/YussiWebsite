@@ -1,5 +1,7 @@
 # Website Audit
 
+> Nota (oct 2026): las rutas de medios de este documento se actualizaron a la estructura de `MEDIA-PLAN.md` (`public/media/`, `media-source/`, `media-archive/`).
+
 > Auditoría técnica, funcional, visual, de accesibilidad y de producto de Bordados Yussi.  
 > Fecha de corte: 2026-08-07 · Zona horaria: America/Bogota  
 > Rama inspeccionada: `main` (`4a80e45`) · Estado inicial: con cambios locales y archivos sin seguimiento  
@@ -160,7 +162,7 @@ Yussi/
     ├── media/                 # Videos activos
     ├── data/                  # GeoJSON
     ├── models/                # GLB no referenciado
-    └── marcasAsociadas/       # Logos de tecnología/insumos
+    └── proveedores/       # Logos de tecnología/insumos
 ```
 
 ### Evaluación arquitectónica
@@ -565,10 +567,10 @@ Sin seguimiento:
 ```text
 .vercelignore
 public/data/
-public/img/coverage-map-fallback.webp
-public/img/work/
+public/media/cobertura/cobertura-mapa-estatico.webp
+public/media/ (proceso/, nosotros/, productos/) y media-archive/public/img/work/
 public/media/
-public/models/
+media-archive/public/models/
 src/coverage-map.js
 src/css/site.css
 ```
@@ -645,9 +647,9 @@ No se instalaron dependencias.
 - 16 hojas CSS antiguas bajo `src/css/` suman **1,845 líneas** y no son importadas por `main.js`; sólo `site.css` entra al build.
 - Los estilos antiguos aún contienen clases de placeholder (`.img-placeholder`, `.map-placeholder`, comentarios de client-logo placeholders), pero no aparecen en la interfaz actual.
 - `public/` contiene 265 archivos; se estimaron 230 no referenciados por la versión actual.
-- `public/img/FOTOS WEB/` y `public/img/originals/` están ignorados, pero viven bajo `public`, por lo que Vite los copia localmente.
-- `public/models/` contiene un GLB no referenciado por el código actual.
-- `public/img/gobierno.jpg` es un activo grande no referenciado (~8.9 MB).
+- `media-source/fotos/` y `media-source/fotos-editadas/` están ignorados, pero viven bajo `public`, por lo que Vite los copia localmente.
+- `media-archive/public/models/` contiene un GLB no referenciado por el código actual.
+- `media-archive/public/img/gobierno.jpg` es un activo grande no referenciado (~8.9 MB).
 - No se encontraron bloques comentados extensos, TODO/FIXME, mocks activos ni logs de depuración. El único log es un `console.warn` intencional al activar fallback del mapa.
 
 No se debe eliminar nada hasta comparar un build limpio, el despliegue real y las fuentes originales necesarias para marketing.
@@ -794,7 +796,7 @@ Navegador
 - `src/features/coverage/`: estado, copy y renderer separados.
 - `src/features/quote/`: validación, envío y estados.
 - `public/media/`: sólo activos web finales.
-- `assets-source/` fuera de `public` o almacenamiento externo/LFS para originales.
+- `media-source/` fuera de `public` o almacenamiento externo/LFS para originales.
 - `tests/`: smoke de rutas/anchors, formulario, menú, idioma, axe y reduced motion.
 - CI: install reproducible, build, smoke y chequeo de assets.
 
@@ -901,7 +903,7 @@ El inventario público histórico era aproximadamente 556 MB y el `dist` histór
 
 ### 8. Assets
 
-Los videos web se recomprimieron con H.264, `yuv420p` y `faststart`. Los originales se movieron a `assets-source/` fuera de `public/`; se conservaron localmente. Los GeoJSON y el fallback del mapa permanecen en rutas públicas necesarias.
+Los videos web se recomprimieron con H.264, `yuv420p` y `faststart`. Los originales se movieron a `media-source/` fuera de `public/`; se conservaron localmente. Los GeoJSON y el fallback del mapa permanecen en rutas públicas necesarias.
 
 ### 9. SEO/staging
 
@@ -925,7 +927,7 @@ El despliegue se realizó únicamente sobre el proyecto Vercel asociado a `yussi
 
 ### 14. Archivos movidos
 
-Los originales de `public/img/FOTOS WEB`, `public/img/originals`, `public/marcasAsociadas/originals` y `public/media/*.mp4` fueron movidos a `assets-source/` y permanecen ignorados por Git.
+Los originales de `media-source/fotos`, `media-source/fotos-editadas`, `media-source/proveedores` y `public/media/hero|proceso/*.mp4` fueron movidos a `media-source/` y permanecen ignorados por Git.
 
 ### 15. Commits
 
@@ -977,11 +979,11 @@ Wikimedia Commons (SVG/PNG oficiales de entidades de identidad nacional/regional
 
 ### 6. Pipeline de normalización
 
-Descarga del original (SVG preferido) → verificación visual de identidad → chequeo de SVG *paths puros* → SVG intactos / PNG `-trim → -resize x240 → -strip → WebP transparente`. Originales en `assets-source/client-logos/originals/` (git-ignored). **Sin rediseño**: tipografía, proporciones, geometría y color corporativo intactos; el look uniforme es solo CSS.
+Descarga del original (SVG preferido) → verificación visual de identidad → chequeo de SVG *paths puros* → SVG intactos / PNG `-trim → -resize x240 → -strip → WebP transparente`. Originales en `media-source/clientes/originals/` (git-ignored). **Sin rediseño**: tipografía, proporciones, geometría y color corporativo intactos; el look uniforme es solo CSS.
 
 ### 7. Assets finales
 
-`public/img/clients/`: `sena.svg`, `once-caldas.svg`, `fiscalia-general.svg`, `universidad-nacional.svg`, `universidad-de-caldas.svg` (SVG) · `policia-nacional.webp`, `universidad-de-manizales.webp`, `universidad-catolica-manizales.webp`, `universidad-del-quindio.webp` (WebP transparente).
+`public/media/clientes/`: `sena.svg`, `once-caldas.svg`, `fiscalia-general.svg`, `universidad-nacional.svg`, `universidad-de-caldas.svg` (SVG) · `policia-nacional.webp`, `universidad-de-manizales.webp`, `universidad-catolica-manizales.webp`, `universidad-del-quindio.webp` (WebP transparente).
 
 ### 8. Peso total
 
@@ -1012,7 +1014,7 @@ SVG preferido; PNG→WebP comprimido; `loading="lazy"` y `decoding="async"` en t
 
 ### 14. Archivos modificados
 
-`index.html`, `src/main.js`, `src/css/site.css`, `.claude/launch.json`. **Nuevos:** `src/content/clients.js`, `src/clients.js`, `public/img/clients/*` (9 assets), `docs/client-logo-sources.md`. Originales en `assets-source/client-logos/originals/` (git-ignored).
+`index.html`, `src/main.js`, `src/css/site.css`, `.claude/launch.json`. **Nuevos:** `src/content/clients.js`, `src/clients.js`, `public/media/clientes/*` (9 assets), `docs/client-logo-sources.md`. Originales en `media-source/clientes/originals/` (git-ignored).
 
 ### 15. Commit
 
