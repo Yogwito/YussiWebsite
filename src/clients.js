@@ -22,7 +22,7 @@ const interleaveByCategory = (items) => {
 // proporción, así un wordmark ancho y un escudo pesan lo mismo (sin jerarquía).
 // El área depende del ancho de pantalla y se recalcula al cruzar el breakpoint.
 const mobileQuery = window.matchMedia('(max-width: 600px)')
-const areaFor = () => (mobileQuery.matches ? 2000 : 3200)
+const areaFor = () => (mobileQuery.matches ? 1500 : 2300)
 
 const sizeOptically = (img, area) => {
   const apply = () => {
