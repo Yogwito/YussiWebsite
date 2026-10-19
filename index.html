@@ -22,12 +22,16 @@
     TODO (schema LocalBusiness), completar con datos exactos del perfil de Google Maps, sin inventar:
     - "geo": { "@type": "GeoCoordinates", "latitude": ..., "longitude": ... }
       (en Google Maps: clic derecho sobre el pin → copiar coordenadas)
-    - "openingHoursSpecification": [ ... ] con el horario publicado en Maps
   -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "09:00", "closes": "12:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "14:00", "closes": "18:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "12:00" }
+      ],
       "name": "Bordados Yussi",
       "url": "https://bordadosyussi.com/",
       "logo": "https://bordadosyussi.com/media/brand/yussi-logo.png",
@@ -722,9 +726,9 @@
       </div>
       <div class="footer-col">
         <h3 data-es="Horario" data-en="Hours">Horario</h3>
-        <span data-es="Lun–Jue · 8:30–12 / 2–6" data-en="Mon–Thu · 8:30–12 / 2–6">Lun–Jue · 8:30–12 / 2–6</span>
-        <span data-es="Viernes · 8–12 / 2–6" data-en="Friday · 8–12 / 2–6">Viernes · 8–12 / 2–6</span>
-        <span data-es="Sábado · 9–12 / 2–3" data-en="Saturday · 9–12 / 2–3">Sábado · 9–12 / 2–3</span>
+        <span data-es="Lun–Vie · 9–12 / 2–6" data-en="Mon–Fri · 9–12 / 2–6">Lun–Vie · 9–12 / 2–6</span>
+        <span data-es="Sábado · 9–12" data-en="Saturday · 9–12">Sábado · 9–12</span>
+        <span data-es="Domingo · cerrado" data-en="Sunday · closed">Domingo · cerrado</span>
       </div>
     </div>
     <div class="container footer-bottom">
