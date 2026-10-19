@@ -6,7 +6,8 @@ const DEFAULTS = {
   baseSpeed: 40, // px/s cuando la página está quieta
   scrollFactor: 0.45, // px de franja por px de scroll
   maxSpeed: 900, // px/s
-  ease: 5 // qué tan rápido vuelve a la velocidad base
+  ease: 5, // qué tan rápido vuelve a la velocidad base
+  reverse: false // true: avanza en sentido contrario al de las demás franjas
 }
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
@@ -14,14 +15,15 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
 // `marquee` debe contener un hijo con clase que termine en "-track" y, dentro,
 // dos grupos idénticos (el segundo aria-hidden) para el loop sin saltos.
 export function createScrollMarquee(marquee, options = {}) {
-  const { baseSpeed, scrollFactor, maxSpeed, ease } = { ...DEFAULTS, ...options }
+  const { baseSpeed, scrollFactor, maxSpeed, ease, reverse } = { ...DEFAULTS, ...options }
+  const sense = reverse ? -1 : 1
   const track = marquee?.querySelector('[class$="-track"]')
   const group = track?.firstElementChild
   if (!track || !group) return
 
   let groupWidth = group.getBoundingClientRect().width
   let x = 0
-  let direction = -1
+  let direction = -sense
   let speed = baseSpeed
   let lastY = window.scrollY
   let lastTime = 0
@@ -39,7 +41,7 @@ export function createScrollMarquee(marquee, options = {}) {
     const y = window.scrollY
     const dy = y - lastY
     lastY = y
-    if (dy) direction = dy > 0 ? -1 : 1
+    if (dy) direction = (dy > 0 ? -1 : 1) * sense
 
     const scrollSpeed = dt ? Math.abs(dy) / dt : 0
     const target = Math.min(baseSpeed + scrollSpeed * scrollFactor, maxSpeed)

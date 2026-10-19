@@ -77,7 +77,8 @@ export function initClients() {
   marquee.appendChild(track)
   wrapper.appendChild(marquee)
 
-  createScrollMarquee(marquee)
+  // Más lenta y en sentido contrario a la franja de marcas, para distinguirlas.
+  createScrollMarquee(marquee, { baseSpeed: 24, scrollFactor: 0.25, maxSpeed: 500, reverse: true })
 
   mobileQuery.addEventListener('change', () => {
     wrapper.querySelectorAll('.client-logo img').forEach((img) => sizeOptically(img, areaFor()))
