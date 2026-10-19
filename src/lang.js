@@ -15,6 +15,9 @@ export function initLang() {
         el.textContent = val
       }
     })
+    document.querySelectorAll('img[data-alt-' + l + ']').forEach((img) => {
+      img.alt = img.getAttribute('data-alt-' + l)
+    })
     document.querySelectorAll('[data-aria-' + l + ']').forEach((el) => {
       el.setAttribute('aria-label', el.getAttribute('data-aria-' + l))
     })

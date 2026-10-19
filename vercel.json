@@ -276,12 +276,12 @@
     },
     {
       "source": "/img/work/produccion-tajima-1400.webp",
-      "destination": "/media/nosotros/nosotros-planta-tajima-1400.webp",
+      "destination": "/media/nosotros/nosotros-planta-tajima-6-cabezales-1400.webp",
       "statusCode": 301
     },
     {
       "source": "/img/work/produccion-tajima-800.webp",
-      "destination": "/media/nosotros/nosotros-planta-tajima-800.webp",
+      "destination": "/media/nosotros/nosotros-planta-tajima-6-cabezales-800.webp",
       "statusCode": 301
     },
     {
@@ -306,12 +306,12 @@
     },
     {
       "source": "/img/work/digitalizacion-wilcom-320.webp",
-      "destination": "/media/proceso/proceso-digitalizacion-wilcom-320.webp",
+      "destination": "/media/proceso/proceso-bordado-bastidor-240.webp",
       "statusCode": 301
     },
     {
       "source": "/img/work/hilos-320.webp",
-      "destination": "/media/proceso/proceso-hilos-320.webp",
+      "destination": "/media/proceso/proceso-detalle-puntada-240.webp",
       "statusCode": 301
     },
     {
@@ -597,6 +597,26 @@
     {
       "source": "/marcasAsociadas/wilcome.webp",
       "destination": "/media/proveedores/proveedor-wilcom.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/proceso/proceso-digitalizacion-wilcom-320.webp",
+      "destination": "/media/proceso/proceso-bordado-bastidor-240.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/proceso/proceso-hilos-320.webp",
+      "destination": "/media/proceso/proceso-detalle-puntada-240.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/nosotros/nosotros-planta-tajima-800.webp",
+      "destination": "/media/nosotros/nosotros-planta-tajima-6-cabezales-800.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/nosotros/nosotros-planta-tajima-1400.webp",
+      "destination": "/media/nosotros/nosotros-planta-tajima-6-cabezales-1400.webp",
       "statusCode": 301
     }
   ]

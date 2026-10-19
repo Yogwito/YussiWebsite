@@ -1,7 +1,7 @@
 {
   "generated": "2026-10-18",
   "note": "Medios publicados que usa la página. alt_es/alt_en vacíos = decorativo o sin texto alternativo. Ver public/media/README.md.",
-  "count": 115,
+  "count": 117,
   "files": [
     {
       "path": "/media/brand/apple-touch-icon.png",
@@ -438,24 +438,6 @@
       "duration_s": 16.42
     },
     {
-      "path": "/media/nosotros/nosotros-planta-tajima-1400.webp",
-      "file": "public/media/nosotros/nosotros-planta-tajima-1400.webp",
-      "section": "nosotros",
-      "bytes": 101068,
-      "dimensions": "1400x1866",
-      "alt_es": "Planta de producción de Bordados Yussi en Manizales",
-      "alt_en": null
-    },
-    {
-      "path": "/media/nosotros/nosotros-planta-tajima-800.webp",
-      "file": "public/media/nosotros/nosotros-planta-tajima-800.webp",
-      "section": "nosotros",
-      "bytes": 52122,
-      "dimensions": "800x1067",
-      "alt_es": "Planta de producción de Bordados Yussi en Manizales",
-      "alt_en": null
-    },
-    {
       "path": "/media/proceso/proceso-bordado-poster.webp",
       "file": "public/media/proceso/proceso-bordado-poster.webp",
       "section": "planta y proceso",
@@ -492,24 +474,6 @@
       "alt_es": "Confección en nuestra planta",
       "alt_en": "Garment making in our workshop",
       "duration_s": 11.7
-    },
-    {
-      "path": "/media/proceso/proceso-digitalizacion-wilcom-320.webp",
-      "file": "public/media/proceso/proceso-digitalizacion-wilcom-320.webp",
-      "section": "planta y proceso",
-      "bytes": 5134,
-      "dimensions": "320x175",
-      "alt_es": "Logo digitalizado como archivo de bordado",
-      "alt_en": null
-    },
-    {
-      "path": "/media/proceso/proceso-hilos-320.webp",
-      "file": "public/media/proceso/proceso-hilos-320.webp",
-      "section": "planta y proceso",
-      "bytes": 6908,
-      "dimensions": "320x180",
-      "alt_es": "Selección de hilos de bordado",
-      "alt_en": null
     },
     {
       "path": "/media/productos/antifluido/antifluido-bata-1200.webp",
@@ -1040,6 +1004,60 @@
       "bytes": 33886,
       "dimensions": "svg viewBox 0 0 560 752",
       "alt_es": null,
+      "alt_en": null
+    },
+    {
+      "path": "/media/proceso/proceso-bordado-bastidor-240.webp",
+      "file": "public/media/proceso/proceso-bordado-bastidor-240.webp",
+      "section": "planta y proceso",
+      "bytes": 12722,
+      "dimensions": "240x271",
+      "alt_es": "Logo listo en el bastidor de la bordadora",
+      "alt_en": "Logo ready in the embroidery machine hoop"
+    },
+    {
+      "path": "/media/proceso/proceso-bordado-bastidor-480.webp",
+      "file": "public/media/proceso/proceso-bordado-bastidor-480.webp",
+      "section": "planta y proceso",
+      "bytes": 37020,
+      "dimensions": "480x543",
+      "alt_es": "Logo listo en el bastidor de la bordadora",
+      "alt_en": "Logo ready in the embroidery machine hoop"
+    },
+    {
+      "path": "/media/proceso/proceso-detalle-puntada-240.webp",
+      "file": "public/media/proceso/proceso-detalle-puntada-240.webp",
+      "section": "planta y proceso",
+      "bytes": 20756,
+      "dimensions": "240x271",
+      "alt_es": "Detalle de puntada de un bordado a color",
+      "alt_en": "Close-up of the stitching on a color embroidery"
+    },
+    {
+      "path": "/media/proceso/proceso-detalle-puntada-480.webp",
+      "file": "public/media/proceso/proceso-detalle-puntada-480.webp",
+      "section": "planta y proceso",
+      "bytes": 73096,
+      "dimensions": "480x543",
+      "alt_es": "Detalle de puntada de un bordado a color",
+      "alt_en": "Close-up of the stitching on a color embroidery"
+    },
+    {
+      "path": "/media/nosotros/nosotros-planta-tajima-6-cabezales-800.webp",
+      "file": "public/media/nosotros/nosotros-planta-tajima-6-cabezales-800.webp",
+      "section": "nosotros",
+      "bytes": 57966,
+      "dimensions": "800x450",
+      "alt_es": "Bordadora Tajima de 6 cabezales en la planta de Bordados Yussi en Manizales",
+      "alt_en": null
+    },
+    {
+      "path": "/media/nosotros/nosotros-planta-tajima-6-cabezales-1400.webp",
+      "file": "public/media/nosotros/nosotros-planta-tajima-6-cabezales-1400.webp",
+      "section": "nosotros",
+      "bytes": 133784,
+      "dimensions": "1400x788",
+      "alt_es": "Bordadora Tajima de 6 cabezales en la planta de Bordados Yussi en Manizales",
       "alt_en": null
     }
   ]
