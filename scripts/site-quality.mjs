@@ -33,7 +33,9 @@ for (const media of [
   'public/media/hero/hero-produccion-movil.mp4',
   'public/media/proceso/proceso-bordado.mp4',
   'public/media/proceso/proceso-confeccion.mp4',
-  'public/media/cobertura/cobertura-colombia.svg'
+  'public/media/cobertura/paises.min.geojson',
+  'public/media/cobertura/colombia-departamentos.min.geojson',
+  'public/media/cobertura/cobertura-mapa-estatico.webp'
 ]) {
   assert.ok(fs.existsSync(path.join(root, media)), `Missing runtime asset: ${media}`)
 }

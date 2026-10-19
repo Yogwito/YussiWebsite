@@ -1,7 +1,7 @@
 {
   "generated": "2026-10-18",
   "note": "Medios publicados que usa la página. alt_es/alt_en vacíos = decorativo o sin texto alternativo. Ver public/media/README.md.",
-  "count": 117,
+  "count": 119,
   "files": [
     {
       "path": "/media/brand/apple-touch-icon.png",
@@ -998,15 +998,6 @@
       "alt_en": null
     },
     {
-      "path": "/media/cobertura/cobertura-colombia.svg",
-      "file": "public/media/cobertura/cobertura-colombia.svg",
-      "section": "cobertura",
-      "bytes": 33886,
-      "dimensions": "svg viewBox 0 0 560 752",
-      "alt_es": null,
-      "alt_en": null
-    },
-    {
       "path": "/media/proceso/proceso-bordado-bastidor-240.webp",
       "file": "public/media/proceso/proceso-bordado-bastidor-240.webp",
       "section": "planta y proceso",
@@ -1058,6 +1049,33 @@
       "bytes": 133784,
       "dimensions": "1400x788",
       "alt_es": "Bordadora Tajima de 6 cabezales en la planta de Bordados Yussi en Manizales",
+      "alt_en": null
+    },
+    {
+      "path": "/media/cobertura/cobertura-mapa-estatico.webp",
+      "file": "public/media/cobertura/cobertura-mapa-estatico.webp",
+      "section": "cobertura",
+      "bytes": 17712,
+      "dimensions": "1000x1000",
+      "alt_es": "Mapa de cobertura desde Manizales hacia Caldas, Colombia y proyectos en el exterior",
+      "alt_en": "Coverage map from Manizales to Caldas, Colombia and projects abroad"
+    },
+    {
+      "path": "/media/cobertura/colombia-departamentos.min.geojson",
+      "file": "public/media/cobertura/colombia-departamentos.min.geojson",
+      "section": "cobertura",
+      "bytes": 129128,
+      "dimensions": null,
+      "alt_es": null,
+      "alt_en": null
+    },
+    {
+      "path": "/media/cobertura/paises.min.geojson",
+      "file": "public/media/cobertura/paises.min.geojson",
+      "section": "cobertura",
+      "bytes": 93073,
+      "dimensions": null,
+      "alt_es": null,
       "alt_en": null
     }
   ]

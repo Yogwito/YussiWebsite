@@ -411,9 +411,17 @@
         </div>
 
         <figure class="coverage-visual" data-stage="caldas">
-          <div class="coverage-map" data-coverage-map data-src="/media/cobertura/cobertura-colombia.svg"></div>
-          <figcaption class="coverage-legend">
-            <span class="coverage-origin-label"><i aria-hidden="true"></i><b>Manizales</b> <small data-es="Planta Yussi · Caldas" data-en="Yussi facility · Caldas">Planta Yussi · Caldas</small></span>
+          <div id="coverage-map" class="coverage-map" data-state="idle">
+            <canvas id="coverage-canvas" aria-hidden="true"></canvas>
+            <img id="coverage-fallback" class="coverage-fallback" src="/media/cobertura/cobertura-mapa-estatico.webp" alt="Mapa de cobertura desde Manizales hacia Caldas, Colombia y proyectos en el exterior" data-alt-es="Mapa de cobertura desde Manizales hacia Caldas, Colombia y proyectos en el exterior" data-alt-en="Coverage map from Manizales to Caldas, Colombia and projects abroad" width="1000" height="1000" loading="lazy">
+            <div class="coverage-origin" aria-hidden="true">
+              <span></span>
+              <strong>Manizales</strong>
+              <small data-es="Planta Yussi · Caldas" data-en="Yussi facility · Caldas">Planta Yussi · Caldas</small>
+            </div>
+            <p class="coverage-loading" data-es="Preparando mapa" data-en="Preparing map">Preparando mapa</p>
+          </div>
+          <figcaption class="coverage-caption">
             <span class="coverage-abroad-label" data-es="Desarrollo de producto para marcas del exterior" data-en="Product development for brands abroad">Desarrollo de producto para marcas del exterior</span>
           </figcaption>
         </figure>

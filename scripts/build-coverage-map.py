@@ -1,4 +1,4 @@
-"""Genera public/media/cobertura/cobertura-colombia.svg (mapa de la sección Cobertura).
+"""Genera el mapa SVG alternativo de Cobertura (archivado; hoy la sección usa el globo 3D).
 
 Uso: python3 scripts/build-coverage-map.py
 Lee los departamentos de media-archive/public/media/cobertura/colombia-departamentos.min.geojson,
@@ -11,8 +11,8 @@ import math
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = ROOT / 'media-archive/public/media/cobertura/colombia-departamentos.min.geojson'
-OUT = ROOT / 'public/media/cobertura/cobertura-colombia.svg'
+SRC = ROOT / 'public/media/cobertura/colombia-departamentos.min.geojson'
+OUT = ROOT / 'media-archive/public/media/cobertura/cobertura-colombia.svg'
 
 W = 560
 PAD = 24

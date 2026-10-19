@@ -618,6 +618,21 @@
       "source": "/media/nosotros/nosotros-planta-tajima-1400.webp",
       "destination": "/media/nosotros/nosotros-planta-tajima-6-cabezales-1400.webp",
       "statusCode": 301
+    },
+    {
+      "source": "/data/colombia-departments.min.geojson",
+      "destination": "/media/cobertura/colombia-departamentos.min.geojson",
+      "statusCode": 301
+    },
+    {
+      "source": "/data/countries.min.geojson",
+      "destination": "/media/cobertura/paises.min.geojson",
+      "statusCode": 301
+    },
+    {
+      "source": "/img/coverage-map-fallback.webp",
+      "destination": "/media/cobertura/cobertura-mapa-estatico.webp",
+      "statusCode": 301
     }
   ]
 }
