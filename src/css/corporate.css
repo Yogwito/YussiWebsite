@@ -51,29 +51,8 @@ html { scroll-padding-top: 122px; }
 .clients-header .eyebrow { justify-content: center; }
 .clients-header h2 { margin: 0 auto; max-width: 760px; }
 .clients-header > p { margin: 1rem auto 0; max-width: 620px; font-size: 0.95rem; }
-.clients-featured {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  align-items: center;
-  justify-items: center;
-  gap: 2rem 1.5rem;
-  padding-bottom: 3rem;
-  border-bottom: 1px solid var(--corporate-line);
-}
-.clients-featured .client-logo { display: grid; place-items: center; min-height: 104px; }
 .client-logo { min-width: 0; }
 .client-logo img { max-width: 100%; object-fit: contain; }
-.clients-featured img { transition: transform 0.35s var(--ease); }
-.clients-featured .client-logo:hover img { transform: scale(1.05); }
-.clients-more-label {
-  margin: 2.75rem 0 1.75rem;
-  text-align: center;
-  color: var(--ink-soft);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
 .clients-marquee {
   overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
@@ -139,7 +118,6 @@ html { scroll-padding-top: 122px; }
   .section-header, .faq-layout, .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
   .section-header > p { max-width: 620px; }
   .contact-copy, .faq-intro { position: static; }
-  .clients-featured { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .brands-group { gap: 2.5rem; padding-right: 2.5rem; }
   .brand-item { flex: 0 0 110px; }
   .brand-groz-beckert { flex-basis: 170px; }
@@ -150,8 +128,6 @@ html { scroll-padding-top: 122px; }
   .section-header { margin-bottom: 2rem; gap: 1rem; }
   .stats-grid > div { padding: 1.4rem 1rem; min-height: 105px; }
   .stats-grid strong { font-size: 1.5rem; }
-  .clients-featured { gap: 1.5rem 1rem; padding-bottom: 2.25rem; }
-  .clients-featured .client-logo { min-height: 80px; }
   .clients-group { gap: 2.5rem; padding-right: 2.5rem; }
   .faq-question { font-size: 1rem; gap: 1rem; }
   .faq-answer p { padding-right: 0; }

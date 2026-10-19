@@ -18,12 +18,11 @@ const interleaveByCategory = (items) => {
   return out
 }
 
-// Tamaño óptico: cada logo ocupa la misma área visual sin importar su
-// proporción, así un wordmark ancho y un escudo pesan lo mismo.
+// Tamaño óptico: todos los logos ocupan la misma área visual sin importar su
+// proporción, así un wordmark ancho y un escudo pesan lo mismo (sin jerarquía).
 // El área depende del ancho de pantalla y se recalcula al cruzar el breakpoint.
 const mobileQuery = window.matchMedia('(max-width: 600px)')
-const AREAS = { featured: [7600, 4200], marquee: [2200, 1600] }
-const areaFor = (kind) => AREAS[kind][mobileQuery.matches ? 1 : 0]
+const areaFor = () => (mobileQuery.matches ? 2000 : 3200)
 
 const sizeOptically = (img, area) => {
   const apply = () => {
@@ -39,7 +38,7 @@ const sizeOptically = (img, area) => {
   else img.addEventListener('load', apply, { once: true })
 }
 
-const buildLogo = (client, { kind, decorative = false }) => {
+const buildLogo = (client, decorative) => {
   const item = document.createElement('div')
   item.className = 'client-logo'
   const img = document.createElement('img')
@@ -47,8 +46,7 @@ const buildLogo = (client, { kind, decorative = false }) => {
   img.alt = decorative ? '' : client.name
   img.loading = 'lazy'
   img.decoding = 'async'
-  img.dataset.kind = kind
-  sizeOptically(img, areaFor(kind))
+  sizeOptically(img, areaFor())
   item.appendChild(img)
   return item
 }
@@ -62,26 +60,8 @@ export function initClients() {
     return
   }
 
-  const featured = verifiedClients
-    .filter((c) => c.featured)
-    .sort((a, b) => a.featured - b.featured)
-  const rest = interleaveByCategory(verifiedClients.filter((c) => !c.featured))
-
-  if (featured.length) {
-    const grid = document.createElement('div')
-    grid.className = 'clients-featured'
-    featured.forEach((c) => grid.appendChild(buildLogo(c, { kind: 'featured' })))
-    wrapper.appendChild(grid)
-  }
-
-  if (!rest.length) return
-
-  const label = document.createElement('p')
-  label.className = 'clients-more-label'
-  label.dataset.es = `Y ${rest.length} empresas, colegios y marcas más`
-  label.dataset.en = `And ${rest.length} more companies, schools and brands`
-  label.textContent = document.documentElement.lang === 'en' ? label.dataset.en : label.dataset.es
-  wrapper.appendChild(label)
+  // Un solo carrusel continuo con todos los clientes verificados.
+  const clients = interleaveByCategory(verifiedClients)
 
   const marquee = document.createElement('div')
   marquee.className = 'clients-marquee'
@@ -91,7 +71,7 @@ export function initClients() {
     const group = document.createElement('div')
     group.className = 'clients-group'
     if (decorative) group.setAttribute('aria-hidden', 'true')
-    rest.forEach((c) => group.appendChild(buildLogo(c, { kind: 'marquee', decorative })))
+    clients.forEach((c) => group.appendChild(buildLogo(c, decorative)))
     track.appendChild(group)
   })
   marquee.appendChild(track)
@@ -100,6 +80,6 @@ export function initClients() {
   createScrollMarquee(marquee)
 
   mobileQuery.addEventListener('change', () => {
-    wrapper.querySelectorAll('img[data-kind]').forEach((img) => sizeOptically(img, areaFor(img.dataset.kind)))
+    wrapper.querySelectorAll('.client-logo img').forEach((img) => sizeOptically(img, areaFor()))
   })
 }
