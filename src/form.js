@@ -1,7 +1,16 @@
 const WHATSAPP_NUMBER = '573113858494'
 
+// El envío al servidor (/api/quote → QUOTE_WEBHOOK_URL) queda apagado hasta
+// tener destino de cotizaciones y política de datos. Para activarlo, definir
+// VITE_QUOTE_WEBHOOK_ENABLED=true en Vercel (además de QUOTE_WEBHOOK_URL) y
+// volver a desplegar. Sin la variable, el formulario solo abre WhatsApp.
+const WEBHOOK_ENABLED = import.meta.env.VITE_QUOTE_WEBHOOK_ENABLED === 'true'
+
 const MESSAGES = {
   es: {
+    submit: 'Enviar solicitud de cotización',
+    submitWhatsapp: 'Enviar solicitud por WhatsApp',
+    opened: 'Abrimos WhatsApp con tu solicitud. Si no se abrió, usa el enlace:',
     error: 'No pudimos recibir la solicitud. Tus datos siguen aquí; inténtalo de nuevo o envíalos por WhatsApp.',
     notConfigured: 'El envío por formulario aún no está activo. Tus datos siguen aquí: envíalos por WhatsApp con un clic.',
     whatsapp: 'Enviar mi solicitud por WhatsApp',
@@ -9,6 +18,9 @@ const MESSAGES = {
     labels: { name: 'Nombre', company: 'Empresa', phone: 'Teléfono', email: 'Correo', service: 'Línea', message: 'Detalles' }
   },
   en: {
+    submit: 'Send quote request',
+    submitWhatsapp: 'Send request on WhatsApp',
+    opened: 'We opened WhatsApp with your request. If it did not open, use the link:',
     error: 'We could not receive the request. Your details are still here; try again or send them on WhatsApp.',
     notConfigured: 'Form submissions are not active yet. Your details are still here: send them on WhatsApp in one click.',
     whatsapp: 'Send my request on WhatsApp',
@@ -24,14 +36,22 @@ export function initForm() {
   const successMsg = document.getElementById('form-success')
   const errorMsg = document.getElementById('form-error')
   const submitBtn = form.querySelector('[type="submit"]')
+  const submitLabel = submitBtn?.querySelector('[data-es]')
   const startedAt = document.getElementById('form-started-at')
   const endpoint = form.dataset.endpoint || '/api/quote'
   let errorCode = ''
 
   const currentLanguage = () => document.documentElement.lang === 'en' ? 'en' : 'es'
 
-  // Arma un mensaje de WhatsApp con lo que la persona ya escribió, para que
-  // la solicitud no se pierda si el envío por formulario falla.
+  // El texto del botón depende del modo de envío.
+  if (submitLabel) {
+    const key = WEBHOOK_ENABLED ? 'submit' : 'submitWhatsapp'
+    submitLabel.dataset.es = MESSAGES.es[key]
+    submitLabel.dataset.en = MESSAGES.en[key]
+    submitLabel.textContent = MESSAGES[currentLanguage()][key]
+  }
+
+  // Arma un mensaje de WhatsApp con lo que la persona ya escribió.
   const whatsappUrl = () => {
     const t = MESSAGES[currentLanguage()]
     const data = new FormData(form)
@@ -46,19 +66,31 @@ export function initForm() {
     return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent([t.greeting, ...lines].join('\n'))}`
   }
 
-  const renderError = () => {
-    if (!errorMsg) return
-    const t = MESSAGES[currentLanguage()]
-    const text = document.createElement('span')
-    text.textContent = errorCode === 'LEAD_PROVIDER_NOT_CONFIGURED' ? t.notConfigured : t.error
+  const whatsappLink = () => {
     const link = document.createElement('a')
     link.className = 'form-error-whatsapp'
     link.href = whatsappUrl()
     link.target = '_blank'
     link.rel = 'noopener'
-    link.textContent = t.whatsapp
-    errorMsg.replaceChildren(text, ' ', link)
+    link.textContent = MESSAGES[currentLanguage()].whatsapp
+    return link
+  }
+
+  const renderError = () => {
+    if (!errorMsg) return
+    const t = MESSAGES[currentLanguage()]
+    const text = document.createElement('span')
+    text.textContent = errorCode === 'LEAD_PROVIDER_NOT_CONFIGURED' ? t.notConfigured : t.error
+    errorMsg.replaceChildren(text, ' ', whatsappLink())
     errorMsg.hidden = false
+  }
+
+  const renderOpened = () => {
+    if (!successMsg) return
+    const text = document.createElement('span')
+    text.textContent = MESSAGES[currentLanguage()].opened
+    successMsg.replaceChildren(text, ' ', whatsappLink())
+    successMsg.hidden = false
   }
 
   const hideMessages = () => {
@@ -83,23 +115,22 @@ export function initForm() {
   form.addEventListener('input', startClock, { once: true })
   form.addEventListener('focusin', startClock, { once: true })
 
-  // Si edita los datos con el error visible, el enlace de WhatsApp se actualiza.
-  form.addEventListener('input', () => {
+  // Si edita los datos con un mensaje visible, el enlace de WhatsApp se actualiza.
+  const refreshMessages = () => {
     if (form.dataset.state === 'error' && errorMsg && !errorMsg.hidden) renderError()
-  })
+    if (form.dataset.state === 'whatsapp' && successMsg && !successMsg.hidden) renderOpened()
+  }
+  form.addEventListener('input', refreshMessages)
 
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault()
-    startClock()
+  const submitToWhatsapp = () => {
+    const opened = window.open(whatsappUrl(), '_blank', 'noopener')
+    if (!opened) window.location.href = whatsappUrl()
+    setState('whatsapp')
+    renderOpened()
+  }
 
-    if (!form.checkValidity()) {
-      form.reportValidity()
-      return
-    }
-
-    hideMessages()
+  const submitToServer = async () => {
     setState('submitting')
-
     const payload = Object.fromEntries(new FormData(form).entries())
 
     try {
@@ -115,7 +146,10 @@ export function initForm() {
       }
 
       setState('success')
-      if (successMsg) successMsg.hidden = false
+      if (successMsg) {
+        successMsg.textContent = successMsg.getAttribute(`data-${currentLanguage()}`)
+        successMsg.hidden = false
+      }
       form.reset()
       if (startedAt) startedAt.value = ''
     } catch (error) {
@@ -123,9 +157,21 @@ export function initForm() {
       errorCode = error.message
       renderError()
     }
+  }
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault()
+    startClock()
+
+    if (!form.checkValidity()) {
+      form.reportValidity()
+      return
+    }
+
+    hideMessages()
+    if (WEBHOOK_ENABLED) submitToServer()
+    else submitToWhatsapp()
   })
 
-  document.addEventListener('languagechange', () => {
-    if (form.dataset.state === 'error' && errorMsg && !errorMsg.hidden) renderError()
-  })
+  document.addEventListener('languagechange', refreshMessages)
 }
