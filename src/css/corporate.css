@@ -188,6 +188,10 @@ a:hover > .icon-stitch--down { transform: translateY(3px); }
   row-gap: 1.5rem;
   padding-right: 0;
 }
+/* En la grilla estática cada logo ocupa una celda fija: los logos cargan en
+   diferido y sin celda la grilla se reacomoda al llegar cada uno (CLS). */
+.is-static .clients-group .client-logo { width: 160px; height: 64px; }
+@media (max-width: 600px) { .is-static .clients-group .client-logo { width: 128px; } }
 
 /* Mapa en móvil: imagen estática y carga del globo 3D a pedido. */
 .coverage-map[data-state="static"] #coverage-canvas,
