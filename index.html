@@ -26,11 +26,10 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/media/brand/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/media/brand/favicon-16.png">
   <link rel="apple-touch-icon" href="/media/brand/apple-touch-icon.png">
-  <link rel="preload" as="image" type="image/avif" media="(max-width: 767px)" imagesrcset="/media/hero/hero-planta-poster-movil-720.avif 720w, /media/hero/hero-planta-poster-movil-1080.avif 1080w" imagesizes="100vw" fetchpriority="high">
+  <link rel="preload" as="image" type="image/avif" media="(max-width: 767px)" imagesrcset="/media/hero/hero-planta-poster-movil-800.avif 800w, /media/hero/hero-planta-poster-movil-1080.avif 1080w" imagesizes="100vw" fetchpriority="high">
   <link rel="preload" as="image" type="image/webp" media="(min-width: 768px)" href="/media/hero/hero-produccion-poster.webp?v=5" fetchpriority="high">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="/src/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/src/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -123,8 +122,8 @@
     <section id="hero" class="hero">
       <div class="hero-media" aria-hidden="true">
         <picture class="hero-poster">
-          <source media="(max-width: 767px)" type="image/avif" srcset="/media/hero/hero-planta-poster-movil-720.avif 720w, /media/hero/hero-planta-poster-movil-1080.avif 1080w" sizes="100vw">
-          <source media="(max-width: 767px)" type="image/webp" srcset="/media/hero/hero-planta-poster-movil-720.webp 720w, /media/hero/hero-planta-poster-movil-1080.webp 1080w" sizes="100vw">
+          <source media="(max-width: 767px)" type="image/avif" srcset="/media/hero/hero-planta-poster-movil-800.avif 800w, /media/hero/hero-planta-poster-movil-1080.avif 1080w" sizes="100vw">
+          <source media="(max-width: 767px)" type="image/webp" srcset="/media/hero/hero-planta-poster-movil-800.webp 800w, /media/hero/hero-planta-poster-movil-1080.webp 1080w" sizes="100vw">
           <img src="/media/hero/hero-produccion-poster.webp?v=5" alt="" width="1920" height="1080" fetchpriority="high" decoding="async">
         </picture>
         <video id="hero-video" data-autoplay muted loop playsinline preload="none">
@@ -424,7 +423,7 @@
         </header>
         <div class="production-layout">
           <figure class="production-film">
-            <video id="production-video" data-autoplay="in-view" muted loop playsinline controls preload="none" poster="/media/proceso/proceso-bordado-poster.webp?v=2" aria-label="Bordado en nuestra planta" data-aria-es="Bordado en nuestra planta" data-aria-en="Embroidery in our workshop">
+            <video id="production-video" data-autoplay="in-view" muted loop playsinline controls preload="none" data-poster="/media/proceso/proceso-bordado-poster.webp?v=2" aria-label="Bordado en nuestra planta" data-aria-es="Bordado en nuestra planta" data-aria-en="Embroidery in our workshop">
               <source src="/media/proceso/proceso-bordado.mp4?v=4" type="video/mp4">
             </video>
             <figcaption><span data-es="Producción real · Manizales, Colombia" data-en="Our production · Manizales, Colombia">Producción real · Manizales, Colombia</span><span aria-hidden="true">YUSSI / EST. 1999</span></figcaption>

@@ -482,22 +482,22 @@
       "dimensions": "1080x1920"
     },
     {
-      "path": "/media/hero/hero-planta-poster-movil-720.avif",
-      "file": "public/media/hero/hero-planta-poster-movil-720.avif",
+      "path": "/media/hero/hero-planta-poster-movil-800.avif",
+      "file": "public/media/hero/hero-planta-poster-movil-800.avif",
       "section": "hero",
       "alt_es": null,
       "alt_en": null,
-      "bytes": 65131,
-      "dimensions": "720x1280"
+      "bytes": 72046,
+      "dimensions": "800x1422"
     },
     {
-      "path": "/media/hero/hero-planta-poster-movil-720.webp",
-      "file": "public/media/hero/hero-planta-poster-movil-720.webp",
+      "path": "/media/hero/hero-planta-poster-movil-800.webp",
+      "file": "public/media/hero/hero-planta-poster-movil-800.webp",
       "section": "hero",
       "alt_es": null,
       "alt_en": null,
-      "bytes": 83606,
-      "dimensions": "720x1280"
+      "bytes": 91212,
+      "dimensions": "800x1422"
     },
     {
       "path": "/media/hero/hero-produccion-poster.webp",

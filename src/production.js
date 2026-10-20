@@ -34,6 +34,16 @@ export function initProduction() {
     if (!entry.isIntersecting) video.pause()
   })
   observer.observe(video)
+
+  // El póster pesa ~120 KB y está lejos del inicio: se pide al acercarse.
+  if (video.dataset.poster && !video.poster) {
+    const posterObserver = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      if (!video.poster) video.poster = video.dataset.poster
+      posterObserver.disconnect()
+    }, { rootMargin: '800px 0px' })
+    posterObserver.observe(video)
+  }
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) video.pause()
   })
