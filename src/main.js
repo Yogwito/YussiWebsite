@@ -19,6 +19,7 @@ import { initScrollStories } from './scroll-story.js'
 import { initBrandsMarquee } from './brands-marquee.js'
 import { initLightbox } from './lightbox.js'
 import { initPhotoStrips } from './photo-strip.js'
+import { initContactMap } from './contact-map.js'
 
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual'
@@ -46,4 +47,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initBrandsMarquee()
   initPhotoStrips()
   initLightbox()
+  initContactMap()
 })
