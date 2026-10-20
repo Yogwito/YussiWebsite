@@ -268,7 +268,7 @@ a:hover > .icon-stitch--down { transform: translateY(3px); }
 /* ── Visor de fotos (src/lightbox.js) ─────────────────────────────────── */
 img.is-zoomable { cursor: zoom-in; }
 img.is-zoomable:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; }
-html.lightbox-open { overflow: hidden; }
+html.lightbox-open { overflow: hidden; padding-right: var(--lightbox-gap, 0px); }
 .lightbox {
   width: 100vw;
   max-width: none;
@@ -293,7 +293,10 @@ html.lightbox-open { overflow: hidden; }
   border-radius: 4px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
   transition: opacity 0.2s;
+  touch-action: none;
+  transform-origin: center;
 }
+.lightbox.is-zoomed .lightbox-figure img { cursor: grab; }
 .lightbox.is-loading .lightbox-figure img { opacity: 0.35; }
 .lightbox figcaption { display: flex; gap: 1.25rem; max-width: 70ch; color: #c9d8ea; font-size: 0.9rem; text-align: center; }
 .lightbox-count { color: #8fa8c4; font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -328,4 +331,7 @@ html.lightbox-open { overflow: hidden; }
   .lightbox-prev { left: calc(50% - 64px); }
   .lightbox-next { right: calc(50% - 64px); }
 }
-@media (prefers-reduced-motion: reduce) { .lightbox[open] { animation: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .lightbox[open] { animation: none; }
+  .lightbox-figure img { transition: none; }
+}
