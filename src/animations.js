@@ -86,15 +86,17 @@ function initAutoplayVideos(motionQuery) {
 
   if (!videos.length) return { setReduced: () => {} }
 
-  const play = (video) => {
-    if (reduced || document.hidden) return
-    const promise = video.play()
-    if (promise) promise.catch(() => {})
-  }
-
   const isVisible = (video) => {
     const bounds = video.getBoundingClientRect()
     return bounds.bottom > 0 && bounds.top < window.innerHeight
+  }
+
+  const play = (video) => {
+    if (reduced || document.hidden) return
+    // Un "in-view" que termina de cargar fuera de pantalla no debe arrancar.
+    if (video.dataset.autoplay === 'in-view' && !isVisible(video)) return
+    const promise = video.play()
+    if (promise) promise.catch(() => {})
   }
 
   const syncVideos = () => {
