@@ -1,0 +1,200 @@
+# Generado por scripts/build-htaccess.mjs desde vercel.json. No editar a mano.
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # HTTPS y www → raíz en un solo salto
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteCond %{REQUEST_URI} !^/\.well-known/
+  RewriteRule ^ https://bordadosyussi.com%{REQUEST_URI} [L,R=301]
+
+  # Sitio viejo
+  RewriteRule ^quienes-somos/?$ /#about [NE,L,R=301]
+  RewriteRule ^nuestros-servicios/?$ /#services [NE,L,R=301]
+  RewriteRule ^precios/?$ /#contact [NE,L,R=301]
+  RewriteRule ^contacta-con-nosotros/?$ /#contact [NE,L,R=301]
+
+  # Medios renombrados (145 reglas de vercel.json)
+  RewriteRule ^apple-touch-icon\.png$ /media/brand/apple-touch-icon.png [L,R=301]
+  RewriteRule ^favicon-16\.png$ /media/brand/favicon-16.png [L,R=301]
+  RewriteRule ^favicon-32\.png$ /media/brand/favicon-32.png [L,R=301]
+  RewriteRule ^img/og-cover\.jpg$ /media/brand/og-cover.jpg [L,R=301]
+  RewriteRule ^img/yussi-logo-nav\.png$ /media/brand/yussi-logo.png [L,R=301]
+  RewriteRule ^img/yussi-logo-nav\.webp$ /media/brand/yussi-logo.webp [L,R=301]
+  RewriteRule ^img/clients/alcaldia-manizales\.svg$ /media/clientes/cliente-alcaldia-manizales.svg [L,R=301]
+  RewriteRule ^img/clients/arquidiocesis-manizales\.svg$ /media/clientes/cliente-arquidiocesis-manizales.svg [L,R=301]
+  RewriteRule ^img/clients/beauty-market\.webp$ /media/clientes/cliente-beauty-market.webp [L,R=301]
+  RewriteRule ^img/clients/cable-plaza\.webp$ /media/clientes/cliente-cable-plaza.webp [L,R=301]
+  RewriteRule ^img/clients/camara-comercio-manizales\.webp$ /media/clientes/cliente-camara-comercio-manizales.webp [L,R=301]
+  RewriteRule ^img/clients/cc-fundadores\.webp$ /media/clientes/cliente-cc-fundadores.webp [L,R=301]
+  RewriteRule ^img/clients/ceder\.webp$ /media/clientes/cliente-ceder.webp [L,R=301]
+  RewriteRule ^img/clients/comite-intergremial-caldas\.webp$ /media/clientes/cliente-comite-intergremial-caldas.webp [L,R=301]
+  RewriteRule ^img/clients/constructora-hungria\.webp$ /media/clientes/cliente-constructora-hungria.webp [L,R=301]
+  RewriteRule ^img/clients/cruz-roja\.svg$ /media/clientes/cliente-cruz-roja.svg [L,R=301]
+  RewriteRule ^img/clients/disblanco\.webp$ /media/clientes/cliente-disblanco.webp [L,R=301]
+  RewriteRule ^img/clients/dragon-jar\.webp$ /media/clientes/cliente-dragon-jar.webp [L,R=301]
+  RewriteRule ^img/clients/federacion-cafeteros\.webp$ /media/clientes/cliente-federacion-cafeteros.webp [L,R=301]
+  RewriteRule ^img/clients/fiscalia-general\.svg$ /media/clientes/cliente-fiscalia-general.svg [L,R=301]
+  RewriteRule ^img/clients/gobernacion-caldas\.svg$ /media/clientes/cliente-gobernacion-caldas.svg [L,R=301]
+  RewriteRule ^img/clients/hotel-carretero\.webp$ /media/clientes/cliente-hotel-carretero.webp [L,R=301]
+  RewriteRule ^img/clients/instituto-para-la-ciencia\.webp$ /media/clientes/cliente-instituto-para-la-ciencia.webp [L,R=301]
+  RewriteRule ^img/clients/juan-valdez\.webp$ /media/clientes/cliente-juan-valdez.webp [L,R=301]
+  RewriteRule ^img/clients/juicio\.webp$ /media/clientes/cliente-juicio.webp [L,R=301]
+  RewriteRule ^img/clients/kuma\.webp$ /media/clientes/cliente-kuma.webp [L,R=301]
+  RewriteRule ^img/clients/la-burguer\.webp$ /media/clientes/cliente-la-burguer.webp [L,R=301]
+  RewriteRule ^img/clients/la-vikina\.webp$ /media/clientes/cliente-la-vikina.webp [L,R=301]
+  RewriteRule ^img/clients/lumia-odontologia\.webp$ /media/clientes/cliente-lumia-odontologia.webp [L,R=301]
+  RewriteRule ^img/clients/natural-sun-time-spa\.webp$ /media/clientes/cliente-natural-sun-time-spa.webp [L,R=301]
+  RewriteRule ^img/clients/once-caldas\.svg$ /media/clientes/cliente-once-caldas.svg [L,R=301]
+  RewriteRule ^img/clients/oryza\.webp$ /media/clientes/cliente-oryza.webp [L,R=301]
+  RewriteRule ^img/clients/parque-caldas\.webp$ /media/clientes/cliente-parque-caldas.webp [L,R=301]
+  RewriteRule ^img/clients/policia-nacional\.webp$ /media/clientes/cliente-policia-nacional.webp [L,R=301]
+  RewriteRule ^img/clients/registraduria-nacional\.webp$ /media/clientes/cliente-registraduria-nacional.webp [L,R=301]
+  RewriteRule ^img/clients/sena\.svg$ /media/clientes/cliente-sena.svg [L,R=301]
+  RewriteRule ^img/clients/termales-del-ruiz\.webp$ /media/clientes/cliente-termales-del-ruiz.webp [L,R=301]
+  RewriteRule ^img/clients/terpel\.webp$ /media/clientes/cliente-terpel.webp [L,R=301]
+  RewriteRule ^img/clients/unique-detailing-center\.webp$ /media/clientes/cliente-unique-detailing-center.webp [L,R=301]
+  RewriteRule ^img/clients/universidad-autonoma-manizales\.webp$ /media/clientes/cliente-universidad-autonoma-manizales.webp [L,R=301]
+  RewriteRule ^img/clients/universidad-catolica-manizales\.webp$ /media/clientes/cliente-universidad-catolica-manizales.webp [L,R=301]
+  RewriteRule ^img/clients/universidad-de-caldas\.svg$ /media/clientes/cliente-universidad-de-caldas.svg [L,R=301]
+  RewriteRule ^img/clients/universidad-de-manizales\.webp$ /media/clientes/cliente-universidad-de-manizales.webp [L,R=301]
+  RewriteRule ^img/clients/universidad-del-quindio\.webp$ /media/clientes/cliente-universidad-del-quindio.webp [L,R=301]
+  RewriteRule ^img/clients/universidad-nacional\.svg$ /media/clientes/cliente-universidad-nacional.svg [L,R=301]
+  RewriteRule ^media/yussi-hero-production-mobile\.mp4$ /media/hero/hero-produccion-movil.mp4 [L,R=301]
+  RewriteRule ^img/work/hero-production\.webp$ /media/hero/hero-produccion-poster.webp [L,R=301]
+  RewriteRule ^media/yussi-hero-production\.mp4$ /media/hero/hero-produccion.mp4 [L,R=301]
+  RewriteRule ^img/work/produccion-tajima-1400\.webp$ /media/nosotros/nosotros-planta-tajima-6-cabezales-1400.webp [L,R=301]
+  RewriteRule ^img/work/produccion-tajima-800\.webp$ /media/nosotros/nosotros-planta-tajima-6-cabezales-800.webp [L,R=301]
+  RewriteRule ^img/work/bordado-maquina\.webp$ /media/proceso/proceso-bordado-poster.webp [L,R=301]
+  RewriteRule ^media/bordado-en-proceso\.mp4$ /media/proceso/proceso-bordado.mp4 [L,R=301]
+  RewriteRule ^img/work/confeccion\.webp$ /media/proceso/proceso-confeccion-poster.webp [L,R=301]
+  RewriteRule ^media/confeccion-en-proceso\.mp4$ /media/proceso/proceso-confeccion.mp4 [L,R=301]
+  RewriteRule ^img/work/digitalizacion-wilcom-320\.webp$ /media/proceso/proceso-montaje-tarjeta-480.webp [L,R=301]
+  RewriteRule ^img/work/hilos-320\.webp$ /media/proceso/proceso-detalle-puntada-480.webp [L,R=301]
+  RewriteRule ^img/products/antifluido-bata-1200\.webp$ /media/productos/antifluido/antifluido-bata-1200.webp [L,R=301]
+  RewriteRule ^img/products/antifluido-bata-400\.webp$ /media/productos/antifluido/antifluido-bata-400.webp [L,R=301]
+  RewriteRule ^img/products/antifluido-bata-800\.webp$ /media/productos/antifluido/antifluido-bata-800.webp [L,R=301]
+  RewriteRule ^img/products/antifluido-chef-blanca-1200\.webp$ /media/productos/antifluido/antifluido-chef-blanca-1200.webp [L,R=301]
+  RewriteRule ^img/products/antifluido-chef-blanca-400\.webp$ /media/productos/antifluido/antifluido-chef-blanca-400.webp [L,R=301]
+  RewriteRule ^img/products/antifluido-chef-blanca-800\.webp$ /media/productos/antifluido/antifluido-chef-blanca-800.webp [L,R=301]
+  RewriteRule ^img/products/antifluido-medica-1200\.webp$ /media/productos/antifluido/antifluido-delantal-repelente-1200.webp [L,R=301]
+  RewriteRule ^img/products/antifluido-medica-400\.webp$ /media/productos/antifluido/antifluido-delantal-repelente-400.webp [L,R=301]
+  RewriteRule ^img/products/antifluido-medica-800\.webp$ /media/productos/antifluido/antifluido-delantal-repelente-800.webp [L,R=301]
+  RewriteRule ^img/work/antifluido-duo-560\.webp$ /media/productos/antifluido/antifluido-portada-duo-560.webp [L,R=301]
+  RewriteRule ^img/products/bordado-detalle-cerdo-1200\.webp$ /media/productos/bordado/bordado-carne-de-cerdo-1200.webp [L,R=301]
+  RewriteRule ^img/products/bordado-detalle-cerdo-400\.webp$ /media/productos/bordado/bordado-carne-de-cerdo-400.webp [L,R=301]
+  RewriteRule ^img/products/bordado-detalle-cerdo-800\.webp$ /media/productos/bordado/bordado-carne-de-cerdo-800.webp [L,R=301]
+  RewriteRule ^img/products/bordado-gorras-palmo-1200\.webp$ /media/productos/bordado/bordado-toalla-personalizada-1200.webp [L,R=301]
+  RewriteRule ^img/products/bordado-gorras-palmo-400\.webp$ /media/productos/bordado/bordado-toalla-personalizada-400.webp [L,R=301]
+  RewriteRule ^img/products/bordado-gorras-palmo-800\.webp$ /media/productos/bordado/bordado-toalla-personalizada-800.webp [L,R=301]
+  RewriteRule ^img/products/bordado-la-carolina-1200\.webp$ /media/productos/bordado/bordado-la-arcadia-1200.webp [L,R=301]
+  RewriteRule ^img/products/bordado-la-carolina-400\.webp$ /media/productos/bordado/bordado-la-arcadia-400.webp [L,R=301]
+  RewriteRule ^img/products/bordado-la-carolina-800\.webp$ /media/productos/bordado/bordado-la-arcadia-800.webp [L,R=301]
+  RewriteRule ^img/work/bordado-gorras-dsc-560\.webp$ /media/productos/bordado/bordado-portada-gorras-560.webp [L,R=301]
+  RewriteRule ^img/products/dotacion-kit-flags-1200\.webp$ /media/productos/dotacion/dotacion-kit-flags-1200.webp [L,R=301]
+  RewriteRule ^img/products/dotacion-kit-flags-400\.webp$ /media/productos/dotacion/dotacion-kit-flags-400.webp [L,R=301]
+  RewriteRule ^img/products/dotacion-kit-flags-800\.webp$ /media/productos/dotacion/dotacion-kit-flags-800.webp [L,R=301]
+  RewriteRule ^img/products/dotacion-polo-maquina-1200\.webp$ /media/productos/dotacion/dotacion-polo-maquina-1200.webp [L,R=301]
+  RewriteRule ^img/products/dotacion-polo-maquina-400\.webp$ /media/productos/dotacion/dotacion-polo-maquina-400.webp [L,R=301]
+  RewriteRule ^img/products/dotacion-polo-maquina-800\.webp$ /media/productos/dotacion/dotacion-polo-maquina-800.webp [L,R=301]
+  RewriteRule ^img/products/dotacion-polos-luseny-1200\.webp$ /media/productos/dotacion/dotacion-polo-maquina-1200.webp [L,R=301]
+  RewriteRule ^img/products/dotacion-polos-luseny-400\.webp$ /media/productos/dotacion/dotacion-polo-maquina-400.webp [L,R=301]
+  RewriteRule ^img/products/dotacion-polos-luseny-800\.webp$ /media/productos/dotacion/dotacion-polo-maquina-800.webp [L,R=301]
+  RewriteRule ^img/work/dotacion-equipo-polos-560\.webp$ /media/productos/dotacion/dotacion-portada-equipo-polos-560.webp [L,R=301]
+  RewriteRule ^img/products/escolar-lans-buzo-1200\.webp$ /media/productos/escolares/escolar-lans-manga-1200.webp [L,R=301]
+  RewriteRule ^img/products/escolar-lans-buzo-400\.webp$ /media/productos/escolares/escolar-lans-manga-400.webp [L,R=301]
+  RewriteRule ^img/products/escolar-lans-buzo-800\.webp$ /media/productos/escolares/escolar-lans-manga-800.webp [L,R=301]
+  RewriteRule ^img/products/escolar-lans-escudo-1200\.webp$ /media/productos/escolares/escolar-lans-escudo-1200.webp [L,R=301]
+  RewriteRule ^img/products/escolar-lans-escudo-400\.webp$ /media/productos/escolares/escolar-lans-escudo-400.webp [L,R=301]
+  RewriteRule ^img/products/escolar-lans-escudo-800\.webp$ /media/productos/escolares/escolar-lans-escudo-800.webp [L,R=301]
+  RewriteRule ^img/products/escolar-lans-polo-1200\.webp$ /media/productos/escolares/escolar-lans-escudo-1200.webp [L,R=301]
+  RewriteRule ^img/products/escolar-lans-polo-400\.webp$ /media/productos/escolares/escolar-lans-escudo-400.webp [L,R=301]
+  RewriteRule ^img/products/escolar-lans-polo-800\.webp$ /media/productos/escolares/escolar-lans-escudo-800.webp [L,R=301]
+  RewriteRule ^img/work/escolar-lans-escalera-560\.webp$ /media/productos/escolares/escolar-portada-lans-escudo-560.webp [L,R=301]
+  RewriteRule ^img/products/industrial-contraloria-1200\.webp$ /media/productos/industrial/industrial-contraloria-1200.webp [L,R=301]
+  RewriteRule ^img/products/industrial-contraloria-400\.webp$ /media/productos/industrial/industrial-contraloria-400.webp [L,R=301]
+  RewriteRule ^img/products/industrial-contraloria-800\.webp$ /media/productos/industrial/industrial-contraloria-800.webp [L,R=301]
+  RewriteRule ^img/work/industrial-reflectivo-560\.webp$ /media/productos/industrial/industrial-portada-reflectivo-560.webp [L,R=301]
+  RewriteRule ^img/products/industrial-reflectivo-1200\.webp$ /media/productos/industrial/industrial-reflectivo-1200.webp [L,R=301]
+  RewriteRule ^img/products/industrial-reflectivo-400\.webp$ /media/productos/industrial/industrial-reflectivo-400.webp [L,R=301]
+  RewriteRule ^img/products/industrial-reflectivo-800\.webp$ /media/productos/industrial/industrial-reflectivo-800.webp [L,R=301]
+  RewriteRule ^img/products/industrial-servicontrol-1200\.webp$ /media/productos/industrial/industrial-servicontrol-1200.webp [L,R=301]
+  RewriteRule ^img/products/industrial-servicontrol-400\.webp$ /media/productos/industrial/industrial-servicontrol-400.webp [L,R=301]
+  RewriteRule ^img/products/industrial-servicontrol-800\.webp$ /media/productos/industrial/industrial-servicontrol-800.webp [L,R=301]
+  RewriteRule ^marcasAsociadas/hilosCoatsfondoblanco\.webp$ /media/proveedores/proveedor-coats.webp [L,R=301]
+  RewriteRule ^marcasAsociadas/flexfit\.webp$ /media/proveedores/proveedor-flexfit.webp [L,R=301]
+  RewriteRule ^marcasAsociadas/groz-beckert\.webp$ /media/proveedores/proveedor-groz-beckert.webp [L,R=301]
+  RewriteRule ^marcasAsociadas/lafayette\.webp$ /media/proveedores/proveedor-lafayette.webp [L,R=301]
+  RewriteRule ^marcasAsociadas/MAderia\.webp$ /media/proveedores/proveedor-madeira.webp [L,R=301]
+  RewriteRule ^marcasAsociadas/tajima\.webp$ /media/proveedores/proveedor-tajima.webp [L,R=301]
+  RewriteRule ^marcasAsociadas/wilcome\.webp$ /media/proveedores/proveedor-wilcom.webp [L,R=301]
+  RewriteRule ^media/proceso/proceso-digitalizacion-wilcom-320\.webp$ /media/proceso/proceso-montaje-tarjeta-480.webp [L,R=301]
+  RewriteRule ^media/proceso/proceso-hilos-320\.webp$ /media/proceso/proceso-detalle-puntada-480.webp [L,R=301]
+  RewriteRule ^media/nosotros/nosotros-planta-tajima-800\.webp$ /media/nosotros/nosotros-planta-tajima-6-cabezales-800.webp [L,R=301]
+  RewriteRule ^media/nosotros/nosotros-planta-tajima-1400\.webp$ /media/nosotros/nosotros-planta-tajima-6-cabezales-1400.webp [L,R=301]
+  RewriteRule ^data/colombia-departments\.min\.geojson$ /media/cobertura/colombia-departamentos.min.geojson [L,R=301]
+  RewriteRule ^data/countries\.min\.geojson$ /media/cobertura/paises.min.geojson [L,R=301]
+  RewriteRule ^img/coverage-map-fallback\.webp$ /media/cobertura/cobertura-mapa-estatico.webp [L,R=301]
+  RewriteRule ^media/productos/antifluido/antifluido-medica-1200\.webp$ /media/productos/antifluido/antifluido-delantal-repelente-1200.webp [L,R=301]
+  RewriteRule ^media/productos/antifluido/antifluido-medica-400\.webp$ /media/productos/antifluido/antifluido-delantal-repelente-400.webp [L,R=301]
+  RewriteRule ^media/productos/antifluido/antifluido-medica-800\.webp$ /media/productos/antifluido/antifluido-delantal-repelente-800.webp [L,R=301]
+  RewriteRule ^media/productos/bordado/bordado-detalle-cerdo-1200\.webp$ /media/productos/bordado/bordado-carne-de-cerdo-1200.webp [L,R=301]
+  RewriteRule ^media/productos/bordado/bordado-detalle-cerdo-400\.webp$ /media/productos/bordado/bordado-carne-de-cerdo-400.webp [L,R=301]
+  RewriteRule ^media/productos/bordado/bordado-detalle-cerdo-800\.webp$ /media/productos/bordado/bordado-carne-de-cerdo-800.webp [L,R=301]
+  RewriteRule ^media/productos/bordado/bordado-gorras-palmo-1200\.webp$ /media/productos/bordado/bordado-toalla-personalizada-1200.webp [L,R=301]
+  RewriteRule ^media/productos/bordado/bordado-gorras-palmo-400\.webp$ /media/productos/bordado/bordado-toalla-personalizada-400.webp [L,R=301]
+  RewriteRule ^media/productos/bordado/bordado-gorras-palmo-800\.webp$ /media/productos/bordado/bordado-toalla-personalizada-800.webp [L,R=301]
+  RewriteRule ^media/productos/bordado/bordado-la-carolina-1200\.webp$ /media/productos/bordado/bordado-la-arcadia-1200.webp [L,R=301]
+  RewriteRule ^media/productos/bordado/bordado-la-carolina-400\.webp$ /media/productos/bordado/bordado-la-arcadia-400.webp [L,R=301]
+  RewriteRule ^media/productos/bordado/bordado-la-carolina-800\.webp$ /media/productos/bordado/bordado-la-arcadia-800.webp [L,R=301]
+  RewriteRule ^media/productos/dotacion/dotacion-polos-luseny-1200\.webp$ /media/productos/dotacion/dotacion-polo-maquina-1200.webp [L,R=301]
+  RewriteRule ^media/productos/dotacion/dotacion-polos-luseny-400\.webp$ /media/productos/dotacion/dotacion-polo-maquina-400.webp [L,R=301]
+  RewriteRule ^media/productos/dotacion/dotacion-polos-luseny-800\.webp$ /media/productos/dotacion/dotacion-polo-maquina-800.webp [L,R=301]
+  RewriteRule ^media/productos/escolares/escolar-lans-buzo-1200\.webp$ /media/productos/escolares/escolar-lans-manga-1200.webp [L,R=301]
+  RewriteRule ^media/productos/escolares/escolar-lans-buzo-400\.webp$ /media/productos/escolares/escolar-lans-manga-400.webp [L,R=301]
+  RewriteRule ^media/productos/escolares/escolar-lans-buzo-800\.webp$ /media/productos/escolares/escolar-lans-manga-800.webp [L,R=301]
+  RewriteRule ^media/productos/escolares/escolar-lans-polo-1200\.webp$ /media/productos/escolares/escolar-lans-escudo-1200.webp [L,R=301]
+  RewriteRule ^media/productos/escolares/escolar-lans-polo-400\.webp$ /media/productos/escolares/escolar-lans-escudo-400.webp [L,R=301]
+  RewriteRule ^media/productos/escolares/escolar-lans-polo-800\.webp$ /media/productos/escolares/escolar-lans-escudo-800.webp [L,R=301]
+  RewriteRule ^media/productos/escolares/escolar-portada-lans-escalera-560\.webp$ /media/productos/escolares/escolar-portada-lans-escudo-560.webp [L,R=301]
+  RewriteRule ^media/proceso/proceso-bordado-bastidor-240\.webp$ /media/proceso/proceso-montaje-tarjeta-480.webp [L,R=301]
+  RewriteRule ^media/proceso/proceso-bordado-bastidor-480\.webp$ /media/proceso/proceso-montaje-tarjeta-960.webp [L,R=301]
+  RewriteRule ^media/proceso/proceso-detalle-puntada-240\.webp$ /media/proceso/proceso-detalle-puntada-480.webp [L,R=301]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header always set Strict-Transport-Security "max-age=31536000"
+
+  <FilesMatch "\.html?$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(webp|avif|jpe?g|png|gif|svg|ico|mp4|webm|geojson)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <If "%{REQUEST_URI} =~ m#^/assets/#">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </If>
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType application/geo+json .geojson
+  AddType image/avif .avif
+  AddType image/webp .webp
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/xml application/javascript text/javascript application/json application/geo+json image/svg+xml
+</IfModule>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php83” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php83 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
