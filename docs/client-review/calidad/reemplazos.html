@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calidad multimedia · Reemplazos</title>
+<style>
+  :root { --ink: #101827; --soft: #4b586c; --line: #dfe5ee; --paper: #f6f8fb; --navy: #071a34; --blue: #0b63ce; --warn: #b4540a; --ok: #1a7f4b; --bad: #b42318; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.55 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: var(--ink); background: var(--paper); }
+  header { background: var(--navy); color: #fff; padding: 32px 16px; }
+  header div, main { max-width: 1120px; margin: 0 auto; }
+  h1 { margin: 0 0 6px; font-size: 26px; }
+  header p { margin: 0; color: #b6c3d6; max-width: 760px; }
+  main { padding: 24px 16px 64px; }
+  h2 { font-size: 19px; margin: 40px 0 6px; }
+  .lede { color: var(--soft); margin: 0 0 16px; max-width: 760px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 18px; margin: 14px 0; }
+  .card h3 { margin: 0 0 4px; font-size: 16px; }
+  .meta { color: var(--soft); font-size: 13px; margin: 0 0 12px; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .side { border: 1px solid var(--line); border-radius: 8px; padding: 10px; background: var(--paper); }
+  .side b { display: block; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
+  .side.now b { color: var(--bad); } .side.new b { color: var(--ok); }
+  .side .imgs { display: flex; gap: 8px; align-items: flex-start; }
+  .side img { max-width: 100%; height: auto; border-radius: 4px; display: block; }
+  .side .imgs img:first-child { width: 58%; } .side .imgs img + img { width: 40%; }
+  .side .imgs.single img { width: 100%; }
+  .side small { display: block; color: var(--soft); margin-top: 6px; font-size: 12.5px; }
+  .why { margin: 12px 0 0; font-size: 14px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+  .item { background: #fff; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .item img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: #e8edf3; }
+  .item div { padding: 8px 10px 10px; font-size: 13px; }
+  .item strong { display: block; font-size: 13px; }
+  .item span { color: var(--soft); }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 99px; margin-top: 4px; background: #e6f0fd; color: var(--blue); }
+  .tag.stop { background: #fdecea; color: var(--bad); }
+  table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; font-size: 14px; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: #eef2f7; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--soft); }
+  .table-wrap { overflow-x: auto; }
+  @media (max-width: 640px) { .pair { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header><div>
+  <h1>Calidad multimedia · propuesta de reemplazos</h1>
+  <p>Auditoría del 20 oct 2026 sobre los 375 archivos de <code>public/media/</code>. Se midió la resolución, la nitidez y el tamaño al que se muestra cada imagen en 375 y 390 px (pantalla ×3) y en 1440 px (×1 y ×2). No se ha cambiado nada en el sitio: esto espera aprobación.</p>
+</div></header>
+<main>
+
+<h2>Resumen</h2>
+<p class="lede">La mayoría del material está bien. Los retratos de estudio salen “poco nítidos” en la medición porque la piel y la tela son lisas, no porque estén borrosos. Las fotos oscuras son de tela negra, con buena exposición. Hay cuatro problemas reales:</p>
+<div class="table-wrap"><table>
+  <tr><th>Archivo</th><th>Sección</th><th>Problema</th><th>Propuesta</th></tr>
+  <tr><td>Póster y video del hero en móvil</td><td>Hero</td><td>720×1280, un recorte ampliado del video horizontal. En un iPhone se estira 1,64× y se ve blando. Además es la imagen más grande que carga primero (LCP).</td><td>Usar <b>IMG_9019.MOV</b>: video vertical nativo de 1080×1920 a 60 fps</td></tr>
+  <tr><td>Mapa estático de cobertura</td><td>Cobertura (móvil y respaldo)</td><td>1000×1000 px; en pantallas retina se estira 1,5×</td><td>Regenerarlo a 2000 px desde el mismo diseño (no hace falta foto)</td></tr>
+  <tr><td>38 fotos de galería en el visor</td><td>Dotación, explorador, proceso, Nosotros</td><td>El tamaño mayor es 1600 px. En el visor a pantalla completa en escritorio retina se estiran 1,26×</td><td>Exportar una versión de 2000 px desde los originales de cámara, que miden de 2700 a 5900 px</td></tr>
+  <tr><td>Video de confección</td><td>Proceso</td><td>1280×720 a 1,6 Mbps, justo en el mínimo</td><td>No hay versión 1080p en el material: pedirla al cliente</td></tr>
+</table></div>
+
+<h2>Reemplazos propuestos</h2>
+<p class="lede">A la izquierda, lo que hay hoy. A la derecha, la propuesta. Cada lado muestra la imagen completa y un recorte del centro al tamaño en que se ve en el dispositivo más exigente.</p>
+
+<div class="card">
+  <h3>Hero en móvil: póster y video</h3>
+  <p class="meta">Sección: Hero · Se muestra a 375–414 px de ancho y toda la altura de la pantalla (necesita unos 1200 px de ancho)</p>
+  <div class="pair">
+    <div class="side now"><b>Actual</b><div class="imgs"><img src="img/actual-hero-movil.jpg" alt="Póster móvil actual del hero"><img src="img/actual-hero-movil-100.jpg" alt="Recorte ampliado del póster actual"></div><small>hero-produccion-poster-movil.webp · 720×1280 · recorte de unos 600 px de ancho del video de 1080p, ampliado</small></div>
+    <div class="side new"><b>Propuesta</b><div class="imgs"><img src="img/propuesta-hero-movil-IMG_9019.jpg" alt="Fotograma de IMG_9019, cabezales Tajima bordando gorras"><img src="img/propuesta-hero-movil-IMG_9019-100.jpg" alt="Recorte al 100 % de IMG_9019"></div><small>IMG_9019.MOV (AirDrop) · 1080×1920 vertical nativo · 60 fps · 15 s · cabezales Tajima bordando gorras</small></div>
+  </div>
+  <p class="why"><b>Motivo:</b> el video móvil actual sale del horizontal: se recorta una franja de unos 600 px y se amplía a 720. IMG_9019 ya viene vertical y con el doble de resolución útil. Se exportaría a 720×1280 a 1,2–1,5 Mbps, con un póster de 1080×1920 que será la imagen LCP.</p>
+</div>
+
+<div class="card">
+  <h3>Mapa estático de cobertura</h3>
+  <p class="meta">Sección: Cobertura · Imagen de respaldo y versión móvil · Se ve a 375 px (×3) y a 761 px (×2)</p>
+  <div class="pair">
+    <div class="side now"><b>Actual</b><div class="imgs"><img src="img/actual-mapa-estatico.jpg" alt="Mapa estático actual"><img src="img/actual-mapa-estatico-100.jpg" alt="Recorte ampliado del mapa actual"></div><small>cobertura-mapa-estatico.webp · 1000×1000 · bordes suaves al ampliar</small></div>
+    <div class="side new"><b>Propuesta</b><div class="imgs single"><img src="img/actual-mapa-estatico.jpg" alt="El mismo mapa, que se regeneraría a 2000 px" style="opacity:.55"></div><small>El mismo diseño, regenerado a 2000×2000 desde el render del mapa. Se hace en la fase 4, cuando revise el mapa en móvil.</small></div>
+  </div>
+  <p class="why"><b>Motivo:</b> en pantallas retina se estira 1,5× y los bordes de los países se ven difusos.</p>
+</div>
+
+<div class="card">
+  <h3>Fotos de galería en el visor a pantalla completa (38 fotos)</h3>
+  <p class="meta">Secciones: Dotación, explorador de productos, Proceso, Nosotros · El visor muestra la foto a unos 1008 px de ancho en escritorio (×2 = 2016 px)</p>
+  <div class="pair">
+    <div class="side now"><b>Actual · 1600 px</b><div class="imgs single"><img src="img/actual-lightbox-1600.jpg" alt="Recorte de proceso-bastidores-en-fila a 1600 px"></div><small>proceso-bastidores-en-fila-1600.webp, recorte central</small></div>
+    <div class="side new"><b>Propuesta · 2000 px</b><div class="imgs single"><img src="img/propuesta-lightbox-2000.jpg" alt="El mismo recorte exportado a 2000 px desde el original"></div><small>El mismo recorte a 2000 px, desde el original IMG_9637.jpg (5712 px)</small></div>
+  </div>
+  <p class="why"><b>Motivo:</b> no se cambia ninguna foto: se agrega el tamaño 2000 al <code>srcset</code> y al visor. Los 38 originales miden de 2700 a 5939 px de ancho, así que da para todos.</p>
+</div>
+
+<h2>Nuevos que suman</h2>
+<p class="lede">Material bueno del AirDrop sin reemplazo directo. Al lado de cada uno va la sección sugerida.</p>
+<div class="grid">
+  <div class="item"><img src="img/propuesta-hero-movil-IMG_9019.jpg" alt=""><div><strong>IMG_9019.MOV</strong><span>Hilera de cabezales con gorras · 1080×1920 · 15 s</span><br><span class="tag">Hero móvil</span></div></div>
+  <div class="item"><img src="img/IMG_0467.jpg" alt=""><div><strong>IMG_0467.mov</strong><span>Cabezales bordando gorras verde oliva · 1080p · 44 s</span><br><span class="tag">Proceso (video)</span></div></div>
+  <div class="item"><img src="img/IMG_9800.jpg" alt=""><div><strong>IMG_9800.mov</strong><span>Cabezales con bastidores de tela beige · 1080p · 16 s</span><br><span class="tag">Proceso (video)</span></div></div>
+  <div class="item"><img src="img/IMG_7120.jpg" alt=""><div><strong>IMG_7120.MOV</strong><span>Motociclista bordándose · 1080p 60 fps · 10 s</span><br><span class="tag">Bordado (video)</span></div></div>
+  <div class="item"><img src="img/MVI_3864.jpg" alt=""><div><strong>MVI_3864.mov</strong><span>Estantería de hilos · 1080p · 15 s</span><br><span class="tag">Nosotros (ambiente)</span></div></div>
+  <div class="item"><img src="img/IMG_6137.jpg" alt=""><div><strong>IMG_6137.JPG</strong><span>Cabeza de caballo, detalle de hilo · 4032×3024</span><br><span class="tag">Bordado</span></div></div>
+  <div class="item"><img src="img/IMG_9513.jpg" alt=""><div><strong>IMG_9513.JPG</strong><span>Logo Origen del Valle multicolor · 4032×3024</span><br><span class="tag">Bordado</span></div></div>
+  <div class="item"><img src="img/IMG_8957.jpg" alt=""><div><strong>IMG_8957.jpg</strong><span>Parche Shotokan Karate-Do · 3024×4032</span><br><span class="tag">Bordado</span></div></div>
+  <div class="item"><img src="img/IMG_5982.jpg" alt=""><div><strong>IMG_5982.jpg</strong><span>Parche La Cantera del Sabor sobre rojo</span><br><span class="tag">Bordado</span></div></div>
+  <div class="item"><img src="img/IMG_7936.jpg" alt=""><div><strong>IMG_7936.JPG</strong><span>Parche Sazón Burguer sobre rojo</span><br><span class="tag">Bordado</span></div></div>
+  <div class="item"><img src="img/IMG_9932.jpg" alt=""><div><strong>IMG_9932.JPG</strong><span>Paisaje Cultural Cafetero en blanco</span><br><span class="tag">Bordado</span></div></div>
+  <div class="item"><img src="img/IMG_9931.jpg" alt=""><div><strong>IMG_9931.JPG</strong><span>Emblema Colombia sobre blanco</span><br><span class="tag">Bordado</span></div></div>
+  <div class="item"><img src="img/IMG_5898.jpg" alt=""><div><strong>IMG_5898.JPG</strong><span>Punto del Cerdo sobre polo blanco</span><br><span class="tag">Bordado</span></div></div>
+  <div class="item"><img src="img/IMG_8050.jpg" alt=""><div><strong>IMG_8050.JPG</strong><span>Emblema dorado LUEMY sobre negro</span><br><span class="tag">Bordado</span></div></div>
+  <div class="item"><img src="img/IMG_1374.jpg" alt=""><div><strong>IMG_1374.jpg</strong><span>Camisa blanca con escudo y gorra · 4284×5712</span><br><span class="tag">Dotación</span></div></div>
+  <div class="item"><img src="img/IMG_4989.jpg" alt=""><div><strong>IMG_4989.jpg</strong><span>Chaqueta beige con logo, planta al fondo</span><br><span class="tag">Dotación</span></div></div>
+  <div class="item"><img src="img/IMG_5501.jpg" alt=""><div><strong>IMG_5501.jpg</strong><span>Sudaderas Café Don Fernando dobladas</span><br><span class="tag">Dotación</span></div></div>
+  <div class="item"><img src="img/IMG_0500.jpg" alt=""><div><strong>IMG_0500.jpg</strong><span>Cabezales con gorras verde oliva</span><br><span class="tag">Proceso</span></div></div>
+  <div class="item"><img src="img/IMG_5284.jpg" alt=""><div><strong>IMG_5284.jpg</strong><span>Gorras TT 500 en fila con cabezales</span><br><span class="tag">Proceso</span></div></div>
+  <div class="item"><img src="img/IMG_7839.jpg" alt=""><div><strong>IMG_7839.jpg</strong><span>Gorras El Abuelo sobre mesa de planta</span><br><span class="tag">Proceso</span></div></div>
+  <div class="item"><img src="img/IMG_8627.jpg" alt=""><div><strong>IMG_8627.jpg</strong><span>Gorras DSC sobre mesa de planta</span><br><span class="tag">Proceso</span></div></div>
+  <div class="item"><img src="img/IMG_9802.jpg" alt=""><div><strong>IMG_9802.jpg</strong><span>Gorras PALMO con cabezales al fondo</span><br><span class="tag">Proceso</span></div></div>
+  <div class="item"><img src="img/IMG_7343.jpg" alt=""><div><strong>IMG_7343.jpg</strong><span>Logo GM Proyectos Eléctricos bordado</span><br><span class="tag">Clientes</span></div></div>
+  <div class="item"><img src="img/IMG_9031.jpg" alt=""><div><strong>IMG_9031.jpg</strong><span>Gorra Secretaría de Educación de Caldas</span><br><span class="tag">Clientes</span></div></div>
+</div>
+
+<h2>Requieren confirmación antes de usar</h2>
+<p class="lede">Tienen un nombre propio visible. Por las reglas acordadas, no se publican sin permiso.</p>
+<div class="grid">
+  <div class="item"><img src="img/IMG_0720.jpg" alt=""><div><strong>IMG_0720.JPG</strong><span>Polo beige con un nombre personal bordado en el hombro</span><br><span class="tag stop">Nombre visible</span></div></div>
+  <div class="item"><img src="img/IMG_0722.jpg" alt=""><div><strong>IMG_0722.mov</strong><span>Toalla con “Carlos” bordado · 4K</span><br><span class="tag stop">Nombre visible</span></div></div>
+  <div class="item"><img src="img/IMG_5494.jpg" alt=""><div><strong>IMG_5494.jpg</strong><span>Toalla con personajes y “Guadalupe”: posible nombre de un menor</span><br><span class="tag stop">Nombre visible</span></div></div>
+  <div class="item"><img src="img/IMG_7565.jpg" alt=""><div><strong>IMG_7565.mov</strong><span>Gorra roja con un nombre en letra script</span><br><span class="tag stop">Nombre visible</span></div></div>
+</div>
+<p class="lede">No se encontraron menores con rostro identificable ni marcas de la competencia en el material revisado.</p>
+
+<h2>Sin reemplazo bueno: pedir al cliente</h2>
+<div class="table-wrap"><table>
+  <tr><th>Qué</th><th>Por qué</th><th>Especificación sugerida</th></tr>
+  <tr><td>Video de confección (máquina de coser)</td><td>El único que hay es 720p a 1,6 Mbps, y las tomas crudas de confección también son 720p</td><td>Horizontal 1080p o 4K, 10–20 s, trípode o mano firme, buena luz</td></tr>
+  <tr><td>Hero de escritorio en mayor resolución</td><td>El video y el póster actuales son de 1920 px; en monitores retina se estiran 1,5×. Se ven bien, pero no son nítidos</td><td>La misma toma de los 6 cabezales en 4K horizontal, 15 s, sin movimiento de cámara</td></tr>
+  <tr><td>Fotos nuevas de antifluido, industrial y escolares</td><td>El AirDrop no trae nada de estas líneas. Las actuales están bien, pero son pocas: entre 2 y 7 por línea</td><td>Prendas puestas o en maniquí, con fondo limpio y vertical. En escolares, sin rostros de menores</td></tr>
+</table></div>
+
+</main>
+</body>
+</html>
