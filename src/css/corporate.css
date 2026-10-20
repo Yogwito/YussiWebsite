@@ -337,7 +337,7 @@ html.lightbox-open { overflow: hidden; padding-right: var(--lightbox-gap, 0px); 
 }
 
 /* ── Contacto: ubicación + mapa (fachada, iframe inyectado por contact-map.js) ── */
-.contact-location { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(1.25rem, 3vw, 2.5rem); align-items: stretch; }
+.contact-location { margin-top: clamp(2.5rem, 5vw, 4rem); display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(1.25rem, 3vw, 2.5rem); align-items: stretch; }
 .location-info { background: var(--navy-2); color: #c2cedd; border-radius: var(--corporate-radius); padding: clamp(1.5rem, 3vw, 2.5rem); font-size: 0.92rem; }
 .location-info h3 { color: var(--white); font-size: 1.35rem; font-weight: 600; margin-bottom: 1.25rem; }
 .location-info dt { color: var(--cyan); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 1rem; }
