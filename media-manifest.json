@@ -1,8 +1,17 @@
 {
-  "generated": "2026-10-19",
+  "generated": "2026-10-20",
   "note": "Medios publicados que usa la página. alt_es/alt_en vacíos = decorativo o sin texto alternativo. Ver public/media/README.md.",
-  "count": 387,
+  "count": 467,
   "files": [
+    {
+      "path": "/favicon.ico",
+      "file": "public/favicon.ico",
+      "section": "marca",
+      "bytes": 15086,
+      "dimensions": "48x48",
+      "alt_es": null,
+      "alt_en": null
+    },
     {
       "path": "/media/brand/apple-touch-icon.png",
       "file": "public/media/brand/apple-touch-icon.png",
@@ -38,6 +47,15 @@
       "dimensions": "1200x630",
       "alt_es": null,
       "alt_en": null
+    },
+    {
+      "path": "/media/brand/og-logo.jpg",
+      "file": "public/media/brand/og-logo.jpg",
+      "section": "marca",
+      "alt_es": null,
+      "alt_en": null,
+      "bytes": 42158,
+      "dimensions": "1200x630"
     },
     {
       "path": "/media/brand/yussi-logo.png",
@@ -436,23 +454,50 @@
       "alt_en": null
     },
     {
-      "path": "/media/hero/hero-produccion-movil.mp4",
-      "file": "public/media/hero/hero-produccion-movil.mp4",
+      "path": "/media/hero/hero-planta-movil.mp4",
+      "file": "public/media/hero/hero-planta-movil.mp4",
       "section": "hero",
-      "bytes": 2458707,
-      "dimensions": "720x1280",
       "alt_es": null,
       "alt_en": null,
-      "duration_s": 16.4
+      "bytes": 2379969,
+      "dimensions": "720x1280",
+      "duration_s": 14.8
     },
     {
-      "path": "/media/hero/hero-produccion-poster-movil.webp",
-      "file": "public/media/hero/hero-produccion-poster-movil.webp",
+      "path": "/media/hero/hero-planta-poster-movil-1080.avif",
+      "file": "public/media/hero/hero-planta-poster-movil-1080.avif",
       "section": "hero",
-      "bytes": 57786,
-      "dimensions": "720x1280",
       "alt_es": null,
-      "alt_en": null
+      "alt_en": null,
+      "bytes": 116965,
+      "dimensions": "1080x1920"
+    },
+    {
+      "path": "/media/hero/hero-planta-poster-movil-1080.webp",
+      "file": "public/media/hero/hero-planta-poster-movil-1080.webp",
+      "section": "hero",
+      "alt_es": null,
+      "alt_en": null,
+      "bytes": 146368,
+      "dimensions": "1080x1920"
+    },
+    {
+      "path": "/media/hero/hero-planta-poster-movil-720.avif",
+      "file": "public/media/hero/hero-planta-poster-movil-720.avif",
+      "section": "hero",
+      "alt_es": null,
+      "alt_en": null,
+      "bytes": 65131,
+      "dimensions": "720x1280"
+    },
+    {
+      "path": "/media/hero/hero-planta-poster-movil-720.webp",
+      "file": "public/media/hero/hero-planta-poster-movil-720.webp",
+      "section": "hero",
+      "alt_es": null,
+      "alt_en": null,
+      "bytes": 83606,
+      "dimensions": "720x1280"
     },
     {
       "path": "/media/hero/hero-produccion-poster.webp",
@@ -508,6 +553,24 @@
       "dimensions": "1600x1200",
       "alt_es": "Cabezales bordando varias prendas a la vez",
       "alt_en": "Machine heads embroidering several garments at once"
+    },
+    {
+      "path": "/media/nosotros/nosotros-cabezales-trabajando-2000.avif",
+      "file": "public/media/nosotros/nosotros-cabezales-trabajando-2000.avif",
+      "section": "nosotros",
+      "alt_es": "Cabezales bordando varias prendas a la vez",
+      "alt_en": "Machine heads embroidering several garments at once",
+      "bytes": 328890,
+      "dimensions": "2000x1500"
+    },
+    {
+      "path": "/media/nosotros/nosotros-cabezales-trabajando-2000.webp",
+      "file": "public/media/nosotros/nosotros-cabezales-trabajando-2000.webp",
+      "section": "nosotros",
+      "alt_es": "Cabezales bordando varias prendas a la vez",
+      "alt_en": "Machine heads embroidering several garments at once",
+      "bytes": 399654,
+      "dimensions": "2000x1500"
     },
     {
       "path": "/media/nosotros/nosotros-cabezales-trabajando-400.avif",
@@ -582,6 +645,24 @@
       "alt_en": "Caps mounted on the embroidery machines"
     },
     {
+      "path": "/media/nosotros/nosotros-gorras-en-maquinas-2000.avif",
+      "file": "public/media/nosotros/nosotros-gorras-en-maquinas-2000.avif",
+      "section": "nosotros",
+      "alt_es": "Gorras montadas en las bordadoras",
+      "alt_en": "Caps mounted on the embroidery machines",
+      "bytes": 378442,
+      "dimensions": "2000x1500"
+    },
+    {
+      "path": "/media/nosotros/nosotros-gorras-en-maquinas-2000.webp",
+      "file": "public/media/nosotros/nosotros-gorras-en-maquinas-2000.webp",
+      "section": "nosotros",
+      "alt_es": "Gorras montadas en las bordadoras",
+      "alt_en": "Caps mounted on the embroidery machines",
+      "bytes": 400932,
+      "dimensions": "2000x1500"
+    },
+    {
       "path": "/media/nosotros/nosotros-gorras-en-maquinas-400.avif",
       "file": "public/media/nosotros/nosotros-gorras-en-maquinas-400.avif",
       "section": "nosotros",
@@ -652,6 +733,24 @@
       "dimensions": "1600x1200",
       "alt_es": "Bordadora Tajima de 6 cabezales con gorras",
       "alt_en": "Six-head Tajima embroidery machine with caps"
+    },
+    {
+      "path": "/media/nosotros/nosotros-maquina-6-cabezales-gorras-2000.avif",
+      "file": "public/media/nosotros/nosotros-maquina-6-cabezales-gorras-2000.avif",
+      "section": "nosotros",
+      "alt_es": "Bordadora Tajima de 6 cabezales con gorras",
+      "alt_en": "Six-head Tajima embroidery machine with caps",
+      "bytes": 368839,
+      "dimensions": "2000x1500"
+    },
+    {
+      "path": "/media/nosotros/nosotros-maquina-6-cabezales-gorras-2000.webp",
+      "file": "public/media/nosotros/nosotros-maquina-6-cabezales-gorras-2000.webp",
+      "section": "nosotros",
+      "alt_es": "Bordadora Tajima de 6 cabezales con gorras",
+      "alt_en": "Six-head Tajima embroidery machine with caps",
+      "bytes": 430262,
+      "dimensions": "2000x1500"
     },
     {
       "path": "/media/nosotros/nosotros-maquina-6-cabezales-gorras-400.avif",
@@ -762,6 +861,24 @@
       "alt_en": "Row of embroidery machines with a batch of caps in production"
     },
     {
+      "path": "/media/nosotros/nosotros-produccion-gorras-2000.avif",
+      "file": "public/media/nosotros/nosotros-produccion-gorras-2000.avif",
+      "section": "nosotros",
+      "alt_es": "Fila de bordadoras con un lote de gorras en producción",
+      "alt_en": "Row of embroidery machines with a batch of caps in production",
+      "bytes": 296788,
+      "dimensions": "2000x1500"
+    },
+    {
+      "path": "/media/nosotros/nosotros-produccion-gorras-2000.webp",
+      "file": "public/media/nosotros/nosotros-produccion-gorras-2000.webp",
+      "section": "nosotros",
+      "alt_es": "Fila de bordadoras con un lote de gorras en producción",
+      "alt_en": "Row of embroidery machines with a batch of caps in production",
+      "bytes": 363084,
+      "dimensions": "2000x1500"
+    },
+    {
       "path": "/media/nosotros/nosotros-produccion-gorras-400.avif",
       "file": "public/media/nosotros/nosotros-produccion-gorras-400.avif",
       "section": "nosotros",
@@ -832,6 +949,24 @@
       "dimensions": "1600x1200",
       "alt_es": "Logo de Delicias del Gran Tinto terminado en el bastidor",
       "alt_en": "Finished Delicias del Gran Tinto logo in the hoop"
+    },
+    {
+      "path": "/media/proceso/proceso-bastidor-delicias-2000.avif",
+      "file": "public/media/proceso/proceso-bastidor-delicias-2000.avif",
+      "section": "planta y proceso",
+      "alt_es": "Logo de Delicias del Gran Tinto terminado en el bastidor",
+      "alt_en": "Finished Delicias del Gran Tinto logo in the hoop",
+      "bytes": 528251,
+      "dimensions": "2000x1500"
+    },
+    {
+      "path": "/media/proceso/proceso-bastidor-delicias-2000.webp",
+      "file": "public/media/proceso/proceso-bastidor-delicias-2000.webp",
+      "section": "planta y proceso",
+      "alt_es": "Logo de Delicias del Gran Tinto terminado en el bastidor",
+      "alt_en": "Finished Delicias del Gran Tinto logo in the hoop",
+      "bytes": 755432,
+      "dimensions": "2000x1500"
     },
     {
       "path": "/media/proceso/proceso-bastidor-delicias-400.avif",
@@ -906,6 +1041,24 @@
       "alt_en": "Several hoops embroidering at once on the multi-head machine"
     },
     {
+      "path": "/media/proceso/proceso-bastidores-en-fila-2000.avif",
+      "file": "public/media/proceso/proceso-bastidores-en-fila-2000.avif",
+      "section": "planta y proceso",
+      "alt_es": "Varios bastidores bordando a la vez en la máquina multicabezal",
+      "alt_en": "Several hoops embroidering at once on the multi-head machine",
+      "bytes": 519104,
+      "dimensions": "2000x1500"
+    },
+    {
+      "path": "/media/proceso/proceso-bastidores-en-fila-2000.webp",
+      "file": "public/media/proceso/proceso-bastidores-en-fila-2000.webp",
+      "section": "planta y proceso",
+      "alt_es": "Varios bastidores bordando a la vez en la máquina multicabezal",
+      "alt_en": "Several hoops embroidering at once on the multi-head machine",
+      "bytes": 451936,
+      "dimensions": "2000x1500"
+    },
+    {
       "path": "/media/proceso/proceso-bastidores-en-fila-400.avif",
       "file": "public/media/proceso/proceso-bastidores-en-fila-400.avif",
       "section": "planta y proceso",
@@ -978,6 +1131,24 @@
       "alt_en": "La Arcadia logo being embroidered in the hoop"
     },
     {
+      "path": "/media/proceso/proceso-bordado-la-arcadia-2000.avif",
+      "file": "public/media/proceso/proceso-bordado-la-arcadia-2000.avif",
+      "section": "planta y proceso",
+      "alt_es": "Logo de La Arcadia bordándose en el bastidor",
+      "alt_en": "La Arcadia logo being embroidered in the hoop",
+      "bytes": 231312,
+      "dimensions": "2000x1500"
+    },
+    {
+      "path": "/media/proceso/proceso-bordado-la-arcadia-2000.webp",
+      "file": "public/media/proceso/proceso-bordado-la-arcadia-2000.webp",
+      "section": "planta y proceso",
+      "alt_es": "Logo de La Arcadia bordándose en el bastidor",
+      "alt_en": "La Arcadia logo being embroidered in the hoop",
+      "bytes": 314736,
+      "dimensions": "2000x1500"
+    },
+    {
       "path": "/media/proceso/proceso-bordado-la-arcadia-400.avif",
       "file": "public/media/proceso/proceso-bordado-la-arcadia-400.avif",
       "section": "planta y proceso",
@@ -1030,7 +1201,7 @@
       "dimensions": "1600x900",
       "alt_es": null,
       "alt_en": null,
-      "duration_s": 11.34
+      "duration_s": 11.3
     },
     {
       "path": "/media/proceso/proceso-cabezal-bordando-1200.avif",
@@ -1067,6 +1238,24 @@
       "dimensions": "1600x1200",
       "alt_es": "Cabezal Tajima bordando sobre una prenda negra",
       "alt_en": "Tajima head embroidering a black garment"
+    },
+    {
+      "path": "/media/proceso/proceso-cabezal-bordando-2000.avif",
+      "file": "public/media/proceso/proceso-cabezal-bordando-2000.avif",
+      "section": "planta y proceso",
+      "alt_es": "Cabezal Tajima bordando sobre una prenda negra",
+      "alt_en": "Tajima head embroidering a black garment",
+      "bytes": 649728,
+      "dimensions": "2000x1500"
+    },
+    {
+      "path": "/media/proceso/proceso-cabezal-bordando-2000.webp",
+      "file": "public/media/proceso/proceso-cabezal-bordando-2000.webp",
+      "section": "planta y proceso",
+      "alt_es": "Cabezal Tajima bordando sobre una prenda negra",
+      "alt_en": "Tajima head embroidering a black garment",
+      "bytes": 784228,
+      "dimensions": "2000x1500"
     },
     {
       "path": "/media/proceso/proceso-cabezal-bordando-400.avif",
@@ -1214,6 +1403,24 @@
       "alt_en": "Operator hooping a garment on the embroidery machine"
     },
     {
+      "path": "/media/proceso/proceso-montaje-bastidor-2000.avif",
+      "file": "public/media/proceso/proceso-montaje-bastidor-2000.avif",
+      "section": "planta y proceso",
+      "alt_es": "Operaria montando una prenda en el bastidor de la bordadora",
+      "alt_en": "Operator hooping a garment on the embroidery machine",
+      "bytes": 594863,
+      "dimensions": "2000x1500"
+    },
+    {
+      "path": "/media/proceso/proceso-montaje-bastidor-2000.webp",
+      "file": "public/media/proceso/proceso-montaje-bastidor-2000.webp",
+      "section": "planta y proceso",
+      "alt_es": "Operaria montando una prenda en el bastidor de la bordadora",
+      "alt_en": "Operator hooping a garment on the embroidery machine",
+      "bytes": 728176,
+      "dimensions": "2000x1500"
+    },
+    {
       "path": "/media/proceso/proceso-montaje-bastidor-400.avif",
       "file": "public/media/proceso/proceso-montaje-bastidor-400.avif",
       "section": "planta y proceso",
@@ -1322,6 +1529,24 @@
       "alt_en": "Black garment in the hoop during embroidery"
     },
     {
+      "path": "/media/proceso/proceso-prenda-en-maquina-2000.avif",
+      "file": "public/media/proceso/proceso-prenda-en-maquina-2000.avif",
+      "section": "planta y proceso",
+      "alt_es": "Prenda negra en el bastidor durante el bordado",
+      "alt_en": "Black garment in the hoop during embroidery",
+      "bytes": 211767,
+      "dimensions": "2000x1500"
+    },
+    {
+      "path": "/media/proceso/proceso-prenda-en-maquina-2000.webp",
+      "file": "public/media/proceso/proceso-prenda-en-maquina-2000.webp",
+      "section": "planta y proceso",
+      "alt_es": "Prenda negra en el bastidor durante el bordado",
+      "alt_en": "Black garment in the hoop during embroidery",
+      "bytes": 264100,
+      "dimensions": "2000x1500"
+    },
+    {
       "path": "/media/proceso/proceso-prenda-en-maquina-400.avif",
       "file": "public/media/proceso/proceso-prenda-en-maquina-400.avif",
       "section": "planta y proceso",
@@ -1392,6 +1617,24 @@
       "dimensions": "1600x1792",
       "alt_es": "Bata blanca de laboratorio sobre uniforme antifluido azul y gorro estampado",
       "alt_en": "White lab coat over a blue fluid-repellent uniform with a printed scrub cap"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-bata-2000.avif",
+      "file": "public/media/productos/antifluido/antifluido-bata-2000.avif",
+      "section": "productos/antifluido",
+      "alt_es": "Bata blanca de laboratorio sobre uniforme antifluido azul y gorro estampado",
+      "alt_en": "White lab coat over a blue fluid-repellent uniform with a printed scrub cap",
+      "bytes": 177505,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-bata-2000.webp",
+      "file": "public/media/productos/antifluido/antifluido-bata-2000.webp",
+      "section": "productos/antifluido",
+      "alt_es": "Bata blanca de laboratorio sobre uniforme antifluido azul y gorro estampado",
+      "alt_en": "White lab coat over a blue fluid-repellent uniform with a printed scrub cap",
+      "bytes": 162750,
+      "dimensions": "2000x2240"
     },
     {
       "path": "/media/productos/antifluido/antifluido-bata-400.avif",
@@ -1466,6 +1709,24 @@
       "alt_en": "White chef jacket with piping and chef hat"
     },
     {
+      "path": "/media/productos/antifluido/antifluido-chef-blanca-2000.avif",
+      "file": "public/media/productos/antifluido/antifluido-chef-blanca-2000.avif",
+      "section": "productos/antifluido",
+      "alt_es": "Chaqueta de chef blanca con ribete y gorro de cocina",
+      "alt_en": "White chef jacket with piping and chef hat",
+      "bytes": 231629,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-chef-blanca-2000.webp",
+      "file": "public/media/productos/antifluido/antifluido-chef-blanca-2000.webp",
+      "section": "productos/antifluido",
+      "alt_es": "Chaqueta de chef blanca con ribete y gorro de cocina",
+      "alt_en": "White chef jacket with piping and chef hat",
+      "bytes": 223514,
+      "dimensions": "2000x2240"
+    },
+    {
       "path": "/media/productos/antifluido/antifluido-chef-blanca-400.avif",
       "file": "public/media/productos/antifluido/antifluido-chef-blanca-400.avif",
       "section": "productos/antifluido",
@@ -1536,6 +1797,24 @@
       "dimensions": "1600x1792",
       "alt_es": "Chaqueta de chef verde menta con el logo bordado de un restaurante",
       "alt_en": "Mint chef jacket with a restaurant’s embroidered logo"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-chef-menta-2000.avif",
+      "file": "public/media/productos/antifluido/antifluido-chef-menta-2000.avif",
+      "section": "productos/antifluido",
+      "alt_es": "Chaqueta de chef verde menta con el logo bordado de un restaurante",
+      "alt_en": "Mint chef jacket with a restaurant’s embroidered logo",
+      "bytes": 507046,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-chef-menta-2000.webp",
+      "file": "public/media/productos/antifluido/antifluido-chef-menta-2000.webp",
+      "section": "productos/antifluido",
+      "alt_es": "Chaqueta de chef verde menta con el logo bordado de un restaurante",
+      "alt_en": "Mint chef jacket with a restaurant’s embroidered logo",
+      "bytes": 760620,
+      "dimensions": "2000x2240"
     },
     {
       "path": "/media/productos/antifluido/antifluido-chef-menta-400.avif",
@@ -1610,6 +1889,24 @@
       "alt_en": "Red fluid-repellent apron shedding water droplets"
     },
     {
+      "path": "/media/productos/antifluido/antifluido-delantal-repelente-2000.avif",
+      "file": "public/media/productos/antifluido/antifluido-delantal-repelente-2000.avif",
+      "section": "productos/antifluido",
+      "alt_es": "Delantal antifluido rojo repeliendo gotas de agua",
+      "alt_en": "Red fluid-repellent apron shedding water droplets",
+      "bytes": 312053,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-delantal-repelente-2000.webp",
+      "file": "public/media/productos/antifluido/antifluido-delantal-repelente-2000.webp",
+      "section": "productos/antifluido",
+      "alt_es": "Delantal antifluido rojo repeliendo gotas de agua",
+      "alt_en": "Red fluid-repellent apron shedding water droplets",
+      "bytes": 321810,
+      "dimensions": "2000x2240"
+    },
+    {
       "path": "/media/productos/antifluido/antifluido-delantal-repelente-400.avif",
       "file": "public/media/productos/antifluido/antifluido-delantal-repelente-400.avif",
       "section": "productos/antifluido",
@@ -1680,6 +1977,24 @@
       "dimensions": "1600x1792",
       "alt_es": "Dos profesionales con uniformes antifluido en azul índigo y malva",
       "alt_en": "Two professionals in indigo and mauve fluid-repellent uniforms"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-duo-indigo-malva-2000.avif",
+      "file": "public/media/productos/antifluido/antifluido-duo-indigo-malva-2000.avif",
+      "section": "productos/antifluido",
+      "alt_es": "Dos profesionales con uniformes antifluido en azul índigo y malva",
+      "alt_en": "Two professionals in indigo and mauve fluid-repellent uniforms",
+      "bytes": 226740,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-duo-indigo-malva-2000.webp",
+      "file": "public/media/productos/antifluido/antifluido-duo-indigo-malva-2000.webp",
+      "section": "productos/antifluido",
+      "alt_es": "Dos profesionales con uniformes antifluido en azul índigo y malva",
+      "alt_en": "Two professionals in indigo and mauve fluid-repellent uniforms",
+      "bytes": 206758,
+      "dimensions": "2000x2240"
     },
     {
       "path": "/media/productos/antifluido/antifluido-duo-indigo-malva-400.avif",
@@ -1763,6 +2078,24 @@
       "alt_en": "Teal V-neck fluid-repellent uniform"
     },
     {
+      "path": "/media/productos/antifluido/antifluido-verde-agua-2000.avif",
+      "file": "public/media/productos/antifluido/antifluido-verde-agua-2000.avif",
+      "section": "productos/antifluido",
+      "alt_es": "Uniforme antifluido verde agua de cuello en V",
+      "alt_en": "Teal V-neck fluid-repellent uniform",
+      "bytes": 263038,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-verde-agua-2000.webp",
+      "file": "public/media/productos/antifluido/antifluido-verde-agua-2000.webp",
+      "section": "productos/antifluido",
+      "alt_es": "Uniforme antifluido verde agua de cuello en V",
+      "alt_en": "Teal V-neck fluid-repellent uniform",
+      "bytes": 261450,
+      "dimensions": "2000x2240"
+    },
+    {
       "path": "/media/productos/antifluido/antifluido-verde-agua-400.avif",
       "file": "public/media/productos/antifluido/antifluido-verde-agua-400.avif",
       "section": "productos/antifluido",
@@ -1833,6 +2166,24 @@
       "dimensions": "1600x1792",
       "alt_es": "Uniforme antifluido vinotinto con ribete blanco",
       "alt_en": "Burgundy fluid-repellent uniform with white piping"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-vinotinto-2000.avif",
+      "file": "public/media/productos/antifluido/antifluido-vinotinto-2000.avif",
+      "section": "productos/antifluido",
+      "alt_es": "Uniforme antifluido vinotinto con ribete blanco",
+      "alt_en": "Burgundy fluid-repellent uniform with white piping",
+      "bytes": 354857,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/antifluido/antifluido-vinotinto-2000.webp",
+      "file": "public/media/productos/antifluido/antifluido-vinotinto-2000.webp",
+      "section": "productos/antifluido",
+      "alt_es": "Uniforme antifluido vinotinto con ribete blanco",
+      "alt_en": "Burgundy fluid-repellent uniform with white piping",
+      "bytes": 410456,
+      "dimensions": "2000x2240"
     },
     {
       "path": "/media/productos/antifluido/antifluido-vinotinto-400.avif",
@@ -1907,6 +2258,24 @@
       "alt_en": "Horse embroidered in grey tones with thread gradients"
     },
     {
+      "path": "/media/productos/bordado/bordado-caballo-2000.avif",
+      "file": "public/media/productos/bordado/bordado-caballo-2000.avif",
+      "section": "productos/bordado",
+      "alt_es": "Caballo bordado en tonos grises con degradados de hilo",
+      "alt_en": "Horse embroidered in grey tones with thread gradients",
+      "bytes": 532293,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-caballo-2000.webp",
+      "file": "public/media/productos/bordado/bordado-caballo-2000.webp",
+      "section": "productos/bordado",
+      "alt_es": "Caballo bordado en tonos grises con degradados de hilo",
+      "alt_en": "Horse embroidered in grey tones with thread gradients",
+      "bytes": 562294,
+      "dimensions": "2000x2240"
+    },
+    {
       "path": "/media/productos/bordado/bordado-caballo-400.avif",
       "file": "public/media/productos/bordado/bordado-caballo-400.avif",
       "section": "productos/bordado",
@@ -1977,6 +2346,24 @@
       "dimensions": "1600x1792",
       "alt_es": "Bordado a todo color del logo Carne de Cerdo al Mayor y al Detal",
       "alt_en": "Full-color embroidery of the Carne de Cerdo al Mayor y al Detal logo"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-carne-de-cerdo-2000.avif",
+      "file": "public/media/productos/bordado/bordado-carne-de-cerdo-2000.avif",
+      "section": "productos/bordado",
+      "alt_es": "Bordado a todo color del logo Carne de Cerdo al Mayor y al Detal",
+      "alt_en": "Full-color embroidery of the Carne de Cerdo al Mayor y al Detal logo",
+      "bytes": 374914,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-carne-de-cerdo-2000.webp",
+      "file": "public/media/productos/bordado/bordado-carne-de-cerdo-2000.webp",
+      "section": "productos/bordado",
+      "alt_es": "Bordado a todo color del logo Carne de Cerdo al Mayor y al Detal",
+      "alt_en": "Full-color embroidery of the Carne de Cerdo al Mayor y al Detal logo",
+      "bytes": 692156,
+      "dimensions": "2000x2240"
     },
     {
       "path": "/media/productos/bordado/bordado-carne-de-cerdo-400.avif",
@@ -2051,6 +2438,24 @@
       "alt_en": "Colombian coat of arms embroidered with high stitch density"
     },
     {
+      "path": "/media/productos/bordado/bordado-escudo-colombia-2000.avif",
+      "file": "public/media/productos/bordado/bordado-escudo-colombia-2000.avif",
+      "section": "productos/bordado",
+      "alt_es": "Escudo de Colombia bordado con alta densidad de puntadas",
+      "alt_en": "Colombian coat of arms embroidered with high stitch density",
+      "bytes": 636134,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-escudo-colombia-2000.webp",
+      "file": "public/media/productos/bordado/bordado-escudo-colombia-2000.webp",
+      "section": "productos/bordado",
+      "alt_es": "Escudo de Colombia bordado con alta densidad de puntadas",
+      "alt_en": "Colombian coat of arms embroidered with high stitch density",
+      "bytes": 994662,
+      "dimensions": "2000x2240"
+    },
+    {
       "path": "/media/productos/bordado/bordado-escudo-colombia-400.avif",
       "file": "public/media/productos/bordado/bordado-escudo-colombia-400.avif",
       "section": "productos/bordado",
@@ -2121,6 +2526,24 @@
       "dimensions": "1600x1792",
       "alt_es": "Escudo bordado de La Arcadia Panadería y Pastelería",
       "alt_en": "Embroidered crest for La Arcadia bakery"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-la-arcadia-2000.avif",
+      "file": "public/media/productos/bordado/bordado-la-arcadia-2000.avif",
+      "section": "productos/bordado",
+      "alt_es": "Escudo bordado de La Arcadia Panadería y Pastelería",
+      "alt_en": "Embroidered crest for La Arcadia bakery",
+      "bytes": 411837,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-la-arcadia-2000.webp",
+      "file": "public/media/productos/bordado/bordado-la-arcadia-2000.webp",
+      "section": "productos/bordado",
+      "alt_es": "Escudo bordado de La Arcadia Panadería y Pastelería",
+      "alt_en": "Embroidered crest for La Arcadia bakery",
+      "bytes": 470056,
+      "dimensions": "2000x2240"
     },
     {
       "path": "/media/productos/bordado/bordado-la-arcadia-400.avif",
@@ -2195,6 +2618,24 @@
       "alt_en": "Metallic-thread embroidery “Aquí Abajo, Mexican Soul by La Vikina”"
     },
     {
+      "path": "/media/productos/bordado/bordado-la-vikina-2000.avif",
+      "file": "public/media/productos/bordado/bordado-la-vikina-2000.avif",
+      "section": "productos/bordado",
+      "alt_es": "Bordado con hilo metalizado “Aquí Abajo, Mexican Soul by La Vikina”",
+      "alt_en": "Metallic-thread embroidery “Aquí Abajo, Mexican Soul by La Vikina”",
+      "bytes": 508193,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-la-vikina-2000.webp",
+      "file": "public/media/productos/bordado/bordado-la-vikina-2000.webp",
+      "section": "productos/bordado",
+      "alt_es": "Bordado con hilo metalizado “Aquí Abajo, Mexican Soul by La Vikina”",
+      "alt_en": "Metallic-thread embroidery “Aquí Abajo, Mexican Soul by La Vikina”",
+      "bytes": 485118,
+      "dimensions": "2000x2240"
+    },
+    {
       "path": "/media/productos/bordado/bordado-la-vikina-400.avif",
       "file": "public/media/productos/bordado/bordado-la-vikina-400.avif",
       "section": "productos/bordado",
@@ -2267,6 +2708,24 @@
       "alt_en": "Detailed embroidered motorcyclist on dark blue fabric"
     },
     {
+      "path": "/media/productos/bordado/bordado-motociclista-2000.avif",
+      "file": "public/media/productos/bordado/bordado-motociclista-2000.avif",
+      "section": "productos/bordado",
+      "alt_es": "Motociclista bordado en detalle sobre tela azul oscuro",
+      "alt_en": "Detailed embroidered motorcyclist on dark blue fabric",
+      "bytes": 432283,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-motociclista-2000.webp",
+      "file": "public/media/productos/bordado/bordado-motociclista-2000.webp",
+      "section": "productos/bordado",
+      "alt_es": "Motociclista bordado en detalle sobre tela azul oscuro",
+      "alt_en": "Detailed embroidered motorcyclist on dark blue fabric",
+      "bytes": 874704,
+      "dimensions": "2000x2240"
+    },
+    {
       "path": "/media/productos/bordado/bordado-motociclista-400.avif",
       "file": "public/media/productos/bordado/bordado-motociclista-400.avif",
       "section": "productos/bordado",
@@ -2337,6 +2796,24 @@
       "dimensions": "1600x1792",
       "alt_es": "Parche bordado circular de la Fundación Internacional María Luisa de Moreno",
       "alt_en": "Round embroidered patch for the María Luisa de Moreno International Foundation"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-parche-fimlm-2000.avif",
+      "file": "public/media/productos/bordado/bordado-parche-fimlm-2000.avif",
+      "section": "productos/bordado",
+      "alt_es": "Parche bordado circular de la Fundación Internacional María Luisa de Moreno",
+      "alt_en": "Round embroidered patch for the María Luisa de Moreno International Foundation",
+      "bytes": 402314,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-parche-fimlm-2000.webp",
+      "file": "public/media/productos/bordado/bordado-parche-fimlm-2000.webp",
+      "section": "productos/bordado",
+      "alt_es": "Parche bordado circular de la Fundación Internacional María Luisa de Moreno",
+      "alt_en": "Round embroidered patch for the María Luisa de Moreno International Foundation",
+      "bytes": 432428,
+      "dimensions": "2000x2240"
     },
     {
       "path": "/media/productos/bordado/bordado-parche-fimlm-400.avif",
@@ -2420,6 +2897,24 @@
       "alt_en": "Towel embroidered with a dog and the name Gus"
     },
     {
+      "path": "/media/productos/bordado/bordado-toalla-personalizada-2000.avif",
+      "file": "public/media/productos/bordado/bordado-toalla-personalizada-2000.avif",
+      "section": "productos/bordado",
+      "alt_es": "Toalla bordada con un perro y el nombre Gus",
+      "alt_en": "Towel embroidered with a dog and the name Gus",
+      "bytes": 353989,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/bordado/bordado-toalla-personalizada-2000.webp",
+      "file": "public/media/productos/bordado/bordado-toalla-personalizada-2000.webp",
+      "section": "productos/bordado",
+      "alt_es": "Toalla bordada con un perro y el nombre Gus",
+      "alt_en": "Towel embroidered with a dog and the name Gus",
+      "bytes": 431052,
+      "dimensions": "2000x2240"
+    },
+    {
       "path": "/media/productos/bordado/bordado-toalla-personalizada-400.avif",
       "file": "public/media/productos/bordado/bordado-toalla-personalizada-400.avif",
       "section": "productos/bordado",
@@ -2490,6 +2985,24 @@
       "dimensions": "1600x1792",
       "alt_es": "Camisa de oficina con el logo bordado de Hernández &amp; Giraldo Abogados",
       "alt_en": "Office shirt with the embroidered Hernández &amp; Giraldo Abogados logo"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-camisa-abogados-2000.avif",
+      "file": "public/media/productos/dotacion/dotacion-camisa-abogados-2000.avif",
+      "section": "productos/dotacion",
+      "alt_es": "Camisa de oficina con el logo bordado de Hernández &amp; Giraldo Abogados",
+      "alt_en": "Office shirt with the embroidered Hernández &amp; Giraldo Abogados logo",
+      "bytes": 559470,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-camisa-abogados-2000.webp",
+      "file": "public/media/productos/dotacion/dotacion-camisa-abogados-2000.webp",
+      "section": "productos/dotacion",
+      "alt_es": "Camisa de oficina con el logo bordado de Hernández &amp; Giraldo Abogados",
+      "alt_en": "Office shirt with the embroidered Hernández &amp; Giraldo Abogados logo",
+      "bytes": 727356,
+      "dimensions": "2000x2240"
     },
     {
       "path": "/media/productos/dotacion/dotacion-camisa-abogados-400.avif",
@@ -2564,6 +3077,24 @@
       "alt_en": "Quilted vest with the embroidered Artesanías de Aguadas logo, seen from behind"
     },
     {
+      "path": "/media/productos/dotacion/dotacion-chaleco-artesanias-2000.avif",
+      "file": "public/media/productos/dotacion/dotacion-chaleco-artesanias-2000.avif",
+      "section": "productos/dotacion",
+      "alt_es": "Chaleco acolchado con el logo bordado de Artesanías de Aguadas, visto de espaldas",
+      "alt_en": "Quilted vest with the embroidered Artesanías de Aguadas logo, seen from behind",
+      "bytes": 209576,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-chaleco-artesanias-2000.webp",
+      "file": "public/media/productos/dotacion/dotacion-chaleco-artesanias-2000.webp",
+      "section": "productos/dotacion",
+      "alt_es": "Chaleco acolchado con el logo bordado de Artesanías de Aguadas, visto de espaldas",
+      "alt_en": "Quilted vest with the embroidered Artesanías de Aguadas logo, seen from behind",
+      "bytes": 240436,
+      "dimensions": "2000x2240"
+    },
+    {
       "path": "/media/productos/dotacion/dotacion-chaleco-artesanias-400.avif",
       "file": "public/media/productos/dotacion/dotacion-chaleco-artesanias-400.avif",
       "section": "productos/dotacion",
@@ -2598,42 +3129,6 @@
       "dimensions": "800x896",
       "alt_es": "Chaleco acolchado con el logo bordado de Artesanías de Aguadas, visto de espaldas",
       "alt_en": "Quilted vest with the embroidered Artesanías de Aguadas logo, seen from behind"
-    },
-    {
-      "path": "/media/productos/dotacion/dotacion-delantal-asao-400.avif",
-      "file": "public/media/productos/dotacion/dotacion-delantal-asao-400.avif",
-      "section": "productos/dotacion",
-      "bytes": 9900,
-      "dimensions": "400x448",
-      "alt_es": "Delantal de cocina negro con detalles rojos, bordado con un toro y el texto Asao o qué?",
-      "alt_en": "Black kitchen apron with red trim, embroidered with a bull and the text Asao o qué?"
-    },
-    {
-      "path": "/media/productos/dotacion/dotacion-delantal-asao-400.webp",
-      "file": "public/media/productos/dotacion/dotacion-delantal-asao-400.webp",
-      "section": "productos/dotacion",
-      "bytes": 10568,
-      "dimensions": "400x448",
-      "alt_es": "Delantal de cocina negro con detalles rojos, bordado con un toro y el texto Asao o qué?",
-      "alt_en": "Black kitchen apron with red trim, embroidered with a bull and the text Asao o qué?"
-    },
-    {
-      "path": "/media/productos/dotacion/dotacion-delantal-asao-800.avif",
-      "file": "public/media/productos/dotacion/dotacion-delantal-asao-800.avif",
-      "section": "productos/dotacion",
-      "bytes": 32459,
-      "dimensions": "800x896",
-      "alt_es": "Delantal de cocina negro con detalles rojos, bordado con un toro y el texto Asao o qué?",
-      "alt_en": "Black kitchen apron with red trim, embroidered with a bull and the text Asao o qué?"
-    },
-    {
-      "path": "/media/productos/dotacion/dotacion-delantal-asao-800.webp",
-      "file": "public/media/productos/dotacion/dotacion-delantal-asao-800.webp",
-      "section": "productos/dotacion",
-      "bytes": 34336,
-      "dimensions": "800x896",
-      "alt_es": "Delantal de cocina negro con detalles rojos, bordado con un toro y el texto Asao o qué?",
-      "alt_en": "Black kitchen apron with red trim, embroidered with a bull and the text Asao o qué?"
     },
     {
       "path": "/media/productos/dotacion/dotacion-delantal-asao-1200.avif",
@@ -2672,6 +3167,60 @@
       "alt_en": "Black kitchen apron with red trim, embroidered with a bull and the text Asao o qué?"
     },
     {
+      "path": "/media/productos/dotacion/dotacion-delantal-asao-2000.avif",
+      "file": "public/media/productos/dotacion/dotacion-delantal-asao-2000.avif",
+      "section": "productos/dotacion",
+      "alt_es": "Delantal de cocina negro con detalles rojos, bordado con un toro y el texto Asao o qué?",
+      "alt_en": "Black kitchen apron with red trim, embroidered with a bull and the text Asao o qué?",
+      "bytes": 219766,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-delantal-asao-2000.webp",
+      "file": "public/media/productos/dotacion/dotacion-delantal-asao-2000.webp",
+      "section": "productos/dotacion",
+      "alt_es": "Delantal de cocina negro con detalles rojos, bordado con un toro y el texto Asao o qué?",
+      "alt_en": "Black kitchen apron with red trim, embroidered with a bull and the text Asao o qué?",
+      "bytes": 243390,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-delantal-asao-400.avif",
+      "file": "public/media/productos/dotacion/dotacion-delantal-asao-400.avif",
+      "section": "productos/dotacion",
+      "bytes": 9900,
+      "dimensions": "400x448",
+      "alt_es": "Delantal de cocina negro con detalles rojos, bordado con un toro y el texto Asao o qué?",
+      "alt_en": "Black kitchen apron with red trim, embroidered with a bull and the text Asao o qué?"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-delantal-asao-400.webp",
+      "file": "public/media/productos/dotacion/dotacion-delantal-asao-400.webp",
+      "section": "productos/dotacion",
+      "bytes": 10568,
+      "dimensions": "400x448",
+      "alt_es": "Delantal de cocina negro con detalles rojos, bordado con un toro y el texto Asao o qué?",
+      "alt_en": "Black kitchen apron with red trim, embroidered with a bull and the text Asao o qué?"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-delantal-asao-800.avif",
+      "file": "public/media/productos/dotacion/dotacion-delantal-asao-800.avif",
+      "section": "productos/dotacion",
+      "bytes": 32459,
+      "dimensions": "800x896",
+      "alt_es": "Delantal de cocina negro con detalles rojos, bordado con un toro y el texto Asao o qué?",
+      "alt_en": "Black kitchen apron with red trim, embroidered with a bull and the text Asao o qué?"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-delantal-asao-800.webp",
+      "file": "public/media/productos/dotacion/dotacion-delantal-asao-800.webp",
+      "section": "productos/dotacion",
+      "bytes": 34336,
+      "dimensions": "800x896",
+      "alt_es": "Delantal de cocina negro con detalles rojos, bordado con un toro y el texto Asao o qué?",
+      "alt_en": "Black kitchen apron with red trim, embroidered with a bull and the text Asao o qué?"
+    },
+    {
       "path": "/media/productos/dotacion/dotacion-equipo-polos-gorras-1200.avif",
       "file": "public/media/productos/dotacion/dotacion-equipo-polos-gorras-1200.avif",
       "section": "productos/dotacion",
@@ -2706,6 +3255,24 @@
       "dimensions": "1600x1792",
       "alt_es": "Dos personas con polo negro y gorra bordada como uniforme de equipo",
       "alt_en": "Two people wearing black polos and embroidered caps as a team uniform"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-equipo-polos-gorras-2000.avif",
+      "file": "public/media/productos/dotacion/dotacion-equipo-polos-gorras-2000.avif",
+      "section": "productos/dotacion",
+      "alt_es": "Dos personas con polo negro y gorra bordada como uniforme de equipo",
+      "alt_en": "Two people wearing black polos and embroidered caps as a team uniform",
+      "bytes": 236325,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-equipo-polos-gorras-2000.webp",
+      "file": "public/media/productos/dotacion/dotacion-equipo-polos-gorras-2000.webp",
+      "section": "productos/dotacion",
+      "alt_es": "Dos personas con polo negro y gorra bordada como uniforme de equipo",
+      "alt_en": "Two people wearing black polos and embroidered caps as a team uniform",
+      "bytes": 248672,
+      "dimensions": "2000x2240"
     },
     {
       "path": "/media/productos/dotacion/dotacion-equipo-polos-gorras-400.avif",
@@ -2780,6 +3347,24 @@
       "alt_en": "Quilted vest and jacket with embroidered caps for Flags uniforms"
     },
     {
+      "path": "/media/productos/dotacion/dotacion-kit-flags-2000.avif",
+      "file": "public/media/productos/dotacion/dotacion-kit-flags-2000.avif",
+      "section": "productos/dotacion",
+      "alt_es": "Chaleco y chaqueta acolchados con gorras bordadas para la dotación de Flags",
+      "alt_en": "Quilted vest and jacket with embroidered caps for Flags uniforms",
+      "bytes": 266315,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-kit-flags-2000.webp",
+      "file": "public/media/productos/dotacion/dotacion-kit-flags-2000.webp",
+      "section": "productos/dotacion",
+      "alt_es": "Chaleco y chaqueta acolchados con gorras bordadas para la dotación de Flags",
+      "alt_en": "Quilted vest and jacket with embroidered caps for Flags uniforms",
+      "bytes": 305818,
+      "dimensions": "2000x2240"
+    },
+    {
       "path": "/media/productos/dotacion/dotacion-kit-flags-400.avif",
       "file": "public/media/productos/dotacion/dotacion-kit-flags-400.avif",
       "section": "productos/dotacion",
@@ -2850,6 +3435,24 @@
       "dimensions": "1600x1792",
       "alt_es": "Polo azul marino con logo bordado junto a las bordadoras",
       "alt_en": "Navy polo with embroidered logo next to the embroidery machines"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-polo-maquina-2000.avif",
+      "file": "public/media/productos/dotacion/dotacion-polo-maquina-2000.avif",
+      "section": "productos/dotacion",
+      "alt_es": "Polo azul marino con logo bordado junto a las bordadoras",
+      "alt_en": "Navy polo with embroidered logo next to the embroidery machines",
+      "bytes": 326354,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/dotacion/dotacion-polo-maquina-2000.webp",
+      "file": "public/media/productos/dotacion/dotacion-polo-maquina-2000.webp",
+      "section": "productos/dotacion",
+      "alt_es": "Polo azul marino con logo bordado junto a las bordadoras",
+      "alt_en": "Navy polo with embroidered logo next to the embroidery machines",
+      "bytes": 519266,
+      "dimensions": "2000x2240"
     },
     {
       "path": "/media/productos/dotacion/dotacion-polo-maquina-400.avif",
@@ -2933,6 +3536,24 @@
       "alt_en": "Embroidered Lans school crest on a white polo with trim"
     },
     {
+      "path": "/media/productos/escolares/escolar-lans-escudo-2000.avif",
+      "file": "public/media/productos/escolares/escolar-lans-escudo-2000.avif",
+      "section": "productos/escolares",
+      "alt_es": "Escudo bordado del colegio Lans en polo blanco con ribete",
+      "alt_en": "Embroidered Lans school crest on a white polo with trim",
+      "bytes": 216835,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/escolares/escolar-lans-escudo-2000.webp",
+      "file": "public/media/productos/escolares/escolar-lans-escudo-2000.webp",
+      "section": "productos/escolares",
+      "alt_es": "Escudo bordado del colegio Lans en polo blanco con ribete",
+      "alt_en": "Embroidered Lans school crest on a white polo with trim",
+      "bytes": 271714,
+      "dimensions": "2000x2240"
+    },
+    {
       "path": "/media/productos/escolares/escolar-lans-escudo-400.avif",
       "file": "public/media/productos/escolares/escolar-lans-escudo-400.avif",
       "section": "productos/escolares",
@@ -3003,6 +3624,24 @@
       "dimensions": "1600x1792",
       "alt_es": "Manga del polo escolar con ribete en los colores del colegio",
       "alt_en": "School polo sleeve with trim in the school colors"
+    },
+    {
+      "path": "/media/productos/escolares/escolar-lans-manga-2000.avif",
+      "file": "public/media/productos/escolares/escolar-lans-manga-2000.avif",
+      "section": "productos/escolares",
+      "alt_es": "Manga del polo escolar con ribete en los colores del colegio",
+      "alt_en": "School polo sleeve with trim in the school colors",
+      "bytes": 180472,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/escolares/escolar-lans-manga-2000.webp",
+      "file": "public/media/productos/escolares/escolar-lans-manga-2000.webp",
+      "section": "productos/escolares",
+      "alt_es": "Manga del polo escolar con ribete en los colores del colegio",
+      "alt_en": "School polo sleeve with trim in the school colors",
+      "bytes": 224062,
+      "dimensions": "2000x2240"
     },
     {
       "path": "/media/productos/escolares/escolar-lans-manga-400.avif",
@@ -3086,6 +3725,24 @@
       "alt_en": "“Administrador” job title embroidered on a black garment"
     },
     {
+      "path": "/media/productos/industrial/industrial-cargo-bordado-2000.avif",
+      "file": "public/media/productos/industrial/industrial-cargo-bordado-2000.avif",
+      "section": "productos/industrial",
+      "alt_es": "Cargo “Administrador” bordado en una prenda negra",
+      "alt_en": "“Administrador” job title embroidered on a black garment",
+      "bytes": 517025,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/industrial/industrial-cargo-bordado-2000.webp",
+      "file": "public/media/productos/industrial/industrial-cargo-bordado-2000.webp",
+      "section": "productos/industrial",
+      "alt_es": "Cargo “Administrador” bordado en una prenda negra",
+      "alt_en": "“Administrador” job title embroidered on a black garment",
+      "bytes": 514804,
+      "dimensions": "2000x2240"
+    },
+    {
       "path": "/media/productos/industrial/industrial-cargo-bordado-400.avif",
       "file": "public/media/productos/industrial/industrial-cargo-bordado-400.avif",
       "section": "productos/industrial",
@@ -3158,6 +3815,24 @@
       "alt_en": "Grey institutional shirt with the embroidered crest of the Contraloría General de Caldas"
     },
     {
+      "path": "/media/productos/industrial/industrial-contraloria-2000.avif",
+      "file": "public/media/productos/industrial/industrial-contraloria-2000.avif",
+      "section": "productos/industrial",
+      "alt_es": "Camisa institucional gris con el escudo bordado de la Contraloría General de Caldas",
+      "alt_en": "Grey institutional shirt with the embroidered crest of the Contraloría General de Caldas",
+      "bytes": 562051,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/industrial/industrial-contraloria-2000.webp",
+      "file": "public/media/productos/industrial/industrial-contraloria-2000.webp",
+      "section": "productos/industrial",
+      "alt_es": "Camisa institucional gris con el escudo bordado de la Contraloría General de Caldas",
+      "alt_en": "Grey institutional shirt with the embroidered crest of the Contraloría General de Caldas",
+      "bytes": 615320,
+      "dimensions": "2000x2240"
+    },
+    {
       "path": "/media/productos/industrial/industrial-contraloria-400.avif",
       "file": "public/media/productos/industrial/industrial-contraloria-400.avif",
       "section": "productos/industrial",
@@ -3228,6 +3903,24 @@
       "dimensions": "1600x1792",
       "alt_es": "Pantalones de trabajo con cinta reflectiva y escudo bordado en la planta",
       "alt_en": "Work trousers with reflective tape and embroidered badge at the workshop"
+    },
+    {
+      "path": "/media/productos/industrial/industrial-pantalones-reflectivos-2000.avif",
+      "file": "public/media/productos/industrial/industrial-pantalones-reflectivos-2000.avif",
+      "section": "productos/industrial",
+      "alt_es": "Pantalones de trabajo con cinta reflectiva y escudo bordado en la planta",
+      "alt_en": "Work trousers with reflective tape and embroidered badge at the workshop",
+      "bytes": 464514,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/industrial/industrial-pantalones-reflectivos-2000.webp",
+      "file": "public/media/productos/industrial/industrial-pantalones-reflectivos-2000.webp",
+      "section": "productos/industrial",
+      "alt_es": "Pantalones de trabajo con cinta reflectiva y escudo bordado en la planta",
+      "alt_en": "Work trousers with reflective tape and embroidered badge at the workshop",
+      "bytes": 584944,
+      "dimensions": "2000x2240"
     },
     {
       "path": "/media/productos/industrial/industrial-pantalones-reflectivos-400.avif",
@@ -3311,6 +4004,24 @@
       "alt_en": "Close-up of work trousers with reflective tape and cargo pockets"
     },
     {
+      "path": "/media/productos/industrial/industrial-reflectivo-2000.avif",
+      "file": "public/media/productos/industrial/industrial-reflectivo-2000.avif",
+      "section": "productos/industrial",
+      "alt_es": "Detalle de pantalón de trabajo con cinta reflectiva y bolsillos de carga",
+      "alt_en": "Close-up of work trousers with reflective tape and cargo pockets",
+      "bytes": 527146,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/industrial/industrial-reflectivo-2000.webp",
+      "file": "public/media/productos/industrial/industrial-reflectivo-2000.webp",
+      "section": "productos/industrial",
+      "alt_es": "Detalle de pantalón de trabajo con cinta reflectiva y bolsillos de carga",
+      "alt_en": "Close-up of work trousers with reflective tape and cargo pockets",
+      "bytes": 668976,
+      "dimensions": "2000x2240"
+    },
+    {
       "path": "/media/productos/industrial/industrial-reflectivo-400.avif",
       "file": "public/media/productos/industrial/industrial-reflectivo-400.avif",
       "section": "productos/industrial",
@@ -3381,6 +4092,24 @@
       "dimensions": "1600x1792",
       "alt_es": "Camisa de trabajo con el logo bordado de Servicontrol Manizales",
       "alt_en": "Work shirt with the embroidered Servicontrol Manizales logo"
+    },
+    {
+      "path": "/media/productos/industrial/industrial-servicontrol-2000.avif",
+      "file": "public/media/productos/industrial/industrial-servicontrol-2000.avif",
+      "section": "productos/industrial",
+      "alt_es": "Camisa de trabajo con el logo bordado de Servicontrol Manizales",
+      "alt_en": "Work shirt with the embroidered Servicontrol Manizales logo",
+      "bytes": 473863,
+      "dimensions": "2000x2240"
+    },
+    {
+      "path": "/media/productos/industrial/industrial-servicontrol-2000.webp",
+      "file": "public/media/productos/industrial/industrial-servicontrol-2000.webp",
+      "section": "productos/industrial",
+      "alt_es": "Camisa de trabajo con el logo bordado de Servicontrol Manizales",
+      "alt_en": "Work shirt with the embroidered Servicontrol Manizales logo",
+      "bytes": 460160,
+      "dimensions": "2000x2240"
     },
     {
       "path": "/media/productos/industrial/industrial-servicontrol-400.avif",
@@ -3479,15 +4208,6 @@
       "bytes": 45676,
       "dimensions": "822x240",
       "alt_es": "Wilcom",
-      "alt_en": null
-    },
-    {
-      "path": "/favicon.ico",
-      "file": "public/favicon.ico",
-      "section": "marca",
-      "bytes": 15086,
-      "dimensions": "48x48",
-      "alt_es": null,
       "alt_en": null
     }
   ]

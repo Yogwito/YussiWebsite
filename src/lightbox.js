@@ -26,7 +26,7 @@ function fromGallery(gallery) {
   const key = lang() === 'en' ? 'altEn' : 'altEs'
   return [...gallery.querySelectorAll('.line-detail-thumb')].map((thumb) => {
     const base = `/media/productos/${thumb.dataset.photo}`
-    return { avif: `${base}-1600.avif`, webp: `${base}-1600.webp`, alt: thumb.dataset[key] || '' }
+    return { avif: `${base}-2000.avif`, webp: `${base}-2000.webp`, alt: thumb.dataset[key] || '' }
   })
 }
 

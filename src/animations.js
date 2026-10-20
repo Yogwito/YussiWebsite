@@ -91,8 +91,19 @@ function initAutoplayVideos(motionQuery) {
     return bounds.bottom > 0 && bounds.top < window.innerHeight
   }
 
+  // El hero no arranca hasta que termina de cargar la página: así el póster
+  // (la imagen LCP) no compite por la red con el video.
+  let pageLoaded = document.readyState === 'complete'
+  if (!pageLoaded) {
+    window.addEventListener('load', () => {
+      pageLoaded = true
+      videos.forEach((video) => { if (isVisible(video)) play(video) })
+    }, { once: true })
+  }
+
   const play = (video) => {
     if (reduced || document.hidden) return
+    if (video.id === 'hero-video' && !pageLoaded) return
     // Un "in-view" que termina de cargar fuera de pantalla no debe arrancar.
     if (video.dataset.autoplay === 'in-view' && !isVisible(video)) return
     const promise = video.play()

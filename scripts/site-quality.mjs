@@ -30,7 +30,7 @@ assert.match(read('public/sitemap.xml'), /https:\/\/bordadosyussi\.com\//)
 
 for (const media of [
   'public/media/hero/hero-produccion.mp4',
-  'public/media/hero/hero-produccion-movil.mp4',
+  'public/media/hero/hero-planta-movil.mp4',
   'public/media/proceso/proceso-bordado.mp4',
   'public/media/proceso/proceso-confeccion.mp4',
   'public/media/cobertura/paises.min.geojson',

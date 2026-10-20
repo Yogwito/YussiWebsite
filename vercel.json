@@ -261,7 +261,7 @@
     },
     {
       "source": "/media/yussi-hero-production-mobile.mp4",
-      "destination": "/media/hero/hero-produccion-movil.mp4",
+      "destination": "/media/hero/hero-planta-movil.mp4",
       "statusCode": 301
     },
     {
@@ -757,6 +757,16 @@
     {
       "source": "/media/proceso/proceso-detalle-puntada-240.webp",
       "destination": "/media/proceso/proceso-detalle-puntada-480.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/hero/hero-produccion-movil.mp4",
+      "destination": "/media/hero/hero-planta-movil.mp4",
+      "statusCode": 301
+    },
+    {
+      "source": "/media/hero/hero-produccion-poster-movil.webp",
+      "destination": "/media/hero/hero-planta-poster-movil-1080.webp",
       "statusCode": 301
     }
   ]

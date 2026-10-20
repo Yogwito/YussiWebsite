@@ -17,7 +17,7 @@ DirectoryIndex index.html
   RewriteRule ^precios/?$ /#contact [NE,L,R=301]
   RewriteRule ^contacta-con-nosotros/?$ /#contact [NE,L,R=301]
 
-  # Medios renombrados (145 reglas de vercel.json)
+  # Medios renombrados (147 reglas de vercel.json)
   RewriteRule ^apple-touch-icon\.png$ /media/brand/apple-touch-icon.png [L,R=301]
   RewriteRule ^favicon-16\.png$ /media/brand/favicon-16.png [L,R=301]
   RewriteRule ^favicon-32\.png$ /media/brand/favicon-32.png [L,R=301]
@@ -63,7 +63,7 @@ DirectoryIndex index.html
   RewriteRule ^img/clients/universidad-de-manizales\.webp$ /media/clientes/cliente-universidad-de-manizales.webp [L,R=301]
   RewriteRule ^img/clients/universidad-del-quindio\.webp$ /media/clientes/cliente-universidad-del-quindio.webp [L,R=301]
   RewriteRule ^img/clients/universidad-nacional\.svg$ /media/clientes/cliente-universidad-nacional.svg [L,R=301]
-  RewriteRule ^media/yussi-hero-production-mobile\.mp4$ /media/hero/hero-produccion-movil.mp4 [L,R=301]
+  RewriteRule ^media/yussi-hero-production-mobile\.mp4$ /media/hero/hero-planta-movil.mp4 [L,R=301]
   RewriteRule ^img/work/hero-production\.webp$ /media/hero/hero-produccion-poster.webp [L,R=301]
   RewriteRule ^media/yussi-hero-production\.mp4$ /media/hero/hero-produccion.mp4 [L,R=301]
   RewriteRule ^img/work/produccion-tajima-1400\.webp$ /media/nosotros/nosotros-planta-tajima-6-cabezales-1400.webp [L,R=301]
@@ -163,6 +163,8 @@ DirectoryIndex index.html
   RewriteRule ^media/proceso/proceso-bordado-bastidor-240\.webp$ /media/proceso/proceso-montaje-tarjeta-480.webp [L,R=301]
   RewriteRule ^media/proceso/proceso-bordado-bastidor-480\.webp$ /media/proceso/proceso-montaje-tarjeta-960.webp [L,R=301]
   RewriteRule ^media/proceso/proceso-detalle-puntada-240\.webp$ /media/proceso/proceso-detalle-puntada-480.webp [L,R=301]
+  RewriteRule ^media/hero/hero-produccion-movil\.mp4$ /media/hero/hero-planta-movil.mp4 [L,R=301]
+  RewriteRule ^media/hero/hero-produccion-poster-movil\.webp$ /media/hero/hero-planta-poster-movil-1080.webp [L,R=301]
 </IfModule>
 
 <IfModule mod_headers.c>

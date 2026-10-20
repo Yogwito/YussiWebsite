@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger)
 // Un paso puede tener varias tomas ([data-shot] dentro del paso); si no,
 // la toma es el propio paso (data-photo o data-video).
 
-const PHOTO_WIDTHS = [400, 800, 1200, 1600]
+const PHOTO_WIDTHS = [400, 800, 1200, 1600, 2000]
 const PHOTO_SIZES = '(min-width: 900px) 560px, 86vw'
 // La foto queda fija solo si hay espacio para verla junto al texto.
 const pinQuery = window.matchMedia('(min-width: 900px) and (min-height: 700px)')
