@@ -37,6 +37,8 @@ export function initLightbox() {
   const dialog = document.createElement('dialog')
   dialog.className = 'lightbox'
   dialog.setAttribute('data-lenis-prevent', '')
+  dialog.setAttribute('role', 'dialog')
+  dialog.setAttribute('aria-modal', 'true')
   dialog.innerHTML = `
     <figure class="lightbox-figure">
       <picture><source type="image/avif"><img alt="" decoding="async"></picture>
@@ -76,14 +78,29 @@ export function initLightbox() {
     caption.textContent = item.alt
     count.textContent = items.length > 1 ? `${index + 1} / ${items.length}` : ''
     dialog.classList.toggle('is-single', items.length < 2)
+    resetZoom()
   }
-  image.addEventListener('load', () => dialog.classList.remove('is-loading'))
+  const preloaded = new Set()
+  const preload = (item) => {
+    const url = item.avif && image.currentSrc.endsWith('.avif') ? item.avif : item.webp
+    if (preloaded.has(url)) return
+    preloaded.add(url)
+    new Image().src = url
+  }
+  // Al cargar la actual, precarga solo la siguiente del grupo (mismo formato).
+  image.addEventListener('load', () => {
+    dialog.classList.remove('is-loading')
+    if (dialog.open && items.length > 1) preload(items[(index + 1) % items.length])
+  })
 
   const open = (list, start, trigger) => {
     items = list.filter((item) => item.webp)
     if (!items.length) return
     opener = trigger
     renderLabels()
+    // Bloquea el scroll sin salto: compensa el ancho de la barra.
+    const gap = window.innerWidth - document.documentElement.clientWidth
+    document.documentElement.style.setProperty('--lightbox-gap', `${gap}px`)
     show(start)
     dialog.showModal()
     document.documentElement.classList.add('lightbox-open')
@@ -93,22 +110,92 @@ export function initLightbox() {
 
   dialog.addEventListener('close', () => {
     document.documentElement.classList.remove('lightbox-open')
+    document.documentElement.style.removeProperty('--lightbox-gap')
+    resetZoom()
     document.dispatchEvent(new CustomEvent('lightbox:toggle', { detail: { open: false } }))
     opener?.focus({ preventScroll: true })
   })
   close.addEventListener('click', () => dialog.close())
   prev.addEventListener('click', () => show(index - 1))
   next.addEventListener('click', () => show(index + 1))
-  dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close() })
+  // Fuera de la foto (fondo, márgenes o pie) también cierra.
+  dialog.addEventListener('click', (event) => { if (!event.target.closest('img, button')) dialog.close() })
   dialog.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') show(index - 1)
     if (event.key === 'ArrowRight') show(index + 1)
+    if (event.key !== 'Tab') return
+    // Foco atrapado entre los botones visibles del visor.
+    const focusable = [...dialog.querySelectorAll('button')].filter((el) => el.getClientRects().length)
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+    if (event.shiftKey && (document.activeElement === first || !dialog.contains(document.activeElement))) {
+      event.preventDefault()
+      last.focus()
+    } else if (!event.shiftKey && (document.activeElement === last || !dialog.contains(document.activeElement))) {
+      event.preventDefault()
+      first.focus()
+    }
   })
-  // Deslizar en pantallas táctiles.
+
+  // Pellizcar para ampliar (pointer events) y arrastrar la foto ampliada.
+  const pointers = new Map()
+  let scale = 1
+  let tx = 0
+  let ty = 0
+  let pinch = null
+  let pan = null
+  const applyZoom = () => {
+    image.style.transform = scale > 1 ? `translate(${tx}px, ${ty}px) scale(${scale})` : ''
+    dialog.classList.toggle('is-zoomed', scale > 1)
+  }
+  function resetZoom() {
+    pointers.clear()
+    scale = 1
+    tx = 0
+    ty = 0
+    pinch = null
+    pan = null
+    applyZoom()
+  }
+  const distance = () => {
+    const [a, b] = [...pointers.values()]
+    return Math.hypot(a.x - b.x, a.y - b.y)
+  }
+  image.addEventListener('pointerdown', (event) => {
+    if (event.pointerType === 'mouse') return
+    pointers.set(event.pointerId, { x: event.clientX, y: event.clientY })
+    if (pointers.size === 2) pinch = { d: distance(), scale }
+    else if (scale > 1) pan = { x: event.clientX - tx, y: event.clientY - ty }
+  })
+  image.addEventListener('pointermove', (event) => {
+    if (!pointers.has(event.pointerId)) return
+    pointers.set(event.pointerId, { x: event.clientX, y: event.clientY })
+    if (pinch && pointers.size === 2) {
+      scale = Math.min(4, Math.max(1, pinch.scale * (distance() / pinch.d)))
+      if (scale === 1) { tx = 0; ty = 0 }
+      applyZoom()
+    } else if (pan && scale > 1) {
+      tx = event.clientX - pan.x
+      ty = event.clientY - pan.y
+      applyZoom()
+    }
+  })
+  const release = (event) => {
+    pointers.delete(event.pointerId)
+    if (pointers.size < 2) pinch = null
+    if (!pointers.size) pan = null
+  }
+  image.addEventListener('pointerup', release)
+  image.addEventListener('pointercancel', release)
+  image.addEventListener('dblclick', resetZoom)
+
+  // Deslizar en pantallas táctiles (solo con un dedo y sin zoom).
   let startX = null
-  dialog.addEventListener('touchstart', (event) => { startX = event.touches[0].clientX }, { passive: true })
+  dialog.addEventListener('touchstart', (event) => {
+    startX = event.touches.length === 1 && scale === 1 ? event.touches[0].clientX : null
+  }, { passive: true })
   dialog.addEventListener('touchend', (event) => {
-    if (startX === null) return
+    if (startX === null || scale > 1 || event.touches.length) return
     const dx = event.changedTouches[0].clientX - startX
     if (Math.abs(dx) > 50) show(index + (dx < 0 ? 1 : -1))
     startX = null
