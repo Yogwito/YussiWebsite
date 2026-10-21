@@ -1,0 +1,44 @@
+Salida de la sección 7 corrida por el responsable desde su Mac, 21 oct 2026 20:31 UTC.
+(Transcrita del chat; la llave pública DKIM se abrevia.)
+
+== 1. RUTAS SENSIBLES ==
+404: /.git/ /.git/config /.git/HEAD /.env /package.json /package-lock.json /README.md /AGENTS.md /MEDIA-PLAN.md /docs/ /media-source/ /media-archive/ /_old/ /backup.zip /public_html.zip /server-status (355 B)
+404 (16 B, manejador PHP): /api.php /index.php /wp-login.php
+403 (358 B): /bordadosyussi.com/ /cgi-bin/ /.htaccess /assets/ /media/ /media/brand/
+200 6148 B: /.DS_Store   <-- hallazgo S-09
+
+== 2. REDIRECCIONES Y CABECERAS ==
+https://bordadosyussi.com/ -> 200; Server: Apache; nosniff; Referrer-Policy strict-origin-when-cross-origin; Permissions-Policy camera=(), microphone=(), geolocation=(); HSTS max-age=31536000; Cache-Control no-cache, must-revalidate. SIN CSP, SIN X-Frame-Options.
+http://bordadosyussi.com/ -> 301 https://bordadosyussi.com/
+https://www.bordadosyussi.com/ -> 301 https://bordadosyussi.com/ (con cabeceras del .htaccess)
+http://www.bordadosyussi.com/ -> 301 https://www.bordadosyussi.com/ (SIN cabeceras del .htaccess: redirección del servidor/cPanel) -> 2 saltos
+https://bordadosyussi.com/quienes-somos -> 301 /#about
+https://bordadosyussi.com//evil.com -> 404 (sin open redirect)
+https://bordadosyussi.com/img/og-cover.jpg -> 301 /media/brand/og-cover.jpg
+
+== 3. CACHÉ Y COMPRESIÓN ==
+/assets/index-D9M25lMj.js  gzip; public, max-age=31536000, immutable
+/assets/index-C563ps3I.css gzip; immutable; 14608 B
+/media/brand/og-logo.jpg   public, max-age=2592000; 42158 B
+/index.html                gzip; no-cache, must-revalidate; 20693 B
+
+== 4. DNS ==
+TXT  "v=spf1 +a +mx +ip4:174.142.126.22 ~all"
+_dmarc "v=DMARC1; p=none;"
+default._domainkey "v=DKIM1; k=rsa; p=MIIBIjANBgkqh…IDAQAB;" (presente)
+CAA  (vacío)
+MX   0 bordadosyussi.com.
+A    174.142.126.22 ; www CNAME bordadosyussi.com.
+NS   ns5.qpula.com. ns6.qpula.com.
+
+== 5. TLS ==
+CN=bordadosyussi.com; emisor Let's Encrypt YR1; válido 2026-09-01 a 2026-11-30; SAN *.bordadosyussi.com, bordadosyussi.com
+
+== 6. TTFB (5 muestras, curl) ==
+0.392 / 0.345 / 0.399 / 0.334 / 0.429 s (total 0.72–0.82 s)
+
+== 7. LIGHTHOUSE MÓVIL PRODUCCIÓN ==
+1: perf 98 a11y 100 BP 100 SEO 100 | LCP 1.8 s | CLS 0 | TBT 0 ms | doc 110 ms
+2: perf 92 a11y 100 BP 100 SEO 100 | LCP 2.8 s | CLS 0 | TBT 30 ms | doc 120 ms
+3: perf 92 a11y 100 BP 100 SEO 100 | LCP 2.9 s | CLS 0 | TBT 30 ms | doc 120 ms
+Mediana: perf 92, LCP 2.8 s, CLS 0, TBT 30 ms
