@@ -1,0 +1,15 @@
+{
+ "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self'; connect-src 'self'; frame-src https://www.google.com https://maps.google.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me https://api.whatsapp.com; frame-ancestors 'self'; upgrade-insecure-requests",
+ "desktop": {
+  "violations": [],
+  "consoleErrors": [],
+  "globeCanvas": true,
+  "mapIframe": true
+ },
+ "mobile": {
+  "violations": [],
+  "consoleErrors": [],
+  "globeCanvas": true,
+  "mapIframe": true
+ }
+}

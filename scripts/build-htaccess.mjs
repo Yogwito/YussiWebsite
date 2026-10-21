@@ -12,6 +12,25 @@ const legacy = [
   ['contacta-con-nosotros', '/#contact']
 ]
 
+// CSP propuesta en docs/audit-2026-10-21.md §3.1. Se publica primero en modo
+// Report-Only; frame-ancestors no aplica en Report-Only y va en una CSP aparte.
+const csp = [
+  "default-src 'self'",
+  "script-src 'self'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: blob:",
+  "font-src 'self'",
+  "media-src 'self'",
+  "connect-src 'self'",
+  'frame-src https://www.google.com https://maps.google.com',
+  "worker-src 'self' blob:",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self' https://wa.me https://api.whatsapp.com",
+  "frame-ancestors 'self'",
+  'upgrade-insecure-requests'
+].join('; ')
+
 const escape = (path) => path.slice(1).replace(/[.+()[\]^$?*\\]/g, '\\$&')
 
 const lines = [
@@ -21,6 +40,10 @@ const lines = [
   '',
   '<IfModule mod_rewrite.c>',
   '  RewriteEngine On',
+  '',
+  '  # Archivos y carpetas ocultos (.DS_Store, .git, .env…): prohibidos, salvo .well-known (AutoSSL)',
+  '  RewriteCond %{REQUEST_URI} !^/\\.well-known/',
+  '  RewriteRule (^|/)\\. - [F]',
   '',
   '  # HTTPS y www → raíz en un solo salto',
   '  RewriteCond %{HTTPS} !=on [OR]',
@@ -40,6 +63,9 @@ const lines = [
   '  Header always set Referrer-Policy "strict-origin-when-cross-origin"',
   '  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"',
   '  Header always set Strict-Transport-Security "max-age=31536000"',
+  '  Header always set X-Frame-Options "SAMEORIGIN"',
+  `  Header always set Content-Security-Policy "frame-ancestors 'self'"`,
+  `  Header always set Content-Security-Policy-Report-Only "${csp}"`,
   '',
   '  <FilesMatch "\\.html?$">',
   '    Header set Cache-Control "no-cache, must-revalidate"',
