@@ -145,6 +145,12 @@ select:focus-visible {
   place-items: center;
   background: #f4f8fc;
   transition: opacity 0.42s var(--ease), visibility 0.42s;
+  /* Respaldo: si el JS falla o tarda, el loader no tapa la página para siempre. */
+  animation: loader-failsafe 0.42s var(--ease) 4s forwards;
+}
+
+@keyframes loader-failsafe {
+  to { opacity: 0; visibility: hidden; }
 }
 
 .page-loader.is-hidden {
