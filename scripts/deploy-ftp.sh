@@ -7,6 +7,7 @@
 #   FTP_HOST          host del FTP. Debe coincidir con el certificado del servidor FTP
 #                     (si bordadosyussi.com no coincide, usar el hostname del servidor de cPanel).
 #   FTP_INSECURE_TLS=1  desactiva la verificación del certificado (no recomendado: expone la contraseña a un MITM).
+#   SKIP_BUILD=1      no recompila: publica el dist/ existente (rollback desde un zip).
 #   DEPLOY_ARCHIVE    carpeta donde se guarda el zip de cada despliegue (por defecto ~/yussi-deploys).
 # Rollback: docs/operacion.md.
 set -euo pipefail
@@ -25,7 +26,8 @@ if [ -z "${DRY_RUN:-}" ] && [ -n "$(git status --porcelain)" ]; then
   exit 1
 fi
 
-npm run build
+# SKIP_BUILD=1 sube el dist/ tal como está (rollback desde un zip).
+[ -n "${SKIP_BUILD:-}" ] || npm run build
 test -f dist/index.html || { echo 'dist/index.html no existe' >&2; exit 1; }
 test -f dist/.htaccess || { echo 'dist/.htaccess no existe' >&2; exit 1; }
 
