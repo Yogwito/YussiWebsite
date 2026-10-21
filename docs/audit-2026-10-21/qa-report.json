@@ -1,0 +1,402 @@
+{
+  "base": "http://localhost:4173",
+  "browsers": {
+    "chromium": "141.0.7390.37",
+    "webkit": "no disponible en el contenedor",
+    "firefox": "no disponible en el contenedor"
+  },
+  "scenarios": {
+    "viewport-360": {
+      "h1": 1,
+      "landmarks": "header:4 nav:1 main:1 footer:1",
+      "brokenAnchors": [],
+      "overflowX": 0,
+      "tapTargetsUnder44": 8,
+      "tapSample": [
+        "button.story-dot 42x44",
+        "button.story-dot 42x44",
+        "button.story-dot 42x44",
+        "button.story-dot 42x44",
+        "button.story-dot 42x44",
+        "button.story-dot 42x44",
+        "input#f-website. 197x27",
+        "a. 113x20"
+      ],
+      "imgsNoAlt": 0,
+      "imgsBroken": [],
+      "oversizedImgs": [
+        "yussi-logo.webp 480px→155px",
+        "dotacion-portada-equipo-polos-560.webp 560px→143px",
+        "antifluido-portada-duo-560.webp 560px→143px",
+        "industrial-portada-reflectivo-560.webp 560px→143px",
+        "escolar-portada-lans-escudo-560.webp 560px→143px",
+        "bordado-portada-gorras-560.webp 560px→143px",
+        "antifluido-delantal-repelente-400.webp 400px→62px",
+        "antifluido-duo-indigo-malva-400.webp 400px→62px",
+        "antifluido-verde-agua-400.webp 400px→62px",
+        "antifluido-bata-400.webp 400px→62px"
+      ],
+      "axe": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "nodes": 3,
+          "sample": [
+            "#lang-btn",
+            ".contact-instagram",
+            ".footer-instagram"
+          ]
+        }
+      ],
+      "consoleErrors": [],
+      "failedRequests": [
+        "http://localhost:4173/media/hero/hero-produccion.mp4?v=5 net::ERR_ABORTED",
+        "http://localhost:4173/media/proceso/proceso-bordado.mp4?v=4 net::ERR_ABORTED",
+        "https://maps.google.com/maps?q=5.0684226,-75.5147644&z=17&output=embed net::ERR_TUNNEL_CONNECTION_FAILED"
+      ]
+    },
+    "viewport-390": {
+      "h1": 1,
+      "landmarks": "header:4 nav:1 main:1 footer:1",
+      "brokenAnchors": [],
+      "overflowX": 0,
+      "tapTargetsUnder44": 2,
+      "tapSample": [
+        "input#f-website. 197x27",
+        "a. 113x20"
+      ],
+      "imgsNoAlt": 0,
+      "imgsBroken": [],
+      "oversizedImgs": [
+        "yussi-logo.webp 480px→155px",
+        "dotacion-portada-equipo-polos-560.webp 560px→143px",
+        "antifluido-portada-duo-560.webp 560px→143px",
+        "industrial-portada-reflectivo-560.webp 560px→143px",
+        "escolar-portada-lans-escudo-560.webp 560px→143px",
+        "bordado-portada-gorras-560.webp 560px→143px",
+        "antifluido-delantal-repelente-400.webp 400px→62px",
+        "antifluido-duo-indigo-malva-400.webp 400px→62px",
+        "antifluido-verde-agua-400.webp 400px→62px",
+        "antifluido-bata-400.webp 400px→62px"
+      ],
+      "axe": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "nodes": 3,
+          "sample": [
+            "#lang-btn",
+            ".contact-instagram",
+            ".footer-instagram"
+          ]
+        }
+      ],
+      "consoleErrors": [],
+      "failedRequests": [
+        "http://localhost:4173/media/hero/hero-produccion.mp4?v=5 net::ERR_ABORTED",
+        "http://localhost:4173/media/proceso/proceso-bordado.mp4?v=4 net::ERR_ABORTED",
+        "https://maps.google.com/maps?q=5.0684226,-75.5147644&z=17&output=embed net::ERR_TUNNEL_CONNECTION_FAILED"
+      ]
+    },
+    "viewport-768": {
+      "h1": 1,
+      "landmarks": "header:4 nav:1 main:1 footer:1",
+      "brokenAnchors": [],
+      "overflowX": 0,
+      "tapTargetsUnder44": 2,
+      "tapSample": [
+        "input#f-website. 197x27",
+        "a. 113x20"
+      ],
+      "imgsNoAlt": 0,
+      "imgsBroken": [],
+      "oversizedImgs": [
+        "yussi-logo.webp 480px→188px",
+        "hero-produccion-poster.webp?v=5 1920px→768px",
+        "dotacion-portada-equipo-polos-560.webp 560px→134px",
+        "antifluido-portada-duo-560.webp 560px→134px",
+        "industrial-portada-reflectivo-560.webp 560px→134px",
+        "escolar-portada-lans-escudo-560.webp 560px→134px",
+        "bordado-portada-gorras-560.webp 560px→134px",
+        "antifluido-delantal-repelente-400.webp 400px→70px",
+        "antifluido-duo-indigo-malva-400.webp 400px→70px",
+        "antifluido-verde-agua-400.webp 400px→70px"
+      ],
+      "axe": [
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "nodes": 3,
+          "sample": [
+            "#lang-btn",
+            ".contact-instagram",
+            ".footer-instagram"
+          ]
+        }
+      ],
+      "consoleErrors": [],
+      "failedRequests": [
+        "http://localhost:4173/media/hero/hero-produccion.mp4?v=5 net::ERR_ABORTED",
+        "http://localhost:4173/media/proceso/proceso-bordado.mp4?v=4 net::ERR_ABORTED",
+        "https://maps.google.com/maps?q=5.0684226,-75.5147644&z=17&output=embed net::ERR_TUNNEL_CONNECTION_FAILED"
+      ]
+    },
+    "viewport-1440": {
+      "h1": 1,
+      "landmarks": "header:4 nav:1 main:1 footer:1",
+      "brokenAnchors": [],
+      "overflowX": 0,
+      "tapTargetsUnder44": 32,
+      "tapSample": [
+        "a.nav-logo 188x37",
+        "a. 70x19",
+        "a. 61x19",
+        "a. 105x19",
+        "a. 119x19",
+        "a. 62x19",
+        "a. 70x19",
+        "a. 147x22",
+        "a.product-request 192x19",
+        "button.story-dot 101x32",
+        "button.story-dot 101x32",
+        "button.story-dot 101x32"
+      ],
+      "imgsNoAlt": 0,
+      "imgsBroken": [],
+      "oversizedImgs": [
+        "yussi-logo.webp 480px→188px",
+        "dotacion-portada-equipo-polos-560.webp 560px→249px",
+        "antifluido-portada-duo-560.webp 560px→249px",
+        "industrial-portada-reflectivo-560.webp 560px→249px",
+        "escolar-portada-lans-escudo-560.webp 560px→249px",
+        "bordado-portada-gorras-560.webp 560px→249px",
+        "antifluido-delantal-repelente-400.webp 400px→70px",
+        "antifluido-duo-indigo-malva-400.webp 400px→70px",
+        "antifluido-verde-agua-400.webp 400px→70px",
+        "antifluido-bata-400.webp 400px→70px"
+      ],
+      "axe": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 2,
+          "sample": [
+            "li[data-es=\"Detalles\"]",
+            "li[data-es=\"Cotiza\"]"
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "nodes": 3,
+          "sample": [
+            "#lang-btn",
+            ".contact-instagram",
+            ".footer-instagram"
+          ]
+        }
+      ],
+      "consoleErrors": [],
+      "failedRequests": [
+        "http://localhost:4173/media/hero/hero-produccion.mp4?v=5 net::ERR_ABORTED",
+        "http://localhost:4173/media/proceso/proceso-bordado.mp4?v=4 net::ERR_ABORTED",
+        "https://maps.google.com/maps?q=5.0684226,-75.5147644&z=17&output=embed net::ERR_TUNNEL_CONNECTION_FAILED"
+      ]
+    },
+    "viewport-1920": {
+      "h1": 1,
+      "landmarks": "header:4 nav:1 main:1 footer:1",
+      "brokenAnchors": [],
+      "overflowX": 0,
+      "tapTargetsUnder44": 32,
+      "tapSample": [
+        "a.nav-logo 188x37",
+        "a. 70x19",
+        "a. 61x19",
+        "a. 105x19",
+        "a. 119x19",
+        "a. 62x19",
+        "a. 70x19",
+        "a. 147x22",
+        "a.product-request 192x19",
+        "button.story-dot 101x32",
+        "button.story-dot 101x32",
+        "button.story-dot 101x32"
+      ],
+      "imgsNoAlt": 0,
+      "imgsBroken": [],
+      "oversizedImgs": [
+        "yussi-logo.webp 480px→188px",
+        "dotacion-portada-equipo-polos-560.webp 560px→249px",
+        "antifluido-portada-duo-560.webp 560px→249px",
+        "industrial-portada-reflectivo-560.webp 560px→249px",
+        "escolar-portada-lans-escudo-560.webp 560px→249px",
+        "bordado-portada-gorras-560.webp 560px→249px",
+        "antifluido-delantal-repelente-400.webp 400px→70px",
+        "antifluido-duo-indigo-malva-400.webp 400px→70px",
+        "antifluido-verde-agua-400.webp 400px→70px",
+        "antifluido-bata-400.webp 400px→70px"
+      ],
+      "axe": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": 2,
+          "sample": [
+            "li[data-es=\"Detalles\"]",
+            "li[data-es=\"Cotiza\"]"
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "nodes": 3,
+          "sample": [
+            "#lang-btn",
+            ".contact-instagram",
+            ".footer-instagram"
+          ]
+        }
+      ],
+      "consoleErrors": [],
+      "failedRequests": [
+        "http://localhost:4173/media/hero/hero-produccion.mp4?v=5 net::ERR_ABORTED",
+        "http://localhost:4173/media/proceso/proceso-bordado.mp4?v=4 net::ERR_ABORTED",
+        "https://maps.google.com/maps?q=5.0684226,-75.5147644&z=17&output=embed net::ERR_TUNNEL_CONNECTION_FAILED"
+      ]
+    },
+    "mobileMenu": {
+      "openVisible": true,
+      "ariaExpanded": "true",
+      "closedByEscape": true,
+      "linkNavigated": {
+        "href": "#services",
+        "targetTop": 116
+      },
+      "consoleErrors": []
+    },
+    "langEN": {
+      "htmlLang": "en",
+      "title": "Dotación empresarial y bordado profesional en Manizales | Bordados Yussi",
+      "untranslatedVisible": [],
+      "untranslatedCount": 0,
+      "missingEn": 0,
+      "altMissingEn": 0,
+      "imgsAltNotI18n": 58,
+      "placeholders": [
+        "Your name",
+        "Company or institution",
+        "+57 300 000 0000",
+        "you@email.com",
+        "Example: 40 polos, sizes S to XL, chest logo, delivery in Bogotá."
+      ],
+      "consoleErrors": []
+    },
+    "formWhatsapp": {
+      "url": "https://wa.me/573113858494?text=Hola%20Bordados%20Yussi%2C%2…",
+      "text": "Hola Bordados Yussi, quiero cotizar.\nNombre: José Peña\nEmpresa: Café & Señal S.A.S.\nTeléfono: +57 300 123 4567\nLínea: Dotación empresarial\nDetalles: Línea 1: 20 camisas\nLínea 2: logo #3 ¿precio?",
+      "ok": true,
+      "consoleErrors": []
+    },
+    "interactive": {
+      "lightboxTriggers": 9,
+      "lightboxOpen": true,
+      "arrowChangesImage": true,
+      "focusInside": true,
+      "escapeCloses": true,
+      "focusRestored": true,
+      "faqToggles": "true",
+      "globe": {
+        "canvas": true,
+        "fallbackHidden": false,
+        "mapClass": "coverage-map"
+      },
+      "mapIframeAfterScroll": true,
+      "videos": [
+        {
+          "id": "hero-video",
+          "preload": "none",
+          "poster": false,
+          "paused": true,
+          "sources": "/media/hero/hero-planta-movil.mp4 /media/hero/hero-produccion.mp4?v=5"
+        },
+        {
+          "id": "production-video",
+          "preload": "none",
+          "poster": true,
+          "paused": true,
+          "sources": "/media/proceso/proceso-bordado.mp4?v=4"
+        }
+      ],
+      "marquees": [
+        "brands-marquee anim=none",
+        "clients-marquee anim=none"
+      ],
+      "consoleErrors": []
+    },
+    "mobileSwipe": {
+      "swipeChangesImage": true,
+      "consoleErrors": []
+    },
+    "noJS": {
+      "overflowX": 0,
+      "invisibleSectionsOrHeadings": [],
+      "loaderVisible": true,
+      "imgsLoaded": "63/63",
+      "runningAnimations": 2,
+      "consoleErrors": [],
+      "failedRequests": []
+    },
+    "reducedMotion": {
+      "overflowX": 0,
+      "invisibleSectionsOrHeadings": [],
+      "loaderVisible": false,
+      "imgsLoaded": "126/147",
+      "runningAnimations": 0,
+      "consoleErrors": [],
+      "failedRequests": [
+        "https://maps.google.com/maps?q=5.0684226,-75.5147644&z=17&output=embed net::ERR_TUNNEL_CONNECTION_FAILED"
+      ]
+    },
+    "zoom200": {
+      "overflowX": 0,
+      "invisibleSectionsOrHeadings": [],
+      "loaderVisible": false,
+      "imgsLoaded": "59/147",
+      "runningAnimations": 1,
+      "consoleErrors": [],
+      "failedRequests": [
+        "http://localhost:4173/media/hero/hero-produccion.mp4?v=5 net::ERR_ABORTED",
+        "http://localhost:4173/media/proceso/proceso-bordado.mp4?v=4 net::ERR_ABORTED",
+        "https://maps.google.com/maps?q=5.0684226,-75.5147644&z=17&output=embed net::ERR_TUNNEL_CONNECTION_FAILED"
+      ]
+    },
+    "landscapePhone": {
+      "overflowX": 0,
+      "invisibleSectionsOrHeadings": [],
+      "loaderVisible": false,
+      "imgsLoaded": "65/147",
+      "runningAnimations": 1,
+      "consoleErrors": [],
+      "failedRequests": [
+        "http://localhost:4173/media/hero/hero-produccion.mp4?v=5 net::ERR_ABORTED",
+        "http://localhost:4173/media/proceso/proceso-bordado.mp4?v=4 net::ERR_ABORTED",
+        "https://maps.google.com/maps?q=5.0684226,-75.5147644&z=17&output=embed net::ERR_TUNNEL_CONNECTION_FAILED"
+      ]
+    },
+    "noWebGL": {
+      "fallbackHidden": false,
+      "fallbackVisible": true,
+      "mapClass": "coverage-map",
+      "consoleErrors": []
+    },
+    "fast3G": {
+      "lcp": null,
+      "h1Visible": true,
+      "loaderVisible": false,
+      "bytes": 517812,
+      "domContentLoadedMs": 2594,
+      "errors": []
+    }
+  }
+}

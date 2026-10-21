@@ -1,0 +1,17 @@
+{
+ "cpuThrottle": 4,
+ "liteButtonClicked": true,
+ "pageLoadLongTasks": {
+  "n": 5,
+  "ms": 939
+ },
+ "globe": {
+  "longTasks": 14,
+  "longTaskMs": 7681,
+  "maxTaskMs": 2430,
+  "canvas": true,
+  "state": "ready"
+ },
+ "fpsWhileGlobeVisible": 1,
+ "globeDownloadedBytes": 2040841
+}

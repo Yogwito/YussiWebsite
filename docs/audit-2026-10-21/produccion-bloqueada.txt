@@ -1,0 +1,1 @@
+Producción inaccesible desde el contenedor: el proxy de salida devuelve 403 (CONNECT tunnel failed) para bordadosyussi.com. Todas las pruebas sobre producción (rutas sensibles, cabeceras, TLS, DNS SPF/DKIM/DMARC/CAA, caché/compresión, Lighthouse remoto) quedan como acción manual con los comandos de la sección 9 del informe.
