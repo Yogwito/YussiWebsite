@@ -22,8 +22,9 @@ Después de cada despliegue:
 ```bash
 curl -sI https://bordadosyussi.com/ | grep -iE 'HTTP/|content-security|x-frame'
 curl -s -o /dev/null -w '%{http_code}\n' https://bordadosyussi.com/.DS_Store   # 403 o 404
-curl -s -o /dev/null -w '%{http_code}\n' https://bordadosyussi.com/.well-known/  # no 403 por la regla de dotfiles
 ```
+
+Y en cPanel → *SSL/TLS Status*, confirmar que AutoSSL sigue validando (usa `/.well-known/`, que la regla de dotfiles deja pasar).
 
 ## Volver atrás (rollback)
 
