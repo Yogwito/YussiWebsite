@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-20",
+  "generated": "2026-10-28",
   "note": "Medios publicados que usa la página. alt_es/alt_en vacíos = decorativo o sin texto alternativo. Ver public/media/README.md.",
   "count": 467,
   "files": [
@@ -4160,8 +4160,8 @@
       "path": "/media/proveedores/proveedor-flexfit.webp",
       "file": "public/media/proveedores/proveedor-flexfit.webp",
       "section": "proveedores",
-      "bytes": 46878,
-      "dimensions": "864x240",
+      "bytes": 40518,
+      "dimensions": "680x115",
       "alt_es": "Flexfit",
       "alt_en": null
     },
