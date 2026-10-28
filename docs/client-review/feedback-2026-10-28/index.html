@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feedback 28-10</title>
+<style>
+  :root { --ink: #0b1b33; --muted: #5b6b80; --line: #dde3ea; --paper: #f6f8fa; --ok: #17603e; --warn: #9a5b00; --bad: #ad2929; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.55 system-ui, sans-serif; color: var(--ink); background: #fff; }
+  main { max-width: 1200px; margin: auto; padding: 2rem 16px 4rem; }
+  h1 { font-size: 1.6rem; margin: 0 0 .25rem; }
+  h2 { font-size: 1.15rem; margin: 2.5rem 0 .75rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  p.lead { color: var(--muted); margin: 0 0 1.5rem; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+  th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--paper); font-weight: 600; }
+  .ok { color: var(--ok); font-weight: 600; } .warn { color: var(--warn); font-weight: 600; } .bad { color: var(--bad); font-weight: 600; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1rem; }
+  .pair figure { margin: 0; }
+  .pair figcaption { font-size: .8rem; color: var(--muted); margin-bottom: .3rem; }
+  .pair img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 4px; display: block; }
+  .pair.m { grid-template-columns: repeat(2, minmax(0, 260px)); }
+  code { background: var(--paper); padding: 0 .3em; border-radius: 3px; }
+  @media (max-width: 640px) { .pair, .pair.m { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Feedback del cliente · 28-10-2026</h1>
+  <p class="lead">Rama <code>claude/stoic-albattani-dl49v8</code>. Sin desplegar. Capturas en 1440 y 375 px sobre el build de producción.</p>
+
+  <h2>Reporte</h2>
+  <div class="table-wrap"><table>
+    <tr><th>#</th><th>Punto</th><th>Estado</th><th>Detalle</th></tr>
+    <tr><td>1</td><td>Hero: texto más grande</td><td class="ok">Hecho</td><td>Párrafo 1.1 → 1.25rem (escritorio), 0.94 → 1.06rem (móvil). Bullets 0.8 → 0.95rem / 0.85rem.</td></tr>
+    <tr><td>2</td><td>Así trabajamos: textos</td><td class="ok">Hecho</td><td>Pasos 0.88 → 1rem; párrafo 0.95 → 1.08rem; frase final y enlace 0.85 → 1rem.</td></tr>
+    <tr><td>3</td><td>Bullet de telas</td><td class="ok">Hecho</td><td>No estaba cambiado. Ahora «Telas seleccionadas para cada necesidad» / «Fabrics selected for every need».</td></tr>
+    <tr><td>4</td><td>Pin de Dotación</td><td class="ok">Hecho</td><td>3,3 → 2,1 pantallas (−36 %). Solo escritorio.</td></tr>
+    <tr><td>5</td><td>Recorrido del globo</td><td class="ok">Hecho</td><td>5,5 → 3 pantallas (−45 %). Solo escritorio.</td></tr>
+    <tr><td>6</td><td>Franja de marcas</td><td class="ok">Hecho</td><td>Logos 140×65 → 180×84 px, espacio 4 → 5rem, margen 2.75 → 4rem. Flexfit recortado (tenía ~60 % de lienzo vacío) y caja de 230 px.</td></tr>
+    <tr><td>7</td><td>Coats Sylko y 2.º logo</td><td class="warn">En pausa</td><td>Por indicación del cliente.</td></tr>
+    <tr><td>8</td><td>Videos listos antes de llegar</td><td class="ok">Hecho</td><td>Ver tabla de video. LCP y CLS sin cambios.</td></tr>
+    <tr><td>9</td><td>Bordado: retirar 4 diseños</td><td class="ok">Hecho</td><td>Fuera Carne de Cerdo, Caballo, Motociclista y La Vikina (40 archivos a <code>media-archive/</code>). Principal: La Arcadia. Logo de La Vikina en Clientes se mantiene.</td></tr>
+    <tr><td>10</td><td>Antifluido</td><td class="warn">En pausa</td><td>Por indicación del cliente.</td></tr>
+    <tr><td>11</td><td>Escudo de Colombia completo</td><td class="bad">Bloqueado</td><td>El archivo publicado ya viene recortado; falta el original.</td></tr>
+    <tr><td>12</td><td>Visor: fotos completas</td><td class="warn">Parcial</td><td><code>object-fit: contain</code> explícito; el visor ya no recortaba. La toalla de Gus está recortada en el archivo: falta el original.</td></tr>
+    <tr><td>13</td><td>Tarjetas de productos</td><td class="bad">Bloqueado</td><td>Requiere originales de las 5 portadas.</td></tr>
+    <tr><td>14</td><td>Foto de Nosotros</td><td class="warn">En pausa</td><td>El cliente enviará mejores fotos.</td></tr>
+    <tr><td>—</td><td>Clasificación NewFotosYussi</td><td class="bad">Bloqueado</td><td>La carpeta no está en el repositorio.</td></tr>
+  </table></div>
+
+  <h2>Verificación</h2>
+  <div class="table-wrap"><table>
+    <tr><th>Prueba</th><th>1440 px</th><th>375 px</th></tr>
+    <tr><td>Imágenes rotas / respuestas 4xx</td><td class="ok">0 / 0</td><td class="ok">0 / 0</td></tr>
+    <tr><td>CLS (recorrido completo)</td><td class="ok">0,047 → 0,040</td><td class="ok">0,009 → 0,009</td></tr>
+    <tr><td>Alto de la página</td><td>21,4 → 17,7 pantallas</td><td>18,1 (sin cambio)</td></tr>
+    <tr><td>Movimiento reducido</td><td colspan="2">Sin pines; el video no se precarga (solo póster).</td></tr>
+    <tr><td>ES / EN</td><td colspan="2">Bullet de telas correcto en ambos idiomas.</td></tr>
+    <tr><td><code>npm run build</code> y <code>scripts/site-quality.mjs</code></td><td colspan="2" class="ok">OK en cada commit</td></tr>
+  </table></div>
+
+  <h2>Video (punto 8)</h2>
+  <p>Chromium con red simulada; 3 corridas (4G) y 2 (4G lento). «Espera» = desde que el video entra en pantalla hasta que se reproduce. Script y datos crudos en <code>video/</code>.</p>
+  <div class="table-wrap"><table>
+    <tr><th>Perfil</th><th>LCP</th><th>Hero reproduce a</th><th>Espera video producción</th><th>Cambio a «Confección»</th></tr>
+    <tr><td>Escritorio · 4G 9 Mbps</td><td>0,73 → 0,71–0,74 s</td><td>1,19 s → 1,18 s</td><td class="ok">0,32 s → 0 s</td><td>0,35 s → 0,35 s</td></tr>
+    <tr><td>Móvil · 4G 9 Mbps, CPU ×4</td><td>0,76–0,83 → 0,78–0,81 s</td><td>1,30–1,36 s → 1,31–1,44 s</td><td class="ok">0,35–0,38 s → 0 s</td><td>0,35–0,37 s → 0,35–0,36 s</td></tr>
+    <tr><td>Escritorio · 4G lento 1,6 Mbps</td><td>2,76–2,78 → 2,78–2,81 s</td><td>4,0 s → 4,0 s</td><td class="ok">2,19 s → 0,43–0,47 s</td><td>1,76 s → 1,77 s</td></tr>
+    <tr><td>Móvil · 4G lento 1,6 Mbps</td><td>1,99–2,03 → 2,02–2,04 s</td><td>3,37 s → 3,36 s</td><td class="ok">3,3 s → 0 s</td><td class="warn">1,12 s → 1,80–1,87 s</td></tr>
+  </table></div>
+  <p>Probé también descargar por adelantado el clip de confección: empeoraba el cambio en 4G lento (hasta 2,9 s) y no ayudaba en 4G, así que se descartó. Queda una regresión menor en el cambio manual de clip con móvil y 4G lento. Lo más probable es que, al hacer clic, la descarga del primer clip siga en curso y compita con el segundo. iOS Safari ignora <code>preload="auto"</code> (solo carga metadatos); allí el beneficio será menor.</p>
+
+  <h2>Antes / después</h2>
+  <div id="shots"></div>
+</main>
+<script>
+  const shots = [
+    ['01-hero', 'Hero'], ['02-proceso', 'Así trabajamos'], ['03-dotacion-bullets', 'Dotación: bullet de telas'],
+    ['04-dotacion-pin', 'Dotación: inicio del pin'], ['05-cobertura', 'Cobertura'], ['06-marcas', 'Franja de marcas'],
+    ['09-bordado', 'Galería de Bordado'], ['12-visor-toalla', 'Visor: toalla de Gus']
+  ]
+  const root = document.getElementById('shots')
+  for (const [file, title] of shots) {
+    for (const w of ['1440', '375']) {
+      const h = document.createElement('h3')
+      h.textContent = `${title} · ${w} px`
+      const pair = document.createElement('div')
+      pair.className = 'pair' + (w === '375' ? ' m' : '')
+      for (const side of ['antes', 'despues']) {
+        const fig = document.createElement('figure')
+        const cap = document.createElement('figcaption')
+        cap.textContent = side === 'antes' ? 'Antes' : 'Después'
+        const img = document.createElement('img')
+        img.src = `${side}/${file}-${w}.webp`
+        img.alt = `${title}, ${w} px, ${cap.textContent.toLowerCase()}`
+        img.loading = 'lazy'
+        fig.append(cap, img)
+        pair.append(fig)
+      }
+      root.append(h, pair)
+    }
+  }
+</script>
+</body>
+</html>

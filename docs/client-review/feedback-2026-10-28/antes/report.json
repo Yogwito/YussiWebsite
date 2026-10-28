@@ -1,0 +1,25 @@
+{
+ "375": {
+  "pageHeight_vh": 18.1,
+  "pins": [],
+  "cls": 0.0092,
+  "broken": [],
+  "bad": []
+ },
+ "1440": {
+  "pageHeight_vh": 21.4,
+  "pins": [
+   {
+    "el": "story",
+    "recorrido_vh": 3.3
+   },
+   {
+    "el": "container",
+    "recorrido_vh": 5.5
+   }
+  ],
+  "cls": 0.0468,
+  "broken": [],
+  "bad": []
+ }
+}
