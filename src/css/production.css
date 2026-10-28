@@ -22,10 +22,11 @@
 .process-steps li { display: block; border: 0; padding-top: 1.5rem; }
 .process-steps > li > span { display: block; color: var(--blue-dark); font-family: var(--font-display); font-size: 2rem; font-weight: 500; margin-bottom: 1.75rem; }
 .process-steps h3 { color: var(--navy); font-size: 1.12rem; line-height: 1.4; }
-.process-steps p { color: var(--corporate-muted); font-size: 0.88rem; margin-top: 0.7rem; line-height: 1.7; }
+.section-process .section-header > p { max-width: 460px; font-size: 1.08rem; }
+.process-steps p { color: var(--corporate-muted); font-size: 1rem; margin-top: 0.7rem; line-height: 1.7; }
 .process-bottom { display: flex; justify-content: space-between; align-items: center; gap: 2rem; margin-top: 2rem; padding-top: 1.75rem; border-top: 1px solid var(--corporate-line); }
-.process-bottom p { color: var(--corporate-muted); font-size: 0.85rem; }
-.section-process .text-link { margin: 0; color: var(--blue-dark); font-size: 0.85rem; flex-shrink: 0; }
+.process-bottom p { color: var(--corporate-muted); font-size: 1rem; }
+.section-process .text-link { margin: 0; color: var(--blue-dark); font-size: 1rem; flex-shrink: 0; }
 .section-about { background: var(--white); }
 .about-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem 5rem; align-items: center; }
 .about-photograph { grid-row: span 2; position: relative; align-self: stretch; }
