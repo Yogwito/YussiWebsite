@@ -35,15 +35,19 @@ export function initProduction() {
   })
   observer.observe(video)
 
-  // El póster pesa ~120 KB y está lejos del inicio: se pide al acercarse.
-  if (video.dataset.poster && !video.poster) {
-    const posterObserver = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return
-      if (!video.poster) video.poster = video.dataset.poster
-      posterObserver.disconnect()
-    }, { rootMargin: '800px 0px' })
-    posterObserver.observe(video)
-  }
+  // Precarga anticipada: unas dos pantallas antes de llegar, el video recibe
+  // su póster y empieza a descargarse; al entrar en vista ya puede reproducirse.
+  const preloadObserver = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) return
+    preloadObserver.disconnect()
+    if (video.dataset.poster && !video.poster) video.poster = video.dataset.poster
+    if (video.preload !== 'auto') {
+      video.preload = 'auto'
+      if (video.readyState === 0) video.load()
+    }
+  }, { rootMargin: '200% 0px' })
+  preloadObserver.observe(video)
+
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) video.pause()
   })

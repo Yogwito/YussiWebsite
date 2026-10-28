@@ -1,0 +1,70 @@
+{
+ "label": "antes",
+ "net": "4G 9Mbps/170ms",
+ "out": {
+  "desktop": [
+   {
+    "lcp": 732,
+    "lcpEl": "IMG. hero-produccion-poster.webp?v=5",
+    "load": 688,
+    "cls": 0,
+    "heroPlaying": 1203,
+    "prodWait": 319,
+    "prodPosterAtVisible": true,
+    "switchWait": 345
+   },
+   {
+    "lcp": 736,
+    "lcpEl": "IMG. hero-produccion-poster.webp?v=5",
+    "load": 701,
+    "cls": 0,
+    "heroPlaying": 1188,
+    "prodWait": 321,
+    "prodPosterAtVisible": true,
+    "switchWait": 345
+   },
+   {
+    "lcp": 744,
+    "lcpEl": "IMG. hero-produccion-poster.webp?v=5",
+    "load": 703,
+    "cls": 0,
+    "heroPlaying": 1192,
+    "prodWait": 320,
+    "prodPosterAtVisible": true,
+    "switchWait": 347
+   }
+  ],
+  "mobile": [
+   {
+    "lcp": 828,
+    "lcpEl": "IMG. hero-planta-poster-movil-800.avif",
+    "load": 1000,
+    "cls": 0,
+    "heroPlaying": 1361,
+    "prodWait": 346,
+    "prodPosterAtVisible": true,
+    "switchWait": 349
+   },
+   {
+    "lcp": 824,
+    "lcpEl": "IMG. hero-planta-poster-movil-800.avif",
+    "load": 972,
+    "cls": 0,
+    "heroPlaying": 1332,
+    "prodWait": 375,
+    "prodPosterAtVisible": true,
+    "switchWait": 355
+   },
+   {
+    "lcp": 760,
+    "lcpEl": "IMG. hero-planta-poster-movil-800.avif",
+    "load": 930,
+    "cls": 0,
+    "heroPlaying": 1297,
+    "prodWait": 356,
+    "prodPosterAtVisible": true,
+    "switchWait": 370
+   }
+  ]
+ }
+}
