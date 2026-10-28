@@ -297,6 +297,8 @@ html.lightbox-open { overflow: hidden; padding-right: var(--lightbox-gap, 0px); 
   max-height: calc(100dvh - 9rem);
   width: auto;
   height: auto;
+  /* Foto siempre completa: nunca se recorta en el visor. */
+  object-fit: contain;
   border-radius: 4px;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
   transition: opacity 0.2s;
