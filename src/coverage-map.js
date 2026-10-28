@@ -88,8 +88,8 @@ export function initCoverageMap() {
       trigger = ScrollTrigger.create({
         trigger: layout,
         start: () => `top top+=${header()}`,
-        // Recorrido largo: el scroll avanza la animación con calma.
-        end: () => `+=${Math.round(window.innerHeight * 5.5)}`,
+        // Tres pantallas de scroll recorren toda la animación.
+        end: () => `+=${Math.round(window.innerHeight * 3)}`,
         pin: true,
         anticipatePin: 1,
         invalidateOnRefresh: true,
