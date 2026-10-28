@@ -366,17 +366,17 @@
     },
     {
       "source": "/img/products/bordado-detalle-cerdo-1200.webp",
-      "destination": "/media/productos/bordado/bordado-carne-de-cerdo-1200.webp",
+      "destination": "/media/productos/bordado/bordado-la-arcadia-1200.webp",
       "statusCode": 301
     },
     {
       "source": "/img/products/bordado-detalle-cerdo-400.webp",
-      "destination": "/media/productos/bordado/bordado-carne-de-cerdo-400.webp",
+      "destination": "/media/productos/bordado/bordado-la-arcadia-400.webp",
       "statusCode": 301
     },
     {
       "source": "/img/products/bordado-detalle-cerdo-800.webp",
-      "destination": "/media/productos/bordado/bordado-carne-de-cerdo-800.webp",
+      "destination": "/media/productos/bordado/bordado-la-arcadia-800.webp",
       "statusCode": 301
     },
     {
@@ -651,17 +651,17 @@
     },
     {
       "source": "/media/productos/bordado/bordado-detalle-cerdo-1200.webp",
-      "destination": "/media/productos/bordado/bordado-carne-de-cerdo-1200.webp",
+      "destination": "/media/productos/bordado/bordado-la-arcadia-1200.webp",
       "statusCode": 301
     },
     {
       "source": "/media/productos/bordado/bordado-detalle-cerdo-400.webp",
-      "destination": "/media/productos/bordado/bordado-carne-de-cerdo-400.webp",
+      "destination": "/media/productos/bordado/bordado-la-arcadia-400.webp",
       "statusCode": 301
     },
     {
       "source": "/media/productos/bordado/bordado-detalle-cerdo-800.webp",
-      "destination": "/media/productos/bordado/bordado-carne-de-cerdo-800.webp",
+      "destination": "/media/productos/bordado/bordado-la-arcadia-800.webp",
       "statusCode": 301
     },
     {
