@@ -37,11 +37,13 @@ export function initProduction() {
 
   // Precarga anticipada: unas dos pantallas antes de llegar, el video recibe
   // su póster y empieza a descargarse; al entrar en vista ya puede reproducirse.
+  // Con movimiento reducido no hay reproducción automática: solo el póster.
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
   const preloadObserver = new IntersectionObserver(([entry]) => {
     if (!entry.isIntersecting) return
     preloadObserver.disconnect()
     if (video.dataset.poster && !video.poster) video.poster = video.dataset.poster
-    if (video.preload !== 'auto') {
+    if (!reducedMotion.matches && video.preload !== 'auto') {
       video.preload = 'auto'
       if (video.readyState === 0) video.load()
     }
