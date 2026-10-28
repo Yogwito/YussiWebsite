@@ -161,7 +161,8 @@ function createStory(root) {
     const trigger = ScrollTrigger.create({
       trigger: root,
       start: () => `top top+=${header() + 16}`,
-      end: () => `+=${Math.round(window.innerHeight * 0.55 * shots.length)}`,
+      // 0,35 de pantalla por foto: recorrido corto sin saltarse ninguna.
+      end: () => `+=${Math.round(window.innerHeight * 0.35 * shots.length)}`,
       pin: true,
       anticipatePin: 1,
       invalidateOnRefresh: true,
