@@ -545,10 +545,10 @@ select:focus-visible {
 }
 
 .hero-lead {
-  max-width: 680px;
+  max-width: 720px;
   margin-top: 2rem;
   color: rgba(255, 255, 255, 0.83);
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   line-height: 1.65;
 }
 
@@ -583,7 +583,7 @@ select:focus-visible {
   margin-top: 2.4rem;
   list-style: none;
   color: rgba(255, 255, 255, 0.78);
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   font-weight: 600;
 }
 
@@ -2351,7 +2351,7 @@ select:focus-visible {
 
   .hero-lead {
     margin-top: 1.4rem;
-    font-size: 0.94rem;
+    font-size: 1.06rem;
   }
 
   .hero-actions {
@@ -2366,7 +2366,7 @@ select:focus-visible {
   .hero-proof {
     gap: 0.55rem 1rem;
     margin-top: 1.5rem;
-    font-size: 0.7rem;
+    font-size: 0.85rem;
   }
 
   .hero-scroll {
